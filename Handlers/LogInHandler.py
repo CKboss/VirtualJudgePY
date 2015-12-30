@@ -4,7 +4,6 @@ import tornado.gen
 from tornado import concurrent
 
 from tools.argCheck import argCheck
-from tools.dbtools import getResult,Gao
 from tools.dbcore import conn
 
 
@@ -14,36 +13,31 @@ class LogInHandler(tornado.web.RequestHandler) :
     @tornado.gen.engine
     def post(self):
 
-        username = self.get_argument('username')
-        password = self.get_argument('password')
+        username = self.get_argument('username','None')
+        password = self.get_argument('password','None')
 
         print(username,'   ',password)
 
         if argCheck(username) and argCheck(password) :
-            ''''
-            check = self.checkLogIn(username,password)
-            print('check: ',check)
-            '''
-            cur = conn.cursor()
-            print('now let\'s check')
-            sql = 'select count(*) from user WHERE username = %s and password = %s'%(username,password)
-            cnt = cur.execute(sql)
-            print(cnt)
+            if self.checkPasswd(username,password) == True :
+                self.set_secure_cookie("username",username)
+                self.redirect('/')
+            else :
+                self.redirect('/fail')
 
-    ######################################################
 
-    @concurrent.run_on_executor
-    def checkLogIn(self,username,password):
-        sql = 'select count(*) from user WHERE username = %s and password = %s'%(username,password)
-        try :
-            ret = getResult(sql)
-            if len(ret) !=0 :
-                print('pass check')
-                return True
-        except :
-            print('error')
-        print('fail check')
-        return False
+    def checkPasswd(self,username,password):
+        cur = conn.cursor()
+        sql = 'select count(*) from user WHERE username = "%s" and password = "%s" '%(username,password)
+        print('exe: ',sql)
+        cur.execute(sql)
+        ans = cur.fetchall()
+        print(ans)
+        print(ans[0][0])
+        if ans[0][0] == 1:
+            return True
+        else :
+            return False
 
 if __name__=='__main__':
     username = 'parg1'

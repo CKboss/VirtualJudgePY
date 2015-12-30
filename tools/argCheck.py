@@ -1,6 +1,9 @@
 
 def argCheck(arg,kind='string'):
 
+    if len(arg)==0 :
+        return False
+
     if kind=='number' :
 
         if isinstance(arg,int) or isinstance(arg,float) :

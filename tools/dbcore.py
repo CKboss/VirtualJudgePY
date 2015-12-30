@@ -9,9 +9,11 @@ conn = pymysql.connect(
 )
 
 
+'''
 cur = conn.cursor()
 
 ans = cur.execute('select * from user')
 
 print(cur.fetchall())
+'''
 

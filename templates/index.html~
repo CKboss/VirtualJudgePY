@@ -1,0 +1,185 @@
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="description" content="VirtualJudgePY a virtualjudge power by tornado">
+    <meta name="keywords" content="Online Judge, Virtual Judge, Replay Contest, Problem Category">
+    <meta name="author" content="CKboss">
+
+    <title>VirtualJudgePY</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le styles -->
+	<link rel="stylesheet" href="{{ static_url("css/primer.css") }}">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <div class="nav-collapse collapse">
+            <ul class="nav" id="nav">
+              <li class="dropdown" id="problem"><a class="dropdown-toggle" data-toggle="dropdown" href="problem.php">Problem <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li id="localp"><a href="problem.php#oj=BNU">Local Problems</a></li>
+                  <li id="allp"><a href="problem.php">All Problems</a></li>
+                  <li id="categoryp"><a href="problem_category.php">Problem Category</a></li>
+                </ul>
+              </li>
+              <li id="status"><a href="status.php">Status</a></li>
+              <li class="dropdown" id="contest"><a class="dropdown-toggle" data-toggle="dropdown" href="contest.php?type=50">Contest <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li id="stdcontest"><a href="contest.php?type=50">Standard Contests</a></li>
+                  <li id="stdcontest"><a href="contest.php?type=0">Contests (ICPC format)</a></li>
+                  <li id="cfcontest"><a href="contest.php?type=1">Contests (CF format)</a></li>
+                  <li id="repcontest"><a href="contest.php?type=99">Replay Contests</a></li>
+                  <li id="vcontest"><a href="contest.php?virtual=1">Virtual Contests</a></li>
+                </ul>
+              </li>
+              <li id="ranklist"><a href="ranklist.php">Ranklist</a></li>
+              <li id="discuss"><a href="discuss.php">Discuss</a></li>
+              <li class="dropdown" id="more"><a class="dropdown-toggle" data-toggle="dropdown" href="teaminfo.php">More... <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="news.php">News</a></li>
+                  <li><a href="teaminfo.php">Our Team</a></li>
+                  <li><a href="http://www.oiegg.com/forumdisplay.php?fid=407" target="_blank">BBS</a></li>
+                  <li class="divider"></li>
+                  <li><a href="recent_contest.php">Recent Contests</a></li>
+                  <!--<li><a href="training_stat.php">Training Stats</a></li>-->
+                  <li class="divider"></li>
+                  <li class="disabled"><a>Coming Soon...</a></li>
+                </ul>
+              </li>
+            </ul>
+            <ul id="logoutbar" class="nav pull-right">
+              <li class="dropdown" id="userspace">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="userinfo.php?name=JiangOil" id="displayname">JiangOil <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="userinfo.php?name=JiangOil">Show My Information</a></li>
+                  <li><a href="#" id="modify">Modify My Information</a></li>
+                  <li><a href="mail.php" id="mail">Mail</a></li>
+                  <li id="logoutbutton"><a href="#" id="logout">Logout</a></li>
+                </ul>
+              </li>
+            </ul>
+            <p class="pull-right navbar-text"><span id="servertime">2015-12-30 17:35:46</span>&nbsp;</p>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+    <marquee class="hidden-phone" direction="left" behavior="alternate" scrollamount="2" style="position: absolute; width: 100%; margin-top: -21px;"></marquee>
+    <div class="hidden-phone" id="marqueepos" style="height: 0px;"></div>
+    <div class="container" id="page-content">
+      <div class="row-fluid">
+        <div class="hero-unit">
+          <h1>Welcome to BNUOJ 3.0!</h1>
+          <p>
+            IE 7+, Opera 11+, Safari 5+, Firefox 5+ and Chrome 14+ are <span class="badge badge-important"><b>REQUIRED</b></span> according to <a href="https://github.com/twitter/bootstrap/wiki/Browser-Compatibility" target="_blank">Bootstrap compatibility page</a>.<br>
+            If you have none of them, click <a href="../bnuoj" target="_blank">here</a> for BNUOJ 2.0, or <a href="../contest" target="_blank">here</a> for the original BNUOJ.<br>
+            Enjoy and have fun!
+          </p>
+        </div>
+        <div class="row-fluid">
+          <div class="span3">
+
+          </div>
+          <div class="span4">
+
+        <div>
+        
+          </div>
+          <div class="span5">
+
+         </div>
+       </div>
+
+      </div><!--/row-->
+
+      <hr>
+      <footer id="footer">
+        <p>
+          Distributed under GPLv3. | <a href="https://github.com/51isoft/bnuoj" target="_blank">Project Homepage</a> | Developer: <a href="mailto:yichaonet#gmail.com">51isoft</a> <a href="mailto:crccw@moonux.org">crccw</a> | Current Style: <b id="stylename">Cerulean</b>.
+        </p>
+      
+      </footer>
+    </div><!--/.fluid-container-->
+
+    <div id="modifydialog" class="modal hide fade">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3>Modify My Information</h3>
+      </div>
+      <form method="post" action="ajax/user_modify.php" id="modify_form" class="form-horizontal ajform">
+        <div class="modal-body">
+          <div class="control-group">
+            <label class="control-label" for="rusername">Username: </label>
+            <div class="controls">
+              <input type="text" name="username" id="rusername" placeholder="Username" value="JiangOil" readonly="">
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="ropassword">Old Password: </label>
+            <div class="controls">
+              <input type="password" name="ol_password" id="ropassword" placeholder="Old Password">
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="rpassword">New Password: </label>
+            <div class="controls">
+              <input type="password" name="password" id="rpassword" placeholder="New Password">
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="rrpassword">Repeat Password: </label>
+            <div class="controls">
+              <input type="password" name="repassword" id="rrpassword" placeholder="Repeat Password">
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="rnickname">Nickname: </label>
+            <div class="controls">
+              <input type="text" name="nickname" id="rnickname" placeholder="Nickname" value="JiangOil">
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="rschool">School: </label>
+            <div class="controls">
+              <input type="text" name="school" id="rschool" placeholder="School" value="XTU">
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="remail">Email: </label>
+            <div class="controls">
+              <input type="text" name="email" id="remail" placeholder="Email" value="qhn999@2008.sina.com">
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <span id="msgbox" style="display:none"></span>
+          <input class="btn btn-primary" type="submit" name="name" value="Modify">
+        </div>
+      </form>
+    </div>
+    <div id="newsshowdialog" class="modal hide fade" style="display:none">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="ntitle">News Title</h3>
+      </div>
+      <div class="modal-body">
+        <div style="margin-bottom:10px">by <b id="snauthor"></b> <span id="sntime"></span></div>
+        <div id="sncontent"></div>
+      </div>
+    </div>
+  
+
+</body></html>
