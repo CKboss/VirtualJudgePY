@@ -8,6 +8,7 @@ define('port',default=48888,help='the open port',type=int)
 
 from Handlers.IndexHandler import IndexHandler
 from Handlers.LogInHandler import LogInHandler
+from Handlers.RegisterHandler import RegisterHandler
 
 db = pymysql.connect(
    host='localhost',
@@ -26,6 +27,7 @@ class AppInit(tornado.web.Application) :
         handlers = [
             (r'/',IndexHandler),
             (r'/login',LogInHandler),
+            (r'/register',RegisterHandler),
         ]
 
         # Setting

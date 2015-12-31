@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - test@localhost" uuid="c4b85bd0-f4d7-4d6e-9ecc-2b8f5e690c13">
+    <database-info product="MySQL" version="5.5.46-0ubuntu0.14.04.2" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.34 ( Revision: jess.balint@oracle.com-20141014163213-wqbwpf1ok2kvo1om )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact"/>
+    <database-model serializer="dbm" rdbms="MYSQL" format-version="2.2">
+      <schema id="1" name="test"/>
+      <table id="2" parent="1" name="user"/>
+      <column id="3" parent="2" name="uid">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+      </column>
+      <column id="4" parent="2" name="username">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="5" parent="2" name="nickname">
+        <data-type>varchar(1024)</data-type>
+      </column>
+      <column id="6" parent="2" name="password">
+        <mandatory>1</mandatory>
+        <data-type>char(50)</data-type>
+      </column>
+      <column id="7" parent="2" name="email">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="8" parent="2" name="school">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="9" parent="2" name="total_submit">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+      </column>
+      <column id="10" parent="2" name="total_ac">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+      </column>
+      <column id="11" parent="2" name="register_time">
+        <mandatory>1</mandatory>
+        <data-type>datetime</data-type>
+      </column>
+      <column id="12" parent="2" name="last_login_time">
+        <mandatory>1</mandatory>
+        <data-type>datetime</data-type>
+      </column>
+      <column id="13" parent="2" name="photo">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="14" parent="2" name="total_value">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+      </column>
+      <column id="15" parent="2" name="lock_status">
+        <mandatory>1</mandatory>
+        <data-type>tinyint(1)</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <column id="16" parent="2" name="isroot">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="17" parent="2" name="ipaddr">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="18" parent="2" name="local_ac">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <key id="19" parent="2" name="PRIMARY">
+        <columns>uid</columns>
+        <primary>1</primary>
+      </key>
+    </database-model>
+  </data-source>
+</component>

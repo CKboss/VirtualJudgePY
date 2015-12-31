@@ -5,22 +5,58 @@
 	<title>This is title index</title>
 </head>
 <body>
-<p>Hello world! This is HTML5 Boilerplate.</p>
+
+
+<div id="title" class="container">
+    <a href="/" class="filter-item selected text-center">
+        <h1>The VirtualJudgePY</h1>
+    </a>
+</div>
+
+<table class="flex-table">
+    <td>
+        <td>
+            <a href="/problem">
+                <button class="btn btn-outline" type="button">Problem</button>
+            </a>
+        </td>
+        <td>
+            <a href="/status">
+                <button class="btn btn-outline" type="button">Status</button>
+            </a>
+        </td>
+        <td>
+            <a href="/status">
+                <button class="btn btn-outline" type="button">Contest</button>
+            </a>
+        </td>
+    </tr>
+</table>
 
 <div align="right">
 
     {% if len(name)==0  %}
         <form action="/login" method="POST" >
             {% raw xsrf_form_html() %}
-            UserName: <input type="text" name="username" /> <br />
-            PassWord: <input type="password" name="password" /> <br />
-            <input type="submit" value="LogIn" action="/login" />
-            <form action="/register" method="get">
-                <input type="submit" value="Register" action="/register">
-            </form>
+            <table>
+                <tr>
+                    <td>  <input type="text" name="username" placeholder="username"></td>
+                </tr>
+                <tr>
+                    <td>  <input type="password" name="password" placeholder="password"></td>
+                </tr>
+                <tr>
+                    <td>
+                        <button class="btn btn-outline" type="submit" action="/login">LogIn</button>
+                        <a href="/register" >
+                            <button class="btn btn-outline" type="button" >Register</button>
+                        </a>
+                    </td>
+                </tr>
+            </table>
         </form>
     {% else %}
-       UserName: {{ name }}<br />
+        <button class="btn btn-primary" type="button">{{ name }}</button>
     {% end %}
 
 

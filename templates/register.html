@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <link rel="stylesheet" href="{{ static_url("css/primer.css") }}">
+</head>
+<body>
+    <h2>Wellcome to register VirtualJudgePY account!</h2>
+    <form action="/register" method="post">
+        {% raw xsrf_form_html() %}
+        <table class="flex-table-item-primary" align="center">
+            <tr>
+                <td>
+                    <input class="input-large" name="username" type="text" placeholder="input your user name">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input class="input-large" name="password" type="password" placeholder="input your password">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input class="input-large" name="repassword" type="password" placeholder="repeat your password">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input class="input-large" name="email" type="email" placeholder="your email">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button class="btn btn-primary" type="submit">Submit</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
