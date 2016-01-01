@@ -31,6 +31,8 @@ class LogInHandler(tornado.web.RequestHandler) :
                 self.redirect('/')
             else :
                 self.redirect('/fail')
+        else :
+            self.redirect('/')
 
 
     @run_on_executor

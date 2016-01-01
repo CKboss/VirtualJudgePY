@@ -11,6 +11,7 @@ class RegisterHandler(tornado.web.RequestHandler):
 
         print(username,password,repassword,email)
 
+
         if password!=repassword :
             self.render('register.html')
         else :
