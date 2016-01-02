@@ -9,67 +9,279 @@
     <database-model serializer="dbm" rdbms="MYSQL" format-version="2.2">
       <schema id="1" name="test"/>
       <table id="2" parent="1" name="user"/>
-      <column id="3" parent="2" name="uid">
+      <table id="3" parent="1" name="problem"/>
+      <table id="4" parent="1" name="status"/>
+      <column id="5" parent="2" name="uid">
         <mandatory>1</mandatory>
         <data-type>int(10) unsigned</data-type>
       </column>
-      <column id="4" parent="2" name="username">
+      <column id="6" parent="2" name="username">
         <data-type>varchar(255)</data-type>
       </column>
-      <column id="5" parent="2" name="nickname">
+      <column id="7" parent="2" name="nickname">
         <data-type>varchar(1024)</data-type>
       </column>
-      <column id="6" parent="2" name="password">
+      <column id="8" parent="2" name="password">
         <mandatory>1</mandatory>
         <data-type>char(50)</data-type>
       </column>
-      <column id="7" parent="2" name="email">
+      <column id="9" parent="2" name="email">
         <data-type>varchar(255)</data-type>
       </column>
-      <column id="8" parent="2" name="school">
+      <column id="10" parent="2" name="school">
         <data-type>varchar(255)</data-type>
       </column>
-      <column id="9" parent="2" name="total_submit">
+      <column id="11" parent="2" name="total_submit">
         <mandatory>1</mandatory>
         <data-type>int(10) unsigned</data-type>
       </column>
-      <column id="10" parent="2" name="total_ac">
+      <column id="12" parent="2" name="total_ac">
         <mandatory>1</mandatory>
         <data-type>int(10) unsigned</data-type>
       </column>
-      <column id="11" parent="2" name="register_time">
+      <column id="13" parent="2" name="register_time">
         <mandatory>1</mandatory>
         <data-type>datetime</data-type>
       </column>
-      <column id="12" parent="2" name="last_login_time">
+      <column id="14" parent="2" name="last_login_time">
         <mandatory>1</mandatory>
         <data-type>datetime</data-type>
       </column>
-      <column id="13" parent="2" name="photo">
+      <column id="15" parent="2" name="photo">
         <data-type>varchar(255)</data-type>
       </column>
-      <column id="14" parent="2" name="total_value">
+      <column id="16" parent="2" name="total_value">
         <mandatory>1</mandatory>
         <data-type>int(10) unsigned</data-type>
       </column>
-      <column id="15" parent="2" name="lock_status">
+      <column id="17" parent="2" name="lock_status">
         <mandatory>1</mandatory>
         <data-type>tinyint(1)</data-type>
         <default-expression>&apos;0&apos;</default-expression>
       </column>
-      <column id="16" parent="2" name="isroot">
+      <column id="18" parent="2" name="isroot">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
       </column>
-      <column id="17" parent="2" name="ipaddr">
+      <column id="19" parent="2" name="ipaddr">
         <data-type>varchar(255)</data-type>
       </column>
-      <column id="18" parent="2" name="local_ac">
+      <column id="20" parent="2" name="local_ac">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
       </column>
-      <key id="19" parent="2" name="PRIMARY">
+      <key id="21" parent="2" name="PRIMARY">
         <columns>uid</columns>
+        <primary>1</primary>
+      </key>
+      <column id="22" parent="3" name="pid">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+      </column>
+      <column id="23" parent="3" name="title">
+        <mandatory>1</mandatory>
+        <data-type>char(255)</data-type>
+      </column>
+      <column id="24" parent="3" name="description">
+        <mandatory>1</mandatory>
+        <data-type>longtext</data-type>
+      </column>
+      <column id="25" parent="3" name="input">
+        <mandatory>1</mandatory>
+        <data-type>text</data-type>
+      </column>
+      <column id="26" parent="3" name="output">
+        <mandatory>1</mandatory>
+        <data-type>text</data-type>
+      </column>
+      <column id="27" parent="3" name="sample_in">
+        <mandatory>1</mandatory>
+        <data-type>text</data-type>
+      </column>
+      <column id="28" parent="3" name="sample_out">
+        <mandatory>1</mandatory>
+        <data-type>text</data-type>
+      </column>
+      <column id="29" parent="3" name="number_of_testcase">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+      </column>
+      <column id="30" parent="3" name="total_submit">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+      </column>
+      <column id="31" parent="3" name="total_ac">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+      </column>
+      <column id="32" parent="3" name="total_wa">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+      </column>
+      <column id="33" parent="3" name="total_re">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+      </column>
+      <column id="34" parent="3" name="total_ce">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+      </column>
+      <column id="35" parent="3" name="total_tle">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+      </column>
+      <column id="36" parent="3" name="total_mle">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+      </column>
+      <column id="37" parent="3" name="total_pe">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+      </column>
+      <column id="38" parent="3" name="total_ole">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+      </column>
+      <column id="39" parent="3" name="total_rf">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+      </column>
+      <column id="40" parent="3" name="special_judge_status">
+        <comment>have special judger?</comment>
+        <mandatory>1</mandatory>
+        <data-type>smallint(6)</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <column id="41" parent="3" name="basic_solver_value">
+        <comment>the basic value for submitting a solver to this problem</comment>
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+      </column>
+      <column id="42" parent="3" name="ac_value">
+        <comment>value for acceptting this problem</comment>
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+      </column>
+      <column id="43" parent="3" name="time_limit">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+      </column>
+      <column id="44" parent="3" name="case_time_limit">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+      </column>
+      <column id="45" parent="3" name="memory_limit">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <column id="46" parent="3" name="hint">
+        <mandatory>1</mandatory>
+        <data-type>text</data-type>
+      </column>
+      <column id="47" parent="3" name="source">
+        <mandatory>1</mandatory>
+        <data-type>text</data-type>
+      </column>
+      <column id="48" parent="3" name="author">
+        <mandatory>1</mandatory>
+        <data-type>text</data-type>
+      </column>
+      <column id="49" parent="3" name="hide">
+        <mandatory>1</mandatory>
+        <data-type>tinyint(1)</data-type>
+      </column>
+      <column id="50" parent="3" name="vid">
+        <mandatory>1</mandatory>
+        <data-type>char(50)</data-type>
+      </column>
+      <column id="51" parent="3" name="vname">
+        <mandatory>1</mandatory>
+        <data-type>char(50)</data-type>
+      </column>
+      <column id="52" parent="3" name="isvirtual">
+        <mandatory>1</mandatory>
+        <data-type>tinyint(1)</data-type>
+      </column>
+      <column id="53" parent="3" name="vacnum">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="54" parent="3" name="vtotalnum">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="55" parent="3" name="ignore_noc">
+        <mandatory>1</mandatory>
+        <data-type>tinyint(1)</data-type>
+      </column>
+      <column id="56" parent="3" name="vacpnum">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="57" parent="3" name="vtotalpnum">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="58" parent="3" name="is_interactive">
+        <mandatory>1</mandatory>
+        <data-type>tinyint(1)</data-type>
+      </column>
+      <key id="59" parent="3" name="PRIMARY">
+        <columns>pid</columns>
+        <primary>1</primary>
+      </key>
+      <column id="60" parent="4" name="runid">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+      </column>
+      <column id="61" parent="4" name="pid">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+      </column>
+      <column id="62" parent="4" name="result">
+        <data-type>varchar(100)</data-type>
+      </column>
+      <column id="63" parent="4" name="memory_used">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="64" parent="4" name="time_used">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="65" parent="4" name="time_submit">
+        <data-type>datetime</data-type>
+      </column>
+      <column id="66" parent="4" name="contest_belong">
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+      </column>
+      <column id="67" parent="4" name="username">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="68" parent="4" name="source">
+        <data-type>mediumtext</data-type>
+      </column>
+      <column id="69" parent="4" name="language">
+        <comment>1cpp 2c 3java 4pas</comment>
+        <mandatory>1</mandatory>
+        <data-type>int(10) unsigned</data-type>
+      </column>
+      <column id="70" parent="4" name="ce_info">
+        <data-type>text</data-type>
+      </column>
+      <column id="71" parent="4" name="ipaddr">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="72" parent="4" name="isshared">
+        <mandatory>1</mandatory>
+        <data-type>tinyint(1)</data-type>
+      </column>
+      <column id="73" parent="4" name="jnum">
+        <mandatory>1</mandatory>
+        <data-type>smallint(6)</data-type>
+      </column>
+      <key id="74" parent="4" name="PRIMARY">
+        <columns>runid</columns>
         <primary>1</primary>
       </key>
     </database-model>

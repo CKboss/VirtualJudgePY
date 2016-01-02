@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ static_url("css/primer.css") }}">
+    <title>Show Problem</title>
+</head>
+<body>
+    <div class="blankslate capped">
+        <h3>Description: </h3>
+        {% autoescape None %}
+        {{ Data['description'] }}
+    </div>
+    <div class="blankslate capped">
+        <h3>Input: </h3>
+        {% autoescape None %}
+        {{ Data['input'] }}
+    </div>
+    <div class="blankslate capped">
+        <h3>Output: </h3>
+        {% autoescape None %}
+        {{ Data['output'] }}
+    </div>
+    <div class="blankslate capped">
+        <h3>Sample Output: </h3>
+        {% autoescape None %}
+        {{ Data['sample_out'] }}
+    </div>
+    <div class="blankslate">
+        <h3>Sample Input: </h3>
+        {% autoescape None %}
+        {{ Data['sample_in'] }}
+    </div>
+    <div class="blankslate capped">
+        <h3>Source: </h3>
+        {% autoescape None %}
+        {{ Data['source'] }}
+    </div>
+
+    <a href="/ask_submit">
+       <button class="btn btn-outline" type="submit">Submit</button>
+    </a>
+
+    <a href="/ask_status">
+       <button class="btn btn-outline" type="submit">Status</button>
+    </a>
+</body>
+</html>

@@ -32,7 +32,7 @@ class AppInit(tornado.web.Application) :
             (r'/login\/{0,1}',LogInHandler),
             (r'/logout\/{0,1}',LogOutHandler),
             (r'/register\/{0,1}',RegisterHandler),
-            (r'/problem/(w+)/(w+)\/{0,1}',ProblemHandler),
+            (r'/problem/(\w+)/(\w+)',ProblemHandler),
             (r'/status\/{0,1}',StatusHandler),
         ]
 
