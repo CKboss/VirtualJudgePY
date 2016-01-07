@@ -30,7 +30,7 @@ class HUSTProblemCralwer:
 
 
     d_prob = dict(
-       pid=16373,
+        pid=16373,
     )
 
     def getP(self):
@@ -81,4 +81,3 @@ def main():
 
 if __name__=='__main__':
     main()
-
