@@ -77,7 +77,7 @@ class HUSTProblemCralwer:
 
 def main():
     hpc = HUSTProblemCralwer()
-    hpc.InsertIntoDB('hdu','5101')
+    hpc.InsertIntoDB('HDU','5101')
 
 if __name__=='__main__':
     main()

@@ -45,17 +45,32 @@
 from tools.encode import Base64StrToUTF8Str,UTF8StrToBase64Str
 from tools.dbcore import conn
 
+pdata = dict (
+    title = None,
+    description = None,
+    input = None,
+    output = None,
+    sampleInput = None,
+    sampleOutput = None,
+    vid = None,
+    voj = None,
+    source = None,
+    author = None,
+    problem_limit = None,
+)
+
 
 def InsertProblem(**kwargs):
 
     for key in kwargs.keys():
-        if key == 'voj' or key == 'vid' or key == 'title' or key == 'source':
+
+        if key == 'voj' or key == 'vid' or key == 'title':
             continue
         else :
             kwargs[key]=UTF8StrToBase64Str(kwargs[key])
 
-    sql = 'INSERT INTO problem (title,description,input,output,sample_in,sample_out,vname,vid,source) ' \
-          'VALUES ("{title}","{description}","{input}","{output}","{sampleInput}","{sampleOutput}","{voj}","{vid}","{source}")'.format(**kwargs)
+    sql = 'INSERT INTO problem (title,description,input,output,sample_in,sample_out,vname,vid,source,problem_limit) ' \
+          'VALUES ("{title}","{description}","{input}","{output}","{sampleInput}","{sampleOutput}","{voj}","{vid}","{source}","{problem_limit}")'.format(**kwargs)
 
     cur = conn.cursor()
     print('exeSQL: ',sql)

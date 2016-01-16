@@ -9,6 +9,8 @@ from tornado.concurrent import run_on_executor
 from concurrent.futures import ThreadPoolExecutor
 
 from Crawler.ProblemCrawler import HUSTProblemCralwer
+from Crawler.HduCrawler.HduCrawler import HduCrawler
+
 from tools.encode import UTF8StrToBase64Str,Base64StrToUTF8Str
 
 class ProblemHandler(tornado.web.RequestHandler) :
@@ -34,8 +36,10 @@ class ProblemHandler(tornado.web.RequestHandler) :
         row = cur.fetchone()
 
         if row is None :
-            hust = HUSTProblemCralwer()
-            hust.InsertIntoDB(oj,pid)
+            if oj.upper() == 'HDU' or oj.upper() == 'HDOJ' :
+                crawler = HduCrawler()
+                crawler.CrawlerProblem(pid)
+
             cur.execute(sql)
             row = cur.fetchone()
             print('now find it! ')
@@ -48,7 +52,7 @@ class ProblemHandler(tornado.web.RequestHandler) :
         Data['output'] = Base64StrToUTF8Str(row[4])
         Data['sample_in'] = Base64StrToUTF8Str(row[5])
         Data['sample_out'] = Base64StrToUTF8Str(row[6])
-        Data['source'] = row[25]
+        Data['source'] = Base64StrToUTF8Str(row[25])
 
         self.render('problem.html',Data=Data)
 
