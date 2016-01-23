@@ -3,7 +3,6 @@ import tornado.gen
 
 from tools.dbcore import conn
 
-from dao.problemdao import getProblem
 
 from tornado.concurrent import run_on_executor
 from concurrent.futures import ThreadPoolExecutor
@@ -28,11 +27,9 @@ class ProblemHandler(tornado.web.RequestHandler) :
     @run_on_executor
     def getProblem(self,oj,pid):
 
+        pass
+        '''
         cur = conn.cursor()
-        sql = getProblem(voj=oj,vid=pid)
-
-        print('sql: ',sql)
-        cur.execute(sql)
         row = cur.fetchone()
 
         if row is None :
@@ -55,6 +52,7 @@ class ProblemHandler(tornado.web.RequestHandler) :
         Data['source'] = Base64StrToUTF8Str(row[25])
 
         self.render('problem.html',Data=Data)
+        '''
 
 def main():
     pass

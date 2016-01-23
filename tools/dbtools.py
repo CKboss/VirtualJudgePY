@@ -1,31 +1,31 @@
 
-from tornado import gen,ioloop
-from tornado_mysql import pools
+def getInserSQL(table,data) :
+    part1 = ''
+    part2 = ''
 
+    for key in data :
+        if len(part1)!=0 :
+            part1+=','
+            part2+=','
+        part1+=key
+        if isinstance(data[key],str) :
+            part2+='"'+data[key]+'"'
+        else :
+            part2+=str(data[key])
 
-pools.DEBUG=True
+    sql = 'INSERT INTO {} ({}) VALUES ({})'.format(table,part1,part2)
 
-POOL = pools.Pool(
-    dict(
-        host='127.0.0.1', port=3306, user='javaTest', passwd='123456', db='test',
-    ),
-    max_idle_connections=5,
-    max_recycle_sec=10,
-    max_open_connections=15,
-)
-
-class theSQL:
-    sql = 'select * from user'
-
-@gen.coroutine
-def Gao():
-    cur = yield POOL.execute(theSQL.sql)
-    return cur.fetchall()
-
-def getResult(sql):
-    theSQL.sql=sql
-    return ioloop.IOLoop.current().run_sync(Gao)
+    return sql
 
 if __name__=='__main__' :
-    ans = getResult('select * from user')
-    print(ans)
+    pass
+    '''
+    data = dict(
+        arg1='a1',
+        arg2='a2',
+        arg4=911,
+        arg3='a3',
+    )
+    sql = getInserSQL('table2',data)
+    print(sql)
+    '''

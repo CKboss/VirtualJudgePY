@@ -12,12 +12,15 @@ from Handlers.LogOutHandler import LogOutHandler
 from Handlers.RegisterHandler import RegisterHandler
 from Handlers.ProblemHandler import ProblemHandler
 from Handlers.StatusHandler import StatusHandler
+from Handlers.DebugHandler import DebugHandler
+
+from UIModule.HeaderModule import TitleModule
 
 db = pymysql.connect(
    host='localhost',
    user='javaTest',
    password='123456',
-   db='test',
+   db='mydb',
    charset='utf8',
    cursorclass=pymysql.cursors.DictCursor
 )
@@ -34,6 +37,7 @@ class AppInit(tornado.web.Application) :
             (r'/register\/{0,1}',RegisterHandler),
             (r'/problem/(\w+)/(\w+)',ProblemHandler),
             (r'/status\/{0,1}',StatusHandler),
+            (r'/webdebug',DebugHandler),
         ]
 
         # Setting
@@ -47,7 +51,11 @@ class AppInit(tornado.web.Application) :
            	cookie_secret = 'tZJnmMPUSsyQYlXKOWWDVJbuW6Ul9k8IhZ8gF7Aq87E=',
         )
 
-        tornado.web.Application.__init__(self,handlers,**settings)
+        UI_MODULES = dict(
+            HeaderTitle = TitleModule,
+        )
+
+        tornado.web.Application.__init__(self, handlers,ui_modules=UI_MODULES, **settings)
 
 if __name__=='__main__':
     print(os.path.join(os.path.pardir,'templates'))

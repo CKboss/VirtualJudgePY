@@ -4,7 +4,7 @@ conn = pymysql.connect(
     host='localhost',
     user='javaTest',
     password='123456',
-    db='test',
+    db='mydb',
     charset='utf8',
 )
 
