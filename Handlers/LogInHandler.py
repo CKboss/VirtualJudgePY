@@ -28,11 +28,8 @@ class LogInHandler(tornado.web.RequestHandler) :
             isOK = yield self.checkPasswd(username,password)
             if  isOK == True :
                 self.set_secure_cookie("username",username)
-                self.redirect('/')
             else :
                 self.redirect('/fail')
-        else :
-            self.redirect('/')
 
 
     @run_on_executor
