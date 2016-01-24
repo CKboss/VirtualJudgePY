@@ -27,6 +27,8 @@ def AddUser(d):
     sql = getInserSQL('user',d)
     cur = conn.cursor()
     ret = cur.execute(sql)
+    conn.commit()
+    cur.close()
     return ret
 
 if __name__=='__main__':

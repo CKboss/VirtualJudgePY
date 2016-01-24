@@ -6,6 +6,7 @@ conn = pymysql.connect(
     password='123456',
     db='mydb',
     charset='utf8',
+    autocommit=True,
 )
 
 
