@@ -49,11 +49,14 @@ class HduCrawler :
 
         data['updatetime'] = time.strftime('%Y-%m-%d %H:%M:%S')
 
-        f = open('/tmp/HDOJ{}.pkl'.format(pid),'wb')
+        f = open('/home/ckboss/Desktop/Development/testData/HDOJ/HDOJ{}.pkl'.format(pid),'wb')
         pickle.dump(data,f)
 
+        print(str(pid)+' done !')
+        '''
         for x in data :
             print(x +" --> "+str(data[x]))
+        '''
         #InsertProblem(**data)
 
 
@@ -100,9 +103,21 @@ def test2() :
     soup = BeautifulSoup(str(dt['source']),'html5lib')
     print(soup.text)
 
+def test3() :
+
+    crawler = HduCrawler()
+    for x in range(5290,5600) :
+        try :
+            crawler.CrawlerProblem(x)
+            time.sleep(5)
+        except Exception :
+            print('%d error!!!'%x)
+
 if __name__=='__main__' :
-    #test2()
+    test3()
+    '''
     crawler = HduCrawler()
     crawler.CrawlerProblem(5001)
     crawler.CrawlerProblem(5011)
     crawler.CrawlerProblem(4756)
+    '''

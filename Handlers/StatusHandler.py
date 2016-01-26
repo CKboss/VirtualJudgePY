@@ -13,8 +13,10 @@ class StatusHandler(tornado.web.RequestHandler):
     @tornado.web.asynchronous
     @tornado.gen.engine
     def get(self):
-        msgs = yield self.getMsgs()
-        self.render('status.html',msgs=msgs)
+        #msgs = yield self.getMsgs()
+        name = self.get_secure_cookie('username')
+        if name is None : name=''
+        self.render('status.html',current_user=name)
 
     @run_on_executor
     def getMsgs(self):

@@ -13,12 +13,12 @@
         <div align="right">
 
             {% try %}
-                {% set username = usrname %}
+                {% set username = current_user %}
             {% except NameError %}
                 {% set username = '' %}
             {% end %}
 
-            {% if len(username)==0  %}
+            {% if username is None or len(username)==0  %}
                 <form action="/login" method="POST" >
                     {% raw xsrf_form_html() %}
                     <table>

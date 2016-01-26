@@ -13,8 +13,10 @@ from Handlers.RegisterHandler import RegisterHandler
 from Handlers.ProblemHandler import ProblemHandler
 from Handlers.StatusHandler import StatusHandler
 from Handlers.DebugHandler import DebugHandler
+from Handlers.ProblemListHandler import ProblemListHandler
 
 from UIModule.HeaderModule import TitleModule
+from UIModule.ProblemListModule import ProblemListModule
 
 db = pymysql.connect(
    host='localhost',
@@ -38,6 +40,7 @@ class AppInit(tornado.web.Application) :
             (r'/problem/(\w+)/(\w+)',ProblemHandler),
             (r'/status\/{0,1}',StatusHandler),
             (r'/webdebug',DebugHandler),
+            (r'/problemlist',ProblemListHandler),
         ]
 
         # Setting
@@ -53,6 +56,7 @@ class AppInit(tornado.web.Application) :
 
         UI_MODULES = dict(
             HeaderTitle = TitleModule,
+            ProblemList = ProblemListModule,
         )
 
         tornado.web.Application.__init__(self, handlers,ui_modules=UI_MODULES, **settings)

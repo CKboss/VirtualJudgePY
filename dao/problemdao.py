@@ -36,7 +36,6 @@ from tools.encode import Base64StrToUTF8Str,UTF8StrToBase64Str
 from tools.dbcore import conn
 from tools.dbtools import getInserSQL,getUpdateSQL
 
-
 def GetProblemID(orj,orid):
     sql = 'SELECT problem.pid FROM problem WHERE ' \
           '( problem.originOJ LIKE "{}" AND problem.originProb LIKE "{}" )'.format(orj,orid)
@@ -103,9 +102,7 @@ def UpdateProblemDetail(problem,pid) :
 
     clause = 'problemdetail.pid = %d' % pid
     sql = getUpdateSQL('problemdetail',data=problem,clause=clause)
-
-    print(sql)
-
+    #print(sql)
     cur = conn.cursor()
     cur.execute(sql)
     cur.close()

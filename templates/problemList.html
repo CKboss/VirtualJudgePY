@@ -1,0 +1,79 @@
+{% extends "main_struct.html" %}
+
+{% block content %}
+
+<form method="get" action="problemlist">
+
+    <strong>OJ:</strong>
+    <select size="1" name="oj">
+        <option value="" selected="">All</option>
+        <option value="0">HDU</option>
+        <option value="1">PKU</option>
+        <option value="2">ZOJ</option>
+        <option value="3">Codeforces</option>
+        <option value="4">BZOJ</option>
+    </select>
+
+    <strong>Problem ID:</strong>
+    <input type="text" name="problem_id" size="8" value="">
+
+    <strong>Title:</strong>
+    <input type="text" name="problem_title" size="25" value="">
+
+    <strong>Source:</strong>
+    <input type="text" name="problem_source" size="35" value="">
+
+    <input type="hidden" name="index" value="{{ index }}">
+
+    <input class="btn btn-outline" type="submit" width="18" value="Search">
+</form>
+
+<table border="1" class="flex-table-item-primary" bordercolor="#FFFFFF">
+    <tbody>
+    <tr align="center" bgcolor="#5f9ea0" >
+        <td width="6%">OJ</td>
+        <td width="6%">Problem</td>
+        <td width="30%">title</td>
+        <td width="57%">Source</td>
+    </tr>
+
+    {% for x in rs %}
+        {% module ProblemList(x) %}
+    {% end %}
+
+    <!--
+    <tr align="center" bgcolor="#f0f8ff">
+        <td>HDOJ</td>
+        <td><a href="#">1001</a></td>
+        <td><a href="#">hello world</a></td>
+        <td><a href="#">source</a></td>
+    </tr>
+
+    <tr align="center" bgcolor="#f0f8ff">
+        <td>HDOJ</td>
+        <td><a href="#">1002</a></td>
+        <td><a href="#">hello world</a></td>
+        <td><a href="#">source</a></td>
+    </tr>
+    -->
+
+    </tbody>
+</table>
+
+<table align="center">
+    <tr>
+        <td>
+            <button class="btn btn-sm btn-outline" type="button">Top</button>
+        </td>
+        <td width="50px"/>
+        <td>
+            <button class="btn btn-sm btn-outline" type="button">Previous Page</button>
+        </td>
+        <td width="50px"/>
+        <td>
+            <button class="btn btn-sm btn-outline" type="button">Next Page</button>
+        </td>
+    </tr>
+</table>
+{% end %}
+

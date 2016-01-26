@@ -42,6 +42,12 @@ def getUpdateSQL(table,data,clause) :
 
     return sql
 
+def getPageLimitSQL(tablename,whereclause,ordclause,n,m) :
+
+    sql = 'SELECT * FROM {} WHERE ( {} ) ORDER BY {} LIMIT {} , {}'\
+        .format(tablename,whereclause,ordclause,n,m)
+    return sql
+
 if __name__=='__main__' :
     data = dict(
         arg1='a1',
@@ -49,5 +55,5 @@ if __name__=='__main__' :
         arg4=911,
         arg3='a3',
     )
-    sql = getUpdateSQL('table2',data,"id=87")
+    sql = getPageLimitSQL('table2','1 is none',"id=87",10,30)
     print(sql)
