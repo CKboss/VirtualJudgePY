@@ -2,16 +2,16 @@
 
 {% block content %}
 
-<form method="get" action="problemlist">
+<form method="get" action="/problemlist">
 
     <strong>OJ:</strong>
     <select size="1" name="oj">
-        <option value="" selected="">All</option>
-        <option value="0">HDU</option>
-        <option value="1">PKU</option>
-        <option value="2">ZOJ</option>
-        <option value="3">Codeforces</option>
-        <option value="4">BZOJ</option>
+        <option value="ALL" selected="">All</option>
+        <option value="HDU">HDU</option>
+        <option value="PKU">PKU</option>
+        <option value="ZOJ">ZOJ</option>
+        <option value="CF">Codeforces</option>
+        <option value="BZOJ">BZOJ</option>
     </select>
 
     <strong>Problem ID:</strong>
@@ -23,7 +23,7 @@
     <strong>Source:</strong>
     <input type="text" name="problem_source" size="35" value="">
 
-    <input type="hidden" name="index" value="{{ index }}">
+    <input type="hidden" name="issearch" value="issearch">
 
     <input class="btn btn-outline" type="submit" width="18" value="Search">
 </form>
@@ -63,17 +63,44 @@
 <table align="center">
     <tr>
         <td>
-            <button class="btn btn-sm btn-outline" type="button">Top</button>
+            <form action="/redirection" method="post">
+                {% raw xsrf_form_html() %}
+                <input type="hidden" name="msg" value="pl_top">
+                <button class="btn btn-sm btn-outline" type="submit">Top</button>
+            </form>
         </td>
         <td width="50px"/>
         <td>
-            <button class="btn btn-sm btn-outline" type="button">Previous Page</button>
+            <form action="/redirection" method="post">
+                {% raw xsrf_form_html() %}
+                <input type="hidden" name="msg" value="pl_prev">
+                <button class="btn btn-sm btn-outline" type="submit">Previous Page</button>
+            </form>
         </td>
         <td width="50px"/>
-        <td>
-            <button class="btn btn-sm btn-outline" type="button">Next Page</button>
-        </td>
+
+        {% try %}
+            {% set hasnext = hasNext %}
+        {% except NameError %}
+            {% set hasnext = True %}
+        {% end %}
+
+        {% if hasnext == True %}
+            <td>
+                <form action="/redirection" method="post">
+                    {% raw xsrf_form_html() %}
+                    <input type="hidden" name="msg" value="pl_next">
+                    <button class="btn btn-sm btn-outline" type="submit">Next Page</button>
+                </form>
+            </td>
+        {% elif hasnext == False%}
+            <td>
+                <button class="btn btn-sm btn-outline disabled" type="submit">Next Page</button>
+            </td>
+        {% end %}
     </tr>
 </table>
+
+
 {% end %}
 

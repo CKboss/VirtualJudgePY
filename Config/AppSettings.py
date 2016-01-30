@@ -14,6 +14,7 @@ from Handlers.ProblemHandler import ProblemHandler
 from Handlers.StatusHandler import StatusHandler
 from Handlers.DebugHandler import DebugHandler
 from Handlers.ProblemListHandler import ProblemListHandler
+from Handlers.RedirectorHandler import RedirectorHandler
 
 from UIModule.HeaderModule import TitleModule
 from UIModule.ProblemListModule import ProblemListModule
@@ -41,6 +42,7 @@ class AppInit(tornado.web.Application) :
             (r'/status\/{0,1}',StatusHandler),
             (r'/webdebug',DebugHandler),
             (r'/problemlist',ProblemListHandler),
+            (r'/redirection',RedirectorHandler),
         ]
 
         # Setting
