@@ -1,18 +1,22 @@
 {% extends "main_struct.html" %}
 
 {% block content %}
-
+{% autoescape None %}
 <div class="text-center">
-    <h1> title </h1>
+    <h1> {{ D['title'] }}</h1>
     <table align="center">
         <tr>
-            <td><strong>Time Limit: 2000MS</strong></td>
+            <!-- Time Limit: 2000MS -->
+            <td><strong>{{ D['timelimit'] }}</strong></td>
             <td width="10px"></td>
-            <td><strong>Memory Limit: 32768KB</strong></td>
+            <!-- Memory Limit: 32768KB -->
+            <td><strong>{{ D['memorylimit'] }}</strong></td>
             <td width="10px"></td>
             <td><strong>64bit IO Format: %I64d & %I64u</strong></td>
             <td width="10px"></td>
-            <td><strong><p class="text-closed">SpecialJudge</p></strong></td>
+            {% if D['specialjudge'] == 1 %}
+            <td><strong><p class="text-closed">{{ D['specialjudge'] }}</p></strong></td>
+            {% end %}
         </tr>
 
     </table>
@@ -29,33 +33,69 @@
     </table>
 </div>
 
-<div class="text-left">
-    <h2>Description</h2>
-</div>
+<div style="margin-left: 5%; margin-right: 5%">
+    {% try %}
+    {% set test = D['description'] %}
+    <div class="text-left">
+        <h2>Description</h2>
+        {{ D['description'] }}
+    </div>
+    {% except KeyError %}
+    {% end %}
 
-<div class="text-left">
-    <h2>Input</h2>
-    input
-</div>
+    {% try %}
+    {% set test = D['input'] %}
+    <div class="text-left">
+        <h2>Input</h2>
+        {{ D['input'] }}
+    </div>
+    {% except KeyError %}
+    {% end %}
 
-<div class="text-left">
-    <h2>Output</h2>
-    output
-</div>
+    {% try %}
+    {% set test = D['output'] %}
+    <div class="text-left">
+        <h2>Output</h2>
+        {{ D['output'] }}
+    </div>
+    {% except KeyError %}
+    {% end %}
 
-<div class="text-left">
-    <h2>Sample Input</h2>
-    sampleinput
-</div>
+    {% try %}
+    {% set test = D['sampleinput'] %}
+    <div class="text-left">
+        <h2>Sample Input</h2>
+        {{ D['sampleinput'] }}
+    </div>
+    {% except KeyError %}
+    {% end %}
 
-<div class="text-left">
-    <h2>Sample Output</h2>
-    sampleoutput
-</div>
+    {% try %}
+    {% set test = D['sampleoutput'] %}
+    <div class="text-left">
+        <h2>Sample Output</h2>
+        {{ D['sampleoutput'] }}
+    </div>
+    {% except KeyError %}
+    {% end %}
 
-<div class="text-left">
-    <h2>Source</h2>
-    source
+    {% try %}
+    {% set test = D['source'] %}
+    <div class="text-left">
+        <h2>Source</h2>
+        {{ D['source'] }}
+    </div>
+    {% except KeyError %}
+    {% end %}
+
+    {% try %}
+    {% set test = D['hint'] %}
+    <div class="text-center">
+        <h2>Hint</h2>
+        {{ D['hint'] }}
+    </div>
+    {% except KeyError %}
+    {% end %}
 </div>
 
 {% end %}
