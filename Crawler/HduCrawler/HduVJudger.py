@@ -1,5 +1,5 @@
 import requests
-
+import random
 
 class HduVJudger:
 
@@ -8,11 +8,18 @@ class HduVJudger:
     s = None
     snt = 0
 
-    userinfo = dict(
-        username = 'xxx111',
-        userpass = 'heihei',
-        login = 'Sign in',
-    )
+    userList = [
+        dict(
+            username = 'xxx111',
+            userpass = 'heihei',
+            login = 'Sign in',
+        ),
+        dict(
+            username = 'xxx111',
+            userpass = 'heihei',
+            login = 'Sign in',
+        ),
+    ]
 
     submit_data = dict(
         check=0,
@@ -22,13 +29,16 @@ class HduVJudger:
     )
 
     def getlange(self,lang):
-        if lang == 'G++':
-            return 0
+        LangeList = ['G++','GCC','C++','C','Pascal','Java','C#']
+        for i in range(0,len(LangeList)) :
+            if LangeList[i] == lang:
+                return i
+        return 0
 
     def login(self):
         snt = 30
         self.s = requests.session()
-        self.s.post(url=self.login_url,data=self.userinfo)
+        self.s.post(url=self.login_url,data=random.choice(self.userList))
 
     def submit(self,pid,lang,code):
 

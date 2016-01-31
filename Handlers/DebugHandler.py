@@ -1,6 +1,6 @@
-import tornado.web
+from Handlers.BaseHandler import BaseHandler
 
-class DebugHandler(tornado.web.RequestHandler) :
+class DebugHandler(BaseHandler) :
 
     def get(self):
         self.render('webdebug.html')

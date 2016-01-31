@@ -23,4 +23,4 @@ def ImportProblem(dir) :
                 print('other error')
 
 if __name__=='__main__' :
-    ImportProblem('/home/ckboss/Desktop/Development/testData/HDOJ')
+    ImportProblem('/home/ckboss/Desktop/Development/testData/HDOJ2')

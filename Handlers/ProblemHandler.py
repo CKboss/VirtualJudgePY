@@ -19,7 +19,10 @@ class ProblemHandler(tornado.web.RequestHandler) :
     def get(self,oj=None,pid=None):
         print('oj: '+oj+' pid: '+pid)
         D = yield self.getProblem(oj,pid)
-        self.render('problem.html',D = D)
+
+        current_user = self.get_secure_cookie('username')
+
+        self.render('problem.html',D = D,current_user=current_user)
 
 
     @run_on_executor
@@ -36,6 +39,9 @@ class ProblemHandler(tornado.web.RequestHandler) :
         if rt is None : pass
 
         d = dict()
+
+        d['originOJ'] = oj
+        d['originProb'] = problemid
 
         if rt[0] is not None :
             d['pid'] = rt[0]

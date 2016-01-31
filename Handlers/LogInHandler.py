@@ -11,7 +11,9 @@ from concurrent.futures import ThreadPoolExecutor
 
 from dao.userdao import checkUserSQL
 
-class LogInHandler(tornado.web.RequestHandler) :
+from Handlers.BaseHandler import BaseHandler
+
+class LogInHandler(BaseHandler) :
 
     executor = ThreadPoolExecutor(4)
 

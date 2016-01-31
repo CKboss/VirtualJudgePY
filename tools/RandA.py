@@ -17,8 +17,9 @@ def RelUrlToAbsUrl(baseurl,text):
     for l in L :
 
         if len(l) > 5 and l[:5] == 'src="':
+            if l[5:10] == '../..':
+                l = l[:5]+l[10:]
             l = l[:5] + baseurl + '/' + l[5:]
-
         ret = ret + ' '+l
 
     return ret

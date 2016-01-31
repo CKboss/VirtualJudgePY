@@ -1,6 +1,6 @@
-import tornado.web
+from Handlers.BaseHandler import BaseHandler
 
-class IndexHandler(tornado.web.RequestHandler) :
+class IndexHandler(BaseHandler) :
 
     def get(self):
 

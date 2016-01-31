@@ -23,7 +23,11 @@
     <table align="center">
         <tr>
             <td>
-                <button class="btn" type="button">Submit</button>
+                <form action="/submit" method="get">
+                    <input type="hidden" name="OJ" value="{{ D['originOJ'] }}"/>
+                    <input type="hidden" name="Prob" value="{{ D['originProb'] }}"/>
+                    <button class="btn" type="submit">Submit</button>
+                </form>
             </td>
             <td width="30px"></td>
             <td>

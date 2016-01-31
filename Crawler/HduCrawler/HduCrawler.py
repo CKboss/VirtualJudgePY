@@ -12,7 +12,7 @@ class HduCrawler :
     HDOJ 编码 gb2312
     '''
 
-    base_url = 'http://acm.hdu.edu.cn'
+    base_url = 'http://acm.hdu.edu.cn/'
     prob_url = 'http://acm.hdu.edu.cn/showproblem.php?pid='
 
     def CrawlerProblem(self,pid):
@@ -53,13 +53,15 @@ class HduCrawler :
 
         data['updatetime'] = time.strftime('%Y-%m-%d %H:%M:%S')
 
-        #f = open('/home/ckboss/Desktop/Development/testData/HDOJ/HDOJ{}.pkl'.format(pid),'wb')
-        #pickle.dump(data,f)
+        f = open('/home/ckboss/Desktop/Development/testData/HDOJ2/HDOJ{}.pkl'.format(pid),'wb')
+        pickle.dump(data,f)
 
-        #print(str(pid)+' done !')
+        print(str(pid)+' done !')
+        '''
         for x in data :
             print(x +" --> "+str(data[x]))
         #InsertProblem(**data)
+        '''
 
 
 def checkLimitInfo(s) :
@@ -108,7 +110,7 @@ def test2() :
 def test3() :
 
     crawler = HduCrawler()
-    for x in range(5290,5600) :
+    for x in range(3201,5600) :
         try :
             crawler.CrawlerProblem(x)
             time.sleep(5)
@@ -122,7 +124,7 @@ def test4():
 
 if __name__=='__main__' :
 
-    test4()
+    test3()
     '''
     crawler = HduCrawler()
     crawler.CrawlerProblem(5001)

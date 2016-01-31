@@ -1,69 +1,57 @@
 {% extends "main_struct.html" %}
 
 {% block content %}
-<form method="get" action="status">
+<form action="/submit" method="post">
+<table cellspacing="0" cellpadding="0" width="100%" border="0">
 
-    <strong>OJ:</strong>
-    <select size="1" name="oj">
-        <option value="" selected="">All</option>
-        <option value="0">HDU</option>
-        <option value="1">PKU</option>
-        <option value="2">ZOJ</option>
-        <option value="3">Codeforces</option>
-        <option value="4">BZOJ</option>
-    </select>
+	<tbody>
+    <tr>
+		<td align="center" style="color:#1A5CC8">
+			<h1>Submit Your Solution</h1>
+			<div style="color:#1A5CC8" align="center"><i>Current Authenticated Author : CKboss</i></div><br>
+		</td>
+	</tr>
 
-    <strong>Problem ID:</strong>
-    <input type="text" name="problem_id" size="8" value="">
+	<tr id="exe_checkcode" style="display: none;">
+		<td align="center">Verify Code(Select the number you have seen):  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="ck.php" align="absmiddle">&nbsp;&nbsp;&nbsp;&nbsp;
+            <span style="border:#B7CBFF 1px dashed;width:80px;height:22px;padding:0">
+            <select name="check" style="width:80px;font-size:14px;font-family:Arial;background-color:F4FBFF;margin:-1px">
+            <option value="0"></option>
+            <option value="6132">6132</option><option value="6436">6436</option><option value="1264">1264</option><option value="6384">6384</option><option value="5919">5919</option>			</select>
+            </span>
+            &nbsp;<span style="color:#FF0000">*</span>
+        </td>
+	</tr>
 
-    <strong>Title:</strong>
-    <input type="text" name="problem_title" size="25" value="">
+    <tr>
+		<td align="center"><br>
+			Problem ID&nbsp;<input type="text" name="problemid" class="text40" style="width:120px;background-color:F4FBFF;margin-right:40px" value="1000">
+			Language&nbsp;
+			<span style="border:#B7CBFF 1px dashed;width:120px;height:22px;padding:0">
+			<select name="language" style="width:121px;font-size:14px;font-family:Arial;background-color:F4FBFF;margin:-1px">
+                <option value="0" selected="">G++</option>
+                <option value="1">GCC</option>
+                <option value="2">C++</option>
+                <option value="3">C</option>
+                <option value="4">Pascal</option>
+                <option value="5">Java</option>
+                <option value="6">C#</option>
+			</select>
+			</span>
+		</td>
+	</tr>
+    <tr>
+        <td align="center"><br>Source Code</td>
+    </tr>
+    <tr>
+        <td align="center"><br><textarea name="usercode" class="code" style="width: 667px; height: 373px"></textarea></td>
+    </tr>
 
-    <strong>Source:</strong>
-    <input type="text" name="problem_source" size="35" value="">
-
-    <input class="btn btn-outline" type="submit" width="18" value="Search">
+    <tr>
+        <td align="center"><br><input type="submit" value="Submit" class="btn-outline">&nbsp;&nbsp;<input type="reset" value="Reset" class="btn-outline"></td>
+    </tr>
+	</tbody>
+</table>
 </form>
 
-<table border="1" class="flex-table-item-primary" bordercolor="#FFFFFF">
-    <tbody>
-    <tr align="center" bgcolor="#5f9ea0" >
-        <td width="6%">OJ</td>
-        <td width="6%">Problem</td>
-        <td width="30%">title</td>
-        <td width="57%">Source</td>
-    </tr>
-
-    <tr align="center" bgcolor="#f0f8ff">
-        <td>HDOJ</td>
-        <td><a href="#">1001</a></td>
-        <td><a href="#">hello world</a></td>
-        <td><a href="#">source</a></td>
-    </tr>
-
-    <tr align="center" bgcolor="#f0f8ff">
-        <td>HDOJ</td>
-        <td><a href="#">1002</a></td>
-        <td><a href="#">hello world</a></td>
-        <td><a href="#">source</a></td>
-    </tr>
-
-    </tbody>
-</table>
-
-<table align="center">
-    <tr>
-        <td>
-            <button class="btn btn-sm btn-outline" type="button">Top</button>
-        </td>
-        <td width="50px"/>
-        <td>
-            <button class="btn btn-sm btn-outline" type="button">Previous Page</button>
-        </td>
-        <td width="50px"/>
-        <td>
-            <button class="btn btn-sm btn-outline" type="button">Next Page</button>
-        </td>
-    </tr>
-</table>
 {% end %}
