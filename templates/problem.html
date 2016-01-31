@@ -3,7 +3,7 @@
 {% block content %}
 {% autoescape None %}
 <div class="text-center">
-    <h1> {{ D['title'] }}</h1>
+    <h1><a href="{{ D['url'] }}" target="_blank"> {{ D['title'] }} </a></h1>
     <table align="center">
         <tr>
             <!-- Time Limit: 2000MS -->
@@ -80,6 +80,15 @@
     {% end %}
 
     {% try %}
+    {% set test = D['hint'] %}
+    <div class="text-center">
+        <h2>Hint</h2>
+        {{ D['hint'] }}
+    </div>
+    {% except KeyError %}
+    {% end %}
+
+    {% try %}
     {% set test = D['source'] %}
     <div class="text-left">
         <h2>Source</h2>
@@ -88,14 +97,6 @@
     {% except KeyError %}
     {% end %}
 
-    {% try %}
-    {% set test = D['hint'] %}
-    <div class="text-center">
-        <h2>Hint</h2>
-        {{ D['hint'] }}
-    </div>
-    {% except KeyError %}
-    {% end %}
 </div>
 
 {% end %}

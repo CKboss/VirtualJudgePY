@@ -1,7 +1,10 @@
 import requests
 import time
 import pickle
+
 from bs4 import BeautifulSoup
+
+from tools.RandA import RelUrlToAbsUrl
 
 class HduCrawler :
 
@@ -9,6 +12,7 @@ class HduCrawler :
     HDOJ 编码 gb2312
     '''
 
+    base_url = 'http://acm.hdu.edu.cn'
     prob_url = 'http://acm.hdu.edu.cn/showproblem.php?pid='
 
     def CrawlerProblem(self,pid):
@@ -30,7 +34,7 @@ class HduCrawler :
         Terms = ['description','input','output','sampleinput','sampleoutput','source','author'];
 
         for t in zip([x for x in Terms],[y for y in li]) :
-            data[t[0]] = t[1]
+            data[t[0]] = RelUrlToAbsUrl(self.base_url,t[1])
 
         data['source'] = BeautifulSoup(str(data['source']),'html5lib').text
 
@@ -49,14 +53,12 @@ class HduCrawler :
 
         data['updatetime'] = time.strftime('%Y-%m-%d %H:%M:%S')
 
-        f = open('/home/ckboss/Desktop/Development/testData/HDOJ/HDOJ{}.pkl'.format(pid),'wb')
-        pickle.dump(data,f)
+        #f = open('/home/ckboss/Desktop/Development/testData/HDOJ/HDOJ{}.pkl'.format(pid),'wb')
+        #pickle.dump(data,f)
 
-        print(str(pid)+' done !')
-        '''
+        #print(str(pid)+' done !')
         for x in data :
             print(x +" --> "+str(data[x]))
-        '''
         #InsertProblem(**data)
 
 
@@ -113,8 +115,14 @@ def test3() :
         except Exception :
             print('%d error!!!'%x)
 
+def test4():
+
+    crawler = HduCrawler()
+    crawler.CrawlerProblem(1045)
+
 if __name__=='__main__' :
-    test3()
+
+    test4()
     '''
     crawler = HduCrawler()
     crawler.CrawlerProblem(5001)
