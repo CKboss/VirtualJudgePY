@@ -6,9 +6,9 @@ class AutoSubmit():
     def __init__(self):
         self.HV = HduVJudger()
 
-    def SubmmitSelector(self,oj,pid,lang,code) :
+    def SubmmitSelector(self,oj,prob,lang,code) :
 
         if oj == 'HDU' or oj == 'HDOJ':
-            self.HV.submit(pid,lang,code)
+            self.HV.submit(prob,lang,code)
         else :
             print('unkonw oj')

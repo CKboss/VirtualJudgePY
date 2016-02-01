@@ -9,7 +9,7 @@ from tools.dbcore import conn
 from tornado.concurrent import run_on_executor
 from concurrent.futures import ThreadPoolExecutor
 
-from dao.userdao import checkUserSQL
+from dao.userdao import checkUserSQL,getUserUid
 
 from Handlers.BaseHandler import BaseHandler
 
@@ -28,11 +28,16 @@ class LogInHandler(BaseHandler) :
 
         if argCheck(username) and argCheck(password) :
             isOK = yield self.checkPasswd(username,password)
-            if  isOK == True :
-                self.set_secure_cookie("username",username)
-                self.redirect('/')
+            if  isOK is not None:
+                self.set_secure_cookie('username',username)
+                print('isOK: ',isOK)
+                self.set_secure_cookie('uid',str(isOK))
+                self.write('<h1>LogIn Success!</h1>')
             else :
-                self.redirect('/fail')
+                self.write('<h1>LogIn Fail</h1>')
+
+        self.finish()
+
 
 
     @run_on_executor
@@ -45,9 +50,12 @@ class LogInHandler(BaseHandler) :
         print(ans)
         print(ans[0][0])
         if ans[0][0] == 1:
-            return True
+            sql = getUserUid(username)
+            cur.execute(sql)
+            uid = cur.fetchone()[0]
+            return uid
         else :
-            return False
+            return None
 
 if __name__=='__main__':
     username = 'parg1'

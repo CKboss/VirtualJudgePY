@@ -19,6 +19,10 @@ def checkUserSQL(username,passowrd):
     sql = 'select count(*) from user WHERE username = "%s" and password = "%s" '%(username,passowrd)
     return sql
 
+def getUserUid(username):
+    sql = 'select uid from user WHERE username="%s"'%(username)
+    return sql
+
 def checkUserExist(username) :
     sql = 'select count(*) from user WHERE username = "%s"'%(username)
     return sql

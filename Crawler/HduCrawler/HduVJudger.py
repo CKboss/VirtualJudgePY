@@ -6,16 +6,19 @@ class HduVJudger:
     login_url = 'http://acm.hdu.edu.cn/userloginex.php?action=login'
     submit_url = 'http://acm.hdu.edu.cn/submit.php?action=submit'
     s = None
+    nowJudge = None
     snt = 0
 
     userList = [
         dict(
             username = 'xxx111',
+            nickname = 'henryascend',
             userpass = 'heihei',
             login = 'Sign in',
         ),
         dict(
             username = 'xxx111',
+            nickname = 'henryascend',
             userpass = 'heihei',
             login = 'Sign in',
         ),
@@ -36,9 +39,11 @@ class HduVJudger:
         return 0
 
     def login(self):
-        snt = 30
+        self.snt=30
         self.s = requests.session()
-        self.s.post(url=self.login_url,data=random.choice(self.userList))
+        data = random.choice(self.userList)
+        self.s.post(url=self.login_url,data=data)
+        self.nowJudge = data['nickname']
 
     def submit(self,pid,lang,code):
 
@@ -52,7 +57,6 @@ class HduVJudger:
             self.snt = self.snt -1
 
         r = self.s.post(url=self.submit_url,data=self.submit_data)
-
 
 
 if __name__=='__main__':

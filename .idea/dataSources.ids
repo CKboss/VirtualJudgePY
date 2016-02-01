@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component name="dataSourceStorage">
   <data-source name="MySQL - mydb@localhost" uuid="1c264db3-d816-4795-9cc5-e0e4b9219465">
-    <database-info product="MySQL" version="5.5.46-0ubuntu0.14.04.2" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.34 ( Revision: jess.balint@oracle.com-20141014163213-wqbwpf1ok2kvo1om )">
+    <database-info product="MySQL" version="5.5.47-0ubuntu0.14.04.1" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.34 ( Revision: jess.balint@oracle.com-20141014163213-wqbwpf1ok2kvo1om )">
       <extra-name-characters>#@</extra-name-characters>
       <identifier-quote-string>`</identifier-quote-string>
     </database-info>
@@ -200,40 +200,43 @@
       <column id="63" parent="6" name="ceinfo">
         <data-type>text</data-type>
       </column>
-      <key id="64" parent="6" name="PRIMARY">
+      <column id="64" parent="6" name="codelenth">
+        <data-type>varchar(45)</data-type>
+      </column>
+      <key id="65" parent="6" name="PRIMARY">
         <columns>runid</columns>
         <primary>1</primary>
       </key>
-      <foreign-key id="65" parent="6" name="fk_status_1">
+      <foreign-key id="66" parent="6" name="fk_status_1">
         <columns>pid</columns>
         <ref-key>problem.PRIMARY</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
-      <column id="66" parent="7" name="uid">
+      <column id="67" parent="7" name="uid">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
       </column>
-      <column id="67" parent="7" name="username">
+      <column id="68" parent="7" name="username">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
       </column>
-      <column id="68" parent="7" name="nickname">
+      <column id="69" parent="7" name="nickname">
         <data-type>varchar(1024)</data-type>
       </column>
-      <column id="69" parent="7" name="password">
+      <column id="70" parent="7" name="password">
         <data-type>varchar(50)</data-type>
       </column>
-      <column id="70" parent="7" name="email">
+      <column id="71" parent="7" name="email">
         <data-type>varchar(255)</data-type>
       </column>
-      <column id="71" parent="7" name="school">
+      <column id="72" parent="7" name="school">
         <data-type>varchar(255)</data-type>
       </column>
-      <column id="72" parent="7" name="localstatus">
+      <column id="73" parent="7" name="localstatus">
         <data-type>tinyint(1)</data-type>
       </column>
-      <key id="73" parent="7" name="PRIMARY">
+      <key id="74" parent="7" name="PRIMARY">
         <columns>uid
 username</columns>
         <primary>1</primary>
