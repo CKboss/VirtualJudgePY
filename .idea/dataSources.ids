@@ -148,7 +148,7 @@
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
-      <column id="47" parent="6" name="runid">
+      <column id="47" parent="6" name="sid">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
       </column>
@@ -204,7 +204,7 @@
         <data-type>varchar(45)</data-type>
       </column>
       <key id="65" parent="6" name="PRIMARY">
-        <columns>runid</columns>
+        <columns>sid</columns>
         <primary>1</primary>
       </key>
       <foreign-key id="66" parent="6" name="fk_status_1">

@@ -27,7 +27,7 @@ class HduScanner :
 
             dt = dict()
             dt['originOJ'] = 'HDU'
-            titles = ['realrunid','realsubmittime','result','originProb','runtime',
+            titles = ['realrunid','realsubmittime','status','originProb','runtime',
                       'runmemory','codelenth','language','nickname']
             for con in td[0].contents :
                 dt[titles[0]] = con.text

@@ -3,10 +3,12 @@ import os
 import pickle
 
 from Crawler.HduCrawler.HduScanner import HduScanner
+from tools.dbtools import getUpdateSQL
+from tools.dbcore import conn
 
 class MainScanner():
 
-    TF = '/tmp/PKL/'
+    TF = '/home/ckboss/Desktop/Development/PKL/'
 
     def Scanner(self):
 
@@ -33,7 +35,16 @@ class MainScanner():
                             continue
                         else :
                             print('here is ret :', ret)
+                            # update status
+                            clause = 'sid = {}'.format(S['sid'])
+                            sql = getUpdateSQL('status',ret,clause)
+                            print('update status sql: ',sql)
 
+                            cur = conn.cursor()
+                            cur.execute(sql)
+                            cur.close()
+
+                            #os.remove(self.TF+file)
 
     def CheckIt(self,s,d):
         flag = True
@@ -48,7 +59,7 @@ class MainScanner():
 
         ret = dict()
 
-        for x in ['result','runtime','runmemory','realrunid'] :
+        for x in ['status','runtime','runmemory','realrunid'] :
             ret[x] = d[x]
 
         return ret

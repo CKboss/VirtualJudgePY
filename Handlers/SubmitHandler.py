@@ -87,7 +87,7 @@ class SubmitHandler(BaseHandler):
         cur.execute(sql)
 
         ''' create a pkl file'''
-        file = '/tmp/PKL/sid_{}.pkl'
+        file = '/home/ckboss/Desktop/Development/PKL/sid_{}.pkl'
         cur.execute(LAST_INSERT_ID())
         sid = cur.fetchone()[0]
 
