@@ -5,19 +5,19 @@
 <form method="get" action="status">
     <strong>Problem ID:</strong>
     <input type="text" name="problem_id" size="8" value="">
-    <strong>User ID:</strong>
-    <input type="text" name="user_id" size="15" value="">
+    <strong>User Name:</strong>
+    <input type="text" name="user_name" size="15" value="">
     <strong>OJ:</strong>
     <select size="1" name="oj">
         <option value="" selected="">All</option>
-        <option value="0">HDU</option>
-        <option value="1">PKU</option>
-        <option value="2">ZOJ</option>
-        <option value="3">Codeforces</option>
-        <option value="4">BZOJ</option>
+        <option value="HDU">HDU</option>
+        <option value="PKU">PKU</option>
+        <option value="ZOJ">ZOJ</option>
+        <option value="Codeforces">Codeforces</option>
+        <option value="BZOJ">BZOJ</option>
     </select>
     <strong>Result:</strong>
-    <select size="1" name="result">
+    <select size="1" name="status">
         <option value="" selected="">All</option>
         <option value="0">Accepted</option>
         <option value="1">Presentation Error</option>
@@ -28,19 +28,21 @@
         <option value="6">Output Limit Exceeded</option>
         <option value="7">Compile Error</option>
         <option value="8">Other</option>
+        <option value="9">VJudge Error</option>
     </select>
     <strong>Language:</strong>
     <select size="1" name="language">
         <option value="" selected="">All</option>
-        <option value="0">G++</option>
-        <option value="1">GCC</option>
-        <option value="2">Java</option>
-        <option value="3">Pascal</option>
-        <option value="4">C++</option>
-        <option value="5">C</option>
-        <option value="6">Fortran</option>
-        <option value="7">Other</option>
+        <option value="G++">G++</option>
+        <option value="GCC">GCC</option>
+        <option value="Java">Java</option>
+        <option value="Pascal">Pascal</option>
+        <option value="C++">C++</option>
+        <option value="C">C</option>
+        <option value="Fortran">Fortran</option>
+        <option value="Other">Other</option>
     </select>
+    <input type="hidden" name="isSearch" value="isSearch">
     <input class="btn btn-outline" type="submit" width="18" value="Search">
 </form>
 
@@ -59,6 +61,11 @@
         <td width="17%">Submit Time</td>
     </tr>
 
+    {% for r in rs  %}
+        {% module StatusList(r) %}
+    {% end %}
+
+    <!--
     <tr align="center" bgcolor="#f0f8ff">
         <td>15100169</td>
         <td><a href="#">fake_fan</a></td>
@@ -82,6 +89,7 @@
         <td>1088B</td>
         <td>2016-01-23 21:12:32</td>
     </tr>
+    -->
 
     </tbody>
 </table>
@@ -89,16 +97,41 @@
 <table align="center">
     <tr>
         <td>
-            <button class="btn btn-sm btn-outline" type="button">Top</button>
+            <form action="/redirection" method="post">
+                {% raw xsrf_form_html() %}
+                <input type="hidden" name="msg" value="st_top">
+                <button class="btn btn-sm btn-outline" type="submit">Top</button>
+            </form>
         </td>
         <td width="50px"/>
         <td>
-            <button class="btn btn-sm btn-outline" type="button">Previous Page</button>
+            <form action="/redirection" method="post">
+                {% raw xsrf_form_html() %}
+                <input type="hidden" name="msg" value="st_prev">
+                <button class="btn btn-sm btn-outline" type="submit">Previous Page</button>
+            </form>
         </td>
         <td width="50px"/>
-        <td>
-            <button class="btn btn-sm btn-outline" type="button">Next Page</button>
-        </td>
+
+        {% try %}
+            {% set hasnext = hasNext %}
+        {% except NameError %}
+            {% set hasnext = True %}
+        {% end %}
+
+        {% if hasnext == True %}
+            <td>
+                <form action="/redirection" method="post">
+                    {% raw xsrf_form_html() %}
+                    <input type="hidden" name="msg" value="st_next">
+                    <button class="btn btn-sm btn-outline" type="submit">Next Page</button>
+                </form>
+            </td>
+        {% elif hasnext == False%}
+            <td>
+                <button class="btn btn-sm btn-outline disabled" type="submit">Next Page</button>
+            </td>
+        {% end %}
     </tr>
 </table>
 

@@ -19,6 +19,7 @@ from Handlers.SubmitHandler import SubmitHandler
 
 from UIModule.HeaderModule import TitleModule
 from UIModule.ProblemListModule import ProblemListModule
+from UIModule.StatusItemModule import StatusItemModule
 
 db = pymysql.connect(
    host='localhost',
@@ -61,6 +62,7 @@ class AppInit(tornado.web.Application) :
         UI_MODULES = dict(
             HeaderTitle = TitleModule,
             ProblemList = ProblemListModule,
+            StatusList = StatusItemModule,
         )
 
         tornado.web.Application.__init__(self, handlers,ui_modules=UI_MODULES, **settings)
