@@ -43,6 +43,7 @@ class StatusHandler(BaseHandler):
         d['status'] = status
         d['username'] = user_name
         d['originOJ'] = oj
+        d['cid'] = -1
 
         #print('isSearch:%s'%(isSearch))
         #print('oj:%s prob:%s username:%s status:%s language:%s'%(oj,problem_id,user_name,status,language))

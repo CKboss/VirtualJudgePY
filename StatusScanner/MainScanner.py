@@ -18,15 +18,17 @@ class MainScanner():
 
             L = self.FindAndUpdate()
 
+            '''
             for li in L :
                 print('--->' , li)
+            '''
 
             files = os.listdir(self.TF)
             for file in files :
                 if file.endswith('.pkl') :
 
                     S = pickle.load(open(self.TF+file,'rb'))
-                    print(S)
+                    #print('S:',S)
 
                     for x in L :
                         ret = self.CheckIt(S,x)
@@ -34,17 +36,39 @@ class MainScanner():
                         if ret is None :
                             continue
                         else :
-                            print('here is ret :', ret)
+                            #print('here is ret :', ret)
                             # update status
                             clause = 'sid = {}'.format(S['sid'])
                             sql = getUpdateSQL('status',ret,clause)
-                            print('update status sql: ',sql)
+                            #print('update status sql: ',sql)
+
+                            S['status'] = ret['status']
 
                             cur = conn.cursor()
                             cur.execute(sql)
                             cur.close()
 
                             #os.remove(self.TF+file)
+
+                    S['looplimit'] = S['looplimit']-1
+                    if S['looplimit'] >= -10 :
+                        pickle.dump(S,open(self.TF+file,'wb'))
+                    else :
+
+                        # Judge Error
+                        if S['status'] is None or S['status'] == 'Pending' :
+
+                            ret = dict()
+                            ret['status'] = 'Judge Error'
+                            clause = 'sid = {}'.format(S['sid'])
+                            sql =getUpdateSQL('status',ret,clause)
+
+                            cur = conn.cursor()
+                            cur.execute(sql)
+                            cur.close()
+
+                        os.remove(self.TF+file)
+
 
     def CheckIt(self,s,d):
         flag = True
