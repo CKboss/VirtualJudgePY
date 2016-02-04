@@ -16,7 +16,7 @@ class StatusItemModule(tornado.web.UIModule) :
             d['color'] = 'blue'
         d['runmemory'] = r[4]
         d['runtime'] = r[3]
-        d['codelength'] = r[5]
+        d['codelength'] = r[17]
         d['submittime'] = str(r[1])
         d['language'] = r[7]
 

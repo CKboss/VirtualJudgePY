@@ -2,6 +2,7 @@ import tornado.gen
 import tornado.web
 import time
 import pickle
+import random
 from tornado.concurrent import run_on_executor
 from concurrent.futures import ThreadPoolExecutor
 
@@ -59,10 +60,21 @@ class SubmitHandler(BaseHandler):
     @run_on_executor
     def SubmmitCollector(self,pid,oj,Prob,lang,code):
 
+        code = self.AddRandomSpace(code)
+
         self.AS.SubmmitSelector(oj=oj,prob=Prob,lang=lang,code=code)
 
         #Write Record into db
         self.InsertStatusToDB(pid=pid,oj=oj,Prob=Prob,lang=lang,code=code)
+
+    def AddRandomSpace(self,code):
+        # Add RandomSpace to avoid missjudge
+        s = 'From VirtualJudge.PY '
+        n = random.randint(1,50)
+        code += '\n/*\n'
+        for i in range(n) : code += s[i%21]
+        code += '\n*/'
+        return code
 
     def InsertStatusToDB(self,pid,oj,Prob,lang,code):
         data = dict()

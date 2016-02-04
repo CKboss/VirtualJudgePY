@@ -93,8 +93,11 @@ class MainScanner():
 
         L = list()
 
-        HduS = HduScanner()
-        L += HduS.Scanner()
+        try :
+            HduS = HduScanner()
+            L += HduS.Scanner()
+        except Exception :
+            print('In MainScanner: ',Exception)
 
         return L
         #HDU Scanner

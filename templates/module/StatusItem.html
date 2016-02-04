@@ -2,7 +2,7 @@
     <td>{{ d['sid'] }}</td>
     <td><a href="#">{{ d['username'] }}</a></td>
     <td><a href="#">{{ d['oj'] }}</a></td>
-    <td><a href="#">{{ d['prob'] }}</a></td>
+    <td><a href="/problem/{{ d['oj'] }}/{{ d['prob'] }}">{{ d['prob'] }}</a></td>
     <td><span style="color: {{ d['color'] }}; ">{{ d['status'] }}</span></td>
     <td>{{ d['runmemory'] }}</td>
     <td>{{ d['runtime'] }}</td>
