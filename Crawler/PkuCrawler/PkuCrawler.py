@@ -42,11 +42,6 @@ class PkuCrawler() :
 
     def getDetail(self,html):
 
-        #f = open('/tmp/f2.html','w')
-        #f.write(html)
-        f = open('/tmp/f2.html','r')
-        html = f.read()
-
         d = dict()
 
         soup = BeautifulSoup(html,'html5lib')
@@ -60,6 +55,7 @@ class PkuCrawler() :
 
         d['sampleinput'] = content[0]
         d['sampleoutput'] = content[1]
+        d['source'] = BeautifulSoup(str(d['source']),'html5lib').text
 
         ''' get limit info'''
 
@@ -88,7 +84,7 @@ def crawlerFromTo(u,v) :
 
     while q.empty() == False :
         pid = q.get()
-        time.sleep(0.5)
+        time.sleep(0.3)
         try :
             pc.CrawlerProblem(pid)
         except Exception :

@@ -1,0 +1,91 @@
+{% extends "main_struct.html" %}
+
+{% block content %}
+
+<div style="margin-left: 5%; margin-right: 5%" class="text-center">
+    <h1 style="color: #1A5CC8">Contest List</h1>
+
+
+
+    <table border="1" class="flex-table-item-primary" bordercolor="#FFFFFF" class="text-center">
+        <tbody>
+
+        <tr class="tbheader" style="background-color: #1A5CC8; color: #FFFFFF">
+            <td width="3%">ID</td>
+            <td width="42%">Contest Name</td>
+            <td width="15%">Start Time (GMT+8)</td>
+            <td width="15%">End Time (GMT+8)</td>
+            <td width="7%">Type</td>
+            <td width="8%">Status</td>
+            <td width="10%">Holder</td>
+        </tr>
+
+        <tr>
+            <td>10214</td>
+            <td align="left"><a href="contest_show.php?cid=10214">&nbsp;HHU ACM第九周 单调队列</a></td>
+            <td>2016-01-11 12:00:00</td>
+            <td>2016-01-18 12:00:00</td>
+            <td style="color:green;">Password</td>
+            <td class="csend ">Ended</td><td><a href="/userstatus.php?user=lwfsl">lwfsl</a></td>
+        </tr>
+
+        <tr>
+            <td>10214</td>
+            <td align="left"><a href="contest_show.php?cid=10214">&nbsp;HHU ACM第九周 单调队列</a></td>
+            <td>2016-01-11 12:00:00</td>
+            <td>2016-01-18 12:00:00</td>
+            <td style="color:green;">Password</td>
+            <td class="csend ">Ended</td><td><a href="/userstatus.php?user=lwfsl">lwfsl</a></td>
+        </tr>
+
+        </tbody>
+    </table>
+
+    <h2>
+        <a href="/createcontest"> Make a New Contest ! </a> | <a href="/managecontest">Manage Your Contest List !</a>
+    </h2>
+
+    <table align="center">
+        <tr>
+            <td>
+                <form action="/redirection" method="post">
+                    {% raw xsrf_form_html() %}
+                    <input type="hidden" name="msg" value="cl_top">
+                    <button class="btn btn-sm btn-outline" type="submit">Top</button>
+                </form>
+            </td>
+            <td width="50px"/>
+            <td>
+                <form action="/redirection" method="post">
+                    {% raw xsrf_form_html() %}
+                    <input type="hidden" name="msg" value="cl_prev">
+                    <button class="btn btn-sm btn-outline" type="submit">Previous Page</button>
+                </form>
+            </td>
+            <td width="50px"/>
+
+            {% try %}
+            {% set hasnext = hasNext %}
+            {% except NameError %}
+            {% set hasnext = True %}
+            {% end %}
+
+            {% if hasnext == True %}
+            <td>
+                <form action="/redirection" method="post">
+                    {% raw xsrf_form_html() %}
+                    <input type="hidden" name="msg" value="cl_next">
+                    <button class="btn btn-sm btn-outline" type="submit">Next Page</button>
+                </form>
+            </td>
+            {% elif hasnext == False%}
+            <td>
+                <button class="btn btn-sm btn-outline disabled" type="submit">Next Page</button>
+            </td>
+            {% end %}
+        </tr>
+    </table>
+
+</div>
+
+{% end %}

@@ -40,4 +40,4 @@ if __name__ == "__main__":
     thread_scanner = ScannerThread()
 
     thread_web.start()
-    thread_scanner.start()
+    #thread_scanner.start()

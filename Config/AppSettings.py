@@ -16,6 +16,8 @@ from Handlers.DebugHandler import DebugHandler
 from Handlers.ProblemListHandler import ProblemListHandler
 from Handlers.RedirectorHandler import RedirectorHandler
 from Handlers.SubmitHandler import SubmitHandler
+from Handlers.ContestListHandler import ContestListHandler
+from Handlers.CreateContestHandler import CreateContestHandler
 
 from UIModule.HeaderModule import TitleModule
 from UIModule.ProblemListModule import ProblemListModule
@@ -46,6 +48,8 @@ class AppInit(tornado.web.Application) :
             (r'/problemlist',ProblemListHandler),
             (r'/redirection',RedirectorHandler),
             (r'/submit\/{0,1}',SubmitHandler),
+            (r'/contestlist\/{0,1}',ContestListHandler),
+            (r'/createcontest\/{0,1}',CreateContestHandler),
         ]
 
         # Setting

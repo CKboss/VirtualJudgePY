@@ -59,6 +59,7 @@ def InsertProblem(problem) :
 
     pretreat_Problem(problem)
     sql = getInserSQL('problem',problem)
+
     cur = conn.cursor()
     cur.execute(sql)
     cur.close()
@@ -172,7 +173,7 @@ def test1() :
     print(time.strftime('%Y-%m-%d %H:%M:%S'))
 
 def main():
-    f = open('/tmp/HDOJ5001.pkl','rb')
+    f = open('/home/ckboss/Desktop/Development/testData/POJ/POJ_4050.pkl','rb')
     data = pickle.load(f)
     data['updatetime'] = time.strftime('%Y-%m-%d %H:%M:%S')
     InsertOrUpdateProblem(data)
