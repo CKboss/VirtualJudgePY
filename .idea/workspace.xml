@@ -2,21 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2de79d09-24b7-4478-a485-08d4b37a9915" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Handlers/ManageContestHandler.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/UIModule/ContestItemModule.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/managecontestlist.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/module/contestitem.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.ids" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/VirtualJudgePY.iml" afterPath="$PROJECT_DIR$/.idea/VirtualJudgePY.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/js/jquery-2.2.0.min.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Config/AppSettings.py" afterPath="$PROJECT_DIR$/Config/AppSettings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Handlers/CreateContestHandler.py" afterPath="$PROJECT_DIR$/Handlers/CreateContestHandler.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Handlers/DebugHandler.py" afterPath="$PROJECT_DIR$/Handlers/DebugHandler.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/contestlist.html" afterPath="$PROJECT_DIR$/templates/contestlist.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/createcontest.html" afterPath="$PROJECT_DIR$/templates/createcontest.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/webdebug.html" afterPath="$PROJECT_DIR$/templates/webdebug.html" />
     </list>
     <ignored path="VirtualJudgePY.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -953,7 +940,13 @@
       <option name="project" value="LOCAL" />
       <updated>1455895567432</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="新建contest">
+      <created>1455895658077</created>
+      <option name="number" value="00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1455895658077</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="ToolWindowManager">
