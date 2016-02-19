@@ -1,0 +1,58 @@
+{% extends "main_struct.html" %}
+
+{% block content %}
+
+<div style="margin-left: 5%; margin-right: 5%" class="text-center">
+    <h1 style="color: #1A5CC8">Your Web-DIY Contest List</h1>
+    <h5 style="color: #1A5CC8">Current Via User: {{ current_user }}</h5>
+
+    <table border="1" class="flex-table-item-primary" bordercolor="#FFFFFF" class="text-center">
+        <tbody>
+
+        <tr class="tbheader" style="background-color: #1A5CC8; color: #FFFFFF">
+            <td width="5%">ID</td>
+            <td width="41%">Contest Name</td>
+            <td width="15%">Start Time (GMT+8)</td>
+            <td width="14%">End Time (GMT+8)</td>
+            <td width="8%">Status</td>
+            <td width="17%">Operation</td>
+        </tr>
+
+
+
+        <tr >
+            <td>10288</td>
+            <td align="left"><a href="web_listproblem.php?cid=10288">testdiy</a></td>
+            <td>2016-02-25 12:00:00</td>
+            <td>2016-02-25 17:00:00</td>
+            <td class="cspend ">Pending</td>
+            <td><a href="web_makecontest.php?action=modify&amp;cid=10288">Modify</a> | <a onclick="javascript:return confirm(&quot;Are you sure to delete this contest?&quot;);" href="web_listcontest.php?action=delete&amp;cid=10288">Delete</a>
+            </td>
+        </tr>
+
+        <tr onmouseover="Highlight(this,1)" onmouseout="Highlight(this,0)">
+            <td>5091</td>
+            <td align="left"><a href="web_listproblem.php?cid=5091">★ZOJ狗狗题 part one★</a></td>
+            <td>2013-07-05 21:00:00</td>
+            <td>2013-07-31 02:00:00</td>
+            <td class="csend ">Ended</td>
+            <td><a href="web_makecontest.php?action=modify&amp;cid=5091">Modify</a> | <a onclick="javascript:return confirm(&quot;Are you sure to delete this contest?&quot;);" href="web_listcontest.php?action=delete&amp;cid=5091">Delete</a>
+            </td>
+        </tr>
+
+        <tr onmouseover="Highlight(this,1)" onmouseout="Highlight(this,0)">
+            <td>5092</td>
+            <td align="left"><a href="web_listproblem.php?cid=5092">★ZOJ狗狗题 part two★</a></td>
+            <td>2013-07-05 21:00:00</td>
+            <td>2013-07-31 02:00:00</td>
+            <td class="csend ">Ended</td>
+            <td><a href="web_makecontest.php?action=modify&amp;cid=5092">Modify</a> | <a onclick="javascript:return confirm(&quot;Are you sure to delete this contest?&quot;);" href="web_listcontest.php?action=delete&amp;cid=5092">Delete</a>
+            </td>
+        </tr>
+
+        </tbody></table>
+
+    <h2><a href="/createcontest" class="hot">Make a New Web-DIY Contest ! </a> | <a href="/contestlist" class="hot">All Web-DIY Contest List</a></h2>
+</div>
+
+{% end %}

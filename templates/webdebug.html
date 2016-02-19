@@ -2,36 +2,55 @@
 
 {% block content %}
 
-<div style="margin-left: 10%; margin-right: 10%">
+<div style="margin-left: 5%; margin-right: 5%" class="text-center">
+    <h1 style="color: #1A5CC8">Your Web-DIY Contest List</h1>
+    <h5 style="color: #1A5CC8">Current Via User: {{ current_user }}</h5>
 
-<h1>Make a New Contest</h1>
-<h4>Current Via User : {{ current_user }}</h4>
+<table border="1" class="flex-table-item-primary" bordercolor="#FFFFFF" class="text-center">
+<tbody>
 
+<tr class="tbheader" style="background-color: #1A5CC8; color: #FFFFFF">
+    <td width="5%">ID</td>
+    <td width="41%">Contest Name</td>
+    <td width="15%">Start Time (GMT+8)</td>
+    <td width="14%">End Time (GMT+8)</td>
+    <td width="8%">Status</td>
+    <td width="17%">Operation</td>
+</tr>
 
-<form id="mkcon" action="web_makecontest.php?action=make&amp" method="post">
+<tr >
+    <td>10288</td>
+    <td align="left"><a href="web_listproblem.php?cid=10288">testdiy</a></td>
+    <td>2016-02-25 12:00:00</td>
+    <td>2016-02-25 17:00:00</td>
+    <td class="cspend ">Pending</td>
+    <td><a href="web_makecontest.php?action=modify&amp;cid=10288">Modify</a> | <a onclick="javascript:return confirm(&quot;Are you sure to delete this contest?&quot;);" href="web_listcontest.php?action=delete&amp;cid=10288">Delete</a>
+    </td>
+</tr>
 
-<p>Contest Name: <input type="text" name="contestname" id="webconname" value=""></p>
+<tr onmouseover="Highlight(this,1)" onmouseout="Highlight(this,0)">
+    <td>5091</td>
+    <td align="left"><a href="web_listproblem.php?cid=5091">★ZOJ狗狗题 part one★</a></td>
+    <td>2013-07-05 21:00:00</td>
+    <td>2013-07-31 02:00:00</td>
+    <td class="csend ">Ended</td>
+    <td><a href="web_makecontest.php?action=modify&amp;cid=5091">Modify</a> | <a onclick="javascript:return confirm(&quot;Are you sure to delete this contest?&quot;);" href="web_listcontest.php?action=delete&amp;cid=5091">Delete</a>
+    </td>
+</tr>
 
-<p class="timeinfo">Start Time:<input name="syear" title="Year" type="text" id="webyear" value="2016"> YYYY
-<input name="smonth" title="Month" type="text" value="2"> MM
-<input name="sday" title="Day" type="text" value="15"> DD
-<input title="Hour" name="shour" type="text" value="11"> HH
-<input title="Minute" name="sminute" type="text" value="0"> MM
-<input name="ssecond" type="hidden" value="0"></p>
+<tr onmouseover="Highlight(this,1)" onmouseout="Highlight(this,0)">
+    <td>5092</td>
+    <td align="left"><a href="web_listproblem.php?cid=5092">★ZOJ狗狗题 part two★</a></td>
+    <td>2013-07-05 21:00:00</td>
+    <td>2013-07-31 02:00:00</td>
+    <td class="csend ">Ended</td>
+    <td><a href="web_makecontest.php?action=modify&amp;cid=5092">Modify</a> | <a onclick="javascript:return confirm(&quot;Are you sure to delete this contest?&quot;);" href="web_listcontest.php?action=delete&amp;cid=5092">Delete</a>
+    </td>
+</tr>
 
-<p class="timeinfo">Lasting Time:<input title="Day" name="lday" type="text" id="weblday" value="0"> DD <input name="lhour" title="Hour" type="text" value="5"> HH <input title="Minute" name="lminute" type="text" value="0"> MM <input name="lsecond" type="hidden" value="0"></p>
+</tbody></table>
 
-<p class="timeinfo">Contest Type:<span><input name="contesttype" id="contesttype" type="radio" value="0" onclick="PassDisplay()"><span style="color:red;border:none">Public</span>&nbsp;</span> &nbsp;&nbsp;&nbsp;&nbsp;<span><input name="contesttype" id="contesttype1" type="radio" value="1" onclick="PassDisplay()"><span style="color:green;border:none">Password</span>&nbsp;</span>&nbsp;&nbsp;&nbsp;
-
-</p><p id="passp">Password: <input type="text" value="" id="password" name="password" ></p>
-
-<span id="passp">Hide Problem &nbsp;&nbsp;<input type="checkbox" id="hide" name="hide" value="1"></span><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Allow Copy&nbsp;&nbsp;<input type="checkbox" name="allowcopy" id="allowcopy" value="1"></span><p></p>
-
-<p align="center">
-    <input value="Submit" class="btn-outline" type="submit">&nbsp;&nbsp;<input class="btn-outline" value="Reset" type="reset">
-</p>
-
-</form>
+<h2><a href="/createcontest" class="hot">Make a New Web-DIY Contest ! </a> | <a href="/contestlist" class="hot">All Web-DIY Contest List</a></h2>
 </div>
 
 {% end %}

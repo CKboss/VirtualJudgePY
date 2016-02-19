@@ -8,15 +8,17 @@
 <h4>Current Via User : {{ current_user }}</h4>
 
 
-<form id="mkcon" action="web_makecontest.php?action=make&amp" method="post">
+<form id="mkcon" action="/createcontest" method="post">
 
-<p>Contest Name: <input type="text" name="contestname" id="webconname" value=""></p>
+{% raw xsrf_form_html() %}
 
-<p class="timeinfo">Start Time:<input name="syear" title="Year" type="text" id="webyear" value="2016"> YYYY
-<input name="smonth" title="Month" type="text" value="2"> MM
-<input name="sday" title="Day" type="text" value="15"> DD
-<input title="Hour" name="shour" type="text" value="11"> HH
-<input title="Minute" name="sminute" type="text" value="0"> MM
+<p>Contest Name: <input type="text" name="contestname" id="webconname" value=""/></p>
+<p>Discription: <input type="text" name="cdescription" value=""/> </p>
+<p class="timeinfo">Start Time:<input name="syear" title="Year" type="text" id="webyear" value="{{ year }}"> YYYY
+<input name="smonth" title="Month" type="text" value="{{ month }}"> MM
+<input name="sday" title="Day" type="text" value="{{ day }}"> DD
+<input title="Hour" name="shour" type="text" value="{{ hour }}"> HH
+<input title="Minute" name="sminute" type="text" value="{{ minute }}"> MM
 <input name="ssecond" type="hidden" value="0"></p>
 
 <p class="timeinfo">Lasting Time:<input title="Day" name="lday" type="text" id="weblday" value="0"> DD <input name="lhour" title="Hour" type="text" value="5"> HH <input title="Minute" name="lminute" type="text" value="0"> MM <input name="lsecond" type="hidden" value="0"></p>

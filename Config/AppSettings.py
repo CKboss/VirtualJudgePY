@@ -18,10 +18,13 @@ from Handlers.RedirectorHandler import RedirectorHandler
 from Handlers.SubmitHandler import SubmitHandler
 from Handlers.ContestListHandler import ContestListHandler
 from Handlers.CreateContestHandler import CreateContestHandler
+from Handlers.ManageContestHandler import ManageContestHandler
+from Handlers.ManageContestListHandler import ManageContestListHandler
 
 from UIModule.HeaderModule import TitleModule
 from UIModule.ProblemListModule import ProblemListModule
 from UIModule.StatusItemModule import StatusItemModule
+from UIModule.ContestItemModule import ContestItemModule
 
 db = pymysql.connect(
    host='localhost',
@@ -50,6 +53,8 @@ class AppInit(tornado.web.Application) :
             (r'/submit\/{0,1}',SubmitHandler),
             (r'/contestlist\/{0,1}',ContestListHandler),
             (r'/createcontest\/{0,1}',CreateContestHandler),
+            (r'/managecontestlist\/{0,1}',ManageContestListHandler),
+            (r'/managecontest\/{0,1}',ManageContestHandler),
         ]
 
         # Setting
@@ -67,6 +72,7 @@ class AppInit(tornado.web.Application) :
             HeaderTitle = TitleModule,
             ProblemList = ProblemListModule,
             StatusList = StatusItemModule,
+            ContestList = ContestItemModule,
         )
 
         tornado.web.Application.__init__(self, handlers,ui_modules=UI_MODULES, **settings)
