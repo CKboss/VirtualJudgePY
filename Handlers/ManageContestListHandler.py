@@ -1,7 +1,20 @@
+import tornado.web
+import tornado.gen
+
+from tornado.concurrent import run_on_executor
+from concurrent.futures import ThreadPoolExecutor
+
+from tools.dbtools import getPageLimitSQL
+from tools.dbcore import conn
+
 from Handlers.BaseHandler import BaseHandler
 
 class ManageContestListHandler(BaseHandler) :
 
+    executor = ThreadPoolExecutor(20)
+
+    @tornado.web.asynchronous
+    @tornado.gen.engine
     def get(self, *args, **kwargs):
 
         self.get_current_user()
@@ -10,4 +23,25 @@ class ManageContestListHandler(BaseHandler) :
             self.write('please log in first !!')
             return
 
-        self.render('managecontestlist.html')
+        uid = self.get_secure_cookie('uid').decode()
+
+        rs = yield self.getContests(uid)
+
+        self.render('managecontestlist.html',rs=rs)
+
+    @run_on_executor
+    def getContests(self,uid):
+
+        whereclause = ' cuid = {}'.format(uid)
+        ordclause = ' cid desc '
+
+        sql = getPageLimitSQL('contest',whereclause,ordclause,0,100000)
+
+        cur = conn.cursor()
+        cur.execute(sql)
+        cur.close()
+
+        rs = cur.fetchall()
+
+        return rs
+

@@ -1,0 +1,120 @@
+{% extends "main_struct.html" %}
+
+{% block content %}
+
+<div style="margin-left: 10%; margin-right: 10%">
+
+    <h1>Manager Contest</h1>
+    <h4>Current Via User : {{ current_user }}</h4>
+
+
+    <form id="mkcon" action="/gaoit" method="post">
+
+        {% raw xsrf_form_html() %}
+
+        <p>Contest Name: <input type="text" name="contestname" id="webconname" value="{{ ctitle }}"/></p>
+        <p>Discription: <input type="text" name="cdescription" value="{{ cdescription }}"/> </p>
+        <p class="timeinfo">Start Time:<input name="syear" title="Year" type="text" id="webyear" value="{{ year }}"> YYYY
+            <input name="smonth" title="Month" type="text" value="{{ month }}"> MM
+            <input name="sday" title="Day" type="text" value="{{ day }}"> DD
+            <input title="Hour" name="shour" type="text" value="{{ hour }}"> HH
+            <input title="Minute" name="sminute" type="text" value="{{ minute }}"> MM
+            <input name="ssecond" type="hidden" value="0"></p>
+
+        <p class="timeinfo">Lasting Time:<input title="Day" name="lday" type="text" id="weblday" value="{{ lday }}"> DD <input name="lhour" title="Hour" type="text" value="{{ lhour }}"> HH <input title="Minute" name="lminute" type="text" value="{{ lminute }}"> MM <input name="lsecond" type="hidden" value="0"></p>
+
+        <p class="timeinfo">Contest Type:<span><input name="contesttype" id="contesttype" type="radio" value="0" {{ check1 }}><span style="color:red;border:none">Public</span>&nbsp;</span> &nbsp;&nbsp;&nbsp;&nbsp;<span><input name="contesttype" id="contesttype1" type="radio" value="1" {{ check2 }}><span style="color:green;border:none">Password</span>&nbsp;</span>&nbsp;&nbsp;&nbsp;
+
+        </p><p id="passp">Password: <input type="text" value="{{ password }}" id="password" name="password" ></p>
+
+        <span id="passp">Hide Problem &nbsp;&nbsp;<input type="checkbox" id="hide" name="hide" value="1"></span><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Allow Copy&nbsp;&nbsp;<input type="checkbox" name="allowcopy" id="allowcopy" value="1"></span><p></p>
+
+
+        <p align="center">
+            <input value="Update" class="btn-outline" type="submit">&nbsp;&nbsp;<input class="btn-outline" value="Delete" type="reset">
+        </p>
+
+    </form>
+
+    <h2>Choose Problem:</h2>
+    <hr>
+
+
+    <table id="pD" border="1" class="flex-table-item-primary" bordercolor="#FFFFFF" class="text-center">
+        <tbody>
+
+        <tr class="text-center" style="background-color: #1A5CC8; color: #FFFFFF">
+            <td width="5%">Del</td>
+            <td width="20%">OJ</td>
+            <td width="30%">Pid</td>
+            <td width="45%">Title</td>
+        </tr>
+
+        <tr>
+            <td>
+                DEL
+            </td>
+            <td>POJ</td>
+            <td>1001</td>
+            <td>Hello world</td>
+        </tr>
+
+        <tr>
+            <td>
+                DEL
+            </td>
+            <td>HDOJ</td>
+            <td>1001</td>
+            <td>Hello</td>
+        </tr>
+
+        <tr>
+            <td>
+                DEL
+            </td>
+            <td>ZOJ</td>
+            <td>1001</td>
+            <td>Hello</td>
+        </tr>
+
+        </tbody>
+    </table>
+
+    <button class="btn-outline" id="tablesubmit">UpdateProblem</button>
+
+    <form id="tableform" action="webdebug.html" method="post">
+        <input id="tabledata" type="hidden" value=""/>
+    </form>
+
+    <script type="text/javascript">
+
+        var btn = document.getElementById("tablesubmit");
+        var table = document.getElementById("pD");
+        var collect = document.getElementById("tabledata");
+        var myform = document.getElementById("tableform");
+
+        btn.onclick = function() {
+
+            var dataArray = [];
+
+            for(var i=1;i<table.rows.length;i++){
+                var data = new Object();
+                data.OJ= table.rows[i].childNodes[1].innerHTML;
+                data.Pid = table.rows[i].childNodes[2].innerHTML;
+                dataArray.push(JSON.stringify(data));
+            }
+
+
+            collect.value = dataArray.toString();
+
+            alert(collect.value);
+
+            myform.submit();
+        }
+
+    </script>
+
+</div>
+
+
+{% end %}

@@ -51,6 +51,14 @@ def getPageLimitSQL(tablename,whereclause,ordclause,n,m) :
 def LAST_INSERT_ID():
     return 'SELECT LAST_INSERT_ID()'
 
+
+
+def getQuerySQL(tablename,whereclause,ordclause) :
+    sql = 'SELECT * FROM {} WHERE ( {} ) ORDER BY {}'\
+        .format(tablename,whereclause,ordclause)
+    return sql
+
+
 if __name__=='__main__' :
     data = dict(
         arg1='a1',
