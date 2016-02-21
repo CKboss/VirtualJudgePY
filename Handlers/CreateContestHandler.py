@@ -39,9 +39,11 @@ class CreateContestHandler(BaseHandler):
 
         if self.check_args(d) == False :
             self.write('create fail some arguments miss')
+            self.finish()
+            return
 
         uid = self.get_secure_cookie('uid').decode()
-        data = self.addNewContest(uid,d)
+        data = self.getContestData(uid,d)
 
         if 'error' in data :
             self.write(data['error'])
@@ -60,10 +62,12 @@ class CreateContestHandler(BaseHandler):
         for x in L :
             if x not in d : continue
             if len(d[x]) == 0 :
+                if x=='password' and d['constesttype'] == '0':
+                    continue
                 return False
         return True
 
-    def addNewContest(self,uid,d):
+    def getContestData(self,uid,d):
 
         data = dict()
         data['cuid'] = uid

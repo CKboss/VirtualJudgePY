@@ -8,12 +8,12 @@
     <h4>Current Via User : {{ current_user }}</h4>
 
 
-    <form id="mkcon" action="/gaoit" method="post">
+    <form id="mkcon" action="/managecontest" method="post">
 
         {% raw xsrf_form_html() %}
 
         <p>Contest Name: <input type="text" name="contestname" id="webconname" value="{{ ctitle }}"/></p>
-        <p>Discription: <input type="text" name="cdescription" value="{{ cdescription }}"/> </p>
+        <p>Discription: <input type="text" class="input-block" name="cdescription" value="{{ cdescription }}"/> </p>
         <p class="timeinfo">Start Time:<input name="syear" title="Year" type="text" id="webyear" value="{{ year }}"> YYYY
             <input name="smonth" title="Month" type="text" value="{{ month }}"> MM
             <input name="sday" title="Day" type="text" value="{{ day }}"> DD
@@ -29,14 +29,15 @@
 
         <span id="passp">Hide Problem &nbsp;&nbsp;<input type="checkbox" id="hide" name="hide" value="1"></span><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Allow Copy&nbsp;&nbsp;<input type="checkbox" name="allowcopy" id="allowcopy" value="1"></span><p></p>
 
-
+        <input type="hidden" name="cid" value="{{ cid }}">
+        <input type="hidden" name="action" value="updatedetail">
         <p align="center">
             <input value="Update" class="btn-outline" type="submit">&nbsp;&nbsp;<input class="btn-outline" value="Delete" type="reset">
         </p>
 
     </form>
 
-    <h2>Choose Problem:</h2>
+    <h2>Problem List:</h2>
     <hr>
 
 
@@ -44,75 +45,64 @@
         <tbody>
 
         <tr class="text-center" style="background-color: #1A5CC8; color: #FFFFFF">
-            <td width="5%">Del</td>
+            <td width="5%">EMP</td>
             <td width="20%">OJ</td>
             <td width="30%">Pid</td>
             <td width="45%">Title</td>
         </tr>
 
+        {% for x in problemlist %}
+            <tr class="text-center">
+                <td></td>
+                <td>{{ x[4] }}</td>
+                <td>{{ x[5] }}</td>
+                <td><a href="/problem/{{ x[4] }}/{{ x[5] }}">{{ x[3] }}</a></td>
+            </tr>
+        {% end %}
+
+        <!--
         <tr>
-            <td>
-                DEL
-            </td>
+            <td>DEL</td>
             <td>POJ</td>
             <td>1001</td>
             <td>Hello world</td>
         </tr>
+        -->
 
-        <tr>
-            <td>
-                DEL
-            </td>
-            <td>HDOJ</td>
-            <td>1001</td>
-            <td>Hello</td>
-        </tr>
-
-        <tr>
-            <td>
-                DEL
-            </td>
-            <td>ZOJ</td>
-            <td>1001</td>
-            <td>Hello</td>
-        </tr>
 
         </tbody>
     </table>
 
-    <button class="btn-outline" id="tablesubmit">UpdateProblem</button>
+    <hr>
+    <br>
 
-    <form id="tableform" action="webdebug.html" method="post">
-        <input id="tabledata" type="hidden" value=""/>
+    <h3>Edit Problem: </h3>
+    <h4>Format: 每行一个, OJ+一个空格+PID 如:</h4>
+    <p>
+        PKU 1002
+        <br>
+        HDU 5002
+        <br>
+        PKU 3002
+    </p>
+
+    目前支持的OJ有: PKU HDU
+    <br>
+    <hr>
+
+    <form method="post" action="/managecontest">
+
+        {% raw xsrf_form_html() %}
+
+        <textarea name="problemlist" style="width: 667px; height: 373px; background-color: #F4FBFF; font-family: Consolas,  Menlo, Courier, monospace">{{ problemlisttxt }}</textarea>
+
+        <br> <br>
+        <input type="hidden" name="action" value="updateproblem">
+        <input type="hidden" name="cid" value="{{ cid }}">
+        <input type="submit" class="btn-outline" value="UpdateProblem">
+
     </form>
 
-    <script type="text/javascript">
-
-        var btn = document.getElementById("tablesubmit");
-        var table = document.getElementById("pD");
-        var collect = document.getElementById("tabledata");
-        var myform = document.getElementById("tableform");
-
-        btn.onclick = function() {
-
-            var dataArray = [];
-
-            for(var i=1;i<table.rows.length;i++){
-                var data = new Object();
-                data.OJ= table.rows[i].childNodes[1].innerHTML;
-                data.Pid = table.rows[i].childNodes[2].innerHTML;
-                dataArray.push(JSON.stringify(data));
-            }
-
-
-            collect.value = dataArray.toString();
-
-            alert(collect.value);
-
-            myform.submit();
-        }
-
-    </script>
 
 </div>
 

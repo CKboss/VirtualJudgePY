@@ -7,7 +7,8 @@ from concurrent.futures import ThreadPoolExecutor
 from Handlers.BaseHandler import BaseHandler
 
 from tools.dbcore import conn
-from tools.dbtools import getQuerySQL
+from tools.dbtools import getQueryDetailSQL,getDeletSQL,getInserSQL,getQuerySQL,getUpdateSQL
+
 import datetime
 
 
@@ -57,20 +58,147 @@ class ManageContestHandler(BaseHandler) :
             ctitle = rs[1]
             cdescription = rs[2]
 
+            problemlist = yield self.getContestProblem(cid)
+            problemlisttxt = self.getProblemTxt(problemlist)
 
             self.render('contestdetail.html',
+                        cid=cid,
                         check1=check1,check2=check2,
-                        ctitle=ctitle,cdescription=contesttype,
+                        ctitle=ctitle,cdescription=cdescription,
                         year=d1.year,month=d1.month,day=d1.day,hour=d1.hour,minute=d1.hour,
-                        lday=lday,lhour=lhh,lminute=lmm,lsecond=lss,password=password)
+                        lday=lday,lhour=lhh,lminute=lmm,lsecond=lss,password=password,
+                        problemlist=problemlist,problemlisttxt=problemlisttxt
+                        )
 
 
         elif action == 'delete' :
             pass
 
 
+    @tornado.web.asynchronous
+    @tornado.gen.engine
     def post(self):
-        pass
+
+        action = self.get_argument('action',None)
+
+        if action is None :
+            self.write('Error Manage Operation!!')
+            self.finish()
+            return
+
+        if action == 'updateproblem' :
+
+            cid = self.get_argument('cid',None)
+            txt = self.get_argument('problemlist',None)
+            problemlist = self.getProblem(txt)
+            log = yield  self.UpdateProblem(cid,problemlist)
+            self.write(log)
+            self.finish()
+            return
+
+        elif action == 'updatedetail' :
+
+            d = self.request.arguments
+            for x in d : d[x] = d[x][0].decode()
+            cid = d['cid']
+
+            if self.check_args(d) == False :
+                self.write('create fail some arguments miss')
+                self.finish()
+                return
+
+            uid = self.get_secure_cookie('uid').decode()
+            data = self.getContestData(uid,d)
+
+            if 'error' in data :
+                self.write(data['error'])
+                self.finish()
+                return
+
+            yield self.updateContestDetail(cid,data)
+
+            self.write('Update Success')
+            self.finish()
+            return
+
+    def check_args(self,d):
+        L = ['contestname','syear','smonth','sday','shour',
+             'sminute','ssecond','lday','lhour','lminute',
+             'lsecond','contesttype','password','hide']
+        for x in L :
+            if x not in d : continue
+            if len(d[x]) == 0 :
+                if x=='password' and d['contesttype'] == '0' :
+                    continue
+                return False
+        return True
+
+    def getContestData(self,uid,d):
+
+        data = dict()
+        data['cuid'] = uid
+        data['ctitle'] = d['contestname']
+
+        if 'contesttype' not in d or len(d['contesttype']) == 0:
+            data['ispublic'] = "0"
+
+        data['ispublic'] = d['contesttype']
+
+        print(data['ispublic'])
+        if data['ispublic'] == "1" :
+            data['password'] = d['password']
+
+        data['cdescription'] = d['cdescription']
+
+        d1 = datetime.datetime(int(d['syear']),int(d['smonth']),int(d['sday']),int(d['shour']),int(d['sminute']))
+        dt = datetime.timedelta(days=int(d['lday']),hours=int(d['lhour']),minutes=int(d['lminute']));
+
+        now = datetime.datetime.now()
+
+        if (d1-now).total_seconds() < 0 :
+            data['error'] = 'wrong begin time'
+        if dt.total_seconds() > 2700000 :
+            data['error'] = 'to long'
+
+        d2 = d1 + dt
+
+        data['begintime'] = str(d1)
+        data['endtime'] = str(d2)
+        data['cstatus'] = 0
+
+        return data
+
+    @run_on_executor
+    def updateContestDetail(self,cid,data):
+
+        wherecluse = ' cid = {} '.format(cid)
+        sql = getUpdateSQL('contest',data,wherecluse)
+
+        print(sql)
+
+        cur = conn.cursor()
+        cur.execute(sql)
+        cur.close()
+
+    def getProblem(self,txt):
+
+        Li = txt.split('\r\n')
+        data = list()
+        for item in Li :
+            di = dict()
+            ii = item.split(' ')
+            if len(ii) == 2 :
+                di['originOJ'] = ii[0]
+                di['originProb'] = ii[1]
+                data.append(di)
+
+        return data
+
+    def getProblemTxt(self,list):
+        ret = ''
+        for x in list :
+            ret += x[4]+' '+x[5]+'\n'
+        return ret
 
 
     @run_on_executor
@@ -85,3 +213,69 @@ class ManageContestHandler(BaseHandler) :
         cur.close()
 
         return rs
+
+    @run_on_executor
+    def getContestProblem(self,cid):
+
+        whereclause = ' cid = {} '.format(cid)
+        sql = getQuerySQL('cproblem',whereclause,' cpid ')
+
+        cur = conn.cursor()
+        cur.execute(sql)
+        rs = cur.fetchall()
+        cur.close()
+
+        return rs
+
+    @run_on_executor
+    def UpdateProblem(self,cid,data):
+
+        #clear old problem in contest
+
+        whereclause = ' cid = {} '.format(cid)
+        sql = getDeletSQL('cproblem',whereclause)
+
+        cur = conn.cursor()
+        cur.execute(sql)
+
+        log = ''
+
+        for item in data :
+
+            #get pid
+            whereclause = ' originOJ = "{originOJ}" and originProb = "{originProb}" '.format(**item)
+            sql = getQueryDetailSQL('problem','*',whereclause,' pid ')
+            num = cur.execute(sql)
+
+            if num == 0 :
+                log += 'Error when add Problem OJ: {originOJ} Pid: {originProb}<br>'.format(**item)
+                log += '\n'
+            else :
+
+                rs = cur.fetchone()
+                pid = rs[0]
+                title = rs[1]
+                originOJ = rs[4]
+                originProb = rs[5]
+
+                #insert into cproblem
+
+                data = dict()
+                data['cid'] = cid
+                data['pid'] = pid
+                data['title'] = title
+                data['originOJ'] = originOJ
+                data['originProb'] = originProb
+
+                sql = getInserSQL('cproblem',data)
+                cur.execute(sql)
+
+        cur.close()
+        if len(log) == 0 :
+            log += 'All problem add into contest {} successfully. <br>'.format(cid)
+        else :
+            log += 'some error happend.<br> May be some problem can\'t find this problem in database...<br>'
+
+        return log
+
+

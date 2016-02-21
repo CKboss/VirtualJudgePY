@@ -51,11 +51,28 @@ def getPageLimitSQL(tablename,whereclause,ordclause,n,m) :
 def LAST_INSERT_ID():
     return 'SELECT LAST_INSERT_ID()'
 
+def getDeletSQL(tablename,whereclause):
+
+    sql = 'DELETE FROM {} WHERE ( {} )'.format(tablename,whereclause)
+    return sql
 
 
 def getQuerySQL(tablename,whereclause,ordclause) :
-    sql = 'SELECT * FROM {} WHERE ( {} ) ORDER BY {}'\
+    sql = 'SELECT * FROM {} WHERE ( {} ) ORDER BY ( {} )'\
         .format(tablename,whereclause,ordclause)
+    return sql
+
+def getQueryDetailSQL(tablename,selectitem,whereclause,ordclause) :
+
+    detail = ''
+    if isinstance(selectitem,list) == True:
+        for x in selectitem[:-1] : detail += x + ','
+        detail += selectitem[-1]
+    else :
+        detail = selectitem
+
+    sql = 'SELECT {} FROM {} WHERE ( {} ) ORDER BY ( {} )'\
+        .format(detail,tablename,whereclause,ordclause)
     return sql
 
 
