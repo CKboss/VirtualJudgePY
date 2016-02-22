@@ -13,78 +13,79 @@ class ContestScanner():
     RunningContestFile = RunningContestFile
     EndedContestFile = EndedContestFile
 
+    def mainloop(self):
+
+        while True :
+
+            self.PendingScanner()
+            self.RunningScanner()
+
+            time.sleep(20)
+
     def PendingScanner(self):
 
-        while True:
+        files = os.listdir(self.PendingContestFile)
 
-            files = os.listdir(self.PendingContestFile)
+        for file in files:
 
-            for file in files:
+            filepath = self.PendingContestFile+'/'+file
 
-                filepath = self.PendingContestFile+'/'+file
+            if file.endswith('.pkl'):
 
-                if file.endswith('.pkl'):
+                cdata = self.PklToData(self.PendingContestFile+file)
 
-                    cdata = self.PklToData(self.PendingContestFile+file)
+                begintime = datetime.datetime.strptime(cdata['begintime'],'%Y-%m-%d %H:%M:%S')
+                now = datetime.datetime.now()
 
-                    begintime = datetime.datetime.strptime(cdata['begintime'],'%Y-%m-%d %H:%M:%S')
-                    now = datetime.datetime.now()
+                dt = begintime - now
 
-                    dt = begintime - now
+                if dt.total_seconds() < 0 :
 
-                    if dt.total_seconds() < 0 :
+                    os.remove(filepath)
 
-                        os.remove(filepath)
+                    cdata['cstatus'] = 1
+                    file = open(self.RunningContestFile+file,'wb')
+                    pickle.dump(cdata,file)
 
-                        cdata['cstatus'] = 1
-                        file = open(self.RunningContestFile+file,'wb')
-                        pickle.dump(cdata,file)
+                    # upd database
+                    cid = cdata['cid']
+                    self.UpdateDatabaseContestStatus(cid,1)
 
-                        # upd database
-                        cid = cdata['cid']
-                        self.UpdateDatabaseContestStatus(cid,1)
+                else :
+                    continue
 
-                    else :
-                        continue
-
-
-            time.sleep(30)
 
 
     def RunningScanner(self):
 
-        while True:
+        files = os.listdir(self.RunningContestFile)
 
-            files = os.listdir(self.RunningContestFile)
+        for file in files :
 
-            for file in files :
+            filepath = self.RunningContestFile+file
 
-                filepath = self.RunningContestFile+file
+            if file.endswith('.pkl') :
+                cdata = self.PklToData(self.RunningContestFile+file)
 
-                if file.endswith('.pkl') :
-                    cdata = self.PklToData(self.RunningContestFile+file)
+                endtime = datetime.datetime.strptime(cdata['endtime'],'%Y-%m-%d %H:%M:%S')
+                now = datetime.datetime.now()
 
-                    endtime = datetime.datetime.strptime(cdata['endtime'],'%Y-%m-%d %H:%M:%S')
-                    now = datetime.datetime.now()
+                dt = endtime - now
 
-                    dt = endtime - now
+                if dt.total_seconds() < 0 :
 
-                    if dt.total_seconds() < 0 :
+                    os.remove(filepath)
 
-                        os.remove(filepath)
+                    cdata['cstatus'] = 2
+                    file = open(self.EndedContestFile+file,'wb')
+                    pickle.dump(cdata,file)
 
-                        cdata['cstatus'] = 2
-                        file = open(self.EndedContestFile+file,'wb')
-                        pickle.dump(cdata,file)
+                    # upd database
+                    cid = cdata['cid']
+                    self.UpdateDatabaseContestStatus(cid,2)
 
-                        # upd database
-                        cid = cdata['cid']
-                        self.UpdateDatabaseContestStatus(cid,2)
-
-                    else :
-                        continue
-
-            time.sleep(30)
+                else :
+                    continue
 
 
     def PklToData(self,file):
@@ -108,8 +109,7 @@ class ContestScanner():
 
 def main():
     CS = ContestScanner()
-    #CS.PendingScanner()
-    CS.RunningScanner()
+    CS.mainloop()
 
 if __name__=='__main__':
     main()

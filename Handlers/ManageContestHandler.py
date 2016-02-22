@@ -293,6 +293,7 @@ class ManageContestHandler(BaseHandler) :
                 cur.execute(sql)
 
         cur.close()
+
         if len(log) == 0 :
             log += 'All problem add into contest {} successfully. <br>'.format(cid)
         else :

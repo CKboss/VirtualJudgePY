@@ -3,6 +3,7 @@ import tornado.ioloop
 
 from Config.AppSettings import options,AppInit
 from StatusScanner.MainScanner import MainScanner
+from ContestScanner.ContestScanner import ContestScanner
 
 import threading
 
@@ -33,11 +34,25 @@ class ScannerThread(threading.Thread) :
         ms = MainScanner()
         ms.Scanner()
 
+class ContestScannerThread(threading.Thread) :
+
+    def __init__(self):
+        threading.Thread.__init__(self)
+
+    def run(self):
+        self.ContestScanner()
+
+    def ContestScanner(self):
+
+        cs = ContestScanner()
+        cs.mainloop()
 
 if __name__ == "__main__":
 
     thread_web = WebThread()
     thread_scanner = ScannerThread()
+    thread_contestscanner = ContestScannerThread()
 
     thread_web.start()
+    thread_contestscanner.start()
     #thread_scanner.start()

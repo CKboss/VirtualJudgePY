@@ -20,23 +20,34 @@
             <td width="10%">Holder</td>
         </tr>
 
-        <tr>
-            <td>10214</td>
-            <td align="left"><a href="contest_show.php?cid=10214">&nbsp;HHU ACM第九周 单调队列</a></td>
-            <td>2016-01-11 12:00:00</td>
-            <td>2016-01-18 12:00:00</td>
-            <td style="color:green;">Password</td>
-            <td class="csend ">Ended</td><td><a href="/userstatus.php?user=lwfsl">lwfsl</a></td>
-        </tr>
+        {% for r in rs %}
+            <tr>
+                <td>{{ r[0] }}</td>
+                <td class="text-center"><a href="contest_show?cid={{ r[0] }}">{{ r[1] }}</a></td>
+                <td>{{ r[5] }}</td>
+                <td>{{ r[6] }}</td>
 
-        <tr>
-            <td>10214</td>
-            <td align="left"><a href="contest_show.php?cid=10214">&nbsp;HHU ACM第九周 单调队列</a></td>
-            <td>2016-01-11 12:00:00</td>
-            <td>2016-01-18 12:00:00</td>
-            <td style="color:green;">Password</td>
-            <td class="csend ">Ended</td><td><a href="/userstatus.php?user=lwfsl">lwfsl</a></td>
-        </tr>
+                {% if r[8] == 1 %}
+                    <td style="color:green;">Password</td>
+                {% elif r[8] == 0 %}
+                    <td style="color:red ;">Public</td>
+                {% else %}
+                    <td></td>
+                {% end %}
+
+                {% if r[10] == 0 %}
+                    <td style="color:green">Pending</td>
+                {% elif r[10] == 1 %}
+                    <td style="color:red">Runing</td>
+                {% elif r[10] == 2 %}
+                    <td style="color:grey">Ended</td>
+                {% else %}
+                    <td></td>
+                {% end %}
+
+                <td><a href="/userstatus?user={{ r[9] }}">{{ r[11] }}</a></td>
+            </tr>
+        {% end %}
 
         </tbody>
     </table>
@@ -48,33 +59,52 @@
     <table align="center">
         <tr>
             <td>
-                <form action="/redirection" method="post">
-                    {% raw xsrf_form_html() %}
-                    <input type="hidden" name="msg" value="cl_top">
+                <form action="contestlist" method="get">
+                    <input type="hidden" name="page" value="0">
                     <button class="btn btn-sm btn-outline" type="submit">Top</button>
                 </form>
             </td>
+
             <td width="50px"/>
+
             <td>
-                <form action="/redirection" method="post">
-                    {% raw xsrf_form_html() %}
-                    <input type="hidden" name="msg" value="cl_prev">
+                <form action="contestlist" method="get">
+
+                    {% try %}
+                        {% set pageprev = int(page) - 1 %}
+                    {% except NameError %}
+                        {% set pageprev = 0 %}
+                    {% end %}
+
+                    {% if pageprev < 0  %}
+                        {% set pageprev = 0 %}
+                    {% end %}
+
+                    <input type="hidden" name="page" value="{{ pageprev }}">
+
                     <button class="btn btn-sm btn-outline" type="submit">Previous Page</button>
                 </form>
             </td>
+
             <td width="50px"/>
 
             {% try %}
-            {% set hasnext = hasNext %}
+                {% set hasnext = hasNext %}
             {% except NameError %}
-            {% set hasnext = True %}
+                {% set hasnext = True %}
             {% end %}
 
             {% if hasnext == True %}
             <td>
-                <form action="/redirection" method="post">
-                    {% raw xsrf_form_html() %}
-                    <input type="hidden" name="msg" value="cl_next">
+                <form action="contestlist" method="get">
+
+                    {% try %}
+                        {% set pagenext = int(page) + 1 %}
+                    {% except NameError %}
+                        {% set pagenext = 1 %}
+                    {% end %}
+
+                    <input type="hidden" name="page" value="{{ pagenext }}">
                     <button class="btn btn-sm btn-outline" type="submit">Next Page</button>
                 </form>
             </td>
