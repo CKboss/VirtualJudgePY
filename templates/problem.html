@@ -27,6 +27,9 @@
                     <input type="hidden" name="pid" value="{{ D['pid'] }}"/>
                     <input type="hidden" name="OJ" value="{{ D['originOJ'] }}"/>
                     <input type="hidden" name="Prob" value="{{ D['originProb'] }}"/>
+                    {% if cid != -1 %}
+                        <input type="hidden" name="cid" value="{{ cid }}"/>
+                    {% end %}
                     <button class="btn" type="submit">Submit</button>
                 </form>
             </td>

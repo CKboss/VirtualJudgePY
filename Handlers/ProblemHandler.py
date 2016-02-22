@@ -17,12 +17,15 @@ class ProblemHandler(tornado.web.RequestHandler) :
     @tornado.web.asynchronous
     @tornado.gen.engine
     def get(self,oj=None,pid=None):
+
+        cid = self.get_argument('cid',-1)
+
         print('oj: '+oj+' pid: '+pid)
         D = yield self.getProblem(oj,pid)
 
         current_user = self.get_secure_cookie('username')
 
-        self.render('problem.html',D = D,current_user=current_user)
+        self.render('problem.html',D = D,current_user=current_user,cid=cid)
 
 
     @run_on_executor

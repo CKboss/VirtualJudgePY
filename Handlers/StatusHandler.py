@@ -23,6 +23,7 @@ class StatusHandler(BaseHandler):
         language = self.get_argument('language','%')
         isSearch = self.get_argument('isSearch',None)
         index = self.get_argument('index','0')
+        cid = self.get_argument('cid',-1)
 
         if len(index) == 0 :
             index = '0'
@@ -43,7 +44,7 @@ class StatusHandler(BaseHandler):
         d['status'] = status
         d['username'] = user_name
         d['originOJ'] = oj
-        d['cid'] = -1
+        d['cid'] = cid
 
         #print('isSearch:%s'%(isSearch))
         #print('oj:%s prob:%s username:%s status:%s language:%s'%(oj,problem_id,user_name,status,language))

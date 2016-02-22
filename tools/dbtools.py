@@ -58,7 +58,7 @@ def getDeletSQL(tablename,whereclause):
 
 
 def getQuerySQL(tablename,whereclause,ordclause) :
-    sql = 'SELECT * FROM {} WHERE ( {} ) ORDER BY ( {} )'\
+    sql = 'SELECT * FROM {} WHERE ( {} ) ORDER BY  {} '\
         .format(tablename,whereclause,ordclause)
     return sql
 
@@ -71,7 +71,7 @@ def getQueryDetailSQL(tablename,selectitem,whereclause,ordclause) :
     else :
         detail = selectitem
 
-    sql = 'SELECT {} FROM {} WHERE ( {} ) ORDER BY ( {} )'\
+    sql = 'SELECT {} FROM {} WHERE ( {} ) ORDER BY  {} '\
         .format(detail,tablename,whereclause,ordclause)
     return sql
 

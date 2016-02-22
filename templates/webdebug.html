@@ -2,39 +2,64 @@
 
 {% block content %}
 
-<div style="margin-left: 10%; margin-right: 10%">
-
-    <h1>Make a New Contest</h1>
-    <h4>Current Via User : {{ current_user }}</h4>
-
-
-    <form id="mkcon" action="/createcontest" method="post">
-
-        {% raw xsrf_form_html() %}
-
-        <p>Contest Name: <input type="text" name="contestname" id="webconname" value=""/></p>
-        <p>Discription: <input type="text" name="cdescription" value=""/> </p>
-        <p class="timeinfo">Start Time:<input name="syear" title="Year" type="text" id="webyear" value="{{ year }}"> YYYY
-            <input name="smonth" title="Month" type="text" value="{{ month }}"> MM
-            <input name="sday" title="Day" type="text" value="{{ day }}"> DD
-            <input title="Hour" name="shour" type="text" value="{{ hour }}"> HH
-            <input title="Minute" name="sminute" type="text" value="{{ minute }}"> MM
-            <input name="ssecond" type="hidden" value="0"></p>
-
-        <p class="timeinfo">Lasting Time:<input title="Day" name="lday" type="text" id="weblday" value="0"> DD <input name="lhour" title="Hour" type="text" value="5"> HH <input title="Minute" name="lminute" type="text" value="0"> MM <input name="lsecond" type="hidden" value="0"></p>
-
-        <p class="timeinfo">Contest Type:<span><input name="contesttype" id="contesttype" type="radio" value="0" onclick="PassDisplay()"><span style="color:red;border:none">Public</span>&nbsp;</span> &nbsp;&nbsp;&nbsp;&nbsp;<span><input name="contesttype" id="contesttype1" type="radio" value="1" onclick="PassDisplay()"><span style="color:green;border:none">Password</span>&nbsp;</span>&nbsp;&nbsp;&nbsp;
-
-        </p><p id="passp">Password: <input type="text" value="" id="password" name="password" ></p>
-
-        <span id="passp">Hide Problem &nbsp;&nbsp;<input type="checkbox" id="hide" name="hide" value="1"></span><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Allow Copy&nbsp;&nbsp;<input type="checkbox" name="allowcopy" id="allowcopy" value="1"></span><p></p>
-
-        <p align="center">
-            <input value="Submit" class="btn-outline" type="submit">&nbsp;&nbsp;<input class="btn-outline" value="Reset" type="reset">
-        </p>
-
-    </form>
+<div class="btn-group" style="margin-left: 40%; margin-right: 40%">
+  <button class="btn btn-outline" type="button" >ProblemList</button>
+  <button class="btn btn-outline" type="button" >Status</button>
+  <button class="btn btn-outline" type="button" >Ranklist</button>
 </div>
 
+<div style="margin-left: 10%; margin-right: 10%" id="content">
+
+    <div style="margin-left: 20%; margin-right: 20%"  class="text-center" style="color:green">
+        <h1>contest title</h1>
+        <p style="color: rebeccapurple">Start Time : 2016-02-17 09:00:00 End Time : 2016-03-08 09:00:00</p>
+        <p>Contest Status :
+        Running</p>
+        <p class="currenttime" style="color:orange">Current System Time : 2016-02-22 20:27:08</p>
+    </div>
+
+
+
+    <table border="1" class="flex-table-item-primary" bordercolor="#FFFFFF" class="text-center">
+        <tbody>
+
+        <tr class="tbheader" style="background-color: #1A5CC8; color: #FFFFFF">
+
+            <td width="8%">Solved</td>
+            <td width="10%">Problem ID</td>
+            <td width="56%">Title</td>
+            <td width="26%">Ratio(Accepted / Submitted)</td>
+
+        </tr>
+
+
+        <tr>
+            <td></td>
+            <td>1000</td>
+            <td align="left">
+            <a href="contest_showproblem.php?pid=1000&amp;ojid=1&amp;cid=10284&amp;hide=0">A+B Problem</a>
+            </td>
+            <td>50.00%(8/16)</td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td>1001</td>
+            <td align="left">
+            <a href="contest_showproblem.php?pid=1001&amp;ojid=1&amp;cid=10284&amp;hide=0">破译密码</a></td>
+            <td>21.43%(3/14)</td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td>1002</td>
+            <td align="left">
+            <a href="contest_showproblem.php?pid=1002&amp;ojid=1&amp;cid=10284&amp;hide=0">分数加减法</a></td>
+            <td>60.00%(3/5)</td>
+        </tr>
+
+        </tbody>
+    </table>
+</div>
 
 {% end %}

@@ -20,6 +20,7 @@ from Handlers.ContestListHandler import ContestListHandler
 from Handlers.CreateContestHandler import CreateContestHandler
 from Handlers.ManageContestHandler import ManageContestHandler
 from Handlers.ManageContestListHandler import ManageContestListHandler
+from Handlers.ContestShowHandler import ContestShowHandler
 
 from UIModule.HeaderModule import TitleModule
 from UIModule.ProblemListModule import ProblemListModule
@@ -55,6 +56,7 @@ class AppInit(tornado.web.Application) :
             (r'/createcontest\/{0,1}',CreateContestHandler),
             (r'/managecontestlist\/{0,1}',ManageContestListHandler),
             (r'/managecontest\/{0,1}',ManageContestHandler),
+            (r'/contestshow\/{0,1}',ContestShowHandler),
         ]
 
         # Setting

@@ -21,6 +21,7 @@ class SubmitHandler(BaseHandler):
 
     def get(self, *args, **kwargs):
 
+        cid = self.get_argument('cid',-1)
         OJ = self.get_argument('OJ',None)
         Prob = self.get_argument('Prob',None)
         pid = self.get_argument('pid',None)
@@ -34,7 +35,7 @@ class SubmitHandler(BaseHandler):
         if len(self.current_user) == 0 :
             self.write('<h1>Please LogIn first!!!</h1>')
         else :
-            self.render('submit.html',OJ=OJ,Prob=Prob,pid=pid)
+            self.render('submit.html',OJ=OJ,Prob=Prob,pid=pid,cid=cid)
 
     @tornado.web.asynchronous
     @tornado.gen.engine
@@ -46,26 +47,28 @@ class SubmitHandler(BaseHandler):
         lang = self.get_argument('language',None)
         code = self.get_argument('usercode',None)
         oj = self.get_argument('OJ',None)
+        cid = self.get_argument('cid',-1)
 
         if lang is None or len(code)==0 or oj is None or code is None or pid is None :
             self.write('<h1>Submit Error!!</h1>')
         else :
             print('lang: ',lang,' oj: ',oj,' Prob: ',Prob,' code ',code,'user: ',self.current_user)
-            yield self.SubmmitCollector(pid=pid,oj=oj,Prob=Prob,lang=lang,code=code)
+            yield self.SubmmitCollector(pid=pid,oj=oj,Prob=Prob,lang=lang,code=code,cid=cid)
             # insert into DB
             self.write('<h1>Submit Success!!</h1>')
 
         self.finish()
 
     @run_on_executor
-    def SubmmitCollector(self,pid,oj,Prob,lang,code):
+    def SubmmitCollector(self,pid,oj,Prob,lang,code,cid):
 
         code = self.AddRandomSpace(code)
 
         self.AS.SubmmitSelector(oj=oj,prob=Prob,lang=lang,code=code)
 
         #Write Record into db
-        self.InsertStatusToDB(pid=pid,oj=oj,Prob=Prob,lang=lang,code=code)
+        self.InsertStatusToDB(pid=pid,oj=oj,Prob=Prob,lang=lang,code=code,cid=cid)
+
 
     def AddRandomSpace(self,code):
         # Add RandomSpace to avoid missjudge
@@ -76,11 +79,11 @@ class SubmitHandler(BaseHandler):
         code += '\n*/'
         return code
 
-    def InsertStatusToDB(self,pid,oj,Prob,lang,code):
+    def InsertStatusToDB(self,pid,oj,Prob,lang,code,cid):
         data = dict()
 
         data['pid'] = pid
-        data['cid'] = -1
+        data['cid'] = cid
         data['language'] = lang
         data['originOJ'] = oj
         data['originProb'] = Prob
