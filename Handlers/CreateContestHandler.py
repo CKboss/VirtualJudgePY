@@ -1,14 +1,16 @@
 import tornado.web
 import tornado.gen
 import datetime
+import pickle
 
 from tornado.concurrent import run_on_executor
 from concurrent.futures import ThreadPoolExecutor
 
 from tools.dbcore import conn
-from tools.dbtools import getInserSQL
+from tools.dbtools import getInserSQL,LAST_INSERT_ID
 
 from Handlers.BaseHandler import BaseHandler
+from Config.FilePathConfig import PendingContestFile
 
 class CreateContestHandler(BaseHandler):
 
@@ -50,10 +52,28 @@ class CreateContestHandler(BaseHandler):
             self.finish()
             return
 
-        yield self.CreateNewContest(data)
+        cid = yield self.CreateNewContest(data)
+
+        self.MakePendingContestTempFile(cid,data)
 
         self.write('create success !!')
         self.finish()
+
+    def MakePendingContestTempFile(self,cid,data):
+
+        file = open(PendingContestFile+'/contest_'+str(cid)+'.pkl','wb')
+
+        dt = dict()
+        dt['cid'] = cid
+        dt['ctitle'] = data['ctitle']
+        dt['begintime'] = data['begintime']
+        dt['endtime'] = data['endtime']
+        dt['cstatus'] = data['cstatus']
+        dt['submitlist'] = list()
+        dt['ranklist'] = list()
+
+        pickle.dump(dt,file)
+
 
     def check_args(self,d):
         L = ['contestname','syear','smonth','sday','shour',
@@ -62,7 +82,7 @@ class CreateContestHandler(BaseHandler):
         for x in L :
             if x not in d : continue
             if len(d[x]) == 0 :
-                if x=='password' and d['constesttype'] == '0':
+                if x=='password' and d['contesttype'] == '0':
                     continue
                 return False
         return True
@@ -111,5 +131,12 @@ class CreateContestHandler(BaseHandler):
 
         cur = conn.cursor()
         cur.execute(sql)
+
+        sql = LAST_INSERT_ID()
+        cur.execute(sql)
+        id = cur.fetchone()[0]
+
         cur.close()
+
+        return id
 

@@ -8,7 +8,9 @@ from Handlers.BaseHandler import BaseHandler
 
 from tools.dbcore import conn
 from tools.dbtools import getQueryDetailSQL,getDeletSQL,getInserSQL,getQuerySQL,getUpdateSQL
+from Config.FilePathConfig import PendingContestFile
 
+import pickle
 import datetime
 
 
@@ -65,7 +67,7 @@ class ManageContestHandler(BaseHandler) :
                         cid=cid,
                         check1=check1,check2=check2,
                         ctitle=ctitle,cdescription=cdescription,
-                        year=d1.year,month=d1.month,day=d1.day,hour=d1.hour,minute=d1.hour,
+                        year=d1.year,month=d1.month,day=d1.day,hour=d1.hour,minute=d1.minute,
                         lday=lday,lhour=lhh,lminute=lmm,lsecond=lss,password=password,
                         problemlist=problemlist,problemlisttxt=problemlisttxt
                         )
@@ -91,7 +93,9 @@ class ManageContestHandler(BaseHandler) :
             cid = self.get_argument('cid',None)
             txt = self.get_argument('problemlist',None)
             problemlist = self.getProblem(txt)
+
             log = yield  self.UpdateProblem(cid,problemlist)
+
             self.write(log)
             self.finish()
             return
@@ -116,6 +120,7 @@ class ManageContestHandler(BaseHandler) :
                 return
 
             yield self.updateContestDetail(cid,data)
+            self.MakePendingContestTempFile(cid,data)
 
             self.write('Update Success')
             self.finish()
@@ -179,6 +184,23 @@ class ManageContestHandler(BaseHandler) :
         cur = conn.cursor()
         cur.execute(sql)
         cur.close()
+
+
+    def MakePendingContestTempFile(self,cid,data):
+
+        file = open(PendingContestFile+'/contest_'+str(cid)+'.pkl','wb')
+
+        dt = dict()
+        dt['cid'] = cid
+        dt['ctitle'] = data['ctitle']
+        dt['begintime'] = data['begintime']
+        dt['endtime'] = data['endtime']
+        dt['cstatus'] = data['cstatus']
+        dt['submitlist'] = list()
+        dt['ranklist'] = list()
+
+        pickle.dump(dt,file)
+
 
     def getProblem(self,txt):
 
