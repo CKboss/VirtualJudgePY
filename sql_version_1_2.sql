@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.5.47, for debian-linux-gnu (x86_64)
+-- MySQL dump 10.13  Distrib 5.6.28, for debian-linux-gnu (x86_64)
 --
 -- Host: localhost    Database: mydb
 -- ------------------------------------------------------
--- Server version	5.5.47-0ubuntu0.14.04.1
+-- Server version	5.6.28-0ubuntu0.14.04.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -31,8 +31,13 @@ CREATE TABLE `contest` (
   `begintime` datetime DEFAULT NULL,
   `endtime` datetime DEFAULT NULL,
   `hashcode` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`cid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `ispublic` tinyint(1) DEFAULT NULL,
+  `cuid` int(11) DEFAULT NULL,
+  `cstatus` tinyint(1) DEFAULT NULL,
+  PRIMARY KEY (`cid`),
+  KEY `fk_contest_1_idx` (`cuid`),
+  CONSTRAINT `fk_contest_1` FOREIGN KEY (`cuid`) REFERENCES `user` (`uid`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -47,12 +52,14 @@ CREATE TABLE `cproblem` (
   `cid` int(11) DEFAULT NULL,
   `pid` int(11) DEFAULT NULL,
   `title` varchar(45) DEFAULT NULL,
+  `originOJ` varchar(45) DEFAULT NULL,
+  `originProb` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`cpid`),
   KEY `fk_cproblem_1_idx` (`cid`),
   KEY `fk_cproblem_2_idx` (`pid`),
   CONSTRAINT `fk_cproblem_1` FOREIGN KEY (`cid`) REFERENCES `contest` (`cid`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_cproblem_2` FOREIGN KEY (`pid`) REFERENCES `problem` (`pid`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=60 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -70,7 +77,7 @@ CREATE TABLE `problem` (
   `originOJ` varchar(45) DEFAULT NULL,
   `originProb` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`pid`)
-) ENGINE=InnoDB AUTO_INCREMENT=2909 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8967 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -98,7 +105,7 @@ CREATE TABLE `problemdetail` (
   PRIMARY KEY (`did`),
   KEY `fk_problemdetail_1_idx` (`pid`),
   CONSTRAINT `fk_problemdetail_1` FOREIGN KEY (`pid`) REFERENCES `problem` (`pid`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=2871 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8929 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -130,7 +137,7 @@ CREATE TABLE `status` (
   PRIMARY KEY (`sid`),
   KEY `fk_status_1_idx` (`pid`),
   CONSTRAINT `fk_status_1` FOREIGN KEY (`pid`) REFERENCES `problem` (`pid`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=68 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -149,7 +156,7 @@ CREATE TABLE `user` (
   `school` varchar(255) DEFAULT NULL,
   `localstatus` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`uid`,`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -161,5 +168,4 @@ CREATE TABLE `user` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-02-04  1:17:49
-
+-- Dump completed on 2016-02-22 22:51:06
