@@ -2,7 +2,7 @@ import requests
 import random
 import time
 
-from PkuConfig import Pku_User,Pku_LogIn_Url
+from Crawler.PkuCrawler.PkuConfig import Pku_User,Pku_LogIn_Url
 from tools.encode import UTF8StrToBase64Str,Base64StrToUTF8Str
 
 class PkuVJudger() :
