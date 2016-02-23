@@ -3,6 +3,8 @@ import os
 import pickle
 
 from Crawler.HduCrawler.HduScanner import HduScanner
+from Crawler.PkuCrawler.PkuScanner import PkuScanner
+
 from tools.dbtools import getUpdateSQL
 from tools.dbcore import conn
 
@@ -14,7 +16,7 @@ class MainScanner():
 
         while True:
 
-            time.sleep(3)
+            time.sleep(5)
 
             L = self.FindAndUpdate()
 
@@ -97,7 +99,13 @@ class MainScanner():
             HduS = HduScanner()
             L += HduS.Scanner()
         except Exception :
-            print('In MainScanner: ',Exception)
+            print('In HduScanner: ',Exception)
+
+        try :
+            PkuS = PkuScanner()
+            L += PkuS.Scanner()
+        except Exception :
+            print('In PkuScanner: ',Exception)
 
         return L
         #HDU Scanner

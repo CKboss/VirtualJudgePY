@@ -50,9 +50,22 @@ class PkuVJudger() :
 
 def main():
     pv = PkuVJudger()
-    code ='#include <iostream> using namespace std; int a ,b cd#'
-    pv.Sumbit(2012,'Java',code)
-    pv.Sumbit(1001,'GCC',code)
+    code = '''
+    #include <iostream>
+    using namespace std;
+
+    int main()
+    {
+        int a,b;
+        while(cin>>a>>b)
+        {
+            cout<<a+b<<endl;
+        }
+        return 0;
+    }
+    '''
+    pv.Sumbit(1000,'G++',code)
+    pv.Sumbit(1001,'G++',code)
 
 if __name__=='__main__' :
     main()
