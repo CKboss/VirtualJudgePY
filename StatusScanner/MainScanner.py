@@ -4,21 +4,24 @@ import pickle
 
 from Crawler.HduCrawler.HduScanner import HduScanner
 from Crawler.PkuCrawler.PkuScanner import PkuScanner
+from Crawler.ZojCrawler.ZojScanner import ZojScanner
 
 from tools.dbtools import getUpdateSQL
 from tools.dbcore import conn
 
+from Config.FilePathConfig import SID_DATA_FILE
+
 class MainScanner():
 
-    TF = '/home/ckboss/Desktop/Development/PKL/'
+    TF = SID_DATA_FILE
 
     def Scanner(self):
 
         while True:
 
-            time.sleep(5)
-
+            print('-> Before Scanner Stauts: ')
             L = self.FindAndUpdate()
+            print('-> End Scanner Stauts: ')
 
             '''
             for li in L :
@@ -58,7 +61,7 @@ class MainScanner():
                     else :
 
                         # Judge Error
-                        if S['status'] is None or S['status'] == 'Pending' :
+                        if 'status' not in S or S['status'] is None or S['status'] == 'Pending' :
 
                             ret = dict()
                             ret['status'] = 'Judge Error'
@@ -71,14 +74,27 @@ class MainScanner():
 
                         os.remove(self.TF+file)
 
+            time.sleep(5)
 
     def CheckIt(self,s,d):
         flag = True
 
+        specialOne = False
+        if s['originOJ'] == 'ZOJ' or d['originOJ'] == 'ZOJ':
+            specialOne = True
+
         for nt in ['originProb','originOJ','codelenth','language'] :
-            if s[nt] != d[nt] :
-                #print('item: ',nt,' ',s[nt],' vs ',d[nt])
-                flag=False
+
+            if specialOne == True and nt == 'codelenth' :
+                continue
+
+            try :
+                if s[nt] != d[nt] :
+                    #print('item: ',nt,' ',s[nt],' vs ',d[nt])
+                    flag=False
+            except Exception :
+                print('CheckIt Exception')
+
 
         if flag is False:
             return None
@@ -96,19 +112,27 @@ class MainScanner():
         L = list()
 
         try :
+            print('Start Scanner HDU ...')
             HduS = HduScanner()
             L += HduS.Scanner()
         except Exception :
             print('In HduScanner: ',Exception)
 
         try :
+            print('Start Scanner PKU ...')
             PkuS = PkuScanner()
             L += PkuS.Scanner()
         except Exception :
             print('In PkuScanner: ',Exception)
 
+        try :
+            print('Start Scanner ZOJ ...')
+            Zoj = ZojScanner()
+            L += Zoj.Scanner()
+        except Exception :
+            print('In ZojScanner: ',Exception)
+
         return L
-        #HDU Scanner
 
 
 def main():

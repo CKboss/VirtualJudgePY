@@ -9,4 +9,7 @@ EndedContestFile = '/home/ckboss/Desktop/Development/EndedContests/'
 
 ZOJ_PKL_FILE = '/home/ckboss/Desktop/Development/testData/ZOJ/'
 
+#sid data
+SID_DATA_FILE = '/home/ckboss/Desktop/Development/PKL/'
+
 

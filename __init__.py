@@ -55,4 +55,4 @@ if __name__ == "__main__":
 
     thread_web.start()
     thread_contestscanner.start()
-    #thread_scanner.start()
+    thread_scanner.start()

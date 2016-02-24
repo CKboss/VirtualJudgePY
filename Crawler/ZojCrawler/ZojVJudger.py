@@ -15,6 +15,11 @@ class ZojVJudge() :
 
     def GetLanguage(self,lang):
 
+        if lang == 'G++':
+            lang = 'C++'
+        elif lang == 'GCC' :
+            lang = 'C'
+
         L = ['C','C++','FPC','Java','Python','Perl','Scheme','PHP','C++0x']
 
         ret = 1
@@ -31,7 +36,7 @@ class ZojVJudge() :
         self.logIn()
 
         dt = dict()
-        dt['problemId'] = pid-1000
+        dt['problemId'] = int(pid)-1000
         dt['languageId'] = self.GetLanguage(lang=lang)
         dt['source'] = code
 

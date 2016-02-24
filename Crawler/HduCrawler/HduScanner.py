@@ -47,7 +47,7 @@ class HduScanner :
         for x in HduUser :
 
             url = self.scan_url.format(x.get('username'))
-            r = self.s.get(url)
+            r = self.s.get(url,timeout=5)
             r.encoding = 'gb2312'
             tL = self.Analyse(r.text)
             L += tL
@@ -57,14 +57,10 @@ class HduScanner :
     def UpdateToDB(self):
         pass
 
-'''
 def scann_test() :
     hs = HduScanner()
-    hs.Scanner()
+    L = hs.Scanner()
+    return L
 
 if __name__=='__main__':
     scann_test()
-    f = open('/tmp/status.html','r')
-    html = f.read()
-    hs.Analyse(html)
-'''

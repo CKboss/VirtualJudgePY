@@ -47,7 +47,7 @@ class PkuScanner :
         for x in Pku_User :
 
             url = self.scan_url.format(x['user_id1'])
-            r = self.s.get(url)
+            r = self.s.get(url,timeout=5)
 
             '''
             f = open('/tmp/r1.text','w')
