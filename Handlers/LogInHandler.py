@@ -42,6 +42,7 @@ class LogInHandler(BaseHandler) :
 
     @run_on_executor
     def checkPasswd(self,username,password):
+        conn = ConnPool.connect()
         cur = conn.cursor()
         sql = checkUserSQL(username,password)
         print('exe: ',sql)
@@ -53,6 +54,8 @@ class LogInHandler(BaseHandler) :
             sql = getUserUid(username)
             cur.execute(sql)
             uid = cur.fetchone()[0]
+            cur.close()
+            conn.close()
             return uid
         else :
             return None

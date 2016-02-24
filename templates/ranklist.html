@@ -1,0 +1,60 @@
+
+{% extends "main_struct.html" %}
+
+{% block content %}
+
+
+
+<div style="margin-left: 10%; margin-right: 10%" id="content">
+
+    <div style="margin-left: 20%; margin-right: 20%"  class="text-center" style="color:green">
+        <h1>{{ ctitle }} Ranklist</h1>
+        <p style="color: rebeccapurple">Start Time : {{ begintime }} End Time : {{ endtime }}</p>
+        {% if cstatus == 0 %}
+        <p style="color: green;">Pending</p>
+        {% elif cstatus ==1 %}
+        <p style="color: red;">Running</p>
+        {% else %}
+        <p style="color: gray;">Ended</p>
+        {% end %}
+        <p class="currenttime" style="color:orange">Current System Time : {{ now }}</p>
+    </div>
+
+
+
+    <table border="1" class="flex-table-item-primary" bordercolor="#FFFFFF" class="text-center">
+        <tbody>
+
+        <tr class="tbheader" style="background-color: #1A5CC8; color: #FFFFFF">
+
+            <td width="8%">Solved</td>
+            <td width="10%">Problem ID</td>
+            <td width="56%">Title</td>
+            <td width="26%">Ratio(Accepted / Submitted)</td>
+
+        </tr>
+
+        </tbody>
+    </table>
+</div>
+
+<br><br>
+
+<div class="btn-group" style="margin-left: 40%; margin-right: 40%">
+    <!-- <button class="btn btn-outline" type="button" >ProblemList</button> -->
+    <table align="center">
+        <tbody>
+        <tr>
+            <td>
+                <a href="/status?cid={{ cid }}"><button class="btn btn-outline" type="button" >Status</button></a>
+            </td>
+            <td width="50px"></td>
+            <td>
+                <a href="ranklist?cid={{ cid }}"><button class="btn btn-outline" type="button" >Ranklist</button></a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+{% end %}

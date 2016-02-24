@@ -47,6 +47,8 @@ class HduVJudger:
 
     def submit(self,pid,lang,code):
 
+        self.login()
+
         self.submit_data['problemid']=pid
         self.submit_data['language']=self.getlange(lang)
         self.submit_data['usercode']=code

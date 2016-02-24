@@ -55,6 +55,8 @@ class MainScanner():
                             cur.close()
                             conn.close()
 
+                            break
+
                             #os.remove(self.TF+file)
 
                     S['looplimit'] = S['looplimit']-1
@@ -70,15 +72,22 @@ class MainScanner():
                             clause = 'sid = {}'.format(S['sid'])
                             sql =getUpdateSQL('status',ret,clause)
 
+                            conn = ConnPool.connect()
                             cur = conn.cursor()
                             cur.execute(sql)
                             cur.close()
+                            conn.close()
 
                         os.remove(self.TF+file)
 
             time.sleep(5)
 
     def CheckIt(self,s,d):
+
+        #print('s: ',s)
+        #print('d: ',d)
+
+
         flag = True
 
         specialOne = False
@@ -114,26 +123,27 @@ class MainScanner():
         L = list()
 
         try :
-            print('Start Scanner HDU ...')
+            #print('Start Scanner HDU ...')
             HduS = HduScanner()
             L += HduS.Scanner()
         except Exception :
             print('In HduScanner: ',Exception)
 
         try :
-            print('Start Scanner PKU ...')
+            #print('Start Scanner PKU ...')
             PkuS = PkuScanner()
             L += PkuS.Scanner()
         except Exception :
             print('In PkuScanner: ',Exception)
 
         try :
-            print('Start Scanner ZOJ ...')
+            #print('Start Scanner ZOJ ...')
             Zoj = ZojScanner()
             L += Zoj.Scanner()
         except Exception :
             print('In ZojScanner: ',Exception)
 
+        #print(L)
         return L
 
 

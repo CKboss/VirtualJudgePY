@@ -213,7 +213,8 @@ class ManageContestHandler(BaseHandler) :
             if len(ii) == 2 :
                 di['originOJ'] = ii[0]
                 di['originProb'] = ii[1]
-                data.append(di)
+                if di not in data :
+                    data.append(di)
 
         return data
 

@@ -13,13 +13,17 @@ def getConnection() :
     )
     return conn
 
-ConnPool = DBPool.QueuePool(getConnection,pool_size=50,max_overflow=100,timeout=50)
+ConnPool = DBPool.QueuePool(getConnection,pool_size=50,max_overflow=100,timeout=25)
 
 '''
+
+conn = ConnPool.connect()
+
 cur = conn.cursor()
 
 ans = cur.execute('select * from user')
 
 print(cur.fetchall())
+
 '''
 

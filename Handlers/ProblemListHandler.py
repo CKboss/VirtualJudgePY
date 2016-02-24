@@ -27,6 +27,12 @@ class ProblemListHandler(tornado.web.RequestHandler) :
         index = self.get_argument('index',None)
 
         if issearch is not None :
+
+            oj = str(oj).replace(' ','%')
+            problem_id = str(problem_id).replace(' ','%')
+            problem_title = str(problem_title).replace(' ','%')
+            problem_source = str(problem_source).replace(' ','%')
+
             # rember cookie
             index = 0 #to avoid delay
             self.set_cookie('pl_index','0')

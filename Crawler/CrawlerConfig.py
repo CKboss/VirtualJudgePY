@@ -4,14 +4,12 @@ from Crawler.ZojCrawler.ZojVJudger import ZojVJudge
 
 class AutoSubmit():
 
-    def __init__(self):
-        self.HV = HduVJudger()
-
     def SubmmitSelector(self,oj,prob,lang,code) :
 
         oj = str(oj).upper()
 
         if oj == 'HDU' or oj == 'HDOJ':
+            self.HV = HduVJudger()
             self.HV.submit(prob,lang,code)
         elif oj == 'PKU' or oj == 'POJ' :
             PV = PkuVJudger()
