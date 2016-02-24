@@ -5,7 +5,7 @@ from tornado.concurrent import run_on_executor
 from concurrent.futures import ThreadPoolExecutor
 
 from Handlers.BaseHandler import BaseHandler
-from tools.dbcore import conn
+from tools.dbcore import ConnPool
 from tools.dbtools import getPageLimitSQL
 
 class StatusHandler(BaseHandler):
@@ -87,10 +87,13 @@ class StatusHandler(BaseHandler):
         sql = getPageLimitSQL('status',wherecluse,ordercluse,Data['index'],21)
 
         print(sql)
-
+        conn = ConnPool.connect()
         cur = conn.cursor()
         cur.execute(sql)
         rs = cur.fetchall()
+
+        cur.close()
+        conn.close()
 
         return rs
 

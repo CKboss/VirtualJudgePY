@@ -4,7 +4,7 @@ import tornado.gen
 from tornado import concurrent
 
 from tools.argCheck import argCheck
-from tools.dbcore import conn
+from tools.dbcore import ConnPool
 
 from tornado.concurrent import run_on_executor
 from concurrent.futures import ThreadPoolExecutor
@@ -63,7 +63,9 @@ if __name__=='__main__':
     #sql = 'select * from user WHERE username = %s and password = %s'%(username,password)
     sql = 'select * from user'
     print(sql)
+    conn = ConnPool.connect()
     cur = conn.cursor()
     cur.execute(sql)
+    conn.close()
     print(cur.fetchall())
 

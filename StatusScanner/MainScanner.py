@@ -7,7 +7,7 @@ from Crawler.PkuCrawler.PkuScanner import PkuScanner
 from Crawler.ZojCrawler.ZojScanner import ZojScanner
 
 from tools.dbtools import getUpdateSQL
-from tools.dbcore import conn
+from tools.dbcore import ConnPool
 
 from Config.FilePathConfig import SID_DATA_FILE
 
@@ -49,9 +49,11 @@ class MainScanner():
 
                             S['status'] = ret['status']
 
+                            conn = ConnPool.connect()
                             cur = conn.cursor()
                             cur.execute(sql)
                             cur.close()
+                            conn.close()
 
                             #os.remove(self.TF+file)
 

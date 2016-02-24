@@ -1,13 +1,11 @@
 import tornado.web
 import tornado.gen
 
-from tools.dbcore import conn
-
 
 from tornado.concurrent import run_on_executor
 from concurrent.futures import ThreadPoolExecutor
 
-from tools.dbcore import conn
+from tools.dbcore import ConnPool
 from tools.encode import UTF8StrToBase64Str,Base64StrToUTF8Str
 
 class ProblemHandler(tornado.web.RequestHandler) :
@@ -32,6 +30,7 @@ class ProblemHandler(tornado.web.RequestHandler) :
     def getProblem(self,oj,problemid):
 
         # get pid
+        conn = ConnPool.connect()
         cur = conn.cursor()
 
         sql ='SELECT * FROM problem WHERE ( originOJ LIKE "{}" and originProb LIKE "{}" )'.format(oj,problemid)
@@ -84,6 +83,7 @@ class ProblemHandler(tornado.web.RequestHandler) :
             d['specialjudge'] = rt[13]
 
         cur.close()
+        conn.close()
         return d
 
 

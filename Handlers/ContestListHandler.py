@@ -6,7 +6,7 @@ from concurrent.futures import ThreadPoolExecutor
 
 from Handlers.BaseHandler import BaseHandler
 from tools.dbtools import getPageLimitSQL,getQueryDetailSQL
-from tools.dbcore import conn
+from tools.dbcore import ConnPool
 from Config.ParametersConfig import BIG_THREAD_POOL_SIZE,PAGE_LIMIT
 
 class ContestListHandler(BaseHandler) :
@@ -44,10 +44,12 @@ class ContestListHandler(BaseHandler) :
 
         print(sql)
 
+        conn = ConnPool.connect()
         cur = conn.cursor()
         cur.execute(sql)
         rs = cur.fetchall()
         cur.close()
+        conn.close()
 
         return rs
 

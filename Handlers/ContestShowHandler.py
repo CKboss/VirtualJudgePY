@@ -8,7 +8,7 @@ from concurrent.futures import ThreadPoolExecutor
 from Handlers.BaseHandler import BaseHandler
 from Config.ParametersConfig import MID_THREAD_POOL_SIZE
 from tools.dbtools import getQuerySQL
-from tools.dbcore import conn
+from tools.dbcore import ConnPool
 
 class ContestShowHandler(BaseHandler) :
 
@@ -44,10 +44,12 @@ class ContestShowHandler(BaseHandler) :
 
         sql = getQuerySQL('contest',wherecluse,ordclause)
 
+        conn = ConnPool.connect()
         cur = conn.cursor()
         cur.execute(sql)
         rs = cur.fetchone()
         cur.close()
+        conn.close()
 
         return rs
 
@@ -61,8 +63,10 @@ class ContestShowHandler(BaseHandler) :
 
         print(sql)
 
+        conn = ConnPool.connect()
         cur = conn.cursor()
         cur.execute(sql)
+        conn.close()
 
         rs = cur.fetchall()
 

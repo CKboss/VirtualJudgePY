@@ -13,7 +13,7 @@
 '''
 
 from tools.dbtools import getInserSQL
-from tools.dbcore import conn
+from tools.dbcore import ConnPool
 
 def checkUserSQL(username,passowrd):
     sql = 'select count(*) from user WHERE username = "%s" and password = "%s" '%(username,passowrd)
@@ -29,10 +29,12 @@ def checkUserExist(username) :
 
 def AddUser(d):
     sql = getInserSQL('user',d)
+    conn = ConnPool.connect()
     cur = conn.cursor()
     ret = cur.execute(sql)
     conn.commit()
     cur.close()
+    conn.close()
     return ret
 
 if __name__=='__main__':

@@ -5,7 +5,7 @@ import pickle
 
 from Config.FilePathConfig import PendingContestFile,RunningContestFile,EndedContestFile
 from tools.dbtools import getUpdateSQL
-from tools.dbcore import conn
+from tools.dbcore import ConnPool
 
 class ContestScanner():
 
@@ -102,9 +102,11 @@ class ContestScanner():
 
         sql = getUpdateSQL('contest',data,' cid = {} '.format(cid))
 
+        conn = ConnPool.connect()
         cur = conn.cursor()
         cur.execute(sql)
         cur.close()
+        conn.close()
 
 
 def main():

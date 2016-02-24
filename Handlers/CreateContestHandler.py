@@ -6,7 +6,7 @@ import pickle
 from tornado.concurrent import run_on_executor
 from concurrent.futures import ThreadPoolExecutor
 
-from tools.dbcore import conn
+from tools.dbcore import ConnPool
 from tools.dbtools import getInserSQL,LAST_INSERT_ID
 
 from Handlers.BaseHandler import BaseHandler
@@ -128,7 +128,7 @@ class CreateContestHandler(BaseHandler):
         sql = getInserSQL('contest',data)
 
         print('exeSQL: Create Contest!! ',sql)
-
+        conn = ConnPool.connect()
         cur = conn.cursor()
         cur.execute(sql)
 
@@ -137,6 +137,7 @@ class CreateContestHandler(BaseHandler):
         id = cur.fetchone()[0]
 
         cur.close()
+        conn.close()
 
         return id
 

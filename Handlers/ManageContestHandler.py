@@ -6,7 +6,7 @@ from concurrent.futures import ThreadPoolExecutor
 
 from Handlers.BaseHandler import BaseHandler
 
-from tools.dbcore import conn
+from tools.dbcore import ConnPool
 from tools.dbtools import getQueryDetailSQL,getDeletSQL,getInserSQL,getQuerySQL,getUpdateSQL
 from Config.FilePathConfig import PendingContestFile
 
@@ -180,10 +180,11 @@ class ManageContestHandler(BaseHandler) :
         sql = getUpdateSQL('contest',data,wherecluse)
 
         print(sql)
-
+        conn = ConnPool
         cur = conn.cursor()
         cur.execute(sql)
         cur.close()
+        conn.close()
 
 
     def MakePendingContestTempFile(self,cid,data):
@@ -229,10 +230,12 @@ class ManageContestHandler(BaseHandler) :
         whereclause = ' cid = {} '.format(cid)
         sql = getQuerySQL('contest',whereclause,' cid ')
 
+        conn = ConnPool.connect()
         cur = conn.cursor()
         cur.execute(sql)
         rs = cur.fetchone()
         cur.close()
+        conn.close()
 
         return rs
 
@@ -242,10 +245,12 @@ class ManageContestHandler(BaseHandler) :
         whereclause = ' cid = {} '.format(cid)
         sql = getQuerySQL('cproblem',whereclause,' cpid ')
 
+        conn = ConnPool.connect()
         cur = conn.cursor()
         cur.execute(sql)
         rs = cur.fetchall()
         cur.close()
+        conn.close()
 
         return rs
 
@@ -257,6 +262,7 @@ class ManageContestHandler(BaseHandler) :
         whereclause = ' cid = {} '.format(cid)
         sql = getDeletSQL('cproblem',whereclause)
 
+        conn = ConnPool.connect()
         cur = conn.cursor()
         cur.execute(sql)
 
@@ -293,6 +299,7 @@ class ManageContestHandler(BaseHandler) :
                 cur.execute(sql)
 
         cur.close()
+        conn.close()
 
         if len(log) == 0 :
             log += 'All problem add into contest {} successfully. <br>'.format(cid)

@@ -10,7 +10,7 @@ from Handlers.BaseHandler import BaseHandler
 from Crawler.CrawlerConfig import AutoSubmit
 from tools.dbtools import getInserSQL,LAST_INSERT_ID
 from tools.encode import UTF8StrToBase64Str
-from tools.dbcore import conn
+from tools.dbcore import ConnPool
 
 class SubmitHandler(BaseHandler):
 
@@ -98,6 +98,7 @@ class SubmitHandler(BaseHandler):
 
         sql = getInserSQL('status',data)
 
+        conn = ConnPool.connect()
         cur = conn.cursor()
         cur.execute(sql)
 
@@ -118,5 +119,6 @@ class SubmitHandler(BaseHandler):
         pickle.dump(pkl,fw)
 
         cur.close()
+        conn.close()
 
         print('status_sql: ',sql)

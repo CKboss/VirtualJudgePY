@@ -1,14 +1,19 @@
 import pymysql
+import sqlalchemy.pool as DBPool
 
-conn = pymysql.connect(
-    host='localhost',
-    user='javaTest',
-    password='123456',
-    db='mydb',
-    charset='utf8',
-    autocommit=True,
-)
 
+def getConnection() :
+    conn = pymysql.connect(
+        host='localhost',
+        user='javaTest',
+        password='123456',
+        db='mydb',
+        charset='utf8',
+        autocommit=True,
+    )
+    return conn
+
+ConnPool = DBPool.QueuePool(getConnection,pool_size=50,max_overflow=100,timeout=50)
 
 '''
 cur = conn.cursor()
