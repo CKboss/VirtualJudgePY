@@ -24,6 +24,13 @@ class ContestShowHandler(BaseHandler) :
         rs = yield self.getProblemList(cid)
         now = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
+        cstatus = contestdetail[10]
+
+        if cstatus == 0 :
+            self.write('<h1>Not Start</h1>')
+            self.finish()
+            return
+
         print(contestdetail)
         print(rs)
 

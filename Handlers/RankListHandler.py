@@ -54,8 +54,12 @@ class RankLishHandler(BaseHandler) :
 
         begintime = datetime.datetime.strptime(str(begintime),'%Y-%m-%d %H:%M:%S')
 
-        mincpi = int(problemlist[0][0])
         np = len(problemlist)
+
+        if np == 0 :
+            return tuple()
+
+        mincpi = int(problemlist[0][0])
 
 
         pInC = dict()

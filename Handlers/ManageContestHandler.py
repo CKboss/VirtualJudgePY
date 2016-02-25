@@ -83,6 +83,7 @@ class ManageContestHandler(BaseHandler) :
 
         action = self.get_argument('action',None)
 
+
         if action is None :
             self.write('Error Manage Operation!!')
             self.finish()
@@ -92,6 +93,21 @@ class ManageContestHandler(BaseHandler) :
 
             cid = self.get_argument('cid',None)
             txt = self.get_argument('problemlist',None)
+
+            if cid is None :
+                self.write('Wrong CID')
+                self.finish()
+                return
+
+
+            CD = yield self.getContestDetail(cid)
+            cstatus = CD[10]
+
+            if cstatus == 1 or cstatus == 2 :
+                self.write('Contest is frost can\'t modify')
+                self.finish()
+                return
+
             problemlist = self.getProblem(txt)
 
             log = yield  self.UpdateProblem(cid,problemlist)
@@ -116,6 +132,14 @@ class ManageContestHandler(BaseHandler) :
 
             if 'error' in data :
                 self.write(data['error'])
+                self.finish()
+                return
+
+            CD = yield self.getContestDetail(cid)
+            cstatus = CD[10]
+
+            if cstatus == 1 or cstatus == 2 :
+                self.write('Contest is frost can\'t modify')
                 self.finish()
                 return
 

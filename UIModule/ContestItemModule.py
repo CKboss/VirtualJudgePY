@@ -8,14 +8,18 @@ class ContestItemModule(tornado.web.UIModule) :
         begintime = r[5]
         endtime = r[6]
 
-        status=''
+        status = ''
+        color = ''
         if r[10] == 0 :
             status = 'Pending'
+            color = 'green'
         elif r[10] == 1 :
             status = 'Running'
+            color = 'red'
         elif r[10] == 2 :
             status = 'Ended'
+            color = 'grey'
 
         return self.render_string('module/contestitem.html',
                            cid=cid,ctitle=ctitle,begintime=begintime,
-                           endtime=endtime,status=status)
+                           endtime=endtime,status=status,color=color)

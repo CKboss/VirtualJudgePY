@@ -5,7 +5,7 @@ class TitleModule(tornado.web.UIModule) :
     def render(self):
 
         html1 = '''
-        <div id="title" class="container">
+        <div id="title" class="span">
             <a href="/" class="filter-item selected text-center">
                 <h1>The VirtualJudgePY</h1>
             </a>

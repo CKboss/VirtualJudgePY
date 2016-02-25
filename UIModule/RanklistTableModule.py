@@ -4,7 +4,16 @@ class RankListTableModule(tornado.web.UIModule) :
 
     def render(self,ranklist):
 
+
         raw = len(ranklist)
+        print('raw: ',raw)
+        if raw == 0 :
+
+            html = '<table border="1" class="flex-table-item-primary" bordercolor="#FFFFFF" class="text-center"> <tbody> <tr class="tbheader" style="background-color: #1A5CC8; color: #FFFFFF">'
+            html += '</tr></tbody></table>'
+
+            return html
+
         col = len(ranklist[0]['submit'])
 
         html = '<table border="1" class="flex-table-item-primary" bordercolor="#FFFFFF" class="text-center"> <tbody> <tr class="tbheader" style="background-color: #1A5CC8; color: #FFFFFF">'

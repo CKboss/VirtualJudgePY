@@ -8,7 +8,7 @@ from concurrent.futures import ThreadPoolExecutor
 
 from Handlers.BaseHandler import BaseHandler
 from Crawler.CrawlerConfig import AutoSubmit
-from tools.dbtools import getInserSQL,LAST_INSERT_ID
+from tools.dbtools import getInserSQL,getQuerySQL,LAST_INSERT_ID
 from tools.encode import UTF8StrToBase64Str
 from tools.dbcore import ConnPool
 
@@ -19,6 +19,8 @@ class SubmitHandler(BaseHandler):
     def prepare(self):
         self.AS = AutoSubmit()
 
+    @tornado.web.asynchronous
+    @tornado.gen.engine
     def get(self, *args, **kwargs):
 
         cid = self.get_argument('cid',-1)
@@ -27,7 +29,22 @@ class SubmitHandler(BaseHandler):
         pid = self.get_argument('pid',None)
         self.get_current_user()
 
+
         if OJ is None or Prob is None or pid is None:
+            return
+
+        cstatus = -1
+        if cid != -1 :
+            cstatus = yield self.getContestStatus(cid)
+
+        if cstatus == 2 :
+            self.write('contest {} is end!'.format(cid))
+            self.finish()
+            return
+
+        if cstatus == 0 :
+            self.write('contest {} is not Begin!'.format(cid))
+            self.finish()
             return
 
         ret = str(self.current_user)+OJ+Prob
@@ -36,6 +53,7 @@ class SubmitHandler(BaseHandler):
             self.write('<h1>Please LogIn first!!!</h1>')
         else :
             self.render('submit.html',OJ=OJ,Prob=Prob,pid=pid,cid=cid)
+
 
     @tornado.web.asynchronous
     @tornado.gen.engine
@@ -69,6 +87,21 @@ class SubmitHandler(BaseHandler):
         #Write Record into db
         self.InsertStatusToDB(pid=pid,oj=oj,Prob=Prob,lang=lang,code=code,cid=cid)
 
+
+    @run_on_executor
+    def getContestStatus(self,cid):
+
+        sql = getQuerySQL('contest',' cid = {} '.format(cid),' cid ')
+
+        #print(sql)
+        conn = ConnPool.connect()
+        cur = conn.cursor()
+        cur.execute(sql)
+        rs = cur.fetchone()
+        cur.close()
+        conn.close()
+
+        return rs[10]
 
     def AddRandomSpace(self,code):
         # Add RandomSpace to avoid missjudge

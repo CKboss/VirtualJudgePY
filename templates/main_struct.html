@@ -39,7 +39,7 @@
                     </table>
                 </form>
             {% else %}
-                <button class="btn btn-sm btn-outline" type="button" >{{ username }}</button>
+                <h3><a href="#">{{ username }}</a></h3>
                 <form method="post" action="/logout">
                     {% raw xsrf_form_html() %}
                     <button class="btn btn-sm btn-outline" type="submit">Log Out</button>
