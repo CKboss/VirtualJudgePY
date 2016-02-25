@@ -2,16 +2,15 @@
 基于 tornado 框架的 virtual judge
 -----
 
-![Screenshot from 2016-02-25 15:05:36.png](https://ooo.0o0.ooo/2016/02/25/56cea91eb79cb.png)
+![Screenshot from 2016-02-25 15:23:57.png](https://ooo.0o0.ooo/2016/02/25/56cead3b989b3.png)
 
+![Screenshot from 2016-02-25 15:26:25.png](https://ooo.0o0.ooo/2016/02/25/56cead3ec0845.png)
 
-![Screenshot from 2016-02-25 15:07:02.png](https://ooo.0o0.ooo/2016/02/25/56cea9301ae7a.png)
+![Screenshot from 2016-02-25 15:25:28.png](https://ooo.0o0.ooo/2016/02/25/56cead4298ecf.png)
 
+![Screenshot from 2016-02-25 15:24:40.png](https://ooo.0o0.ooo/2016/02/25/56cead42bf6c3.png)
 
-![Screenshot from 2016-02-25 15:07:19.png](https://ooo.0o0.ooo/2016/02/25/56cea94c1526a.png)
-
-
-![Screenshot from 2016-02-25 15:07:47.png](https://ooo.0o0.ooo/2016/02/25/56cea96294d86.png)
+![Screenshot from 2016-02-25 15:25:01.png](https://ooo.0o0.ooo/2016/02/25/56cead4346d51.png)
 
 
 ------
