@@ -30,14 +30,24 @@
                     {% if cid != -1 %}
                         <input type="hidden" name="cid" value="{{ cid }}"/>
                     {% end %}
-                    <button class="btn" type="submit">Submit</button>
+                    <button class="btn btn-outline" type="submit">Submit</button>
                 </form>
             </td>
             <td width="30px"></td>
             <td>
-                <button class="btn" type="button">Status</button>
+                <a href="/status?cid={{ cid }}">
+                    <button class="btn btn-outline" type="button">Status</button>
+                </a>
             </td>
+            {% if cid != -1 %}
+                <td width="30px"></td>
+                <td><a href="/contestshow?cid={{ cid }}"><button class="btn btn-outline">ProblemList</button></a></td>
+                <td width="30px"></td>
+                <td><a href="/ranklist?cid={{ cid }}"><button class="btn btn-outline">RankList</button></a></td>
+            {% end %}
+
         </tr>
+
     </table>
 </div>
 
