@@ -95,6 +95,7 @@ class ProblemListHandler(tornado.web.RequestHandler) :
         ordclause = 'originProb'
 
         if index == '%' : index='0'
+        if index is None : index = '0'
 
         sql = getPageLimitSQL('problem',whereclause,ordclause,index,21)
 

@@ -27,6 +27,7 @@ from UIModule.HeaderModule import TitleModule
 from UIModule.ProblemListModule import ProblemListModule
 from UIModule.StatusItemModule import StatusItemModule
 from UIModule.ContestItemModule import ContestItemModule
+from UIModule.RanklistTableModule import RankListTableModule
 
 db = pymysql.connect(
    host='localhost',
@@ -77,6 +78,7 @@ class AppInit(tornado.web.Application) :
             ProblemList = ProblemListModule,
             StatusList = StatusItemModule,
             ContestList = ContestItemModule,
+            RankListTable = RankListTableModule,
         )
 
         tornado.web.Application.__init__(self, handlers,ui_modules=UI_MODULES, **settings)

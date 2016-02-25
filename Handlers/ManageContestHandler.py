@@ -180,7 +180,7 @@ class ManageContestHandler(BaseHandler) :
         sql = getUpdateSQL('contest',data,wherecluse)
 
         print(sql)
-        conn = ConnPool
+        conn = ConnPool.connect()
         cur = conn.cursor()
         cur.execute(sql)
         cur.close()
