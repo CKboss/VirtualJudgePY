@@ -33,16 +33,18 @@ mysql> desc problemdetail;
 import pickle
 import time
 from tools.encode import Base64StrToUTF8Str,UTF8StrToBase64Str
-from tools.dbcore import conn
+from tools.dbcore import ConnPool
 from tools.dbtools import getInserSQL,getUpdateSQL
 
 def GetProblemID(orj,orid):
     sql = 'SELECT problem.pid FROM problem WHERE ' \
           '( problem.originOJ LIKE "{}" AND problem.originProb LIKE "{}" )'.format(orj,orid)
+    conn = ConnPool.connect()
     cur = conn.cursor()
     cur.execute(sql)
     tp = cur.fetchall()
     cur.close()
+    conn.close()
     if tp.__len__()==0:
         return 0
     else :
@@ -60,9 +62,11 @@ def InsertProblem(problem) :
     pretreat_Problem(problem)
     sql = getInserSQL('problem',problem)
 
+    conn = ConnPool.connect()
     cur = conn.cursor()
     cur.execute(sql)
     cur.close()
+    conn.close()
 
 
 def UpdateProblem(problem,pid) :
@@ -72,9 +76,11 @@ def UpdateProblem(problem,pid) :
 
     sql = getUpdateSQL('problem',data=problem,clause=cluse)
 
+    conn = ConnPool.connect()
     cur = conn.cursor()
     cur.execute(sql)
     cur.close()
+    conn.close()
 
 def pretreat_ProblemDetail(problem) :
 
@@ -93,9 +99,11 @@ def InsertProblemDetail(problem) :
     pretreat_ProblemDetail(problem)
     sql = getInserSQL('problemdetail',problem)
 
+    conn = ConnPool.connect()
     cur = conn.cursor()
     cur.execute(sql)
     cur.close()
+    conn.close()
 
 def UpdateProblemDetail(problem,pid) :
 
@@ -104,9 +112,11 @@ def UpdateProblemDetail(problem,pid) :
     clause = 'problemdetail.pid = %d' % pid
     sql = getUpdateSQL('problemdetail',data=problem,clause=clause)
     #print(sql)
+    conn = ConnPool.connect()
     cur = conn.cursor()
     cur.execute(sql)
     cur.close()
+    conn.close()
 
 
 problem = dict (

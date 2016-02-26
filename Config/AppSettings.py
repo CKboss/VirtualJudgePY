@@ -31,15 +31,6 @@ from UIModule.ContestItemModule import ContestItemModule
 from UIModule.RanklistTableModule import RankListTableModule
 from UIModule.OJSelectModule import OJSelectModule
 
-db = pymysql.connect(
-   host='localhost',
-   user='javaTest',
-   password='123456',
-   db='mydb',
-   charset='utf8',
-   cursorclass=pymysql.cursors.DictCursor
-)
-
 class AppInit(tornado.web.Application) :
 
     def __init__(self):

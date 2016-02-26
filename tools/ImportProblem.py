@@ -8,7 +8,7 @@ import pickle
 
 from dao.problemdao import InsertOrUpdateProblem
 
-from Config.FilePathConfig import ZOJ_PKL_FILE
+from Config.FilePathConfig import ZOJ_PKL_FILE,BZOJ_PKL_FILE
 
 def ImportProblem(dir) :
     files = os.listdir(dir)
@@ -21,8 +21,9 @@ def ImportProblem(dir) :
                 InsertOrUpdateProblem(problemdata)
             except EOFError:
                 print('EOFError ... ')
-            except :
+            except Exception as e:
+                print(e)
                 print('other error')
 
 if __name__=='__main__' :
-    ImportProblem(ZOJ_PKL_FILE)
+    ImportProblem(BZOJ_PKL_FILE)

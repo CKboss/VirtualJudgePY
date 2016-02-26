@@ -5,6 +5,7 @@ import pickle
 from Crawler.HduCrawler.HduScanner import HduScanner
 from Crawler.PkuCrawler.PkuScanner import PkuScanner
 from Crawler.ZojCrawler.ZojScanner import ZojScanner
+from Crawler.BzojCrawler.BzojScanner import BzojScanner
 
 from tools.dbtools import getUpdateSQL
 from tools.dbcore import ConnPool
@@ -93,6 +94,8 @@ class MainScanner():
         specialOne = False
         if s['originOJ'] == 'ZOJ' or d['originOJ'] == 'ZOJ':
             specialOne = True
+        if s['originOJ'] == 'BZOJ' or d['originOJ'] == 'BZOJ':
+            specialOne = True
 
         for nt in ['originProb','originOJ','codelenth','language'] :
 
@@ -142,6 +145,12 @@ class MainScanner():
             L += Zoj.Scanner()
         except Exception :
             print('In ZojScanner: ',Exception)
+
+        try :
+            Bzoj = BzojScanner()
+            L += Bzoj.Scanner()
+        except Exception :
+            print('In BZojScanner: ',Exception)
 
         #print(L)
         return L
