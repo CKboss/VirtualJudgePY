@@ -1,14 +1,14 @@
 import tornado.httpserver
 import tornado.ioloop
 
-from Config.AppSettings import options,AppInit
+from Config.AppSettings import options, AppInit
 from StatusScanner.MainScanner import MainScanner
 from ContestScanner.ContestScanner import ContestScanner
 
 import threading
 
-class WebThread(threading.Thread) :
 
+class WebThread(threading.Thread):
     def __init__(self):
         threading.Thread.__init__(self)
 
@@ -22,8 +22,8 @@ class WebThread(threading.Thread) :
         http_server.listen(options.port)
         tornado.ioloop.IOLoop.instance().start()
 
-class ScannerThread(threading.Thread) :
 
+class ScannerThread(threading.Thread):
     def __init__(self):
         threading.Thread.__init__(self)
 
@@ -34,8 +34,8 @@ class ScannerThread(threading.Thread) :
         ms = MainScanner()
         ms.Scanner()
 
-class ContestScannerThread(threading.Thread) :
 
+class ContestScannerThread(threading.Thread):
     def __init__(self):
         threading.Thread.__init__(self)
 
@@ -43,12 +43,11 @@ class ContestScannerThread(threading.Thread) :
         self.ContestScanner()
 
     def ContestScanner(self):
-
         cs = ContestScanner()
         cs.mainloop()
 
-if __name__ == "__main__":
 
+if __name__ == "__main__":
     thread_web = WebThread()
     thread_scanner = ScannerThread()
     thread_contestscanner = ContestScannerThread()

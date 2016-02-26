@@ -15,17 +15,21 @@
 from tools.dbtools import getInserSQL
 from tools.dbcore import ConnPool
 
-def checkUserSQL(username,passowrd):
-    sql = 'select count(*) from user WHERE username = "%s" and password = "%s" '%(username,passowrd)
+
+def checkUserSQL(username, passowrd):
+    sql = 'select count(*) from user WHERE username = "%s" and password = "%s" ' % (username, passowrd)
     return sql
+
 
 def getUserUid(username):
-    sql = 'select uid from user WHERE username="%s"'%(username)
+    sql = 'select uid from user WHERE username="%s"' % (username)
     return sql
 
-def checkUserExist(username) :
-    sql = 'select count(*) from user WHERE username = "%s"'%(username)
+
+def checkUserExist(username):
+    sql = 'select count(*) from user WHERE username = "%s"' % (username)
     return sql
+
 
 def AddUser(d):
     conn = ConnPool.connect()
@@ -34,15 +38,16 @@ def AddUser(d):
     sql = checkUserExist(d['username'])
     cur.execute(sql)
     ret = cur.fetchone()
-    if ret[0] != 0 :
+    if ret[0] != 0:
         return 0
 
-    sql = getInserSQL('user',d)
+    sql = getInserSQL('user', d)
     ret = cur.execute(sql)
     conn.commit()
     cur.close()
     conn.close()
     return ret
 
-if __name__=='__main__':
+
+if __name__ == '__main__':
     pass

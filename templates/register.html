@@ -1,7 +1,7 @@
 {% extends "main_struct.html" %}
 
 {% block content %}
-    <div style="width: 400px;margin-right: auto;margin-left: auto">
+<div style="width: 400px;margin-right: auto;margin-left: auto">
     <h2>Wellcome to register VirtualJudgePY account!</h2>
     <form action="/register" method="post">
         {% raw xsrf_form_html() %}
@@ -27,7 +27,7 @@
                 </td>
             </tr>
             <tr>
-                 <td>
+                <td>
                     <input class="input-large" name="school" type="text" placeholder="your school">
                 </td>
             </tr>
@@ -38,5 +38,5 @@
             </tr>
         </table>
     </form>
-    </div>
+</div>
 {% end %}

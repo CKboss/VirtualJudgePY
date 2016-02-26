@@ -1,7 +1,7 @@
 import tornado.web
 
-class StatusItemModule(tornado.web.UIModule) :
 
+class StatusItemModule(tornado.web.UIModule):
     def render(self, r):
 
         d = dict()
@@ -10,9 +10,9 @@ class StatusItemModule(tornado.web.UIModule) :
         d['oj'] = r[12]
         d['prob'] = r[13]
         d['status'] = r[2]
-        if d['status'] == 'Accepted' :
+        if d['status'] == 'Accepted':
             d['color'] = 'red'
-        else :
+        else:
             d['color'] = 'blue'
         d['runmemory'] = r[4]
         d['runtime'] = r[3]
@@ -20,4 +20,4 @@ class StatusItemModule(tornado.web.UIModule) :
         d['submittime'] = str(r[1])
         d['language'] = r[7]
 
-        return self.render_string('module/StatusItem.html',d=d)
+        return self.render_string('module/StatusItem.html', d=d)

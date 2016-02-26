@@ -12,8 +12,8 @@ from tools.dbcore import ConnPool
 
 from Config.FilePathConfig import SID_DATA_FILE
 
-class MainScanner():
 
+class MainScanner():
     TF = SID_DATA_FILE
 
     def Scanner(self):
@@ -30,23 +30,23 @@ class MainScanner():
             '''
 
             files = os.listdir(self.TF)
-            for file in files :
-                if file.endswith('.pkl') :
+            for file in files:
+                if file.endswith('.pkl'):
 
-                    S = pickle.load(open(self.TF+file,'rb'))
-                    #print('S:',S)
+                    S = pickle.load(open(self.TF + file, 'rb'))
+                    # print('S:',S)
 
-                    for x in L :
-                        ret = self.CheckIt(S,x)
-                        #print('---> ',x)
-                        if ret is None :
+                    for x in L:
+                        ret = self.CheckIt(S, x)
+                        # print('---> ',x)
+                        if ret is None:
                             continue
-                        else :
-                            #print('here is ret :', ret)
+                        else:
+                            # print('here is ret :', ret)
                             # update status
                             clause = 'sid = {}'.format(S['sid'])
-                            sql = getUpdateSQL('status',ret,clause)
-                            #print('update status sql: ',sql)
+                            sql = getUpdateSQL('status', ret, clause)
+                            # print('update status sql: ',sql)
 
                             S['status'] = ret['status']
 
@@ -58,20 +58,19 @@ class MainScanner():
 
                             break
 
-                            #os.remove(self.TF+file)
+                            # os.remove(self.TF+file)
 
-                    S['looplimit'] = S['looplimit']-1
-                    if S['looplimit'] >= -10 :
-                        pickle.dump(S,open(self.TF+file,'wb'))
-                    else :
+                    S['looplimit'] = S['looplimit'] - 1
+                    if S['looplimit'] >= -10:
+                        pickle.dump(S, open(self.TF + file, 'wb'))
+                    else:
 
                         # Judge Error
-                        if 'status' not in S or S['status'] is None or S['status'] == 'Pending' :
-
+                        if 'status' not in S or S['status'] is None or S['status'] == 'Pending':
                             ret = dict()
                             ret['status'] = 'Judge Error'
                             clause = 'sid = {}'.format(S['sid'])
-                            sql =getUpdateSQL('status',ret,clause)
+                            sql = getUpdateSQL('status', ret, clause)
 
                             conn = ConnPool.connect()
                             cur = conn.cursor()
@@ -79,14 +78,14 @@ class MainScanner():
                             cur.close()
                             conn.close()
 
-                        os.remove(self.TF+file)
+                        os.remove(self.TF + file)
 
             time.sleep(5)
 
-    def CheckIt(self,s,d):
+    def CheckIt(self, s, d):
 
-        #print('s: ',s)
-        #print('d: ',d)
+        # print('s: ',s)
+        # print('d: ',d)
 
 
         flag = True
@@ -97,62 +96,60 @@ class MainScanner():
         if s['originOJ'] == 'BZOJ' or d['originOJ'] == 'BZOJ':
             specialOne = True
 
-        for nt in ['originProb','originOJ','codelenth','language'] :
+        for nt in ['originProb', 'originOJ', 'codelenth', 'language']:
 
-            if specialOne == True and nt == 'codelenth' :
+            if specialOne == True and nt == 'codelenth':
                 continue
 
-            try :
-                if s[nt] != d[nt] :
-                    #print('item: ',nt,' ',s[nt],' vs ',d[nt])
-                    flag=False
-            except Exception :
+            try:
+                if s[nt] != d[nt]:
+                    # print('item: ',nt,' ',s[nt],' vs ',d[nt])
+                    flag = False
+            except Exception:
                 print('CheckIt Exception')
-
 
         if flag is False:
             return None
 
         ret = dict()
 
-        for x in ['status','runtime','runmemory','realrunid'] :
+        for x in ['status', 'runtime', 'runmemory', 'realrunid']:
             ret[x] = d[x]
 
         return ret
-
 
     def FindAndUpdate(self):
 
         L = list()
 
-        try :
-            #print('Start Scanner HDU ...')
+        try:
+            # print('Start Scanner HDU ...')
             HduS = HduScanner()
             L += HduS.Scanner()
-        except Exception :
-            print('In HduScanner: ',Exception)
+        except Exception:
+            print('In HduScanner: ', Exception)
 
-        try :
-            #print('Start Scanner PKU ...')
+        try:
+            # print('Start Scanner PKU ...')
             PkuS = PkuScanner()
             L += PkuS.Scanner()
-        except Exception :
-            print('In PkuScanner: ',Exception)
+        except Exception:
+            print('In PkuScanner: ', Exception)
 
-        try :
-            #print('Start Scanner ZOJ ...')
+        try:
+            # print('Start Scanner ZOJ ...')
             Zoj = ZojScanner()
             L += Zoj.Scanner()
-        except Exception :
-            print('In ZojScanner: ',Exception)
+        except Exception:
+            print('In ZojScanner: ', Exception)
 
-        try :
+        try:
             Bzoj = BzojScanner()
             L += Bzoj.Scanner()
-        except Exception :
-            print('In BZojScanner: ',Exception)
+        except Exception:
+            print('In BZojScanner: ', Exception)
 
-        #print(L)
+        # print(L)
         return L
 
 
@@ -160,5 +157,6 @@ def main():
     ms = MainScanner()
     ms.Scanner()
 
-if __name__=='__main__' :
+
+if __name__ == '__main__':
     main()

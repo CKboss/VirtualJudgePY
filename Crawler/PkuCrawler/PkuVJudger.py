@@ -2,17 +2,18 @@ import requests
 import random
 import time
 
-from Crawler.PkuCrawler.PkuConfig import Pku_User,Pku_LogIn_Url
-from tools.encode import UTF8StrToBase64Str,Base64StrToUTF8Str
+from Crawler.PkuCrawler.PkuConfig import Pku_User, Pku_LogIn_Url
+from tools.encode import UTF8StrToBase64Str, Base64StrToUTF8Str
 
-class PkuVJudger() :
 
+class PkuVJudger():
     '''
     1.poj的提交需要对代码进行base64编码
     2.每次都要登陆?
     '''
 
-    headers = { 'User-agent':'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2364.103 Safari/537.36',}
+    headers = {
+        'User-agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2364.103 Safari/537.36',}
     submit_url = 'http://poj.org/submit?action=submit'
     sl = 'http://poj.org/submit?action=submit'
     s = None
@@ -21,19 +22,19 @@ class PkuVJudger() :
     def LogIn(self):
         self.snt = 30
         self.s = requests.session()
-        r = self.s.post(url=Pku_LogIn_Url,data=random.choice(Pku_User))
+        r = self.s.post(url=Pku_LogIn_Url, data=random.choice(Pku_User))
 
-    def GetLanguage(self,lang):
+    def GetLanguage(self, lang):
 
-        L = ['G++','GCC','Java','Pascal','C++','C','Fortran']
+        L = ['G++', 'GCC', 'Java', 'Pascal', 'C++', 'C', 'Fortran']
         ret = 0
-        for i in range(0,7) :
-            if lang == L[i] :
+        for i in range(0, 7):
+            if lang == L[i]:
                 ret = i
                 break
         return ret
 
-    def Sumbit(self,pid,lang,code):
+    def Sumbit(self, pid, lang, code):
 
         self.LogIn()
         url = self.submit_url
@@ -45,7 +46,7 @@ class PkuVJudger() :
         d['source'] = code
         d['encoded'] = str(1)
 
-        self.s.post(url=url,data=d)
+        self.s.post(url=url, data=d)
 
 
 def main():
@@ -64,10 +65,11 @@ def main():
         return 0;
     }
     '''
-    pv.Sumbit(1000,'G++',code)
-    pv.Sumbit(1001,'G++',code)
+    pv.Sumbit(1000, 'G++', code)
+    pv.Sumbit(1001, 'G++', code)
 
-if __name__=='__main__' :
+
+if __name__ == '__main__':
     main()
 
 '''

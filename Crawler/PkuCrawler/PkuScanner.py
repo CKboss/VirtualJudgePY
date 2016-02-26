@@ -4,35 +4,33 @@ from bs4 import BeautifulSoup
 from Crawler.PkuCrawler.PkuConfig import Pku_User
 
 
-class PkuScanner :
-
+class PkuScanner:
     s = requests.session()
 
     scan_url = 'http://poj.org/status?problem_id=&user_id={}&result=&language='
 
-    def Analyse(self,html):
+    def Analyse(self, html):
 
-        soup = BeautifulSoup(html,'html5lib')
+        soup = BeautifulSoup(html, 'html5lib')
 
         L = list()
 
-        for i in range(2,30) :
+        for i in range(2, 30):
 
             td = soup.select_one('body > table.a > tbody > tr:nth-of-type({})'.format(i))
-
 
             if td is None: break
 
             dt = dict()
             dt['originOJ'] = 'PKU'
 
-            titles = ['realrunid','nickname','originProb','status','runmemory',
-                      'runtime','language','codelenth','realsubmittime']
+            titles = ['realrunid', 'nickname', 'originProb', 'status', 'runmemory',
+                      'runtime', 'language', 'codelenth', 'realsubmittime']
 
-            for con in td.contents :
+            for con in td.contents:
 
                 dt[titles[0]] = con.text
-                if titles[0] == 'codelenth' :
+                if titles[0] == 'codelenth':
                     dt[titles[0]] = dt[titles[0]][:-1]
                 titles = titles[1:]
 
@@ -44,10 +42,9 @@ class PkuScanner :
 
         L = list()
 
-        for x in Pku_User :
-
+        for x in Pku_User:
             url = self.scan_url.format(x['user_id1'])
-            r = self.s.get(url,timeout=5)
+            r = self.s.get(url, timeout=5)
 
             '''
             f = open('/tmp/r1.text','w')
@@ -62,7 +59,7 @@ class PkuScanner :
         return L
 
 
-def main() :
+def main():
     PS = PkuScanner()
 
     print(PS.Scanner())
@@ -74,5 +71,6 @@ def main() :
     print(L)
     '''
 
-if __name__=='__main__' :
+
+if __name__ == '__main__':
     main()

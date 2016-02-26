@@ -9,17 +9,16 @@ from tools.dbcore import ConnPool
 
 from Handlers.BaseHandler import BaseHandler
 
-class ManageContestListHandler(BaseHandler) :
 
+class ManageContestListHandler(BaseHandler):
     executor = ThreadPoolExecutor(20)
 
     @tornado.web.asynchronous
     @tornado.gen.engine
     def get(self, *args, **kwargs):
-
         self.get_current_user()
 
-        if len(self.current_user) == 0 :
+        if len(self.current_user) == 0:
             self.write('please log in first !!')
             return
 
@@ -27,15 +26,14 @@ class ManageContestListHandler(BaseHandler) :
 
         rs = yield self.getContests(uid)
 
-        self.render('managecontestlist.html',rs=rs)
+        self.render('managecontestlist.html', rs=rs)
 
     @run_on_executor
-    def getContests(self,uid):
-
+    def getContests(self, uid):
         whereclause = ' cuid = {}'.format(uid)
         ordclause = ' cid desc '
 
-        sql = getPageLimitSQL('contest',whereclause,ordclause,0,100000)
+        sql = getPageLimitSQL('contest', whereclause, ordclause, 0, 100000)
 
         conn = ConnPool.connect()
         cur = conn.cursor()
@@ -46,4 +44,3 @@ class ManageContestListHandler(BaseHandler) :
         rs = cur.fetchall()
 
         return rs
-

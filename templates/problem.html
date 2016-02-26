@@ -28,7 +28,7 @@
                     <input type="hidden" name="OJ" value="{{ D['originOJ'] }}"/>
                     <input type="hidden" name="Prob" value="{{ D['originProb'] }}"/>
                     {% if cid != -1 %}
-                        <input type="hidden" name="cid" value="{{ cid }}"/>
+                    <input type="hidden" name="cid" value="{{ cid }}"/>
                     {% end %}
                     <button class="btn btn-outline" type="submit">Submit</button>
                 </form>
@@ -40,10 +40,14 @@
                 </a>
             </td>
             {% if cid != -1 %}
-                <td width="30px"></td>
-                <td><a href="/contestshow?cid={{ cid }}"><button class="btn btn-outline">ProblemList</button></a></td>
-                <td width="30px"></td>
-                <td><a href="/ranklist?cid={{ cid }}"><button class="btn btn-outline">RankList</button></a></td>
+            <td width="30px"></td>
+            <td><a href="/contestshow?cid={{ cid }}">
+                <button class="btn btn-outline">ProblemList</button>
+            </a></td>
+            <td width="30px"></td>
+            <td><a href="/ranklist?cid={{ cid }}">
+                <button class="btn btn-outline">RankList</button>
+            </a></td>
             {% end %}
 
         </tr>

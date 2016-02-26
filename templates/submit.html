@@ -2,30 +2,34 @@
 
 {% block content %}
 <form action="/submit" method="post">
-{% raw xsrf_form_html() %}
+    {% raw xsrf_form_html() %}
 
     <input type="hidden" name="OJ" value="{{ OJ }}">
     <input type="hidden" name="Prob" value="{{ Prob }}">
     <input type="hidden" name="pid" value="{{ pid }}">
     {% if cid != -1 %}
-        <input type="hidden" name="cid" value="{{ cid }}">
+    <input type="hidden" name="cid" value="{{ cid }}">
     {% end %}
-<table cellspacing="0" cellpadding="0" width="100%" border="0">
+    <table cellspacing="0" cellpadding="0" width="100%" border="0">
 
-	<tbody>
-    <tr>
-		<td align="center" style="color:#1A5CC8">
-			<h1>Submit Your Solution</h1>
-			<div style="color:#1A5CC8" align="center"><i>Current Authenticated Author : {{ current_user }}</i></div><br>
-		</td>
-	</tr>
+        <tbody>
+        <tr>
+            <td align="center" style="color:#1A5CC8">
+                <h1>Submit Your Solution</h1>
+                <div style="color:#1A5CC8" align="center"><i>Current Authenticated Author : {{ current_user }}</i></div>
+                <br>
+            </td>
+        </tr>
 
-    <tr>
-		<td align="center"><br>
-			Problem&nbsp;<input type="text" name="problemid" class="text40" style="width:120px;background-color:#F4FBFF;margin-right:40px" value="{{ OJ }}{{ Prob }}">
-			Language&nbsp;
+        <tr>
+            <td align="center"><br>
+                Problem&nbsp;<input type="text" name="problemid" class="text40"
+                                    style="width:120px;background-color:#F4FBFF;margin-right:40px"
+                                    value="{{ OJ }}{{ Prob }}">
+                Language&nbsp;
 			<span style="border:#B7CBFF 1px dashed;width:120px;height:22px;padding:0">
-			<select name="language" style="width:121px;font-size:14px;font-family:Arial;background-color:#F4FBFF;margin:-1px">
+			<select name="language"
+                    style="width:121px;font-size:14px;font-family:Arial;background-color:#F4FBFF;margin:-1px">
                 <option value="C++" selected="">C++</option>
                 <!--<option value="GCC">GCC</option>-->
                 <!--<option value="G++">G++</option>-->
@@ -33,21 +37,24 @@
                 <!--<option value="Pascal">Pascal</option>-->
                 <option value="Java">Java</option>
                 <!--<option value="C#">C#</option>-->
-			</select>
+            </select>
 			</span>
-		</td>
-	</tr>
-    <tr>
-        <td align="center"><br>Source Code</td>
-    </tr>
-    <tr>
-        <td align="center"><br><textarea name="usercode" class="code" style="width: 667px; height: 373px;background-color: #F4FBFF;font-family:'Courier New', Courier, monospace;"></textarea></td>
-    </tr>
+            </td>
+        </tr>
+        <tr>
+            <td align="center"><br>Source Code</td>
+        </tr>
+        <tr>
+            <td align="center"><br><textarea name="usercode" class="code"
+                                             style="width: 667px; height: 373px;background-color: #F4FBFF;font-family:'Courier New', Courier, monospace;"></textarea>
+            </td>
+        </tr>
 
-    <tr>
-        <td align="center"><br><input type="submit" value="Submit" class="btn-outline">&nbsp;&nbsp;<input type="reset" value="Reset" class="btn-outline"></td>
-    </tr>
-	</tbody>
-</table>
+        <tr>
+            <td align="center"><br><input type="submit" value="Submit" class="btn-outline">&nbsp;&nbsp;<input
+                    type="reset" value="Reset" class="btn-outline"></td>
+        </tr>
+        </tbody>
+    </table>
 </form>
 {% end %}

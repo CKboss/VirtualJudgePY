@@ -1,13 +1,12 @@
-
 '''
 OJ Account
 '''
 
 HduUser = [
     dict(
-        username = 'xxx111',
-        userpass = '123456',
-        login = 'Sign in',
+        username='xxx111',
+        userpass='123456',
+        login='Sign in',
     ),
 ]
 
@@ -20,4 +19,3 @@ Language['C'] = 3
 Language['Pascal'] = 4
 Language['Java'] = 5
 Language['C#'] = 6
-

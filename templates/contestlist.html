@@ -6,7 +6,6 @@
     <h1 style="color: #1A5CC8">Contest List</h1>
 
 
-
     <table border="1" class="flex-table-item-primary" bordercolor="#FFFFFF" class="text-center">
         <tbody>
 
@@ -21,39 +20,40 @@
         </tr>
 
         {% for r in rs %}
-            <tr align="center" bgcolor="#f0f8ff">
-                <td>{{ r[0] }}</td>
-                <td class="text-center"><a href="contestshow?cid={{ r[0] }}">{{ r[1] }}</a></td>
-                <td>{{ r[5] }}</td>
-                <td>{{ r[6] }}</td>
+        <tr align="center" bgcolor="#f0f8ff">
+            <td>{{ r[0] }}</td>
+            <td class="text-center"><a href="contestshow?cid={{ r[0] }}">{{ r[1] }}</a></td>
+            <td>{{ r[5] }}</td>
+            <td>{{ r[6] }}</td>
 
-                {% if r[8] == 1 %}
-                    <td style="color:green;">Password</td>
-                {% elif r[8] == 0 %}
-                    <td style="color:red ;">Public</td>
-                {% else %}
-                    <td></td>
-                {% end %}
+            {% if r[8] == 1 %}
+            <td style="color:green;">Password</td>
+            {% elif r[8] == 0 %}
+            <td style="color:red ;">Public</td>
+            {% else %}
+            <td></td>
+            {% end %}
 
-                {% if r[10] == 0 %}
-                    <td style="color:green">Pending</td>
-                {% elif r[10] == 1 %}
-                    <td style="color:red">Runing</td>
-                {% elif r[10] == 2 %}
-                    <td style="color:grey">Ended</td>
-                {% else %}
-                    <td></td>
-                {% end %}
+            {% if r[10] == 0 %}
+            <td style="color:green">Pending</td>
+            {% elif r[10] == 1 %}
+            <td style="color:red">Runing</td>
+            {% elif r[10] == 2 %}
+            <td style="color:grey">Ended</td>
+            {% else %}
+            <td></td>
+            {% end %}
 
-                <td><a href="/userstatus?user={{ r[9] }}">{{ r[11] }}</a></td>
-            </tr>
+            <td><a href="/userstatus?user={{ r[9] }}">{{ r[11] }}</a></td>
+        </tr>
         {% end %}
 
         </tbody>
     </table>
 
     <h2>
-        <a href="/createcontest"> Make a New Contest ! </a> | <a href="/managecontestlist">Manage Your Contest List !</a>
+        <a href="/createcontest"> Make a New Contest ! </a> | <a href="/managecontestlist">Manage Your Contest List
+        !</a>
     </h2>
 
     <table align="center">
@@ -71,13 +71,13 @@
                 <form action="contestlist" method="get">
 
                     {% try %}
-                        {% set pageprev = int(page) - 1 %}
+                    {% set pageprev = int(page) - 1 %}
                     {% except NameError %}
-                        {% set pageprev = 0 %}
+                    {% set pageprev = 0 %}
                     {% end %}
 
-                    {% if pageprev < 0  %}
-                        {% set pageprev = 0 %}
+                    {% if pageprev < 0 %}
+                    {% set pageprev = 0 %}
                     {% end %}
 
                     <input type="hidden" name="page" value="{{ pageprev }}">
@@ -89,9 +89,9 @@
             <td width="50px"/>
 
             {% try %}
-                {% set hasnext = hasNext %}
+            {% set hasnext = hasNext %}
             {% except NameError %}
-                {% set hasnext = True %}
+            {% set hasnext = True %}
             {% end %}
 
             {% if hasnext == True %}
@@ -99,16 +99,16 @@
                 <form action="contestlist" method="get">
 
                     {% try %}
-                        {% set pagenext = int(page) + 1 %}
+                    {% set pagenext = int(page) + 1 %}
                     {% except NameError %}
-                        {% set pagenext = 1 %}
+                    {% set pagenext = 1 %}
                     {% end %}
 
                     <input type="hidden" name="page" value="{{ pagenext }}">
                     <button class="btn btn-sm btn-outline" type="submit">Next Page</button>
                 </form>
             </td>
-            {% elif hasnext == False%}
+            {% elif hasnext == False %}
             <td>
                 <button class="btn btn-sm btn-outline disabled" type="submit">Next Page</button>
             </td>

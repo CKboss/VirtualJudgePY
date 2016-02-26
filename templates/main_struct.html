@@ -6,63 +6,66 @@
     <title>VirtualJudgePY</title>
 </head>
 <body>
-    <header style="margin-left: 5%; margin-right: 5%">
-        <!-- header -->
-        {% module HeaderTitle() %}
+<header style="margin-left: 5%; margin-right: 5%">
+    <!-- header -->
+    {% module HeaderTitle() %}
 
-        <div align="right">
+    <div align="right">
 
-            {% try %}
-                {% set username = current_user %}
-            {% except NameError %}
-                {% set username = '' %}
-            {% end %}
+        {% try %}
+        {% set username = current_user %}
+        {% except NameError %}
+        {% set username = '' %}
+        {% end %}
 
-            {% if username is None or len(username)==0  %}
-                <form action="/login" method="POST" >
-                    {% raw xsrf_form_html() %}
-                    <table>
-                        <tr>
-                            <td>  <input type="text" name="username" placeholder="username"></td>
-                        </tr>
-                        <tr>
-                            <td>  <input type="password" name="password" placeholder="password"></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <button class="btn btn-outline" type="submit" action="/login">LogIn</button>
-                                <a href="/register" >
-                                    <button class="btn btn-outline" type="button" >Register</button>
-                                </a>
-                            </td>
-                        </tr>
-                    </table>
-                </form>
-            {% else %}
-                <h3><a href="#">{{ username }}</a></h3>
-                <form method="post" action="/logout">
-                    {% raw xsrf_form_html() %}
-                    <button class="btn btn-sm btn-outline" type="submit">Log Out</button>
-                </form>
-            {% end %}
-         </div>
+        {% if username is None or len(username)==0 %}
+        <form action="/login" method="POST">
+            {% raw xsrf_form_html() %}
+            <table>
+                <tr>
+                    <td><input type="text" name="username" placeholder="username"></td>
+                </tr>
+                <tr>
+                    <td><input type="password" name="password" placeholder="password"></td>
+                </tr>
+                <tr>
+                    <td>
+                        <button class="btn btn-outline" type="submit" action="/login">LogIn</button>
+                        <a href="/register">
+                            <button class="btn btn-outline" type="button">Register</button>
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        </form>
+        {% else %}
+        <h3><a href="#">{{ username }}</a></h3>
+        <form method="post" action="/logout">
+            {% raw xsrf_form_html() %}
+            <button class="btn btn-sm btn-outline" type="submit">Log Out</button>
+        </form>
+        {% end %}
+    </div>
 
-        {% block header %} {% end %}
-    </header>
+    {% block header %} {% end %}
+</header>
 
-    <content>
-        {% block content %} {% end %}
-    </content>
+<content>
+    {% block content %} {% end %}
+</content>
 
-    <footer>
-        <!-- footer -->
-        <div style="text-align:center;margin-top:30px;clear:both;font-size:80%">
-            <hr>FAQ | About VirtualJudgePY | <a href="#" target="_blank">Forum</a> | <a href="#" target="_blank">Discuss</a> | <a href="https://github.com/CKboss/VirtualJudgePY" target="_blank">Open Source Project</a><br>
-            All Copyright Reserved ©2015-2016 <a href="http://www.ckboss.cf">ckboss.cf</a>
-            <br>Anything about the OJ, please ask in the <a href="#" target="_blank">forum</a>, or contact author:<a href="mailto:qhn999@2008.sina.com">CKboss</a><br>
-        </div>
-        {% block footer %} {% end %}
-    </footer>
+<footer>
+    <!-- footer -->
+    <div style="text-align:center;margin-top:30px;clear:both;font-size:80%">
+        <hr>
+        FAQ | About VirtualJudgePY | <a href="#" target="_blank">Forum</a> | <a href="#" target="_blank">Discuss</a> |
+        <a href="https://github.com/CKboss/VirtualJudgePY" target="_blank">Open Source Project</a><br>
+        All Copyright Reserved ©2015-2016 <a href="http://www.ckboss.cf">ckboss.cf</a>
+        <br>Anything about the OJ, please ask in the <a href="#" target="_blank">forum</a>, or contact author:<a
+            href="mailto:qhn999@2008.sina.com">CKboss</a><br>
+    </div>
+    {% block footer %} {% end %}
+</footer>
 
 </body>
 </html>

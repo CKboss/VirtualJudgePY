@@ -19,13 +19,15 @@
         </tr>
 
         {% for x in rs %}
-            {% module ContestList(x) %}
+        {% module ContestList(x) %}
         {% end %}
 
 
-        </tbody></table>
+        </tbody>
+    </table>
 
-    <h2><a href="/createcontest" class="hot">Make a New Web-DIY Contest ! </a> | <a href="/contestlist" class="hot">All Web-DIY Contest List</a></h2>
+    <h2><a href="/createcontest" class="hot">Make a New Web-DIY Contest ! </a> | <a href="/contestlist" class="hot">All
+        Web-DIY Contest List</a></h2>
 </div>
 
 {% end %}

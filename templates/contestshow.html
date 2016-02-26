@@ -3,22 +3,20 @@
 {% block content %}
 
 
-
 <div style="margin-left: 10%; margin-right: 10%" id="content">
 
-    <div style="margin-left: 20%; margin-right: 20%"  class="text-center" style="color:green">
+    <div style="margin-left: 20%; margin-right: 20%" class="text-center" style="color:green">
         <h1>{{ ctitle }}</h1>
         <p style="color: rebeccapurple">Start Time : {{ begintime }} End Time : {{ endtime }}</p>
         {% if cstatus == 0 %}
-            <p style="color: green;">Pending</p>
+        <p style="color: green;">Pending</p>
         {% elif cstatus ==1 %}
-            <p style="color: red;">Running</p>
+        <p style="color: red;">Running</p>
         {% else %}
-            <p style="color: gray;">Ended</p>
+        <p style="color: gray;">Ended</p>
         {% end %}
         <p class="currenttime" style="color:orange">Current System Time : {{ now }}</p>
     </div>
-
 
 
     <table border="1" class="flex-table-item-primary" bordercolor="#FFFFFF" class="text-center">
@@ -36,15 +34,15 @@
 
         {% set nt = 1000 %}
         {% for r in rs %}
-            <tr bgcolor="#f0f8ff">
-               <td></td>
-                <td>{{ nt }}</td>
-                <td class="text-center">
-                    <a href="/problem/{{ r[4] }}/{{ r[5] }}?cid={{ cid }}">{{ r[3] }}</a>
-                </td>
-                <td></td>
-            </tr>
-            {% set nt = nt + 1 %}
+        <tr bgcolor="#f0f8ff">
+            <td></td>
+            <td>{{ nt }}</td>
+            <td class="text-center">
+                <a href="/problem/{{ r[4] }}/{{ r[5] }}?cid={{ cid }}">{{ r[3] }}</a>
+            </td>
+            <td></td>
+        </tr>
+        {% set nt = nt + 1 %}
         {% end %}
 
         <!--
@@ -84,15 +82,19 @@
     <!-- <button class="btn btn-outline" type="button" >ProblemList</button> -->
     <table align="center">
         <tbody>
-            <tr>
-                <td>
-                    <a href="/status?cid={{ cid }}"><button class="btn btn-outline" type="button" >Status</button></a>
-                </td>
-                <td width="50px"></td>
-                <td>
-                    <a href="ranklist?cid={{ cid }}"><button class="btn btn-outline" type="button" >Ranklist</button></a>
-                </td>
-            </tr>
+        <tr>
+            <td>
+                <a href="/status?cid={{ cid }}">
+                    <button class="btn btn-outline" type="button">Status</button>
+                </a>
+            </td>
+            <td width="50px"></td>
+            <td>
+                <a href="ranklist?cid={{ cid }}">
+                    <button class="btn btn-outline" type="button">Ranklist</button>
+                </a>
+            </td>
+        </tr>
         </tbody>
     </table>
 </div>

@@ -2,7 +2,7 @@ import pymysql
 import sqlalchemy.pool as DBPool
 
 
-def getConnection() :
+def getConnection():
     conn = pymysql.connect(
         host='localhost',
         user='javaTest',
@@ -13,7 +13,8 @@ def getConnection() :
     )
     return conn
 
-ConnPool = DBPool.QueuePool(getConnection,pool_size=50,max_overflow=100,timeout=25)
+
+ConnPool = DBPool.QueuePool(getConnection, pool_size=50, max_overflow=100, timeout=25)
 
 '''
 
@@ -26,4 +27,3 @@ ans = cur.execute('select * from user')
 print(cur.fetchall())
 
 '''
-

@@ -2,96 +2,96 @@
 
 {% block content %}
 <div style="margin-left: 5%; margin-right: 5%">
-<form method="get" action="/problemlist">
+    <form method="get" action="/problemlist">
 
-    <strong>OJ:</strong>
+        <strong>OJ:</strong>
 
-    {% module OJSelect() %}
+        {% module OJSelect() %}
 
-    <!--
-    <select size="1" name="oj">
-        <option value="ALL" selected="">All</option>
-        <option value="HDU">HDU</option>
-        <option value="PKU">PKU</option>
-        <option value="ZOJ">ZOJ</option>
-        <option value="CF">Codeforces</option>
-        <option value="BZOJ">BZOJ</option>
-    </select>
-    -->
+        <!--
+        <select size="1" name="oj">
+            <option value="ALL" selected="">All</option>
+            <option value="HDU">HDU</option>
+            <option value="PKU">PKU</option>
+            <option value="ZOJ">ZOJ</option>
+            <option value="CF">Codeforces</option>
+            <option value="BZOJ">BZOJ</option>
+        </select>
+        -->
 
-    <strong>Problem ID:</strong>
-    <input type="text" name="problem_id" size="8" value="">
+        <strong>Problem ID:</strong>
+        <input type="text" name="problem_id" size="8" value="">
 
-    <strong>Title:</strong>
-    <input type="text" name="problem_title" size="25" value="">
+        <strong>Title:</strong>
+        <input type="text" name="problem_title" size="25" value="">
 
-    <strong>Source:</strong>
-    <input type="text" name="problem_source" size="35" value="">
+        <strong>Source:</strong>
+        <input type="text" name="problem_source" size="35" value="">
 
-    <input type="hidden" name="issearch" value="issearch">
+        <input type="hidden" name="issearch" value="issearch">
 
-    <input class="btn btn-outline" type="submit" width="18" value="Search">
-</form>
+        <input class="btn btn-outline" type="submit" width="18" value="Search">
+    </form>
 
-<table border="1" class="flex-table-item-primary text-center" bordercolor="#FFFFFF">
-    <tbody>
-    <!--<tr align="center" bgcolor="#5f9ea0" >-->
-    <tr class="tbheader" style="background-color: #1A5CC8; color: #FFFFFF">
-        <td width="6%">OJ</td>
-        <td width="6%">Problem</td>
-        <td width="30%">title</td>
-        <td width="57%">Source</td>
-    </tr>
+    <table border="1" class="flex-table-item-primary text-center" bordercolor="#FFFFFF">
+        <tbody>
+        <!--<tr align="center" bgcolor="#5f9ea0" >-->
+        <tr class="tbheader" style="background-color: #1A5CC8; color: #FFFFFF">
+            <td width="6%">OJ</td>
+            <td width="6%">Problem</td>
+            <td width="30%">title</td>
+            <td width="57%">Source</td>
+        </tr>
 
-    {% for x in rs %}
+        {% for x in rs %}
         {% module ProblemList(x) %}
-    {% end %}
-
-    <!--
-    <tr align="center" bgcolor="#f0f8ff">
-        <td>HDOJ</td>
-        <td><a href="#">1001</a></td>
-        <td><a href="#">hello world</a></td>
-        <td><a href="#">source</a></td>
-    </tr>
-
-    <tr align="center" bgcolor="#f0f8ff">
-        <td>HDOJ</td>
-        <td><a href="#">1002</a></td>
-        <td><a href="#">hello world</a></td>
-        <td><a href="#">source</a></td>
-    </tr>
-    -->
-
-    </tbody>
-</table>
-
-<table align="center">
-    <tr>
-        <td>
-            <form action="/redirection" method="post">
-                {% raw xsrf_form_html() %}
-                <input type="hidden" name="msg" value="pl_top">
-                <button class="btn btn-sm btn-outline" type="submit">Top</button>
-            </form>
-        </td>
-        <td width="50px"/>
-        <td>
-            <form action="/redirection" method="post">
-                {% raw xsrf_form_html() %}
-                <input type="hidden" name="msg" value="pl_prev">
-                <button class="btn btn-sm btn-outline" type="submit">Previous Page</button>
-            </form>
-        </td>
-        <td width="50px"/>
-
-        {% try %}
-            {% set hasnext = hasNext %}
-        {% except NameError %}
-            {% set hasnext = True %}
         {% end %}
 
-        {% if hasnext == True %}
+        <!--
+        <tr align="center" bgcolor="#f0f8ff">
+            <td>HDOJ</td>
+            <td><a href="#">1001</a></td>
+            <td><a href="#">hello world</a></td>
+            <td><a href="#">source</a></td>
+        </tr>
+
+        <tr align="center" bgcolor="#f0f8ff">
+            <td>HDOJ</td>
+            <td><a href="#">1002</a></td>
+            <td><a href="#">hello world</a></td>
+            <td><a href="#">source</a></td>
+        </tr>
+        -->
+
+        </tbody>
+    </table>
+
+    <table align="center">
+        <tr>
+            <td>
+                <form action="/redirection" method="post">
+                    {% raw xsrf_form_html() %}
+                    <input type="hidden" name="msg" value="pl_top">
+                    <button class="btn btn-sm btn-outline" type="submit">Top</button>
+                </form>
+            </td>
+            <td width="50px"/>
+            <td>
+                <form action="/redirection" method="post">
+                    {% raw xsrf_form_html() %}
+                    <input type="hidden" name="msg" value="pl_prev">
+                    <button class="btn btn-sm btn-outline" type="submit">Previous Page</button>
+                </form>
+            </td>
+            <td width="50px"/>
+
+            {% try %}
+            {% set hasnext = hasNext %}
+            {% except NameError %}
+            {% set hasnext = True %}
+            {% end %}
+
+            {% if hasnext == True %}
             <td>
                 <form action="/redirection" method="post">
                     {% raw xsrf_form_html() %}
@@ -99,13 +99,13 @@
                     <button class="btn btn-sm btn-outline" type="submit">Next Page</button>
                 </form>
             </td>
-        {% elif hasnext == False%}
+            {% elif hasnext == False %}
             <td>
                 <button class="btn btn-sm btn-outline disabled" type="submit">Next Page</button>
             </td>
-        {% end %}
-    </tr>
-</table>
+            {% end %}
+        </tr>
+    </table>
 
 </div>
 {% end %}

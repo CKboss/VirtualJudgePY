@@ -1,9 +1,8 @@
 import tornado.web
 
-class TitleModule(tornado.web.UIModule) :
 
+class TitleModule(tornado.web.UIModule):
     def render(self):
-
         html1 = '''
         <div id="title" class="span">
             <a href="/" class="filter-item selected text-center">

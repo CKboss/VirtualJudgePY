@@ -32,35 +32,37 @@ mysql> desc problemdetail;
 '''
 import pickle
 import time
-from tools.encode import Base64StrToUTF8Str,UTF8StrToBase64Str
+from tools.encode import Base64StrToUTF8Str, UTF8StrToBase64Str
 from tools.dbcore import ConnPool
-from tools.dbtools import getInserSQL,getUpdateSQL
+from tools.dbtools import getInserSQL, getUpdateSQL
 
-def GetProblemID(orj,orid):
+
+def GetProblemID(orj, orid):
     sql = 'SELECT problem.pid FROM problem WHERE ' \
-          '( problem.originOJ LIKE "{}" AND problem.originProb LIKE "{}" )'.format(orj,orid)
+          '( problem.originOJ LIKE "{}" AND problem.originProb LIKE "{}" )'.format(orj, orid)
     conn = ConnPool.connect()
     cur = conn.cursor()
     cur.execute(sql)
     tp = cur.fetchall()
     cur.close()
     conn.close()
-    if tp.__len__()==0:
+    if tp.__len__() == 0:
         return 0
-    else :
+    else:
         return tp[0][0]
 
-def pretreat_Problem(problem) :
+
+def pretreat_Problem(problem):
     pass
     '''
     if 'source' in problem :
         problem['source'] = UTF8StrToBase64Str(problem['source'])
     '''
 
-def InsertProblem(problem) :
 
+def InsertProblem(problem):
     pretreat_Problem(problem)
-    sql = getInserSQL('problem',problem)
+    sql = getInserSQL('problem', problem)
 
     conn = ConnPool.connect()
     cur = conn.cursor()
@@ -69,12 +71,11 @@ def InsertProblem(problem) :
     conn.close()
 
 
-def UpdateProblem(problem,pid) :
-
+def UpdateProblem(problem, pid):
     pretreat_Problem(problem)
     cluse = 'pid = {}'.format(pid)
 
-    sql = getUpdateSQL('problem',data=problem,clause=cluse)
+    sql = getUpdateSQL('problem', data=problem, clause=cluse)
 
     conn = ConnPool.connect()
     cur = conn.cursor()
@@ -82,22 +83,21 @@ def UpdateProblem(problem,pid) :
     cur.close()
     conn.close()
 
-def pretreat_ProblemDetail(problem) :
 
-    baselist = ['description','input','output','sampleinput','sampleoutput',
-                'hint','author','source']
+def pretreat_ProblemDetail(problem):
+    baselist = ['description', 'input', 'output', 'sampleinput', 'sampleoutput',
+                'hint', 'author', 'source']
 
-    for key in problem :
-        if problem[key] is None :
+    for key in problem:
+        if problem[key] is None:
             continue
-        if key in baselist :
-            problem[key]=UTF8StrToBase64Str(problem[key])
+        if key in baselist:
+            problem[key] = UTF8StrToBase64Str(problem[key])
 
 
-def InsertProblemDetail(problem) :
-
+def InsertProblemDetail(problem):
     pretreat_ProblemDetail(problem)
-    sql = getInserSQL('problemdetail',problem)
+    sql = getInserSQL('problemdetail', problem)
 
     conn = ConnPool.connect()
     cur = conn.cursor()
@@ -105,13 +105,13 @@ def InsertProblemDetail(problem) :
     cur.close()
     conn.close()
 
-def UpdateProblemDetail(problem,pid) :
 
+def UpdateProblemDetail(problem, pid):
     pretreat_ProblemDetail(problem)
 
     clause = 'problemdetail.pid = %d' % pid
-    sql = getUpdateSQL('problemdetail',data=problem,clause=clause)
-    #print(sql)
+    sql = getUpdateSQL('problemdetail', data=problem, clause=clause)
+    # print(sql)
     conn = ConnPool.connect()
     cur = conn.cursor()
     cur.execute(sql)
@@ -119,57 +119,56 @@ def UpdateProblemDetail(problem,pid) :
     conn.close()
 
 
-problem = dict (
-    title = None,
-    source = None,
-    url = None,
-    originOJ = None,
-    originProb = None,
+problem = dict(
+    title=None,
+    source=None,
+    url=None,
+    originOJ=None,
+    originProb=None,
 )
 
-problemdetail = dict (
-    pid = None,
-    description = None,
-    input = None,
-    output = None,
-    sampleinput = None,
-    sampleoutput = None,
-    hint = None,
-    author = None,
-    source = None,
-    updatetime = None,
-    memorylimit = None,
-    timelimit = None,
-    specialjudge = False,
+problemdetail = dict(
+    pid=None,
+    description=None,
+    input=None,
+    output=None,
+    sampleinput=None,
+    sampleoutput=None,
+    hint=None,
+    author=None,
+    source=None,
+    updatetime=None,
+    memorylimit=None,
+    timelimit=None,
+    specialjudge=False,
 )
 
 
 def InsertOrUpdateProblem(kwargs):
-
     pd = problem.copy()
     pdd = problemdetail.copy()
 
-    for key in kwargs :
-        if key in pd :
-            pd[key]=kwargs[key]
-        if key in pdd :
-            pdd[key]=kwargs[key]
+    for key in kwargs:
+        if key in pd:
+            pd[key] = kwargs[key]
+        if key in pdd:
+            pdd[key] = kwargs[key]
 
-    pid = GetProblemID(pd['originOJ'],pd['originProb'])
+    pid = GetProblemID(pd['originOJ'], pd['originProb'])
 
-    if pid == 0 :
+    if pid == 0:
         # Insert problem table
         InsertProblem(pd)
-        pid = GetProblemID(pd['originOJ'],pd['originProb'])
-        pdd['pid']=pid
+        pid = GetProblemID(pd['originOJ'], pd['originProb'])
+        pdd['pid'] = pid
         # Insert problemDetail title
         InsertProblemDetail(pdd)
-    else :
-        pdd['pid']=pid
+    else:
+        pdd['pid'] = pid
         # Update problem table
-        UpdateProblem(pd,pid)
+        UpdateProblem(pd, pid)
         # Update problemDetail table
-        UpdateProblemDetail(pdd,pid)
+        UpdateProblemDetail(pdd, pid)
 
     '''
     print('-'*30)
@@ -179,14 +178,17 @@ def InsertOrUpdateProblem(kwargs):
     print('-'*30)
     '''
 
-def test1() :
+
+def test1():
     print(time.strftime('%Y-%m-%d %H:%M:%S'))
 
+
 def main():
-    f = open('/home/ckboss/Desktop/Development/testData/POJ/POJ_4050.pkl','rb')
+    f = open('/home/ckboss/Desktop/Development/testData/POJ/POJ_4050.pkl', 'rb')
     data = pickle.load(f)
     data['updatetime'] = time.strftime('%Y-%m-%d %H:%M:%S')
     InsertOrUpdateProblem(data)
+
 
 '''
     f = open('/tmp/HDOJ5011.pkl','rb')
@@ -194,5 +196,5 @@ def main():
     InsertOrUpdateProblem(data)
 '''
 
-if __name__=='__main__':
+if __name__ == '__main__':
     main()

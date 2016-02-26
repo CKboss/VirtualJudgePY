@@ -7,15 +7,14 @@ from concurrent.futures import ThreadPoolExecutor
 from Handlers.BaseHandler import BaseHandler
 
 from tools.dbcore import ConnPool
-from tools.dbtools import getQueryDetailSQL,getDeletSQL,getInserSQL,getQuerySQL,getUpdateSQL
+from tools.dbtools import getQueryDetailSQL, getDeletSQL, getInserSQL, getQuerySQL, getUpdateSQL
 from Config.FilePathConfig import PendingContestFile
 
 import pickle
 import datetime
 
 
-class ManageContestHandler(BaseHandler) :
-
+class ManageContestHandler(BaseHandler):
     executor = ThreadPoolExecutor(20)
 
     @tornado.web.asynchronous
@@ -25,12 +24,12 @@ class ManageContestHandler(BaseHandler) :
         action = self.get_argument('action')
         cid = self.get_argument('cid')
 
-        if action == 'modify' :
+        if action == 'modify':
             # modify contest
             rs = yield self.getContestDetail(cid)
             d1 = rs[5]
             d2 = rs[6]
-            dt = d2-d1
+            dt = d2 - d1
 
             '''
             print(rs)
@@ -42,17 +41,17 @@ class ManageContestHandler(BaseHandler) :
             '''
 
             lday = dt.days
-            lmm,lss = divmod(dt.seconds,60)
-            lhh,lmm = divmod(lmm,60)
+            lmm, lss = divmod(dt.seconds, 60)
+            lhh, lmm = divmod(lmm, 60)
 
             contesttype = int(rs[8])
 
             password = ''
 
-            check1='checked'
-            check2=''
+            check1 = 'checked'
+            check2 = ''
 
-            if contesttype == 1 :
+            if contesttype == 1:
                 password = rs[4]
                 check1 = ''
                 check2 = "checked"
@@ -65,72 +64,69 @@ class ManageContestHandler(BaseHandler) :
 
             self.render('contestdetail.html',
                         cid=cid,
-                        check1=check1,check2=check2,
-                        ctitle=ctitle,cdescription=cdescription,
-                        year=d1.year,month=d1.month,day=d1.day,hour=d1.hour,minute=d1.minute,
-                        lday=lday,lhour=lhh,lminute=lmm,lsecond=lss,password=password,
-                        problemlist=problemlist,problemlisttxt=problemlisttxt
+                        check1=check1, check2=check2,
+                        ctitle=ctitle, cdescription=cdescription,
+                        year=d1.year, month=d1.month, day=d1.day, hour=d1.hour, minute=d1.minute,
+                        lday=lday, lhour=lhh, lminute=lmm, lsecond=lss, password=password,
+                        problemlist=problemlist, problemlisttxt=problemlisttxt
                         )
 
 
-        elif action == 'delete' :
+        elif action == 'delete':
             pass
-
 
     @tornado.web.asynchronous
     @tornado.gen.engine
     def post(self):
 
-        action = self.get_argument('action',None)
+        action = self.get_argument('action', None)
 
-
-        if action is None :
+        if action is None:
             self.write('Error Manage Operation!!')
             self.finish()
             return
 
-        if action == 'updateproblem' :
+        if action == 'updateproblem':
 
-            cid = self.get_argument('cid',None)
-            txt = self.get_argument('problemlist',None)
+            cid = self.get_argument('cid', None)
+            txt = self.get_argument('problemlist', None)
 
-            if cid is None :
+            if cid is None:
                 self.write('Wrong CID')
                 self.finish()
                 return
 
-
             CD = yield self.getContestDetail(cid)
             cstatus = CD[10]
 
-            if cstatus == 1 or cstatus == 2 :
+            if cstatus == 1 or cstatus == 2:
                 self.write('Contest is frost can\'t modify')
                 self.finish()
                 return
 
             problemlist = self.getProblem(txt)
 
-            log = yield  self.UpdateProblem(cid,problemlist)
+            log = yield self.UpdateProblem(cid, problemlist)
 
             self.write(log)
             self.finish()
             return
 
-        elif action == 'updatedetail' :
+        elif action == 'updatedetail':
 
             d = self.request.arguments
-            for x in d : d[x] = d[x][0].decode()
+            for x in d: d[x] = d[x][0].decode()
             cid = d['cid']
 
-            if self.check_args(d) == False :
+            if self.check_args(d) == False:
                 self.write('create fail some arguments miss')
                 self.finish()
                 return
 
             uid = self.get_secure_cookie('uid').decode()
-            data = self.getContestData(uid,d)
+            data = self.getContestData(uid, d)
 
-            if 'error' in data :
+            if 'error' in data:
                 self.write(data['error'])
                 self.finish()
                 return
@@ -138,31 +134,31 @@ class ManageContestHandler(BaseHandler) :
             CD = yield self.getContestDetail(cid)
             cstatus = CD[10]
 
-            if cstatus == 1 or cstatus == 2 :
+            if cstatus == 1 or cstatus == 2:
                 self.write('Contest is frost can\'t modify')
                 self.finish()
                 return
 
-            yield self.updateContestDetail(cid,data)
-            self.MakePendingContestTempFile(cid,data)
+            yield self.updateContestDetail(cid, data)
+            self.MakePendingContestTempFile(cid, data)
 
             self.write('Update Success')
             self.finish()
             return
 
-    def check_args(self,d):
-        L = ['contestname','syear','smonth','sday','shour',
-             'sminute','ssecond','lday','lhour','lminute',
-             'lsecond','contesttype','password','hide']
-        for x in L :
-            if x not in d : continue
-            if len(d[x]) == 0 :
-                if x=='password' and d['contesttype'] == '0' :
+    def check_args(self, d):
+        L = ['contestname', 'syear', 'smonth', 'sday', 'shour',
+             'sminute', 'ssecond', 'lday', 'lhour', 'lminute',
+             'lsecond', 'contesttype', 'password', 'hide']
+        for x in L:
+            if x not in d: continue
+            if len(d[x]) == 0:
+                if x == 'password' and d['contesttype'] == '0':
                     continue
                 return False
         return True
 
-    def getContestData(self,uid,d):
+    def getContestData(self, uid, d):
 
         data = dict()
         data['cuid'] = uid
@@ -174,19 +170,19 @@ class ManageContestHandler(BaseHandler) :
         data['ispublic'] = d['contesttype']
 
         print(data['ispublic'])
-        if data['ispublic'] == "1" :
+        if data['ispublic'] == "1":
             data['password'] = d['password']
 
         data['cdescription'] = d['cdescription']
 
-        d1 = datetime.datetime(int(d['syear']),int(d['smonth']),int(d['sday']),int(d['shour']),int(d['sminute']))
-        dt = datetime.timedelta(days=int(d['lday']),hours=int(d['lhour']),minutes=int(d['lminute']));
+        d1 = datetime.datetime(int(d['syear']), int(d['smonth']), int(d['sday']), int(d['shour']), int(d['sminute']))
+        dt = datetime.timedelta(days=int(d['lday']), hours=int(d['lhour']), minutes=int(d['lminute']));
 
         now = datetime.datetime.now()
 
-        if (d1-now).total_seconds() < 0 :
+        if (d1 - now).total_seconds() < 0:
             data['error'] = 'wrong begin time'
-        if dt.total_seconds() > 2700000 :
+        if dt.total_seconds() > 2700000:
             data['error'] = 'to long'
 
         d2 = d1 + dt
@@ -198,10 +194,10 @@ class ManageContestHandler(BaseHandler) :
         return data
 
     @run_on_executor
-    def updateContestDetail(self,cid,data):
+    def updateContestDetail(self, cid, data):
 
         wherecluse = ' cid = {} '.format(cid)
-        sql = getUpdateSQL('contest',data,wherecluse)
+        sql = getUpdateSQL('contest', data, wherecluse)
 
         print(sql)
         conn = ConnPool.connect()
@@ -210,10 +206,9 @@ class ManageContestHandler(BaseHandler) :
         cur.close()
         conn.close()
 
+    def MakePendingContestTempFile(self, cid, data):
 
-    def MakePendingContestTempFile(self,cid,data):
-
-        file = open(PendingContestFile+'/contest_'+str(cid)+'.pkl','wb')
+        file = open(PendingContestFile + '/contest_' + str(cid) + '.pkl', 'wb')
 
         dt = dict()
         dt['cid'] = cid
@@ -224,36 +219,34 @@ class ManageContestHandler(BaseHandler) :
         dt['submitlist'] = list()
         dt['ranklist'] = list()
 
-        pickle.dump(dt,file)
+        pickle.dump(dt, file)
 
-
-    def getProblem(self,txt):
+    def getProblem(self, txt):
 
         Li = txt.split('\r\n')
         data = list()
-        for item in Li :
+        for item in Li:
             di = dict()
             ii = item.split(' ')
-            if len(ii) == 2 :
+            if len(ii) == 2:
                 di['originOJ'] = ii[0]
                 di['originProb'] = ii[1]
-                if di not in data :
+                if di not in data:
                     data.append(di)
 
         return data
 
-    def getProblemTxt(self,list):
+    def getProblemTxt(self, list):
         ret = ''
-        for x in list :
-            ret += x[4]+' '+x[5]+'\n'
+        for x in list:
+            ret += x[4] + ' ' + x[5] + '\n'
         return ret
 
-
     @run_on_executor
-    def getContestDetail(self,cid):
+    def getContestDetail(self, cid):
 
         whereclause = ' cid = {} '.format(cid)
-        sql = getQuerySQL('contest',whereclause,' cid ')
+        sql = getQuerySQL('contest', whereclause, ' cid ')
 
         conn = ConnPool.connect()
         cur = conn.cursor()
@@ -265,10 +258,10 @@ class ManageContestHandler(BaseHandler) :
         return rs
 
     @run_on_executor
-    def getContestProblem(self,cid):
+    def getContestProblem(self, cid):
 
         whereclause = ' cid = {} '.format(cid)
-        sql = getQuerySQL('cproblem',whereclause,' cpid ')
+        sql = getQuerySQL('cproblem', whereclause, ' cpid ')
 
         conn = ConnPool.connect()
         cur = conn.cursor()
@@ -280,12 +273,12 @@ class ManageContestHandler(BaseHandler) :
         return rs
 
     @run_on_executor
-    def UpdateProblem(self,cid,data):
+    def UpdateProblem(self, cid, data):
 
-        #clear old problem in contest
+        # clear old problem in contest
 
         whereclause = ' cid = {} '.format(cid)
-        sql = getDeletSQL('cproblem',whereclause)
+        sql = getDeletSQL('cproblem', whereclause)
 
         conn = ConnPool.connect()
         cur = conn.cursor()
@@ -293,17 +286,17 @@ class ManageContestHandler(BaseHandler) :
 
         log = ''
 
-        for item in data :
+        for item in data:
 
-            #get pid
+            # get pid
             whereclause = ' originOJ = "{originOJ}" and originProb = "{originProb}" '.format(**item)
-            sql = getQueryDetailSQL('problem','*',whereclause,' pid ')
+            sql = getQueryDetailSQL('problem', '*', whereclause, ' pid ')
             num = cur.execute(sql)
 
-            if num == 0 :
+            if num == 0:
                 log += 'Error when add Problem OJ: {originOJ} Pid: {originProb}<br>'.format(**item)
                 log += '\n'
-            else :
+            else:
 
                 rs = cur.fetchone()
                 pid = rs[0]
@@ -311,7 +304,7 @@ class ManageContestHandler(BaseHandler) :
                 originOJ = rs[4]
                 originProb = rs[5]
 
-                #insert into cproblem
+                # insert into cproblem
 
                 data = dict()
                 data['cid'] = cid
@@ -320,17 +313,15 @@ class ManageContestHandler(BaseHandler) :
                 data['originOJ'] = originOJ
                 data['originProb'] = originProb
 
-                sql = getInserSQL('cproblem',data)
+                sql = getInserSQL('cproblem', data)
                 cur.execute(sql)
 
         cur.close()
         conn.close()
 
-        if len(log) == 0 :
+        if len(log) == 0:
             log += 'All problem add into contest {} successfully. <br>'.format(cid)
-        else :
+        else:
             log += 'some error happend.<br> May be some problem can\'t find this problem in database...<br>'
 
         return log
-
-

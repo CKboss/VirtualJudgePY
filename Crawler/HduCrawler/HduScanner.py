@@ -4,34 +4,34 @@ from bs4 import BeautifulSoup
 
 from Crawler.HduCrawler.HduConfig import HduUser
 
-class HduScanner :
 
+class HduScanner:
     s = requests.session()
     scan_url = 'http://acm.hdu.edu.cn/status.php?first=&pid=&user={}&lang=0&status=0'
 
-    def Analyse(self,html):
+    def Analyse(self, html):
         '''
         f = open('/tmp/status.html','w')
         f.write(html)
         f.close()
         '''
-        soup = BeautifulSoup(html,'html5lib')
+        soup = BeautifulSoup(html, 'html5lib')
 
-        #print('-'*30)
+        # print('-'*30)
 
         L = list()
 
-        for i in range(2,20):
+        for i in range(2, 20):
             td = soup.select('#fixed_table > table > tbody > tr:nth-of-type({})'.format(i))
-            if len(td) == 0 : break
+            if len(td) == 0: break
 
             dt = dict()
             dt['originOJ'] = 'HDU'
-            titles = ['realrunid','realsubmittime','status','originProb','runtime',
-                      'runmemory','codelenth','language','nickname']
-            for con in td[0].contents :
+            titles = ['realrunid', 'realsubmittime', 'status', 'originProb', 'runtime',
+                      'runmemory', 'codelenth', 'language', 'nickname']
+            for con in td[0].contents:
                 dt[titles[0]] = con.text
-                if titles[0] == 'codelenth' :
+                if titles[0] == 'codelenth':
                     dt[titles[0]] = dt[titles[0]][:-1]
                 titles = titles[1:]
 
@@ -39,15 +39,13 @@ class HduScanner :
 
         return L
 
-
     def Scanner(self):
 
         L = list()
 
-        for x in HduUser :
-
+        for x in HduUser:
             url = self.scan_url.format(x.get('username'))
-            r = self.s.get(url,timeout=5)
+            r = self.s.get(url, timeout=5)
             r.encoding = 'gb2312'
             tL = self.Analyse(r.text)
             L += tL
@@ -57,10 +55,12 @@ class HduScanner :
     def UpdateToDB(self):
         pass
 
-def scann_test() :
+
+def scann_test():
     hs = HduScanner()
     L = hs.Scanner()
     return L
 
-if __name__=='__main__':
+
+if __name__ == '__main__':
     scann_test()

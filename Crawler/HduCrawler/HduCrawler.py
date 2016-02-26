@@ -6,8 +6,8 @@ from bs4 import BeautifulSoup
 
 from tools.RandA import RelUrlToAbsUrl
 
-class HduCrawler :
 
+class HduCrawler:
     '''
     HDOJ 编码 gb2312
     '''
@@ -15,33 +15,34 @@ class HduCrawler :
     base_url = 'http://acm.hdu.edu.cn/'
     prob_url = 'http://acm.hdu.edu.cn/showproblem.php?pid='
 
-    def CrawlerProblem(self,pid):
-
+    def CrawlerProblem(self, pid):
 
         data = dict()
-        data['originOJ']='HDU'
-        data['originProb']=pid
-        data['url'] = self.prob_url+str(pid)
+        data['originOJ'] = 'HDU'
+        data['originProb'] = pid
+        data['url'] = self.prob_url + str(pid)
 
         r = requests.get(data['url'])
         r.encoding = 'gb2312'
         html = r.text
-        soup = BeautifulSoup(str(BeautifulSoup(html,'html5lib').select_one('body > table > tbody > tr:nth-of-type(4) > td ')),'html5lib')
+        soup = BeautifulSoup(
+            str(BeautifulSoup(html, 'html5lib').select_one('body > table > tbody > tr:nth-of-type(4) > td ')),
+            'html5lib')
         li = soup.select('div[class="panel_content"]')
         title = soup.select_one('html > body > h1')
-        data['title']=title.contents[0]
+        data['title'] = title.contents[0]
 
-        Terms = ['description','input','output','sampleinput','sampleoutput','source','author'];
+        Terms = ['description', 'input', 'output', 'sampleinput', 'sampleoutput', 'source', 'author'];
 
-        for t in zip([x for x in Terms],[y for y in li]) :
-            data[t[0]] = RelUrlToAbsUrl(self.base_url,t[1])
+        for t in zip([x for x in Terms], [y for y in li]):
+            data[t[0]] = RelUrlToAbsUrl(self.base_url, t[1])
 
-        data['source'] = BeautifulSoup(str(data['source']),'html5lib').text
+        data['source'] = BeautifulSoup(str(data['source']), 'html5lib').text
 
         info = str(soup.select('body > font > b > span')[0].contents[0])
         spj = soup.select('body > font > b > span > font')
 
-        if len(spj)!=0 :
+        if len(spj) != 0:
             info += "  "
             info += spj[0].contents[0]
 
@@ -53,10 +54,10 @@ class HduCrawler :
 
         data['updatetime'] = time.strftime('%Y-%m-%d %H:%M:%S')
 
-        f = open('/home/ckboss/Desktop/Development/testData/HDOJ2/HDOJ{}.pkl'.format(pid),'wb')
-        pickle.dump(data,f)
+        f = open('/home/ckboss/Desktop/Development/testData/HDOJ2/HDOJ{}.pkl'.format(pid), 'wb')
+        pickle.dump(data, f)
 
-        print(str(pid)+' done !')
+        print(str(pid) + ' done !')
         '''
         for x in data :
             print(x +" --> "+str(data[x]))
@@ -64,7 +65,7 @@ class HduCrawler :
         '''
 
 
-def checkLimitInfo(s) :
+def checkLimitInfo(s):
     '''
     from limit info to get timelimit memorylimit spj
     :param s:
@@ -77,18 +78,19 @@ def checkLimitInfo(s) :
     p2 = s.find('Memory Limit: ')
     p3 = s.find('Special Judge')
 
-    if p3==-1 :
-        p3 = len(s)+1
+    if p3 == -1:
+        p3 = len(s) + 1
         L.append(False)
-    else :
+    else:
         L.append(True)
 
-    L.append(s[p1+12:p2-1])
-    L.append(s[p2+14:p3])
+    L.append(s[p1 + 12:p2 - 1])
+    L.append(s[p2 + 14:p3])
 
     return L
 
-def test1() :
+
+def test1():
     s = ' Time Limit: 30000/15000 MS (Java/Others)    Memory Limit: 65536/65536 K (Java/Others)  Special Judge'
 
     L = checkLimitInfo(s)
@@ -96,34 +98,35 @@ def test1() :
 
     s = 'Time Limit: 2000/1000 MS (Java/Others)    Memory Limit: 65536/65536 K (Java/Others)'
 
-    print('-'*30)
+    print('-' * 30)
 
     L = checkLimitInfo(s)
     print(L[1])
 
-def test2() :
-    f = open('/tmp/HDOJ5001.pkl','rb')
+
+def test2():
+    f = open('/tmp/HDOJ5001.pkl', 'rb')
     dt = pickle.load(f)
-    soup = BeautifulSoup(str(dt['source']),'html5lib')
+    soup = BeautifulSoup(str(dt['source']), 'html5lib')
     print(soup.text)
 
-def test3() :
 
+def test3():
     crawler = HduCrawler()
-    for x in range(3201,5600) :
-        try :
+    for x in range(3201, 5600):
+        try:
             crawler.CrawlerProblem(x)
             time.sleep(5)
-        except Exception :
-            print('%d error!!!'%x)
+        except Exception:
+            print('%d error!!!' % x)
+
 
 def test4():
-
     crawler = HduCrawler()
     crawler.CrawlerProblem(1045)
 
-if __name__=='__main__' :
 
+if __name__ == '__main__':
     test3()
     '''
     crawler = HduCrawler()

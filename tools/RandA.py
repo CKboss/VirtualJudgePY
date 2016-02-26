@@ -1,6 +1,7 @@
 import re
 
-def RelUrlToAbsUrl(baseurl,text):
+
+def RelUrlToAbsUrl(baseurl, text):
     '''
     将/开头的相对url换成绝对url
     :param baseurl:
@@ -10,16 +11,16 @@ def RelUrlToAbsUrl(baseurl,text):
 
     text = str(text)
 
-    L = re.split(r' ',text)
+    L = re.split(r' ', text)
 
     ret = ''
 
-    for l in L :
+    for l in L:
 
         if len(l) > 5 and l[:5] == 'src="':
             if l[5:10] == '../..':
-                l = l[:5]+l[10:]
+                l = l[:5] + l[10:]
             l = l[:5] + baseurl + '/' + l[5:]
-        ret = ret + ' '+l
+        ret = ret + ' ' + l
 
     return ret

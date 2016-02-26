@@ -1,4 +1,3 @@
-
 '''
 import .plk data to DB
 '''
@@ -8,16 +7,17 @@ import pickle
 
 from dao.problemdao import InsertOrUpdateProblem
 
-from Config.FilePathConfig import ZOJ_PKL_FILE,BZOJ_PKL_FILE
+from Config.FilePathConfig import ZOJ_PKL_FILE, BZOJ_PKL_FILE
 
-def ImportProblem(dir) :
+
+def ImportProblem(dir):
     files = os.listdir(dir)
-    for f in files :
-        if f.endswith(".pkl") :
-            path = dir+f
-            print('Import problem : ',path)
-            try :
-                problemdata = pickle.load(open(path,'rb'))
+    for f in files:
+        if f.endswith(".pkl"):
+            path = dir + f
+            print('Import problem : ', path)
+            try:
+                problemdata = pickle.load(open(path, 'rb'))
                 InsertOrUpdateProblem(problemdata)
             except EOFError:
                 print('EOFError ... ')
@@ -25,5 +25,6 @@ def ImportProblem(dir) :
                 print(e)
                 print('other error')
 
-if __name__=='__main__' :
+
+if __name__ == '__main__':
     ImportProblem(BZOJ_PKL_FILE)
