@@ -23,6 +23,9 @@ class RegisterHandler(tornado.web.RequestHandler):
                 ''' success '''
             else :
                 ''' fail '''
+                self.write('Regiest Fail !!!')
+                self.finish()
+                return
 
     def get(self):
         self.render('register.html')

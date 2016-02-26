@@ -17,13 +17,13 @@ class StatusHandler(BaseHandler):
     def get(self):
 
         oj = self.get_argument('oj','%')
-        problem_id = self.get_argument('problem_id','%')
-        user_name = self.get_argument('user_name','%')
-        status = self.get_argument('status','%')
-        language = self.get_argument('language','%')
+        problem_id = str(self.get_argument('problem_id','%')).replace(' ','%')
+        user_name = str(self.get_argument('user_name','%')).replace(' ','%')
+        status = str(self.get_argument('status','%')).replace(' ','%')
+        language = str(self.get_argument('language','%')).replace(' ','%')
         isSearch = self.get_argument('isSearch',None)
-        index = self.get_argument('index','0')
-        cid = self.get_argument('cid',-1)
+        index = str(self.get_argument('index','0')).replace(' ','%')
+        cid = str(self.get_argument('cid',-1)).replace(' ','%')
 
         if len(index) == 0 :
             index = '0'

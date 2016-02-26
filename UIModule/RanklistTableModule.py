@@ -16,7 +16,7 @@ class RankListTableModule(tornado.web.UIModule) :
 
         col = len(ranklist[0]['submit'])
 
-        html = '<table border="1" class="flex-table-item-primary" bordercolor="#FFFFFF" class="text-center"> <tbody> <tr class="tbheader" style="background-color: #1A5CC8; color: #FFFFFF">'
+        html = '<table border="1" class="flex-table-item-primary text-center" bordercolor="#FFFFFF" class="text-center"> <tbody> <tr class="tbheader" style="background-color: #1A5CC8; color: #FFFFFF">'
 
         #table head
         html += '<td>Rank</td>'
@@ -29,7 +29,7 @@ class RankListTableModule(tornado.web.UIModule) :
         rank = 1
         for r in ranklist :
 
-            html += '<tr>'
+            html += '<tr align="center" bgcolor="#f0f8ff">'
 
             html += '<td>'+str(rank)+'</td>'
             html += '<td>'+str(r['totalaccept'])+'</td>'
@@ -43,6 +43,7 @@ class RankListTableModule(tornado.web.UIModule) :
                     content += '('+str(r['submit'][i])+')'
                 elif r['aclist'][i] == 1 :
                     content += str(r['ptimelist'][i])
+                    content += '('+str(r['submit'][i])+')'
 
                 html += content
                 html += '</td>'

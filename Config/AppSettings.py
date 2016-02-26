@@ -29,6 +29,7 @@ from UIModule.ProblemListModule import ProblemListModule
 from UIModule.StatusItemModule import StatusItemModule
 from UIModule.ContestItemModule import ContestItemModule
 from UIModule.RanklistTableModule import RankListTableModule
+from UIModule.OJSelectModule import OJSelectModule
 
 db = pymysql.connect(
    host='localhost',
@@ -81,6 +82,7 @@ class AppInit(tornado.web.Application) :
             StatusList = StatusItemModule,
             ContestList = ContestItemModule,
             RankListTable = RankListTableModule,
+            OJSelect = OJSelectModule,
         )
 
         tornado.web.Application.__init__(self, handlers,ui_modules=UI_MODULES, **settings)

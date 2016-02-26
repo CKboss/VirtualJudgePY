@@ -28,9 +28,16 @@ def checkUserExist(username) :
     return sql
 
 def AddUser(d):
-    sql = getInserSQL('user',d)
     conn = ConnPool.connect()
     cur = conn.cursor()
+
+    sql = checkUserExist(d['username'])
+    cur.execute(sql)
+    ret = cur.fetchone()
+    if ret[0] != 0 :
+        return 0
+
+    sql = getInserSQL('user',d)
     ret = cur.execute(sql)
     conn.commit()
     cur.close()

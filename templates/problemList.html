@@ -5,6 +5,10 @@
 <form method="get" action="/problemlist">
 
     <strong>OJ:</strong>
+
+    {% module OJSelect() %}
+
+    <!--
     <select size="1" name="oj">
         <option value="ALL" selected="">All</option>
         <option value="HDU">HDU</option>
@@ -13,6 +17,7 @@
         <option value="CF">Codeforces</option>
         <option value="BZOJ">BZOJ</option>
     </select>
+    -->
 
     <strong>Problem ID:</strong>
     <input type="text" name="problem_id" size="8" value="">
@@ -28,7 +33,7 @@
     <input class="btn btn-outline" type="submit" width="18" value="Search">
 </form>
 
-<table border="1" class="flex-table-item-primary" bordercolor="#FFFFFF">
+<table border="1" class="flex-table-item-primary text-center" bordercolor="#FFFFFF">
     <tbody>
     <!--<tr align="center" bgcolor="#5f9ea0" >-->
     <tr class="tbheader" style="background-color: #1A5CC8; color: #FFFFFF">

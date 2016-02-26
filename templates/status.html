@@ -8,6 +8,8 @@
     <strong>User Name:</strong>
     <input type="text" name="user_name" size="15" value="">
     <strong>OJ:</strong>
+    {% module OJSelect() %}
+    <!--
     <select size="1" name="oj">
         <option value="" selected="">All</option>
         <option value="HDU">HDU</option>
@@ -16,19 +18,20 @@
         <option value="Codeforces">Codeforces</option>
         <option value="BZOJ">BZOJ</option>
     </select>
+    -->
     <strong>Result:</strong>
     <select size="1" name="status">
         <option value="" selected="">All</option>
-        <option value="0">Accepted</option>
-        <option value="1">Presentation Error</option>
-        <option value="2">Time Limit Exceeded</option>
-        <option value="3">Memory Limit Exceeded</option>
-        <option value="4">Wrong Answer</option>
-        <option value="5">Runtime Error</option>
-        <option value="6">Output Limit Exceeded</option>
-        <option value="7">Compile Error</option>
-        <option value="8">Other</option>
-        <option value="9">VJudge Error</option>
+        <option value="Accepted">Accepted</option>
+        <option value="Presentation">Presentation Error</option>
+        <option value="Time%Limit%Exceeded">Time Limit Exceeded</option>
+        <option value="Memory%Limit%Exceeded">Memory Limit Exceeded</option>
+        <option value="Wrong%Answer">Wrong Answer</option>
+        <option value="Runtime%Error">Runtime Error</option>
+        <option value="Output%Limit%Exceeded">Output Limit Exceeded</option>
+        <option value="Compile%Error">Compile Error</option>
+        <option value="Judge%Error">Judge Error</option>
+        <option value="Other">Other</option>
     </select>
     <strong>Language:</strong>
     <select size="1" name="language">
@@ -46,7 +49,7 @@
     <input class="btn btn-outline" type="submit" width="18" value="Search">
 </form>
 
-<table border="1" class="flex-table-item-primary" bordercolor="#FFFFFF">
+<table border="1" class="flex-table-item-primary text-center" bordercolor="#FFFFFF">
     <tbody>
 
     <tr class="tbheader" style="background-color: #1A5CC8; color: #FFFFFF">
