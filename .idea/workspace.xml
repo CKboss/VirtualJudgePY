@@ -4,12 +4,10 @@
     <bookmark url="file://$PROJECT_DIR$/templates/submit.html" line="34" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2de79d09-24b7-4478-a485-08d4b37a9915" name="Default" comment="BZOJ support">
+    <list default="true" id="2de79d09-24b7-4478-a485-08d4b37a9915" name="Default" comment="Source Code hightlight">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/css/prism.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statics/js/prism.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Crawler/BzojCrawler/BzojCrawler.py" afterPath="$PROJECT_DIR$/Crawler/BzojCrawler/BzojCrawler.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Crawler/BzojCrawler/BzojVjudger.py" afterPath="$PROJECT_DIR$/Crawler/BzojCrawler/BzojVjudger.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sql_version_1_2.sql" afterPath="$PROJECT_DIR$/sql_version_1_2.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/showcode.html" afterPath="$PROJECT_DIR$/templates/showcode.html" />
     </list>
     <ignored path="VirtualJudgePY.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -230,8 +228,8 @@
           <file leaf-file-name="showcode.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/templates/showcode.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.5901263">
-                  <caret line="37" column="51" selection-start-line="37" selection-start-column="51" selection-end-line="37" selection-end-column="51" />
+                <state vertical-scroll-proportion="0.74741673">
+                  <caret line="31" column="34" selection-start-line="31" selection-start-column="34" selection-end-line="31" selection-end-column="34" />
                   <folding>
                     <element signature="n#style#0;n#div#0;n#td#0;n#tr#3;n#tbody#0;n#table#0;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#code#0;n#pre#0;n#div#0;n#td#0;n#tr#3;n#tbody#0;n#table#0;n#!!top" expanded="true" />
@@ -1285,7 +1283,13 @@
       <option name="project" value="LOCAL" />
       <updated>1456476700877</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="Source Code hightlight">
+      <created>1456483369273</created>
+      <option name="number" value="00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1456483369273</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1299,7 +1303,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="0" width="1922" height="1047" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286638" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -1309,7 +1313,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35452586" sideWeight="0.49353796" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286638" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27478448" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13578275" sideWeight="0.48732942" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13578275" sideWeight="0.48732942" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22151224" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24973376" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20516963" sideWeight="0.5126706" order="2" side_tool="true" content_ui="tabs" />
@@ -1357,7 +1361,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="pickle的submit检查" />
     <MESSAGE value="MainScanner Update database&#10;change runid to sid int status table" />
     <MESSAGE value="status 翻页" />
     <MESSAGE value="status 整合进web" />
@@ -1382,7 +1385,8 @@
     <MESSAGE value="Show Source Code" />
     <MESSAGE value="some UI update" />
     <MESSAGE value="BZOJ support" />
-    <option name="LAST_COMMIT_MESSAGE" value="BZOJ support" />
+    <MESSAGE value="Source Code hightlight" />
+    <option name="LAST_COMMIT_MESSAGE" value="Source Code hightlight" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1845,8 +1849,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/showcode.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5901263">
-          <caret line="37" column="51" selection-start-line="37" selection-start-column="51" selection-end-line="37" selection-end-column="51" />
+        <state vertical-scroll-proportion="0.74741673">
+          <caret line="31" column="34" selection-start-line="31" selection-start-column="34" selection-end-line="31" selection-end-column="34" />
           <folding>
             <element signature="n#style#0;n#div#0;n#td#0;n#tr#3;n#tbody#0;n#table#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#code#0;n#pre#0;n#div#0;n#td#0;n#tr#3;n#tbody#0;n#table#0;n#!!top" expanded="true" />
