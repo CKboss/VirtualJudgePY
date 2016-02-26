@@ -5,24 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2de79d09-24b7-4478-a485-08d4b37a9915" name="Default" comment="BZOJ support">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Crawler/BzojCrawler/BzojConfig.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Crawler/BzojCrawler/BzojCrawler.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Crawler/BzojCrawler/BzojScanner.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Crawler/BzojCrawler/BzojVjudger.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Crawler/BzojCrawler/__init__.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Config/AppSettings.py" afterPath="$PROJECT_DIR$/Config/AppSettings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Config/FilePathConfig.py" afterPath="$PROJECT_DIR$/Config/FilePathConfig.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Config/ParametersConfig.py" afterPath="$PROJECT_DIR$/Config/ParametersConfig.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Crawler/CrawlerConfig.py" afterPath="$PROJECT_DIR$/Crawler/CrawlerConfig.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/StatusScanner/MainScanner.py" afterPath="$PROJECT_DIR$/StatusScanner/MainScanner.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dao/problemdao.py" afterPath="$PROJECT_DIR$/dao/problemdao.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/index.html" afterPath="$PROJECT_DIR$/templates/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/main_struct.html" afterPath="$PROJECT_DIR$/templates/main_struct.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/problem.html" afterPath="$PROJECT_DIR$/templates/problem.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/problemList.html" afterPath="$PROJECT_DIR$/templates/problemList.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/status.html" afterPath="$PROJECT_DIR$/templates/status.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tools/ImportProblem.py" afterPath="$PROJECT_DIR$/tools/ImportProblem.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Crawler/BzojCrawler/BzojCrawler.py" afterPath="$PROJECT_DIR$/Crawler/BzojCrawler/BzojCrawler.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Crawler/BzojCrawler/BzojVjudger.py" afterPath="$PROJECT_DIR$/Crawler/BzojCrawler/BzojVjudger.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sql_version_1_2.sql" afterPath="$PROJECT_DIR$/sql_version_1_2.sql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/showcode.html" afterPath="$PROJECT_DIR$/templates/showcode.html" />
     </list>
     <ignored path="VirtualJudgePY.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -44,7 +31,7 @@
     <SUITE FILE_PATH="coverage/VirtualJudgePY$LogInHandler.coverage" NAME="LogInHandler Coverage Results" MODIFIED="1453790866907" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Handlers" />
     <SUITE FILE_PATH="coverage/VirtualJudgePY$PkuVJudger.coverage" NAME="PkuVJudger Coverage Results" MODIFIED="1456194517627" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Crawler/PkuCrawler" />
     <SUITE FILE_PATH="coverage/VirtualJudgePY$HduScanner.coverage" NAME="HduScanner Coverage Results" MODIFIED="1456282696023" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Crawler/HduCrawler" />
-    <SUITE FILE_PATH="coverage/VirtualJudgePY$BzojCrawler.coverage" NAME="BzojCrawler Coverage Results" MODIFIED="1456476646551" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Crawler/BzojCrawler" />
+    <SUITE FILE_PATH="coverage/VirtualJudgePY$BzojCrawler.coverage" NAME="BzojCrawler Coverage Results" MODIFIED="1456477257774" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Crawler/BzojCrawler" />
     <SUITE FILE_PATH="coverage/VirtualJudgePY$BzojScanner.coverage" NAME="BzojScanner Coverage Results" MODIFIED="1456476410284" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Crawler/BzojCrawler" />
     <SUITE FILE_PATH="coverage/VirtualJudgePY$HduCrawler.coverage" NAME="HduCrawler Coverage Results" MODIFIED="1454219998179" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Crawler/HduCrawler" />
     <SUITE FILE_PATH="coverage/VirtualJudgePY$ManageContestHandler.coverage" NAME="ManageContestHandler Coverage Results" MODIFIED="1455946321079" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Handlers" />
@@ -53,12 +40,12 @@
     <SUITE FILE_PATH="coverage/VirtualJudgePY$HustProblemCrawler.coverage" NAME="HustProblemCrawler Coverage Results" MODIFIED="1452826310791" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Crawler/HustCrawler" />
     <SUITE FILE_PATH="coverage/VirtualJudgePY$ZojScanner.coverage" NAME="ZojScanner Coverage Results" MODIFIED="1456227763541" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Crawler/ZojCrawler" />
     <SUITE FILE_PATH="coverage/VirtualJudgePY$HduSubmit.coverage" NAME="HduSubmit Coverage Results" MODIFIED="1452151435828" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Crawler/HduCrawler" />
-    <SUITE FILE_PATH="coverage/VirtualJudgePY$__init__.coverage" NAME="__init__ Coverage Results" MODIFIED="1456476588432" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/VirtualJudgePY$__init__.coverage" NAME="__init__ Coverage Results" MODIFIED="1456481957346" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/VirtualJudgePY$IndexHandler.coverage" NAME="IndexHandler Coverage Results" MODIFIED="1451472884948" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Handlers" />
     <SUITE FILE_PATH="coverage/VirtualJudgePY$BzojVjudger.coverage" NAME="BzojVjudger Coverage Results" MODIFIED="1456476327769" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Crawler/BzojCrawler" />
     <SUITE FILE_PATH="coverage/VirtualJudgePY$ProblemHandler.coverage" NAME="ProblemHandler Coverage Results" MODIFIED="1454165893707" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Handlers" />
     <SUITE FILE_PATH="coverage/VirtualJudgePY$problemdao.coverage" NAME="problemdao Coverage Results" MODIFIED="1454839341947" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/dao" />
-    <SUITE FILE_PATH="coverage/VirtualJudgePY$ImportProblem.coverage" NAME="ImportProblem Coverage Results" MODIFIED="1456473061985" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" />
+    <SUITE FILE_PATH="coverage/VirtualJudgePY$ImportProblem.coverage" NAME="ImportProblem Coverage Results" MODIFIED="1456481094077" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" />
     <SUITE FILE_PATH="coverage/VirtualJudgePY$__init____2_.coverage" NAME="__init__ (2) Coverage Results" MODIFIED="1452149746309" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Crawler/HduCrawler" />
     <SUITE FILE_PATH="coverage/VirtualJudgePY$StatusHandler.coverage" NAME="StatusHandler Coverage Results" MODIFIED="1451652588929" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Handlers" />
     <SUITE FILE_PATH="coverage/VirtualJudgePY$ProblemListHandler.coverage" NAME="ProblemListHandler Coverage Results" MODIFIED="1453796279720" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Handlers" />
@@ -176,7 +163,7 @@
             <entry file="file://$PROJECT_DIR$/Crawler/BzojCrawler/BzojCrawler.py">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0">
-                  <caret line="99" column="21" selection-start-line="99" selection-start-column="21" selection-end-line="99" selection-end-column="21" />
+                  <caret line="18" column="37" selection-start-line="18" selection-start-column="37" selection-end-line="18" selection-end-column="37" />
                   <folding>
                     <element signature="e#0#15#0" expanded="true" />
                   </folding>
@@ -184,10 +171,10 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+          <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/templates/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.17326732">
+                <state vertical-scroll-proportion="-3.5">
                   <caret line="5" column="39" selection-start-line="5" selection-start-column="39" selection-end-line="5" selection-end-column="39" />
                   <folding />
                 </state>
@@ -222,10 +209,44 @@
             <entry file="file://$PROJECT_DIR$/Crawler/BzojCrawler/BzojVjudger.py">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0">
-                  <caret line="36" column="13" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
+                  <caret line="23" column="21" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
                   <folding>
                     <element signature="e#0#15#0" expanded="true" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="ShowCodeHandler.py" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Handlers/ShowCodeHandler.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="50" column="23" selection-start-line="50" selection-start-column="23" selection-end-line="50" selection-end-column="23" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="showcode.html" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/templates/showcode.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.5901263">
+                  <caret line="37" column="51" selection-start-line="37" selection-start-column="51" selection-end-line="37" selection-end-column="51" />
+                  <folding>
+                    <element signature="n#style#0;n#div#0;n#td#0;n#tr#3;n#tbody#0;n#table#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#code#0;n#pre#0;n#div#0;n#td#0;n#tr#3;n#tbody#0;n#table#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#code#0;n#pre#1;n#div#0;n#td#0;n#tr#3;n#tbody#0;n#table#0;n#!!top" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="main_struct.html" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/templates/main_struct.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="-2.8">
+                  <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -242,44 +263,14 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="problemList.html" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/templates/problemList.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-3.8333333">
-                  <caret line="43" column="8" selection-start-line="43" selection-start-column="8" selection-end-line="43" selection-end-column="8" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="problem.html" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/templates/problem.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-14.0">
-                  <caret line="101" column="24" selection-start-line="101" selection-start-column="24" selection-end-line="101" selection-end-column="24" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
           <file leaf-file-name="ImportProblem.py" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/tools/ImportProblem.py">
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0">
-                  <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                  <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
                   <folding>
                     <element signature="e#33#42#0" expanded="true" />
                   </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="BzojConfig.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Crawler/BzojCrawler/BzojConfig.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-                  <folding />
                 </state>
               </provider>
             </entry>
@@ -337,7 +328,7 @@
           <file leaf-file-name="PkuVJudger.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Crawler/PkuCrawler/PkuVJudger.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-0.7295597">
+                <state vertical-scroll-proportion="-0.51498336">
                   <caret line="17" column="11" selection-start-line="17" selection-start-column="11" selection-end-line="17" selection-end-column="11" />
                   <folding>
                     <element signature="e#0#15#0" expanded="true" />
@@ -364,7 +355,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Crawler/ZojCrawler/ZojScanner.py" />
         <option value="$PROJECT_DIR$/Crawler/HduCrawler/HduScanner.py" />
         <option value="$PROJECT_DIR$/Crawler/ZojCrawler/ZojVJudger.py" />
         <option value="$PROJECT_DIR$/Handlers/ProblemHandler.py" />
@@ -388,7 +378,6 @@
         <option value="$PROJECT_DIR$/templates/module/StatusItem.html" />
         <option value="$PROJECT_DIR$/templates/showcode.hmtl.html" />
         <option value="$PROJECT_DIR$/Handlers/ShowCodeHandler.py" />
-        <option value="$PROJECT_DIR$/templates/showcode.html" />
         <option value="$PROJECT_DIR$/templates/contestlist.html" />
         <option value="$PROJECT_DIR$/templates/contestshow.html" />
         <option value="$PROJECT_DIR$/templates/module/contestitem.html" />
@@ -410,11 +399,13 @@
         <option value="$PROJECT_DIR$/Config/ParametersConfig.py" />
         <option value="$PROJECT_DIR$/Crawler/BzojCrawler/BzojScanner.py" />
         <option value="$PROJECT_DIR$/Crawler/BzojCrawler/BzojConfig.py" />
-        <option value="$PROJECT_DIR$/Crawler/BzojCrawler/BzojVjudger.py" />
         <option value="$PROJECT_DIR$/Crawler/CrawlerConfig.py" />
         <option value="$PROJECT_DIR$/StatusScanner/MainScanner.py" />
-        <option value="$PROJECT_DIR$/Crawler/BzojCrawler/BzojCrawler.py" />
         <option value="$PROJECT_DIR$/templates/index.html" />
+        <option value="$PROJECT_DIR$/Crawler/BzojCrawler/BzojCrawler.py" />
+        <option value="$PROJECT_DIR$/Crawler/BzojCrawler/BzojVjudger.py" />
+        <option value="$PROJECT_DIR$/sql_version_1_2.sql" />
+        <option value="$PROJECT_DIR$/templates/showcode.html" />
       </list>
     </option>
   </component>
@@ -528,6 +519,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="statics" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="VirtualJudgePY" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="VirtualJudgePY" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="statics" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -750,7 +763,7 @@
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$2/SQL Dialects" value="MySQL" />
   </component>
-  <component name="RunManager" selected="Python.BzojCrawler">
+  <component name="RunManager" selected="Python.__init__">
     <configuration default="false" name="__init__" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -1043,11 +1056,11 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.BzojCrawler" />
-        <item index="1" class="java.lang.String" itemvalue="Python.__init__" />
-        <item index="2" class="java.lang.String" itemvalue="Python.BzojScanner" />
-        <item index="3" class="java.lang.String" itemvalue="Python.BzojVjudger" />
-        <item index="4" class="java.lang.String" itemvalue="Python.ImportProblem" />
+        <item index="0" class="java.lang.String" itemvalue="Python.__init__" />
+        <item index="1" class="java.lang.String" itemvalue="Python.ImportProblem" />
+        <item index="2" class="java.lang.String" itemvalue="Python.BzojCrawler" />
+        <item index="3" class="java.lang.String" itemvalue="Python.BzojScanner" />
+        <item index="4" class="java.lang.String" itemvalue="Python.BzojVjudger" />
       </list>
     </recent_temporary>
   </component>
@@ -1266,7 +1279,13 @@
       <option name="project" value="LOCAL" />
       <updated>1456463099573</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="BZOJ support">
+      <created>1456476700877</created>
+      <option name="number" value="00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1456476700877</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1287,7 +1306,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38038793" sideWeight="0.50646204" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.03125" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3275862" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28556034" sideWeight="0.49353796" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35452586" sideWeight="0.49353796" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286638" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27478448" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13578275" sideWeight="0.48732942" order="0" side_tool="false" content_ui="combo" />
@@ -1338,7 +1357,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="submit to hdu" />
     <MESSAGE value="pickle的submit检查" />
     <MESSAGE value="MainScanner Update database&#10;change runid to sid int status table" />
     <MESSAGE value="status 翻页" />
@@ -1363,7 +1381,8 @@
     <MESSAGE value="markdown" />
     <MESSAGE value="Show Source Code" />
     <MESSAGE value="some UI update" />
-    <option name="LAST_COMMIT_MESSAGE" value="some UI update" />
+    <MESSAGE value="BZOJ support" />
+    <option name="LAST_COMMIT_MESSAGE" value="BZOJ support" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1377,13 +1396,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Handlers/ProblemListHandler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="97" column="36" selection-start-line="97" selection-start-column="36" selection-end-line="97" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Handlers/ManageContestHandler.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1433,29 +1445,6 @@
         <state vertical-scroll-proportion="-0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Handlers/ShowCodeHandler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="50" column="23" selection-start-line="50" selection-start-column="23" selection-end-line="50" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/showcode.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.4">
-          <caret line="22" column="16" selection-start-line="22" selection-start-column="16" selection-end-line="22" selection-end-column="16" />
-          <folding>
-            <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#input#0;n#td#0;n#tr#1;n#tbody#0;n#table#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#input#1;n#td#0;n#tr#1;n#tbody#0;n#table#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#h4#0;n#td#0;n#tr#2;n#tbody#0;n#table#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#textarea#0;n#td#0;n#tr#3;n#tbody#0;n#table#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1607,14 +1596,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/main_struct.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.93057853">
-          <caret line="56" column="11" selection-start-line="56" selection-start-column="11" selection-end-line="56" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Crawler/PkuCrawler/PkuConfig.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1696,16 +1677,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tools/ImportProblem.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#33#42#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Crawler/HduCrawler/HduCrawler.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1772,18 +1743,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Crawler/PkuCrawler/PkuVJudger.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.7295597">
+        <state vertical-scroll-proportion="-0.51498336">
           <caret line="17" column="11" selection-start-line="17" selection-start-column="11" selection-end-line="17" selection-end-column="11" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Crawler/BzojCrawler/BzojVjudger.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="36" column="13" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
@@ -1797,6 +1758,14 @@
           <folding>
             <element signature="e#0#52#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.5">
+          <caret line="5" column="39" selection-start-line="5" selection-start-column="39" selection-end-line="5" selection-end-column="39" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1820,21 +1789,69 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/sql_version_1_2.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-22.615385">
+          <caret line="170" column="0" selection-start-line="170" selection-start-column="0" selection-end-line="170" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/ImportProblem.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding>
+            <element signature="e#33#42#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Crawler/BzojCrawler/BzojCrawler.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="99" column="21" selection-start-line="99" selection-start-column="21" selection-end-line="99" selection-end-column="21" />
+          <caret line="18" column="37" selection-start-line="18" selection-start-column="37" selection-end-line="18" selection-end-column="37" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/index.html">
+    <entry file="file://$PROJECT_DIR$/Crawler/BzojCrawler/BzojVjudger.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.17326732">
-          <caret line="5" column="39" selection-start-line="5" selection-start-column="39" selection-end-line="5" selection-end-column="39" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="23" column="21" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Handlers/ShowCodeHandler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="50" column="23" selection-start-line="50" selection-start-column="23" selection-end-line="50" selection-end-column="23" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/main_struct.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.8">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/showcode.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5901263">
+          <caret line="37" column="51" selection-start-line="37" selection-start-column="51" selection-end-line="37" selection-end-column="51" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#td#0;n#tr#3;n#tbody#0;n#table#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#code#0;n#pre#0;n#div#0;n#td#0;n#tr#3;n#tbody#0;n#table#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#code#0;n#pre#1;n#div#0;n#td#0;n#tr#3;n#tbody#0;n#table#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

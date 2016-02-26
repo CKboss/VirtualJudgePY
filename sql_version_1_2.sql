@@ -37,7 +37,7 @@ CREATE TABLE `contest` (
   PRIMARY KEY (`cid`),
   KEY `fk_contest_1_idx` (`cuid`),
   CONSTRAINT `fk_contest_1` FOREIGN KEY (`cuid`) REFERENCES `user` (`uid`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -59,7 +59,7 @@ CREATE TABLE `cproblem` (
   KEY `fk_cproblem_2_idx` (`pid`),
   CONSTRAINT `fk_cproblem_1` FOREIGN KEY (`cid`) REFERENCES `contest` (`cid`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_cproblem_2` FOREIGN KEY (`pid`) REFERENCES `problem` (`pid`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=60 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=84 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -77,7 +77,7 @@ CREATE TABLE `problem` (
   `originOJ` varchar(45) DEFAULT NULL,
   `originProb` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`pid`)
-) ENGINE=InnoDB AUTO_INCREMENT=8967 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11864 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -105,7 +105,7 @@ CREATE TABLE `problemdetail` (
   PRIMARY KEY (`did`),
   KEY `fk_problemdetail_1_idx` (`pid`),
   CONSTRAINT `fk_problemdetail_1` FOREIGN KEY (`pid`) REFERENCES `problem` (`pid`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=8929 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11825 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -137,7 +137,7 @@ CREATE TABLE `status` (
   PRIMARY KEY (`sid`),
   KEY `fk_status_1_idx` (`pid`),
   CONSTRAINT `fk_status_1` FOREIGN KEY (`pid`) REFERENCES `problem` (`pid`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=68 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=105 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -156,7 +156,7 @@ CREATE TABLE `user` (
   `school` varchar(255) DEFAULT NULL,
   `localstatus` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`uid`,`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -168,4 +168,4 @@ CREATE TABLE `user` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-02-22 22:51:06
+-- Dump completed on 2016-02-26 17:10:42

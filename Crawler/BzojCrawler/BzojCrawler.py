@@ -16,7 +16,7 @@ class BzojCrawler :
 
         url = self.prob_url.format(pid)
 
-        r = requests.get(url)
+        r = requests.get(url,timeout=7)
         r.encoding = 'utf-8'
 
         '''
@@ -28,6 +28,7 @@ class BzojCrawler :
         html = r.text
         dt = self.getDetail(html)
         if dt is None :
+            print(str(pid)+' can\'t get problem')
             return
 
         dt['originOJ'] = 'BZOJ'
@@ -54,7 +55,6 @@ class BzojCrawler :
         # may be can't get
         Title =  soup.select_one('body > title').text
         if Title == 'Please contact lydsy2012@163.com!' :
-            print('can\'t get problem')
             return None
 
         dt['title'] = soup.select_one('body > center:nth-of-type(3) > h2').text
@@ -97,7 +97,7 @@ def crawlerFromTo(u,v) :
 
     while q.empty() == False :
         pid = q.get()
-        time.sleep(0.5)
+        time.sleep(0.3)
         try :
             bc.CrawlerProblem(pid)
         except Exception as e :
@@ -106,7 +106,7 @@ def crawlerFromTo(u,v) :
 
 def main() :
 
-    crawlerFromTo(1011,4012)
+    crawlerFromTo(1540,4012)
 
     '''
     BC = BzojCrawler()

@@ -14,11 +14,11 @@ class BzojVjudger :
 
     def getLanguage(self,lang):
 
-        L = ['C++','C','Pascal','Java']
+        L = ['C','C++','Pascal','Java']
         ret = 1
         for i in range(0,3) :
             if lang == L[i] :
-                return i+1
+                return i
         return ret
 
     def Submit(self,pid,lang,code):
