@@ -9,6 +9,7 @@ from Handlers.BaseHandler import BaseHandler
 from tools.dbcore import ConnPool
 from tools.dbtools import getQueryDetailSQL, getDeletSQL, getInserSQL, getQuerySQL, getUpdateSQL
 from Config.FilePathConfig import PendingContestFile
+from UIModule.MsgModule import renderMSG
 
 import pickle
 import datetime
@@ -82,7 +83,7 @@ class ManageContestHandler(BaseHandler):
         action = self.get_argument('action', None)
 
         if action is None:
-            self.write('Error Manage Operation!!')
+            self.write(renderMSG('Error Manage Operation!!'))
             self.finish()
             return
 
@@ -92,7 +93,7 @@ class ManageContestHandler(BaseHandler):
             txt = self.get_argument('problemlist', None)
 
             if cid is None:
-                self.write('Wrong CID')
+                self.write(renderMSG('Wrong CID'))
                 self.finish()
                 return
 
@@ -100,7 +101,7 @@ class ManageContestHandler(BaseHandler):
             cstatus = CD[10]
 
             if cstatus == 1 or cstatus == 2:
-                self.write('Contest is frost can\'t modify')
+                self.write(renderMSG('Contest is frost can\'t modify'))
                 self.finish()
                 return
 
@@ -108,7 +109,7 @@ class ManageContestHandler(BaseHandler):
 
             log = yield self.UpdateProblem(cid, problemlist)
 
-            self.write(log)
+            self.write(renderMSG(log))
             self.finish()
             return
 
@@ -119,7 +120,7 @@ class ManageContestHandler(BaseHandler):
             cid = d['cid']
 
             if self.check_args(d) == False:
-                self.write('create fail some arguments miss')
+                self.write(renderMSG('create fail some arguments miss'))
                 self.finish()
                 return
 
@@ -127,7 +128,7 @@ class ManageContestHandler(BaseHandler):
             data = self.getContestData(uid, d)
 
             if 'error' in data:
-                self.write(data['error'])
+                self.write(renderMSG(data['error']))
                 self.finish()
                 return
 
@@ -135,14 +136,14 @@ class ManageContestHandler(BaseHandler):
             cstatus = CD[10]
 
             if cstatus == 1 or cstatus == 2:
-                self.write('Contest is frost can\'t modify')
+                self.write(renderMSG('Contest is frost can\'t modify'))
                 self.finish()
                 return
 
             yield self.updateContestDetail(cid, data)
             self.MakePendingContestTempFile(cid, data)
 
-            self.write('Update Success')
+            self.write(renderMSG('Update Success'))
             self.finish()
             return
 

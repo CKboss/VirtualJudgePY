@@ -11,6 +11,7 @@ from tools.dbtools import getInserSQL, LAST_INSERT_ID
 
 from Handlers.BaseHandler import BaseHandler
 from Config.FilePathConfig import PendingContestFile
+from UIModule.MsgModule import renderMSG
 
 
 class CreateContestHandler(BaseHandler):
@@ -19,7 +20,7 @@ class CreateContestHandler(BaseHandler):
     def get(self):
         self.get_current_user()
         if len(self.current_user) == 0:
-            self.write('<h1>Please LogIn First!!</h1>')
+            self.write(renderMSG('Please LogIn First!!'))
             return
         now = datetime.datetime.now()
         now = now + datetime.timedelta(minutes=10)
@@ -32,7 +33,7 @@ class CreateContestHandler(BaseHandler):
 
         self.get_current_user()
         if len(self.current_user) == 0:
-            self.write('<h1>Please LogIn First!!</h1>')
+            self.write(renderMSG('Please LogIn First!!'))
             self.finish()
             return
 
@@ -40,7 +41,7 @@ class CreateContestHandler(BaseHandler):
         for x in d: d[x] = d[x][0].decode()
 
         if self.check_args(d) == False:
-            self.write('create fail some arguments miss')
+            self.write(renderMSG('create fail some arguments miss'))
             self.finish()
             return
 
@@ -56,7 +57,7 @@ class CreateContestHandler(BaseHandler):
 
         self.MakePendingContestTempFile(cid, data)
 
-        self.write('create success !!')
+        self.write(renderMSG('create success !!'))
         self.finish()
 
     def MakePendingContestTempFile(self, cid, data):

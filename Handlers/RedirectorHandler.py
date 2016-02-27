@@ -41,11 +41,12 @@ class RedirectorHandler(tornado.web.RequestHandler):
         st_status = self.get_cookie('st_status', '')
         st_username = self.get_cookie('st_username', '')
         st_language = self.get_cookie('st_language', '')
+        st_cid = self.get_cookie('st_cid', -1)
 
         self.set_cookie('st_index', index)
 
-        redr_url = '/status?problem_id={}&user_name={}&oj={}&status={}&language={}&index={}' \
-            .format(st_problem_id, st_username, st_oj, st_status, st_language, index)
+        redr_url = '/status?problem_id={}&user_name={}&oj={}&status={}&language={}&index={}&cid={}' \
+            .format(st_problem_id, st_username, st_oj, st_status, st_language, index, st_cid)
 
         print(index, ' -----> ', redr_url)
 

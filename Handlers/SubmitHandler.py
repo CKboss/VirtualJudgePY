@@ -12,6 +12,8 @@ from tools.dbtools import getInserSQL, getQuerySQL, LAST_INSERT_ID
 from tools.encode import UTF8StrToBase64Str
 from tools.dbcore import ConnPool
 
+from UIModule.MsgModule import renderMSG
+
 
 class SubmitHandler(BaseHandler):
     executor = ThreadPoolExecutor(10)
@@ -30,6 +32,7 @@ class SubmitHandler(BaseHandler):
         self.get_current_user()
 
         if OJ is None or Prob is None or pid is None:
+            self.finish()
             return
 
         cstatus = -1
@@ -37,19 +40,19 @@ class SubmitHandler(BaseHandler):
             cstatus = yield self.getContestStatus(cid)
 
         if cstatus == 2:
-            self.write('contest {} is end!'.format(cid))
+            self.write(renderMSG('contest {} is end!'.format(cid)))
             self.finish()
             return
 
         if cstatus == 0:
-            self.write('contest {} is not Begin!'.format(cid))
+            self.write(renderMSG('contest {} is not Begin!'.format(cid)))
             self.finish()
             return
 
         ret = str(self.current_user) + OJ + Prob
 
         if len(self.current_user) == 0:
-            self.write('<h1>Please LogIn first!!!</h1>')
+            self.write(renderMSG('Please LogIn first!!!'))
         else:
             self.render('submit.html', OJ=OJ, Prob=Prob, pid=pid, cid=cid)
 
@@ -66,12 +69,12 @@ class SubmitHandler(BaseHandler):
         cid = self.get_argument('cid', -1)
 
         if lang is None or len(code) == 0 or oj is None or code is None or pid is None:
-            self.write('<h1>Submit Error!!</h1>')
+            self.write(renderMSG('Submit Error!!'))
         else:
             print('lang: ', lang, ' oj: ', oj, ' Prob: ', Prob, ' code ', code, 'user: ', self.current_user)
             yield self.SubmmitCollector(pid=pid, oj=oj, Prob=Prob, lang=lang, code=code, cid=cid)
             # insert into DB
-            self.write('<h1>Submit Success!!</h1>')
+            self.write(renderMSG('Submit Success!!'))
 
         self.finish()
 

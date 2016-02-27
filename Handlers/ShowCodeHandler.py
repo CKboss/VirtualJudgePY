@@ -9,6 +9,7 @@ from tools.encode import Base64StrToUTF8Str
 
 from Config.ParametersConfig import MID_THREAD_POOL_SIZE
 from Handlers.BaseHandler import BaseHandler
+from UIModule.MsgModule import renderMSG
 
 
 class ShowCodeHandler(BaseHandler):
@@ -21,7 +22,7 @@ class ShowCodeHandler(BaseHandler):
         sid = self.get_argument('sid', -1)
 
         if sid == -1:
-            self.write('<h1>wrong sid<h1>')
+            self.write(renderMSG('wrong sid'))
             self.finish()
             return
 
@@ -37,7 +38,7 @@ class ShowCodeHandler(BaseHandler):
                 isopen = 1
 
         if isopen == 0:
-            self.write('<h1>submit not public<h1>')
+            self.write(renderMSG('submit not public'))
             self.finish()
             return
 

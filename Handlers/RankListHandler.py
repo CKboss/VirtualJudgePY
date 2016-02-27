@@ -11,6 +11,7 @@ from tools.dbcore import ConnPool
 
 from Handlers.BaseHandler import BaseHandler
 from Config.ParametersConfig import SML_THREAD_POOL_SIZE
+from UIModule.MsgModule import renderMSG
 
 
 class RankLishHandler(BaseHandler):
@@ -23,7 +24,7 @@ class RankLishHandler(BaseHandler):
         cid = self.get_argument('cid', -1)
 
         if cid == -1:
-            self.write('wrong contest id')
+            self.write(renderMSG('wrong contest id'))
             self.finish()
 
         contestInfo = yield self.getContestInfo(cid)

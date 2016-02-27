@@ -10,6 +10,8 @@ from Config.ParametersConfig import MID_THREAD_POOL_SIZE
 from tools.dbtools import getQuerySQL
 from tools.dbcore import ConnPool
 
+from UIModule.MsgModule import renderMSG
+
 
 class ContestShowHandler(BaseHandler):
     executor = ThreadPoolExecutor(MID_THREAD_POOL_SIZE)
@@ -26,7 +28,7 @@ class ContestShowHandler(BaseHandler):
         cstatus = contestdetail[10]
 
         if cstatus == 0:
-            self.write('<h1>Not Start</h1>')
+            self.write(renderMSG('Not Start'))
             self.finish()
             return
 

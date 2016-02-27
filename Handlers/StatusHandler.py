@@ -23,7 +23,7 @@ class StatusHandler(BaseHandler):
         language = str(self.get_argument('language', '%')).replace(' ', '%')
         isSearch = self.get_argument('isSearch', None)
         index = str(self.get_argument('index', '0')).replace(' ', '%')
-        cid = str(self.get_argument('cid', -1)).replace(' ', '%')
+        cid = str(self.get_argument('cid', -1)).replace(' ', '')
 
         if len(index) == 0:
             index = '0'
@@ -36,6 +36,7 @@ class StatusHandler(BaseHandler):
             self.set_cookie('st_status', status)
             self.set_cookie('st_oj', oj)
             self.set_cookie('st_username', user_name)
+            self.set_cookie('st_cid', cid)
 
         d = dict()
         d['index'] = index

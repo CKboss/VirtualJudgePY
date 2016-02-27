@@ -12,6 +12,7 @@ from concurrent.futures import ThreadPoolExecutor
 from dao.userdao import checkUserSQL, getUserUid
 
 from Handlers.BaseHandler import BaseHandler
+from UIModule.MsgModule import renderMSG
 
 
 class LogInHandler(BaseHandler):
@@ -32,9 +33,9 @@ class LogInHandler(BaseHandler):
                 self.set_secure_cookie('username', username)
                 print('isOK: ', isOK)
                 self.set_secure_cookie('uid', str(isOK))
-                self.write('<h1>LogIn Success!</h1>')
+                self.write(renderMSG(msg='LogIn Success'))
             else:
-                self.write('<h1>LogIn Fail</h1>')
+                self.write(renderMSG(msg='LogIn Fail'))
 
         self.finish()
 

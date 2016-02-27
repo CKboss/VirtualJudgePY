@@ -8,6 +8,7 @@ from tools.dbtools import getPageLimitSQL
 from tools.dbcore import ConnPool
 
 from Handlers.BaseHandler import BaseHandler
+from UIModule.MsgModule import renderMSG
 
 
 class ManageContestListHandler(BaseHandler):
@@ -19,7 +20,7 @@ class ManageContestListHandler(BaseHandler):
         self.get_current_user()
 
         if len(self.current_user) == 0:
-            self.write('please log in first !!')
+            self.write(renderMSG('please log in first !!'))
             return
 
         uid = self.get_secure_cookie('uid').decode()

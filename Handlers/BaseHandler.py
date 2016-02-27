@@ -7,7 +7,7 @@ class BaseHandler(tornado.web.RequestHandler):
 
     def get_current_user(self):
 
-        self.current_user = self.get_secure_cookie('username')
+        self.current_user = self.get_secure_cookie('username', None)
 
         if self.current_user is None:
             self.current_user = ''

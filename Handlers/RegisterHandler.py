@@ -1,6 +1,7 @@
 import tornado.web
 
 from dao.userdao import AddUser
+from UIModule.MsgModule import renderMSG
 
 
 class RegisterHandler(tornado.web.RequestHandler):
@@ -23,7 +24,7 @@ class RegisterHandler(tornado.web.RequestHandler):
                 ''' success '''
             else:
                 ''' fail '''
-                self.write('Regiest Fail !!!')
+                self.write(renderMSG('Regiest Fail !!!'))
                 self.finish()
                 return
 

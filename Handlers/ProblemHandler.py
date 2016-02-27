@@ -89,6 +89,7 @@ def main():
     problemid = '1092'
 
     # get pid
+    conn = ConnPool.connect()
     cur = conn.cursor()
 
     sql = 'SELECT * FROM problem WHERE ( originOJ LIKE "{}" and originProb LIKE "{}" )'.format(oj, problemid)
