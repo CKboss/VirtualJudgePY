@@ -24,6 +24,7 @@ from Handlers.ManageContestListHandler import ManageContestListHandler
 from Handlers.ContestShowHandler import ContestShowHandler
 from Handlers.RankListHandler import RankLishHandler
 from Handlers.ShowCodeHandler import ShowCodeHandler
+from Handlers.UserStatusHandler import UserStatusHander
 
 from UIModule.HeaderModule import TitleModule
 from UIModule.ProblemListModule import ProblemListModule
@@ -54,6 +55,7 @@ class AppInit(tornado.web.Application):
             (r'/contestshow\/{0,1}', ContestShowHandler),
             (r'/ranklist\/{0,1}', RankLishHandler),
             (r'/showcode\/{0,1}', ShowCodeHandler),
+            (r'/userstatus\/{0,1}',UserStatusHander),
         ]
 
         # Setting

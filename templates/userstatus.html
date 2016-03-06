@@ -1,0 +1,63 @@
+{% extends "main_struct.html" %}
+
+{% block content %}
+
+<div name="infotable" style="margin-left: 25%; margin-right: 25%">
+
+    <form method="post" target="/userstatus">
+        {% raw xsrf_form_html() %}
+    <table border="1" class="flex-table-item-primary" bordercolor="#FFFFFF">
+        <tbody style="background-color: #f0f8ff">
+        <tr>
+            <td>
+                <h4>UserName:</h4> <h1 style="color: #1A5CC8">{{ uname }}</h1>
+            </td>
+            <td rowspan="3" style="text-align: right">
+                <img alt="{{ uname }} Avatar" src="//cn.gravatar.com/avatar/{{ urlpart }}?d=mm&s=256">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h4>Email:</h4>
+                <input type="email" class="input-large" name="email" value="{{ email }}">
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>
+                <h4>School:</h4>
+                <input type="text" class="input-large" name="school" value="{{ school }}">
+            </td>
+            <td></td>
+        </tr>
+
+        <tr>
+            <td>
+                <h4>Password:</h4>
+                <input type="password" class="input-large" name="password" value="">
+            </td>
+            <td>
+                <h4>NewPassword:</h4>
+                <input type="password" class="input-large" name="newpassword" value="">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align: center">
+                <br>
+                <input type="submit" class="btn btn-primary" value="Update User Info">
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+    </form>
+
+    <hr>
+
+    <h1>Total AC:</h1>
+    <p>10086</p>
+
+    <hr>
+
+</div>
+{% end %}
