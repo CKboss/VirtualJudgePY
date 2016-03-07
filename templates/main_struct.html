@@ -39,7 +39,7 @@
             </table>
         </form>
         {% else %}
-        <h3><a href="userstatus?username={{ username }}">{{ username }}</a></h3>
+        <h3><a href="/userstatus?username={{ username }}">{{ username }}</a></h3>
         <form method="post" action="/logout">
             {% raw xsrf_form_html() %}
             <button class="btn btn-sm btn-outline" type="submit">Log Out</button>

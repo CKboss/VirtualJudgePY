@@ -7,11 +7,13 @@ from tornado.concurrent import run_on_executor
 from concurrent.futures import ThreadPoolExecutor
 
 from Handlers.BaseHandler import BaseHandler
-from tools.dbtools import getQuerySQL,getQueryDetailSQL
+from tools.dbtools import getQuerySQL,getQueryDetailSQL,getUpdateSQL
 from tools.dbcore import ConnPool
 
 from Config.ParametersConfig import MID_THREAD_POOL_SIZE
 from UIModule.MsgModule import renderMSG
+
+from dao.userdao import checkUserSQL
 
 class UserStatusHander(BaseHandler) :
 
@@ -35,7 +37,44 @@ class UserStatusHander(BaseHandler) :
 
         print(rs)
 
-        self.render("userstatus.html",uid=uid,uname=username,email=email,school=school,urlpart=urlpart)
+        self.render("userstatus.html",uid=uid,uname=username,email=email,school=school,urlpart=urlpart,rs=rs)
+
+    @tornado.web.asynchronous
+    @tornado.gen.engine
+    def post(self):
+
+        uid = self.get_argument('uid')
+        username = self.get_argument('username')
+        password = self.get_argument('password')
+        newpassword = self.get_argument('newpassword')
+        email = self.get_argument('email')
+        school = self.get_argument('school')
+
+        #Check Password
+
+        rs = yield self.CheckPasswrod(username=username,password=password)
+
+        if rs[0] == 0 :
+            self.write(renderMSG('Wrong Password for user {}. Can\'t modify.'.format(username)))
+            self.finish()
+
+        #Update user Info
+        data = dict()
+        data['email'] = email
+        data['school'] = school
+
+        if newpassword is not None and len(newpassword) != 0 :
+            data['password'] = newpassword
+
+        isOK = yield self.UpdateUserInfo(uid=uid,data=data)
+
+        if isOK == False :
+            self.write(renderMSG('Update False!'))
+        else:
+            self.write(renderMSG('Update Success!'))
+
+        self.finish()
+
 
     @run_on_executor
     def getUserInfo(self,username):
@@ -76,3 +115,37 @@ class UserStatusHander(BaseHandler) :
         conn.close()
 
         return rs
+
+    @run_on_executor
+    def CheckPasswrod(self,username,password):
+
+        sql = checkUserSQL(username=username,password=password)
+
+        conn = ConnPool.connect()
+        cur = conn.cursor()
+        cur.execute(sql)
+
+        rs = cur.fetchone()
+
+        cur.close()
+        conn.close()
+
+        return rs
+
+    @run_on_executor
+    def UpdateUserInfo(self,uid,data):
+
+        sql = getUpdateSQL('user',data=data,clause=' uid={} '.format(uid))
+
+        print('sql: ',sql)
+
+        try :
+            conn = ConnPool.connect()
+            cur = conn.cursor()
+            cur.execute(sql)
+            cur.close()
+            conn.close()
+        except Exception :
+            return False
+
+        return True

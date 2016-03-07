@@ -32,6 +32,7 @@ from UIModule.StatusItemModule import StatusItemModule
 from UIModule.ContestItemModule import ContestItemModule
 from UIModule.RanklistTableModule import RankListTableModule
 from UIModule.OJSelectModule import OJSelectModule
+from UIModule.SolvedProblemModule import SolvedProblemModule
 
 
 class AppInit(tornado.web.Application):
@@ -76,6 +77,7 @@ class AppInit(tornado.web.Application):
             ContestList=ContestItemModule,
             RankListTable=RankListTableModule,
             OJSelect=OJSelectModule,
+            SolvedProblem=SolvedProblemModule,
         )
 
         tornado.web.Application.__init__(self, handlers, ui_modules=UI_MODULES, **settings)

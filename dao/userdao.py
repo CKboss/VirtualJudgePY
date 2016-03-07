@@ -16,8 +16,8 @@ from tools.dbtools import getInserSQL
 from tools.dbcore import ConnPool
 
 
-def checkUserSQL(username, passowrd):
-    sql = 'select count(*) from user WHERE username = "%s" and password = "%s" ' % (username, passowrd)
+def checkUserSQL(username, password):
+    sql = 'select count(*) from user WHERE username = "%s" and password = "%s" ' % (username, password)
     return sql
 
 
