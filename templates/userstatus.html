@@ -2,8 +2,9 @@
 
 {% block content %}
 
-<div name="infotable" style="margin-left: 25%; margin-right: 25%">
+<div name="infotable" style="margin-left: 20%; margin-right: 20%">
 
+    <h1>User Info:</h1>
     <form method="post" action="/userstatus?username={{ uname }}">
         {% raw xsrf_form_html() %}
     <table border="1" class="flex-table-item-primary" bordercolor="#FFFFFF">
@@ -56,10 +57,58 @@
 
     <hr>
 
-    <h1>Total AC:</h1> <h1 style="color: #6cc644">{{ len(rs) }}</h1>
+    <table style="width: 100%">
+        <tbody>
+            <tr>
+                <td width="30%"><h1>Total AC:</h1></td>
+                <td rowspan="2" style="width: 70%" align="right">
+                    <script src="{{ static_url("js/echarts.simple.min.js") }}"></script>
+                    <div id="graph" style="width: 450px;height: 300px;text-align: right"></div>
+                    <script type="text/javascript">
+                        var myChart = echarts.init(document.getElementById('graph'));
+
+                        var option = {
+                         title : {
+                                text: '{{ uname }}的提交统计',
+                                subtext: 'power by ECharts',
+                                x:'center'
+                            },
+                            series : [
+                                {
+                                    name: 'Statistics',
+                                    type: 'pie',
+                                    radius : '55%',
+                                    center: ['50%', '60%'],
+                                    data:[
+                                        {% for x in submitdata %}
+                                            {value:{{ x[1] }}, name:"{{ x[0] }}({{ x[1] }})"},
+                                        {% end %}
+                                    ],
+                                    itemStyle: {
+                                        emphasis: {
+                                            shadowBlur: 10,
+                                            shadowOffsetX: 0,
+                                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                                        }
+                                    }
+                                }
+                            ]
+                        };
+
+                        myChart.setOption(option);
+                    </script>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: center"><h1 style="color: #6cc644">{{ len(rs) }} problem</h1></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
 
     <hr>
 
+    <h1>Problem Solved:</h1>
     {% module SolvedProblem(rs) %}
 
 </div>

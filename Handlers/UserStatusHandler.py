@@ -33,11 +33,22 @@ class UserStatusHander(BaseHandler) :
         school = rs[5]
         urlpart = hashlib.md5(email.lower().encode('utf-8')).hexdigest()
 
-        rs = yield self.getUserACSubmit(username)
+        rs = yield self.getUserACSubmit(username=username)
 
-        print(rs)
+        rs2 = yield self.getSubmitInfo(uid=uid)
 
-        self.render("userstatus.html",uid=uid,uname=username,email=email,school=school,urlpart=urlpart,rs=rs)
+        '''
+        submitdata = ''
+        for x in rs2 :
+            if len(submitdata) != 0 :
+                submitdata += ',\n'
+            submitdata += '{value:'+str(x[1])+',name:"'+str(x[0])+'"}'
+        '''
+        submitdata = rs2
+
+        print(submitdata)
+
+        self.render("userstatus.html",uid=uid,uname=username,email=email,school=school,urlpart=urlpart,rs=rs,submitdata=submitdata)
 
     @tornado.web.asynchronous
     @tornado.gen.engine
@@ -149,3 +160,17 @@ class UserStatusHander(BaseHandler) :
             return False
 
         return True
+
+    @run_on_executor
+    def getSubmitInfo(self,uid):
+
+        sql = 'SELECT status,count(status) from status WHERE uid = {} GROUP BY status ORDER BY status'.format(uid)
+
+        conn = ConnPool.connect()
+        cur = conn.cursor()
+        cur.execute(sql)
+        rs = cur.fetchall()
+        cur.close()
+        conn.close()
+
+        return rs
