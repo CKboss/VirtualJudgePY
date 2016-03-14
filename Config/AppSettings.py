@@ -56,7 +56,7 @@ class AppInit(tornado.web.Application):
             (r'/contestshow\/{0,1}', ContestShowHandler),
             (r'/ranklist\/{0,1}', RankLishHandler),
             (r'/showcode\/{0,1}', ShowCodeHandler),
-            (r'/userstatus\/{0,1}',UserStatusHander),
+            (r'/userstatus\/{0,1}', UserStatusHander),
         ]
 
         # Setting

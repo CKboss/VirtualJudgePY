@@ -7,7 +7,7 @@ from tornado.concurrent import run_on_executor
 from concurrent.futures import ThreadPoolExecutor
 
 from Handlers.BaseHandler import BaseHandler
-from tools.dbtools import getQuerySQL,getQueryDetailSQL,getUpdateSQL
+from tools.dbtools import getQuerySQL, getQueryDetailSQL, getUpdateSQL
 from tools.dbcore import ConnPool
 
 from Config.ParametersConfig import MID_THREAD_POOL_SIZE
@@ -15,8 +15,8 @@ from UIModule.MsgModule import renderMSG
 
 from dao.userdao import checkUserSQL
 
-class UserStatusHander(BaseHandler) :
 
+class UserStatusHander(BaseHandler):
     executor = ThreadPoolExecutor(MID_THREAD_POOL_SIZE)
 
     @tornado.web.asynchronous
@@ -24,7 +24,7 @@ class UserStatusHander(BaseHandler) :
     def get(self):
         username = self.get_argument('username')
         rs = yield self.getUserInfo(username)
-        if rs is None :
+        if rs is None:
             self.write(renderMSG('Can\'t find user {}'.format(username)))
             self.finish()
 
@@ -48,7 +48,8 @@ class UserStatusHander(BaseHandler) :
 
         print(submitdata)
 
-        self.render("userstatus.html",uid=uid,uname=username,email=email,school=school,urlpart=urlpart,rs=rs,submitdata=submitdata)
+        self.render("userstatus.html", uid=uid, uname=username, email=email, school=school, urlpart=urlpart, rs=rs,
+                    submitdata=submitdata)
 
     @tornado.web.asynchronous
     @tornado.gen.engine
@@ -61,40 +62,39 @@ class UserStatusHander(BaseHandler) :
         email = self.get_argument('email')
         school = self.get_argument('school')
 
-        #Check Password
+        # Check Password
 
-        rs = yield self.CheckPasswrod(username=username,password=password)
+        rs = yield self.CheckPasswrod(username=username, password=password)
 
-        if rs[0] == 0 :
+        if rs[0] == 0:
             self.write(renderMSG('Wrong Password for user {}. Can\'t modify.'.format(username)))
             self.finish()
 
-        #Update user Info
+        # Update user Info
         data = dict()
         data['email'] = email
         data['school'] = school
 
-        if newpassword is not None and len(newpassword) != 0 :
+        if newpassword is not None and len(newpassword) != 0:
             data['password'] = newpassword
 
-        isOK = yield self.UpdateUserInfo(uid=uid,data=data)
+        isOK = yield self.UpdateUserInfo(uid=uid, data=data)
 
-        if isOK == False :
+        if isOK == False:
             self.write(renderMSG('Update False!'))
         else:
             self.write(renderMSG('Update Success!'))
 
         self.finish()
 
-
     @run_on_executor
-    def getUserInfo(self,username):
+    def getUserInfo(self, username):
 
-        if len(username)==0 :
+        if len(username) == 0:
             return None
 
         where = ' username = "{}" '.format(username)
-        sql = getQuerySQL('user',whereclause=where,ordclause=' uid ')
+        sql = getQuerySQL('user', whereclause=where, ordclause=' uid ')
 
         conn = ConnPool.connect()
         cur = conn.cursor()
@@ -108,13 +108,13 @@ class UserStatusHander(BaseHandler) :
         return rs
 
     @run_on_executor
-    def getUserACSubmit(self,username):
+    def getUserACSubmit(self, username):
 
         where = 'username = "{}" and status LIKE "%Accept%"'.format(username)
         select = ' DISTINCT originOJ,originProb '
-        sql = getQueryDetailSQL('status',selectitem=select,whereclause=where,ordclause=' originOJ,originProb ')
+        sql = getQueryDetailSQL('status', selectitem=select, whereclause=where, ordclause=' originOJ,originProb ')
 
-        print('sql: ',sql)
+        print('sql: ', sql)
 
         conn = ConnPool.connect()
         cur = conn.cursor()
@@ -128,9 +128,9 @@ class UserStatusHander(BaseHandler) :
         return rs
 
     @run_on_executor
-    def CheckPasswrod(self,username,password):
+    def CheckPasswrod(self, username, password):
 
-        sql = checkUserSQL(username=username,password=password)
+        sql = checkUserSQL(username=username, password=password)
 
         conn = ConnPool.connect()
         cur = conn.cursor()
@@ -144,25 +144,25 @@ class UserStatusHander(BaseHandler) :
         return rs
 
     @run_on_executor
-    def UpdateUserInfo(self,uid,data):
+    def UpdateUserInfo(self, uid, data):
 
-        sql = getUpdateSQL('user',data=data,clause=' uid={} '.format(uid))
+        sql = getUpdateSQL('user', data=data, clause=' uid={} '.format(uid))
 
-        print('sql: ',sql)
+        print('sql: ', sql)
 
-        try :
+        try:
             conn = ConnPool.connect()
             cur = conn.cursor()
             cur.execute(sql)
             cur.close()
             conn.close()
-        except Exception :
+        except Exception:
             return False
 
         return True
 
     @run_on_executor
-    def getSubmitInfo(self,uid):
+    def getSubmitInfo(self, uid):
 
         sql = 'SELECT status,count(status) from status WHERE uid = {} GROUP BY status ORDER BY status'.format(uid)
 
