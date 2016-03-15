@@ -27,6 +27,11 @@ class TitleModule(tornado.web.UIModule):
                         <button class="btn btn-outline" type="button">Contest</button>
                     </a>
                 </td>
+                <td>
+                    <a href="/crawleronline">
+                        <button class="btn btn-outline" type="button">Crawler Online</button>
+                    </a>
+                </td>
             </tr>
         </table>
         '''
