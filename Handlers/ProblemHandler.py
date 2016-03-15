@@ -6,6 +6,9 @@ from concurrent.futures import ThreadPoolExecutor
 
 from tools.dbcore import ConnPool
 from tools.encode import UTF8StrToBase64Str, Base64StrToUTF8Str
+from UIModule.MsgModule import renderMSG
+
+from Crawler.BnuVJCrawler.BnuVJCrawler import BnuVJCrawler
 
 
 class ProblemHandler(tornado.web.RequestHandler):
@@ -20,9 +23,22 @@ class ProblemHandler(tornado.web.RequestHandler):
         print('oj: ' + oj + ' pid: ' + pid)
         D = yield self.getProblem(oj, pid)
 
-        current_user = self.get_secure_cookie('username')
+        if D is None :
+            yield self.CrawlerOnLine(oj,pid)
+            D = yield self.getProblem(oj, pid)
 
+        if D is None :
+            self.write(renderMSG('Can\'t find this problem',waittime=1000000))
+            self.finish()
+            return
+
+        current_user = self.get_secure_cookie('username')
         self.render('problem.html', D=D, current_user=current_user, cid=cid)
+
+    @run_on_executor
+    def CrawlerOnLine(self,oj,pid):
+        BVC = BnuVJCrawler()
+        BVC.CrawlerProblem(oj,pid)
 
     @run_on_executor
     def getProblem(self, oj, problemid):
@@ -36,7 +52,8 @@ class ProblemHandler(tornado.web.RequestHandler):
         rt = cur.fetchone()
 
         # error
-        if rt is None: pass
+        if rt is None:
+            return None
 
         d = dict()
 

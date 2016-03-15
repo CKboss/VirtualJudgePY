@@ -124,160 +124,166 @@
       <column id="38" parent="4" name="originProb">
         <data-type>varchar(45)</data-type>
       </column>
-      <key id="39" parent="4" name="PRIMARY">
+      <column id="39" parent="4" name="virtualOJ">
+        <data-type>varchar(45)</data-type>
+      </column>
+      <column id="40" parent="4" name="virtualProb">
+        <data-type>varchar(45)</data-type>
+      </column>
+      <key id="41" parent="4" name="PRIMARY">
         <columns>pid</columns>
         <primary>1</primary>
       </key>
-      <column id="40" parent="5" name="did">
+      <column id="42" parent="5" name="did">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
       </column>
-      <column id="41" parent="5" name="pid">
+      <column id="43" parent="5" name="pid">
         <data-type>int(11)</data-type>
       </column>
-      <column id="42" parent="5" name="description">
+      <column id="44" parent="5" name="description">
         <data-type>text</data-type>
       </column>
-      <column id="43" parent="5" name="input">
+      <column id="45" parent="5" name="input">
         <data-type>text</data-type>
       </column>
-      <column id="44" parent="5" name="output">
+      <column id="46" parent="5" name="output">
         <data-type>text</data-type>
       </column>
-      <column id="45" parent="5" name="sampleinput">
+      <column id="47" parent="5" name="sampleinput">
         <data-type>text</data-type>
       </column>
-      <column id="46" parent="5" name="sampleoutput">
+      <column id="48" parent="5" name="sampleoutput">
         <data-type>text</data-type>
       </column>
-      <column id="47" parent="5" name="hint">
+      <column id="49" parent="5" name="hint">
         <data-type>text</data-type>
       </column>
-      <column id="48" parent="5" name="author">
+      <column id="50" parent="5" name="author">
         <data-type>varchar(255)</data-type>
       </column>
-      <column id="49" parent="5" name="source">
+      <column id="51" parent="5" name="source">
         <data-type>varchar(255)</data-type>
       </column>
-      <column id="50" parent="5" name="updatetime">
+      <column id="52" parent="5" name="updatetime">
         <data-type>datetime</data-type>
       </column>
-      <column id="51" parent="5" name="memorylimit">
+      <column id="53" parent="5" name="memorylimit">
         <data-type>varchar(45)</data-type>
       </column>
-      <column id="52" parent="5" name="timelimit">
+      <column id="54" parent="5" name="timelimit">
         <data-type>varchar(45)</data-type>
       </column>
-      <column id="53" parent="5" name="specialjudge">
+      <column id="55" parent="5" name="specialjudge">
         <data-type>tinyint(1)</data-type>
       </column>
-      <index id="54" parent="5" name="fk_problemdetail_1_idx">
+      <index id="56" parent="5" name="fk_problemdetail_1_idx">
         <columns>pid</columns>
         <desc-columns></desc-columns>
       </index>
-      <key id="55" parent="5" name="PRIMARY">
+      <key id="57" parent="5" name="PRIMARY">
         <columns>did</columns>
         <primary>1</primary>
       </key>
-      <foreign-key id="56" parent="5" name="fk_problemdetail_1">
+      <foreign-key id="58" parent="5" name="fk_problemdetail_1">
         <columns>pid</columns>
         <ref-key>~.problem.PRIMARY</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
-      <column id="57" parent="6" name="sid">
+      <column id="59" parent="6" name="sid">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
       </column>
-      <column id="58" parent="6" name="timesubmit">
+      <column id="60" parent="6" name="timesubmit">
         <data-type>datetime</data-type>
       </column>
-      <column id="59" parent="6" name="status">
+      <column id="61" parent="6" name="status">
         <data-type>varchar(100)</data-type>
       </column>
-      <column id="60" parent="6" name="runtime">
+      <column id="62" parent="6" name="runtime">
         <data-type>varchar(45)</data-type>
       </column>
-      <column id="61" parent="6" name="runmemory">
+      <column id="63" parent="6" name="runmemory">
         <data-type>varchar(45)</data-type>
       </column>
-      <column id="62" parent="6" name="pid">
+      <column id="64" parent="6" name="pid">
         <data-type>int(11)</data-type>
       </column>
-      <column id="63" parent="6" name="cid">
+      <column id="65" parent="6" name="cid">
         <data-type>int(11)</data-type>
       </column>
-      <column id="64" parent="6" name="language">
+      <column id="66" parent="6" name="language">
         <data-type>varchar(45)</data-type>
       </column>
-      <column id="65" parent="6" name="source">
+      <column id="67" parent="6" name="source">
         <data-type>text</data-type>
       </column>
-      <column id="66" parent="6" name="isopen">
+      <column id="68" parent="6" name="isopen">
         <data-type>tinyint(1)</data-type>
       </column>
-      <column id="67" parent="6" name="uid">
+      <column id="69" parent="6" name="uid">
         <data-type>int(11)</data-type>
       </column>
-      <column id="68" parent="6" name="username">
+      <column id="70" parent="6" name="username">
         <data-type>varchar(255)</data-type>
       </column>
-      <column id="69" parent="6" name="originOJ">
+      <column id="71" parent="6" name="originOJ">
         <data-type>varchar(255)</data-type>
       </column>
-      <column id="70" parent="6" name="originProb">
+      <column id="72" parent="6" name="originProb">
         <data-type>varchar(45)</data-type>
       </column>
-      <column id="71" parent="6" name="realrunid">
+      <column id="73" parent="6" name="realrunid">
         <data-type>varchar(45)</data-type>
       </column>
-      <column id="72" parent="6" name="isdisplay">
+      <column id="74" parent="6" name="isdisplay">
         <data-type>tinyint(1)</data-type>
       </column>
-      <column id="73" parent="6" name="ceinfo">
+      <column id="75" parent="6" name="ceinfo">
         <data-type>text</data-type>
       </column>
-      <column id="74" parent="6" name="codelenth">
+      <column id="76" parent="6" name="codelenth">
         <data-type>varchar(45)</data-type>
       </column>
-      <index id="75" parent="6" name="fk_status_1_idx">
+      <index id="77" parent="6" name="fk_status_1_idx">
         <columns>pid</columns>
         <desc-columns></desc-columns>
       </index>
-      <key id="76" parent="6" name="PRIMARY">
+      <key id="78" parent="6" name="PRIMARY">
         <columns>sid</columns>
         <primary>1</primary>
       </key>
-      <foreign-key id="77" parent="6" name="fk_status_1">
+      <foreign-key id="79" parent="6" name="fk_status_1">
         <columns>pid</columns>
         <ref-key>~.problem.PRIMARY</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
-      <column id="78" parent="7" name="uid">
+      <column id="80" parent="7" name="uid">
         <mandatory>1</mandatory>
         <data-type>int(11)</data-type>
       </column>
-      <column id="79" parent="7" name="username">
+      <column id="81" parent="7" name="username">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
       </column>
-      <column id="80" parent="7" name="nickname">
+      <column id="82" parent="7" name="nickname">
         <data-type>varchar(1024)</data-type>
       </column>
-      <column id="81" parent="7" name="password">
+      <column id="83" parent="7" name="password">
         <data-type>varchar(50)</data-type>
       </column>
-      <column id="82" parent="7" name="email">
+      <column id="84" parent="7" name="email">
         <data-type>varchar(255)</data-type>
       </column>
-      <column id="83" parent="7" name="school">
+      <column id="85" parent="7" name="school">
         <data-type>varchar(255)</data-type>
       </column>
-      <column id="84" parent="7" name="localstatus">
+      <column id="86" parent="7" name="localstatus">
         <data-type>tinyint(1)</data-type>
       </column>
-      <key id="85" parent="7" name="PRIMARY">
+      <key id="87" parent="7" name="PRIMARY">
         <columns>uid
 username</columns>
         <primary>1</primary>
