@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2de79d09-24b7-4478-a485-08d4b37a9915" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/index.html" afterPath="$PROJECT_DIR$/templates/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sql_version_1_2.sql" afterPath="$PROJECT_DIR$/sql_version_1_2.sql" />
     </list>
     <ignored path="VirtualJudgePY.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -114,11 +116,34 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.0367393">
-              <caret line="43" column="20" selection-start-line="43" selection-start-column="20" selection-end-line="43" selection-end-column="20" />
+            <state vertical-scroll-proportion="-24.833334">
+              <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sql_version_1_2.sql" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sql_version_1_2.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="173" column="0" selection-start-line="173" selection-start-column="0" selection-end-line="173" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider editor-type-id="MarkdownPreviewEditor">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.60137457">
+              <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -186,7 +211,6 @@
         <option value="$PROJECT_DIR$/tools/ImportProblem.py" />
         <option value="$PROJECT_DIR$/Crawler/BzojCrawler/BzojScanner.py" />
         <option value="$PROJECT_DIR$/Crawler/BzojCrawler/BzojCrawler.py" />
-        <option value="$PROJECT_DIR$/sql_version_1_2.sql" />
         <option value="$PROJECT_DIR$/templates/showcode.html" />
         <option value="$PROJECT_DIR$/Crawler/HustCrawler/HustVJudger.py" />
         <option value="$PROJECT_DIR$/Crawler/BzojCrawler/BzojConfig.py" />
@@ -205,7 +229,6 @@
         <option value="$PROJECT_DIR$/Handlers/ShowCodeHandler.py" />
         <option value="$PROJECT_DIR$/Handlers/SubmitHandler.py" />
         <option value="$PROJECT_DIR$/Handlers/BaseHandler.py" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/Handlers/UserstatusHandler.py" />
         <option value="$PROJECT_DIR$/UIModule/SolveProblemModule.py" />
         <option value="$PROJECT_DIR$/UIModule/SolvedProblemModule.py" />
@@ -234,6 +257,8 @@
         <option value="$PROJECT_DIR$/templates/crawleronline.html" />
         <option value="$PROJECT_DIR$/Handlers/CrawlerOnlineHandler.py" />
         <option value="$PROJECT_DIR$/templates/index.html" />
+        <option value="$PROJECT_DIR$/sql_version_1_2.sql" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -1177,7 +1202,13 @@
       <option name="project" value="LOCAL" />
       <updated>1458048148766</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="Index Page">
+      <created>1458050102665</created>
+      <option name="number" value="00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1458050102665</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1257,7 +1288,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="contest 题目的添加" />
     <MESSAGE value="contest 比赛等待开始结束判断" />
     <MESSAGE value="contest page 显示" />
     <MESSAGE value="contest 题目列表和status" />
@@ -1282,7 +1312,8 @@
     <MESSAGE value="Crawler From BNUVJ" />
     <MESSAGE value="BNU VVJUDGE" />
     <MESSAGE value="Crawler Problem Online" />
-    <option name="LAST_COMMIT_MESSAGE" value="Crawler Problem Online" />
+    <MESSAGE value="Index Page" />
+    <option name="LAST_COMMIT_MESSAGE" value="Index Page" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1296,20 +1327,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Handlers/RegisterHandler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.75">
-          <caret line="26" column="30" selection-start-line="26" selection-start-column="30" selection-end-line="26" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Handlers/StatusHandler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.17307693">
-          <caret line="81" column="29" selection-start-line="81" selection-start-column="29" selection-end-line="81" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Handlers/RankListHandler.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.46153846">
@@ -1733,8 +1750,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.0367393">
-          <caret line="43" column="20" selection-start-line="43" selection-start-column="20" selection-end-line="43" selection-end-column="20" />
+        <state vertical-scroll-proportion="-24.833334">
+          <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sql_version_1_2.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="173" column="0" selection-start-line="173" selection-start-column="0" selection-end-line="173" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.60137457">
+          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
           <folding />
         </state>
       </provider>

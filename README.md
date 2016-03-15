@@ -2,17 +2,16 @@
 基于 tornado 框架的 virtual judge
 -----
 
-![首页](http://ww1.sinaimg.cn/mw1024/50a04a61jw1f1bmfi7zenj213j0p0q6y.jpg)
+```shell
+ _    ___      __              __    __          __           ______  __
+| |  / (_)____/ /___  ______ _/ /   / /_  ______/ /___ ____  / __ \ \/ /
+| | / / / ___/ __/ / / / __ `/ /_  / / / / / __  / __ `/ _ \/ /_/ /\  / 
+| |/ / / /  / /_/ /_/ / /_/ / / /_/ / /_/ / /_/ / /_/ /  __/ ____/ / /  
+|___/_/_/   \__/\__,_/\__,_/_/\____/\__,_/\__,_/\__, /\___/_/     /_/   
+                                               /____/  
+```
 
-![ProblemList](http://ww1.sinaimg.cn/mw1024/50a04a61jw1f1bmfiszqzj214x0skdsl.jpg)
-
-![Problem](http://ww4.sinaimg.cn/mw1024/50a04a61jw1f1bmfl7ay1j213f0sk146.jpg)
-
-![Status](http://ww1.sinaimg.cn/mw1024/50a04a61jw1f1bmfjo3ogj214x0sk4df.jpg)
-
-![Contest](http://ww4.sinaimg.cn/mw1024/50a04a61jw1f1bmfka4apj214x0sktkj.jpg)
-
-![Create Contest](http://ww1.sinaimg.cn/mw1024/50a04a61jw1f1bmfkpu19j213f0skwju.jpg)
+![首页](http://ww1.sinaimg.cn/mw1024/50a04a61gw1f1xwn7vsqdj21330qhth1.jpg)
 
 
 ------
