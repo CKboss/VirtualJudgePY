@@ -16,7 +16,7 @@ class BzojVjudger:
 
         L = ['C', 'C++', 'Pascal', 'Java']
         ret = 1
-        for i in range(0, 3):
+        for i in range(0, 4):
             if lang == L[i]:
                 return i
         return ret

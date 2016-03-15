@@ -125,6 +125,8 @@ problem = dict(
     url=None,
     originOJ=None,
     originProb=None,
+    virtualOJ=None,
+    virtualProb=None,
 )
 
 problemdetail = dict(

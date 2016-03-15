@@ -6,6 +6,7 @@ from Crawler.HduCrawler.HduScanner import HduScanner
 from Crawler.PkuCrawler.PkuScanner import PkuScanner
 from Crawler.ZojCrawler.ZojScanner import ZojScanner
 from Crawler.BzojCrawler.BzojScanner import BzojScanner
+from Crawler.BnuVJCrawler.BnuVJScanner import BnuVJScanner
 
 from tools.dbtools import getUpdateSQL
 from tools.dbcore import ConnPool
@@ -148,6 +149,12 @@ class MainScanner():
             L += Bzoj.Scanner()
         except Exception:
             print('In BZojScanner: ', Exception)
+
+        try:
+            Bnuv = BnuVJScanner()
+            L += Bnuv.Scanner()
+        except Exception:
+            print('In BnuVJScanner: ', Exception)
 
         # print(L)
         return L
