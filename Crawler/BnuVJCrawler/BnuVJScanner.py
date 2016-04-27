@@ -38,19 +38,21 @@ class BnuVJScanner:
 
         jsondata = json.loads(html)
 
-        n = len(jsondata['aaData'][0])
-
+        n = len(jsondata['aaData'])
         L = list()
+
 
         for i in range(0,n) :
 
             dt = dict()
             dt['virtualOJ'] = 'BNUVJ'
 
-            Title = ['nicname','realrunid','virtualProb','status','language',
-                     'runtime','runmemory']
-            for i in range(0,7):
-                dt[Title[i]] = jsondata['aaData'][0][i]
+            Title = ['nickname','realrunid','virtualProb','status','language',
+                     'runtime','runmemory','codelength','realsubmittime']
+
+            #print(jsondata['aaData'])
+            for j in range(0,9):
+                dt[Title[j]] = jsondata['aaData'][i][j]
 
             rt = self.getOriginOJandProb(dt['virtualProb'])
 
@@ -73,6 +75,9 @@ class BnuVJScanner:
             r = self.s.get(url,timeout=5)
 
             html = r.text
+
+            #print(html)
+
             tL = self.Analyse(html)
 
             L+=tL
@@ -83,7 +88,8 @@ class BnuVJScanner:
 def main():
     bv = BnuVJScanner()
     L = bv.Scanner()
-    print(L)
+    for li in L :
+        print(li)
 
 if __name__=='__main__':
     main()

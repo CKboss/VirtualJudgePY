@@ -7,7 +7,7 @@ import pickle
 
 from dao.problemdao import InsertOrUpdateProblem
 
-from Config.FilePathConfig import ZOJ_PKL_FILE, BZOJ_PKL_FILE
+from Config.FilePathConfig import ZOJ_PKL_FILE, BZOJ_PKL_FILE,POJ_PKL_FILE,HDOJ_PKL_FILE
 
 
 def ImportProblem(dir):
@@ -28,3 +28,6 @@ def ImportProblem(dir):
 
 if __name__ == '__main__':
     ImportProblem(BZOJ_PKL_FILE)
+    ImportProblem(ZOJ_PKL_FILE)
+    ImportProblem(HDOJ_PKL_FILE)
+    ImportProblem(POJ_PKL_FILE)
