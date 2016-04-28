@@ -74,7 +74,20 @@ class ManageContestHandler(BaseHandler):
 
 
         elif action == 'delete':
-            pass
+
+            if cid is None:
+                self.write(renderMSG('Wrong CID'))
+                self.finish()
+                return
+
+            flag = yield  self.DeleteContest(cid)
+
+            if flag == True :
+                self.write(renderMSG('Delete Success!'))
+            else :
+                self.write(renderMSG('Can\'t delete'))
+
+            self.finish()
 
     @tornado.web.asynchronous
     @tornado.gen.engine
@@ -146,6 +159,19 @@ class ManageContestHandler(BaseHandler):
             self.write(renderMSG('Update Success'))
             self.finish()
             return
+
+        elif action=='delete' :
+            cid = self.get_argument('cid', None)
+
+            if cid is None:
+                self.write(renderMSG('Wrong CID'))
+                self.finish()
+                return
+
+            yield  self.DeleteContest(cid)
+
+            self.write(renderMSG('Delete Success!'))
+            self.finish()
 
     def check_args(self, d):
         L = ['contestname', 'syear', 'smonth', 'sday', 'shour',
@@ -326,3 +352,36 @@ class ManageContestHandler(BaseHandler):
             log += 'some error happend.<br> May be some problem can\'t find this problem in database...<br>'
 
         return log
+
+    @run_on_executor
+    def DeleteContest(self,cid):
+
+        whereclause = ' cid = {} '.format(cid)
+
+        conn = ConnPool.connect()
+        cur = conn.cursor()
+
+        sql = getQueryDetailSQL('contest',' cstatus ',whereclause,'1=1')
+        cur.execute(sql)
+        r = cur.fetchone()
+
+        if r[0] != 0 :
+            return False
+
+
+        sql = getDeletSQL('cproblem', whereclause)
+
+        cur.execute(sql)
+
+        sql = getDeletSQL('contest',whereclause=whereclause)
+
+        cur.execute(sql)
+
+
+        sql = getDeletSQL('contest', whereclause)
+
+        cur.execute(sql)
+
+        cur.close()
+
+        return True
