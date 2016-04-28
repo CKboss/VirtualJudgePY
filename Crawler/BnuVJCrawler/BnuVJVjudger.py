@@ -10,17 +10,9 @@ class BnuVJVjudge:
     s = requests.session()
 
     headers = {
-                'Accept':'*/*',
-                'Accept-Encoding':'gzip, deflate',
-                'Accept-Language':'zh-CN,zh;q=0.8,en;q=0.6',
-                'Connection':'keep-alive',
-                'Content-Length':'57',
-                'Content-Type':'application/x-www-form-urlencoded; charset=UTF-8',
                 'Referer':'https://www.bnuoj.com/v3/status.php?showname=JiangOil',
                 'User-Agent':'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2661.86 Safari/537.36',
                 'Origin':'https://www.bnuoj.com',
-                'Cookie':'_gat=1; _ga=GA1.2.268536343.1461676892',
-                'Upgrade-Insecure-Requests':'1',
               }
 
     def LogIn(self):
@@ -28,8 +20,8 @@ class BnuVJVjudge:
         self.s.headers = self.headers
         dt = random.choice(BnuVJUser)
         r = self.s.post(url=BnuVJ_LogIn_Url,data=dt,timeout=5)
-        print('in Log in')
-        print(r.text)
+        #print('in Log in')
+        #print(r.text)
 
         return dt
 
@@ -43,7 +35,7 @@ class BnuVJVjudge:
     def Submit(self,pid,lang,code):
 
         postdata = self.LogIn()
-        print(self.s.cookies)
+        #print(self.s.cookies)
 
         dt = dict()
         dt['user_id']=postdata['username']
@@ -53,16 +45,13 @@ class BnuVJVjudge:
         dt['source']=code
         dt['login']='Submit'
 
-        print(dt)
         '''
-        user_id:JiangOil
-        problem_id:24290
-        language:1
-        isshare:1
+        for key in dt.keys():
+            print(key,'--->',dt[key])
         '''
         r = self.s.post(url=self.submit_url,data=dt)
-        print('in submit ',r)
-        print(r.text)
+        #print('in submit ',r)
+        #print(r.text)
 
     def debug(self):
 
@@ -76,11 +65,11 @@ class BnuVJVjudge:
         '''
 
         dt = random.choice(BnuVJUser)
-        print(dt)
+        #print(dt)
         r = self.s.post(url=BnuVJ_LogIn_Url,data=dt,timeout=5)
 
-        print(r)
-        print(r.text)
+        #print(r)
+        #print(r.text)
 
 
 def main():
@@ -100,7 +89,7 @@ def main():
         return 0;
         /* test */ /* test */
         }'''
-    bv.Submit('24290','C++',code)
+    bv.Submit('24291','C++',code)
 
 if __name__=='__main__':
     main()
