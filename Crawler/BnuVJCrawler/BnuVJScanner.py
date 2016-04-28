@@ -24,6 +24,8 @@ class BnuVJScanner:
 
         sql = getQueryDetailSQL('problem','originOJ,originProb',' virtualProb="{}" and virtualOJ="{}"'.format(vpid,'BNUVJ'),' pid ')
 
+        #print('sql: ',sql)
+
         conn = ConnPool.connect()
         cur = conn.cursor()
         cur.execute(sql)

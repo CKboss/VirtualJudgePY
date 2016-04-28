@@ -5,26 +5,45 @@ from Crawler.BnuVJCrawler.BnuVJConfig import BnuVJ_LogIn_Url,BnuVJUser
 
 class BnuVJVjudge:
 
-    submit_url = 'http://www.bnuoj.com/v3/ajax/problem_submit.php'
+    submit_url = 'https://www.bnuoj.com/v3/ajax/problem_submit.php'
+
+    s = requests.session()
+
+    headers = {
+                'Accept':'*/*',
+                'Accept-Encoding':'gzip, deflate',
+                'Accept-Language':'zh-CN,zh;q=0.8,en;q=0.6',
+                'Connection':'keep-alive',
+                'Content-Length':'57',
+                'Content-Type':'application/x-www-form-urlencoded; charset=UTF-8',
+                'Referer':'https://www.bnuoj.com/v3/status.php?showname=JiangOil',
+                'User-Agent':'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2661.86 Safari/537.36',
+                'Origin':'https://www.bnuoj.com',
+                'Cookie':'_gat=1; _ga=GA1.2.268536343.1461676892',
+                'Upgrade-Insecure-Requests':'1',
+              }
 
     def LogIn(self):
         self.s = requests.session()
+        self.s.headers = self.headers
         dt = random.choice(BnuVJUser)
-        self.s.post(url=BnuVJ_LogIn_Url,data=dt)
+        r = self.s.post(url=BnuVJ_LogIn_Url,data=dt,timeout=5)
+        print('in Log in')
+        print(r.text)
+
         return dt
 
     def getLanguage(self,lang):
         L = ['','C++','C','Java']
         ret = 1
-        for i in range(0,4):
+        for i in range(1,4):
             if lang == L[i]: return i
         return ret
 
     def Submit(self,pid,lang,code):
 
         postdata = self.LogIn()
-
-        id = self.getLanguage(lang)
+        print(self.s.cookies)
 
         dt = dict()
         dt['user_id']=postdata['username']
@@ -34,11 +53,41 @@ class BnuVJVjudge:
         dt['source']=code
         dt['login']='Submit'
 
-        self.s.post(url=self.submit_url,data=dt)
+        print(dt)
+        '''
+        user_id:JiangOil
+        problem_id:24290
+        language:1
+        isshare:1
+        '''
+        r = self.s.post(url=self.submit_url,data=dt)
+        print('in submit ',r)
+        print(r.text)
+
+    def debug(self):
+
+        self.s = requests.session()
+        self.s.headers = self.headers
+
+        '''
+        self.s.get('https://www.bnuoj.com/v3/',verify=True)
+        self.s.cookies.set('bnuoj_v3_password','04a49181da1ddb9967dc81122c191e6c36fbaf0a')
+        self.s.cookies.set('bnuoj_v3_username','JiangOil')
+        '''
+
+        dt = random.choice(BnuVJUser)
+        print(dt)
+        r = self.s.post(url=BnuVJ_LogIn_Url,data=dt,timeout=5)
+
+        print(r)
+        print(r.text)
 
 
 def main():
     bv = BnuVJVjudge()
+
+    #bv.debug()
+
     code = '''#include <iostream>
         using namespace std;
         int main()
@@ -51,7 +100,7 @@ def main():
         return 0;
         /* test */ /* test */
         }'''
-    bv.Submit('10010','C',code)
+    bv.Submit('24290','C++',code)
 
 if __name__=='__main__':
     main()

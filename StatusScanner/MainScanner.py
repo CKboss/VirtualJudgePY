@@ -117,10 +117,16 @@ class MainScanner():
         if d['language'] == 'G++' : d['language'] = 'C++'
         elif d['language'] == 'GCC' : d['language'] = 'C'
 
+        if 'originProb' not in d.keys()  or 'originOJ' not in d.keys() :
+            flag = False
+
         for nt in ['originProb', 'originOJ', 'codelenth', 'language']:
 
             if specialOne == True and nt == 'codelenth':
                 continue
+
+            if flag == False :
+                break
 
             try:
                 if s[nt] != d[nt]:
@@ -137,7 +143,7 @@ class MainScanner():
             print('flag: ',flag)
         '''
 
-        if flag is False:
+        if flag == False:
             return None
 
         ret = dict()
