@@ -14,6 +14,7 @@
 
 from tools.dbtools import getInserSQL
 from tools.dbcore import ConnPool
+from tools.encode import SHA512
 
 
 def checkUserSQL(username, password):
@@ -40,6 +41,8 @@ def AddUser(d):
     ret = cur.fetchone()
     if ret[0] != 0:
         return 0
+
+    d['password'] = SHA512(d['username']+'@'+d['password'])
 
     sql = getInserSQL('user', d)
     ret = cur.execute(sql)

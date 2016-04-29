@@ -5,6 +5,7 @@ from tornado import concurrent
 
 from tools.argCheck import argCheck
 from tools.dbcore import ConnPool
+from tools.encode import SHA512
 
 from tornado.concurrent import run_on_executor
 from concurrent.futures import ThreadPoolExecutor
@@ -43,6 +44,7 @@ class LogInHandler(BaseHandler):
     def checkPasswd(self, username, password):
         conn = ConnPool.connect()
         cur = conn.cursor()
+        password = SHA512(username+'@'+password)
         sql = checkUserSQL(username, password)
         print('exe: ', sql)
         cur.execute(sql)
