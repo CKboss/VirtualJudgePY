@@ -18,6 +18,7 @@ from tools.encode import SHA512
 
 
 def checkUserSQL(username, password):
+    password = SHA512(username+'@'+password)
     sql = 'select count(*) from user WHERE username = "%s" and password = "%s" ' % (username, password)
     return sql
 

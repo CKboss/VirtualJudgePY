@@ -9,6 +9,7 @@ from concurrent.futures import ThreadPoolExecutor
 from Handlers.BaseHandler import BaseHandler
 from tools.dbtools import getQuerySQL, getQueryDetailSQL, getUpdateSQL
 from tools.dbcore import ConnPool
+from tools.encode import SHA512
 
 from Config.ParametersConfig import MID_THREAD_POOL_SIZE
 from UIModule.MsgModule import renderMSG
@@ -76,7 +77,7 @@ class UserStatusHander(BaseHandler):
         data['school'] = school
 
         if newpassword is not None and len(newpassword) != 0:
-            data['password'] = newpassword
+            data['password'] = SHA512(username+'@'+newpassword)
 
         isOK = yield self.UpdateUserInfo(uid=uid, data=data)
 

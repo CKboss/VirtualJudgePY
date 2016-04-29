@@ -24,5 +24,5 @@ if __name__ == '__main__':
     str2 = Base64StrToUTF8Str(str1)
     '''
     #print(base64.b64encode(uuid.uuid4().bytes+uuid.uuid4().bytes))
-    print(SHA512('test2@123456'))
+    print(SHA512('test1@123456'))
 
