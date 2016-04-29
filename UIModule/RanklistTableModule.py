@@ -48,6 +48,8 @@ class RankListTableModule(tornado.web.UIModule):
 
             html += '</tr>'
 
+            rank += 1
+
         html += '</tbody></table>'
 
         return html

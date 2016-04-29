@@ -46,12 +46,10 @@ class RankLishHandler(BaseHandler):
     @run_on_executor
     def CaluRankList(self, begintime, statusdata, problemlist):
 
-        '''
         print('status data: ')
         print(statusdata)
         print('problem list : ')
         print(problemlist)
-        '''
 
         begintime = datetime.datetime.strptime(str(begintime), '%Y-%m-%d %H:%M:%S')
 
@@ -128,7 +126,10 @@ class RankLishHandler(BaseHandler):
             # print('user: ',user)
             # print('\n')
 
-        ranklist = sorted(ranklist, key=lambda user: user['totalaccept'] * 1000000000000 - user['totaltime'])
+        for user in ranklist :
+            print(user)
+
+        ranklist = sorted(ranklist, key=lambda user: - user['totalaccept'] * 1000000000000 + user['totaltime'])
 
         return ranklist
 
