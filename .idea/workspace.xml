@@ -6,9 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="2de79d09-24b7-4478-a485-08d4b37a9915" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Handlers/RankListHandler.py" afterPath="$PROJECT_DIR$/Handlers/RankListHandler.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Handlers/ShowCodeHandler.py" afterPath="$PROJECT_DIR$/Handlers/ShowCodeHandler.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/UIModule/RanklistTableModule.py" afterPath="$PROJECT_DIR$/UIModule/RanklistTableModule.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Handlers/StatusHandler.py" afterPath="$PROJECT_DIR$/Handlers/StatusHandler.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/status.html" afterPath="$PROJECT_DIR$/templates/status.html" />
     </list>
     <ignored path="VirtualJudgePY.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -119,36 +119,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/__init__.py">
+      <file leaf-file-name="StatusHandler.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Handlers/StatusHandler.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="882">
-              <caret line="56" column="2" selection-start-line="56" selection-start-column="2" selection-end-line="56" selection-end-column="2" />
-              <folding>
-                <element signature="e#0#25#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LogInHandler.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Handlers/LogInHandler.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="355">
-              <caret line="35" column="36" selection-start-line="35" selection-start-column="36" selection-end-line="35" selection-end-column="36" />
-              <folding>
-                <element signature="e#0#18#0" expanded="true" />
-                <marker date="1461303687188" expanded="true" signature="1864:1882" placeholder="select * fro... user" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ShowCodeHandler.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Handlers/ShowCodeHandler.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-716">
-              <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+            <state relative-caret-position="294">
+              <caret line="65" column="22" selection-start-line="65" selection-start-column="22" selection-end-line="65" selection-end-column="22" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -156,82 +131,36 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ProblemHandler.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Handlers/ProblemHandler.py">
+      <file leaf-file-name="status.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/status.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-99">
-              <caret line="75" column="0" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
+            <state relative-caret-position="3507">
+              <caret line="167" column="49" selection-start-line="167" selection-start-column="49" selection-end-line="167" selection-end-column="49" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="problem.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/problem.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="462">
+              <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="userdao.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dao/userdao.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="290">
+              <caret line="33" column="4" selection-start-line="33" selection-start-column="4" selection-end-line="33" selection-end-column="4" />
               <folding>
-                <marker date="1461303687248" expanded="true" signature="1333:1408" placeholder="SELECT * FRO... problem" />
-                <marker date="1461303687248" expanded="true" signature="1891:1931" placeholder="SELECT * FRO... problemdetail" />
-                <marker date="1461303687248" expanded="true" signature="3064:3139" placeholder="SELECT * FRO... problem" />
-                <marker date="1461303687248" expanded="true" signature="3483:3523" placeholder="SELECT * FRO... problemdetail" />
+                <marker date="1461303384052" expanded="true" signature="924:991" placeholder="select count... user" />
+                <marker date="1461303384052" expanded="true" signature="1071:1111" placeholder="select uid f... user" />
+                <marker date="1461303384052" expanded="true" signature="1184:1231" placeholder="select count... user" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CreateContestHandler.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Handlers/CreateContestHandler.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1237">
-              <caret line="59" column="24" selection-start-line="59" selection-start-column="24" selection-end-line="59" selection-end-column="24" />
-              <folding>
-                <element signature="e#0#18#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ranklist.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/ranklist.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="20" column="22" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="22" />
-              <folding>
-                <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#p#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AppSettings.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Config/AppSettings.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="79" column="44" selection-start-line="79" selection-start-column="44" selection-end-line="79" selection-end-column="44" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RanklistTableModule.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/UIModule/RanklistTableModule.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="84">
-              <caret line="31" column="47" selection-start-line="31" selection-start-column="47" selection-end-line="31" selection-end-column="47" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="console.sql" pinned="false" current-in-tab="false">
-        <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/4c201a94-b275-4caf-88bc-0211e1399ad6/console.sql">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StatusItem.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/module/StatusItem.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -253,8 +182,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Handlers/RedirectorHandler.py" />
-        <option value="$PROJECT_DIR$/Handlers/StatusHandler.py" />
         <option value="$PROJECT_DIR$/templates/contestshow.html" />
         <option value="$PROJECT_DIR$/Handlers/LogInHandler.py" />
         <option value="$PROJECT_DIR$/Handlers/ContestShowHandler.py" />
@@ -287,7 +214,6 @@
         <option value="$PROJECT_DIR$/templates/crawleronline.html" />
         <option value="$PROJECT_DIR$/Handlers/CrawlerOnlineHandler.py" />
         <option value="$PROJECT_DIR$/templates/index.html" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/sql_version_1_2.sql" />
         <option value="$PROJECT_DIR$/Config/FilePathConfig.py" />
         <option value="$PROJECT_DIR$/tools/ImportProblem.py" />
@@ -304,6 +230,9 @@
         <option value="$PROJECT_DIR$/UIModule/RanklistTableModule.py" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/4c201a94-b275-4caf-88bc-0211e1399ad6/console.sql" />
         <option value="$PROJECT_DIR$/Handlers/ShowCodeHandler.py" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/Handlers/StatusHandler.py" />
+        <option value="$PROJECT_DIR$/templates/status.html" />
       </list>
     </option>
   </component>
@@ -809,13 +738,6 @@
       <option name="presentableId" value="Default" />
       <updated>1451465596022</updated>
     </task>
-    <task id="LOCAL-00006" summary="picture rel url to abs url">
-      <created>1454218162660</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1454218162660</updated>
-    </task>
     <task id="LOCAL-00007" summary="submit to hdu">
       <created>1454245365784</created>
       <option name="number" value="00007" />
@@ -1152,7 +1074,14 @@
       <option name="project" value="LOCAL" />
       <updated>1461850838076</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="1.ranklist 排序bug修复&#10;2.比赛进行时不能看到别人的代码">
+      <created>1461909356209</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1461909356212</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1183,7 +1112,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22145145" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.03125" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3265086" sideWeight="0.4978701" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2800852" sideWeight="0.4914803" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18569905" sideWeight="0.4914803" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24973376" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286638" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20490928" sideWeight="0.5126706" order="2" side_tool="true" content_ui="tabs" />
@@ -1233,7 +1162,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="ZOJ Judge/Crawler/Scanner" />
     <MESSAGE value="auto submmit" />
     <MESSAGE value="use sqlalchemy.pool ad db pool" />
     <MESSAGE value="rank list" />
@@ -1258,7 +1186,8 @@
     <MESSAGE value="bnuvj" />
     <MESSAGE value="bnuvj 提交bug修复" />
     <MESSAGE value="Contestlist  delete功能" />
-    <option name="LAST_COMMIT_MESSAGE" value="Contestlist  delete功能" />
+    <MESSAGE value="1.ranklist 排序bug修复&#10;2.比赛进行时不能看到别人的代码" />
+    <option name="LAST_COMMIT_MESSAGE" value="1.ranklist 排序bug修复&#10;2.比赛进行时不能看到别人的代码" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1272,41 +1201,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Crawler/CrawlerConfig.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/showcode.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="4" column="48" selection-start-line="4" selection-start-column="48" selection-end-line="4" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Crawler/BzojCrawler/BzojScanner.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="10" column="27" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Crawler/BzojCrawler/BzojConfig.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/problem.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="13" column="59" selection-start-line="13" selection-start-column="59" selection-end-line="13" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/UIModule/ContestItemModule.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1399,21 +1293,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="1512">
-          <caret line="81" column="0" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="0">
-            <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ContestScanner/ContestScanner.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="147">
@@ -1460,6 +1339,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1113">
           <caret line="67" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#11#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1481,6 +1363,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="546">
           <caret line="32" column="18" selection-start-line="32" selection-start-column="18" selection-end-line="32" selection-end-column="18" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1503,6 +1386,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-788">
           <caret line="20" column="36" selection-start-line="20" selection-start-column="36" selection-end-line="20" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#15#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1662,6 +1548,32 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="1512">
+          <caret line="81" column="0" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="399">
+            <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Handlers/ShowCodeHandler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-298">
+          <caret line="58" column="25" selection-start-line="58" selection-start-column="25" selection-end-line="58" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Handlers/LogInHandler.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="355">
@@ -1673,13 +1585,51 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Handlers/ShowCodeHandler.py">
+    <entry file="file://$PROJECT_DIR$/Handlers/RegisterHandler.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-716">
-          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+        <state relative-caret-position="672">
+          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dao/userdao.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="33" column="4" selection-start-line="33" selection-start-column="4" selection-end-line="33" selection-end-column="4" />
+          <folding>
+            <marker date="1461303384052" expanded="true" signature="924:991" placeholder="select count... user" />
+            <marker date="1461303384052" expanded="true" signature="1071:1111" placeholder="select uid f... user" />
+            <marker date="1461303384052" expanded="true" signature="1184:1231" placeholder="select count... user" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Handlers/StatusHandler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="65" column="22" selection-start-line="65" selection-start-column="22" selection-end-line="65" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/problem.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/status.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3507">
+          <caret line="167" column="49" selection-start-line="167" selection-start-column="49" selection-end-line="167" selection-end-column="49" />
+          <folding />
         </state>
       </provider>
     </entry>

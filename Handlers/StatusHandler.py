@@ -10,7 +10,7 @@ from tools.dbtools import getPageLimitSQL
 
 
 class StatusHandler(BaseHandler):
-    executor = ThreadPoolExecutor(4)
+    executor = ThreadPoolExecutor(40)
 
     @tornado.web.asynchronous
     @tornado.gen.engine
@@ -63,7 +63,8 @@ class StatusHandler(BaseHandler):
         else:
             rs = rs[:-1]
 
-        self.render('status.html', rs=rs, hasNext=hasNext)
+        print('cid',cid)
+        self.render('status.html', rs=rs, hasNext=hasNext,cid=cid)
 
     @run_on_executor
     def getMsgs(self, Data):

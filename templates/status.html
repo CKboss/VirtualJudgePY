@@ -4,6 +4,15 @@
 
 <div style="margin-left: 5%; margin-right: 5%">
 
+
+    {% try %}
+        {% set CID = cid %}
+    {% except NameError %}
+        {% set CID = -1 %}
+    {% end %}
+
+
+
     <form method="get" action="status">
         <strong>Problem ID:</strong>
         <input type="text" name="problem_id" size="8" value="">
@@ -48,8 +57,18 @@
             <!--<option value="Other">Other</option>-->
         </select>
         <input type="hidden" name="isSearch" value="isSearch">
+
+
+        {% if CID != -1 %}
+            <input type="hidden" name="cid" value="{{ CID }}">
+        {% end %}
+
         <input class="btn btn-outline" type="submit" width="18" value="Search">
+
     </form>
+
+
+
 
     <table border="1" class="flex-table-item-primary text-center" bordercolor="#FFFFFF">
         <tbody>
@@ -138,7 +157,21 @@
                 <button class="btn btn-sm btn-outline disabled" type="submit">Next Page</button>
             </td>
             {% end %}
+
+
+        {% if CID != '-1' %}
+            <td width="30px"></td>
+            <td><a href="/contestshow?cid={{ CID }}">
+                <button class="btn btn-outline">ProblemList</button>
+            </a></td>
+            <td width="30px"></td>
+            <td><a href="/ranklist?cid={{ CID }}">
+                <button class="btn btn-outline">RankList</button>
+            </a></td>
+        {% end %}
+
         </tr>
+
     </table>
 </div>
 {% end %}
