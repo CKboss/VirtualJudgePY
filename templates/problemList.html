@@ -43,8 +43,8 @@
             <td width="57%">Source</td>
         </tr>
 
-        {% for x in rs %}
-        {% module ProblemList(x) %}
+        {% for i in range(len(rs)) %}
+        {% module ProblemList(rs[i],ac[i]) %}
         {% end %}
 
         <!--

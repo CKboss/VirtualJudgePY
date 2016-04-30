@@ -184,7 +184,6 @@ def InsertOrUpdateProblem(kwargs):
 def test1():
     print(time.strftime('%Y-%m-%d %H:%M:%S'))
 
-
 def main():
     f = open('/home/ckboss/Desktop/Development/testData/POJ/POJ_4050.pkl', 'rb')
     data = pickle.load(f)
@@ -199,4 +198,5 @@ def main():
 '''
 
 if __name__ == '__main__':
-    main()
+    #main()
+    test1()

@@ -21,3 +21,18 @@
 | ceinfo     | text         | YES  |     | NULL    |                |
 +------------+--------------+------+-----+---------+----------------+
 '''
+
+from tools.dbcore import ConnPool
+
+def CheckIfAccept(uid,pid) :
+
+    sql = 'SELECT count(DISTINCT pid) FROM status WHERE uid = {} and pid = {} and status like "%accept%";'.format(uid,pid)
+
+    conn = ConnPool.connect()
+    cur = conn.cursor()
+    cur.execute(sql)
+    rs = cur.fetchone()
+    cur.close()
+    conn.close()
+
+    return rs[0]

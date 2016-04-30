@@ -278,7 +278,7 @@
         <data-type>varchar(1024)</data-type>
       </column>
       <column id="83" parent="7" name="password">
-        <data-type>varchar(50)</data-type>
+        <data-type>varchar(255)</data-type>
       </column>
       <column id="84" parent="7" name="email">
         <data-type>varchar(255)</data-type>
