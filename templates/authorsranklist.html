@@ -1,0 +1,76 @@
+{% extends "main_struct.html" %}
+
+{% block content %}
+
+
+<div style="margin-left: 5%; margin-right: 5%">
+    <table border="1" class="flex-table-item-primary text-center" bordercolor="#FFFFFF">
+        <tbody>
+
+        <tr class="tbheader" style="background-color: #1A5CC8; color: #FFFFFF">
+            <td width="7%" height="22">Rank</td>
+            <td width="13%">Author</td>
+            <td width="49%">Motto</td>
+            <td width="8%">Solved</td>
+            <td width="8%">Submitted</td>
+            <td width="8%">AC Ratio</td>
+        </tr>
+
+        {% for r in rs %}
+            <tr align="center" bgcolor="#f0f8ff">
+                <td>{{ int(r[0]) }}</td>
+                <td>{{ r[1] }}</td>
+                <td>.....</td>
+                <td>{{ r[2] }}</td>
+                <td>{{ r[3] }}</td>
+                <td>{{ ("%2.3f"%(r[4]*100)) }} %</td>
+            </tr>
+        {% end %}
+
+        </tbody>
+    </table>
+
+    {% try %}
+    {% set page = page%}
+    {% except NameError %}
+    {% set page = 0%}
+    {% end %}
+
+
+    <table align="center">
+        <tr>
+            <td>
+                <a href="authorsranklist?page=0">
+                    <button class="btn btn-sm btn-outline" type="submit">Top</button>
+                </a>
+            </td>
+            <td width="50px"/>
+            <td>
+                <a href="authorsranklist?page={{ prepage }}">
+                    <button class="btn btn-sm btn-outline" type="submit">Previous Page</button>
+                </a>
+            </td>
+            <td width="50px"/>
+
+            {% try %}
+            {% set hasnext = hasNext %}
+            {% except NameError %}
+            {% set hasnext = True %}
+            {% end %}
+
+            {% if hasnext == True %}
+            <td>
+                <a href="authorsranklist?page={{ nxtpage }}">
+                    <button class="btn btn-sm btn-outline" type="submit">Next Page</button>
+                </a>
+            </td>
+            {% elif hasnext == False %}
+            <td>
+                <button class="btn btn-sm btn-outline disabled" type="submit">Next Page</button>
+            </td>
+            {% end %}
+        </tr>
+    </table>
+</div>
+
+{% end %}

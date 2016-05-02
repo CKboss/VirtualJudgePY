@@ -55,3 +55,32 @@ def CheckContestIfAccept(uid,pid,cid) :
 def CheckContestIfTry(uid,pid,cid):
     sql = 'SELECT count(DISTINCT pid) FROM status WHERE uid = {} and pid = {} AND cid = {} ;'.format(uid,pid,cid)
     return FetchOne(sql)
+
+def GetAuthorsRank(page,pagelimit) :
+
+    sql = '''
+        SELECT rank,uname,acnum,trynum,radio
+        FROM (
+            SELECT (@rank := @rank+1) as rank,uname,acnum,trynum,radio
+            FROM (
+                   SELECT
+                     username                                            AS uname,
+                     (SELECT COUNT(DISTINCT pid)
+                      FROM status
+                      WHERE username = uname AND status LIKE '%accept%') AS acnum,
+                     (SELECT COUNT(DISTINCT pid)
+                      FROM status
+                      WHERE username = uname)                            AS trynum,
+                     (SELECT IFNULL(TRUNCATE(acnum / trynum, 6), 0))     AS radio
+                   FROM user
+                   ORDER BY acnum DESC, radio DESC, trynum DESC, uname
+                 ) as TEMPTABLE , (SELECT @rank := 0) as r
+        ) AS TEMPTABLE2 LIMIT {},{};
+        '''.format(pagelimit*page,pagelimit+1)
+
+    return FetchAll(sql)
+
+if __name__ == '__main__' :
+    rs = GetAuthorsRank(0,1)
+    print(rs)
+    print(int(rs[0][0]),rs[0][4])

@@ -23,6 +23,11 @@ class TitleModule(tornado.web.UIModule):
                     </a>
                 </td>
                 <td>
+                    <a href="/authorsranklist">
+                        <button class="btn btn-outline" type="button">Authors Ranklist</button>
+                    </a>
+                </td>
+                <td>
                     <a href="/contestlist">
                         <button class="btn btn-outline" type="button">Contest</button>
                     </a>

@@ -26,6 +26,7 @@ from Handlers.RankListHandler import RankLishHandler
 from Handlers.ShowCodeHandler import ShowCodeHandler
 from Handlers.UserStatusHandler import UserStatusHander
 from Handlers.CrawlerOnlineHandler import CrawlerOnlineHandler
+from Handlers.AuthorsRanklistHandler import AuthorsRanklistHandler
 
 from UIModule.HeaderModule import TitleModule
 from UIModule.ProblemListModule import ProblemListModule
@@ -61,6 +62,7 @@ class AppInit(tornado.web.Application):
             (r'/showcode\/{0,1}', ShowCodeHandler),
             (r'/userstatus\/{0,1}', UserStatusHander),
             (r'/crawleronline\/{0,1}',CrawlerOnlineHandler),
+            (r'/authorsranklist\/{0,1}',AuthorsRanklistHandler),
         ]
 
         # Setting
