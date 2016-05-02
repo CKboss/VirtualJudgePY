@@ -19,7 +19,7 @@
         {% for r in rs %}
             <tr align="center" bgcolor="#f0f8ff">
                 <td>{{ int(r[0]) }}</td>
-                <td>{{ r[1] }}</td>
+                <td><a href="userstatus?username={{ r[1] }}">{{ r[1] }}</a></td>
                 <td>.....</td>
                 <td>{{ r[2] }}</td>
                 <td>{{ r[3] }}</td>

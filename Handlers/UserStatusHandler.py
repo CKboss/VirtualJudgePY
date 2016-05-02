@@ -15,6 +15,7 @@ from Config.ParametersConfig import MID_THREAD_POOL_SIZE
 from UIModule.MsgModule import renderMSG
 
 from dao.userdao import checkUserSQL
+from dao.statusdao import GetUserRank
 
 
 class UserStatusHander(BaseHandler):
@@ -38,6 +39,7 @@ class UserStatusHander(BaseHandler):
 
         rs2 = yield self.getSubmitInfo(uid=uid)
 
+        rankinfo = yield self.getRankInfo(uname=username)
         '''
         submitdata = ''
         for x in rs2 :
@@ -50,7 +52,7 @@ class UserStatusHander(BaseHandler):
         print(submitdata)
 
         self.render("userstatus.html", uid=uid, uname=username, email=email, school=school, urlpart=urlpart, rs=rs,
-                    submitdata=submitdata)
+                    submitdata=submitdata,rank=rankinfo)
 
     @tornado.web.asynchronous
     @tornado.gen.engine
@@ -175,3 +177,7 @@ class UserStatusHander(BaseHandler):
         conn.close()
 
         return rs
+
+    @run_on_executor
+    def getRankInfo(self,uname):
+        return GetUserRank(username=uname)

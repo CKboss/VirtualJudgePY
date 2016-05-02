@@ -56,9 +56,8 @@ def CheckContestIfTry(uid,pid,cid):
     sql = 'SELECT count(DISTINCT pid) FROM status WHERE uid = {} and pid = {} AND cid = {} ;'.format(uid,pid,cid)
     return FetchOne(sql)
 
-def GetAuthorsRank(page,pagelimit) :
 
-    sql = '''
+rankSLQ = '''
         SELECT rank,uname,acnum,trynum,radio
         FROM (
             SELECT (@rank := @rank+1) as rank,uname,acnum,trynum,radio
@@ -75,12 +74,21 @@ def GetAuthorsRank(page,pagelimit) :
                    FROM user
                    ORDER BY acnum DESC, radio DESC, trynum DESC, uname
                  ) as TEMPTABLE , (SELECT @rank := 0) as r
-        ) AS TEMPTABLE2 LIMIT {},{};
-        '''.format(pagelimit*page,pagelimit+1)
+        ) AS TEMPTABLE2
+        '''
 
+def GetAuthorsRank(page,pagelimit) :
+
+    sql = rankSLQ+'LIMIT {},{};'.format(pagelimit*page,pagelimit+1)
     return FetchAll(sql)
 
+def GetUserRank(username) :
+
+    sql = rankSLQ+'WHERE uname = "{}";'.format(username)
+    return FetchAll(sql)[0]
+
 if __name__ == '__main__' :
-    rs = GetAuthorsRank(0,1)
+    #rs = GetAuthorsRank(0,1)
+    rs = GetUserRank('test2')
     print(rs)
-    print(int(rs[0][0]),rs[0][4])
+    #print(int(rs[0][0]),rs[0][4])

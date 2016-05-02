@@ -13,6 +13,8 @@
                 <td>
                     <h4>UserName:</h4>
                     <h1 style="color: #1A5CC8">{{ uname }}</h1>
+                    <h2 style="color: darkmagenta;">Rank:{{ int(rank[0]) }}</h2>
+                    <h2 style="color: darkmagenta;">{{ ("%.4lf%%"%(rank[4]*100)) }}&nbsp&nbsp{{ ("(AC: %d / TRY: %d)"%(rank[2],rank[3])) }}</h2>
                 </td>
                 <td rowspan="3" style="text-align: right">
                     <img alt="{{ uname }} Avatar" src="//cn.gravatar.com/avatar/{{ urlpart }}?d=mm&s=256">
