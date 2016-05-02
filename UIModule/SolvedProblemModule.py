@@ -2,9 +2,11 @@ import tornado.web
 
 
 class SolvedProblemModule(tornado.web.UIModule):
-    def render(self, r):
+    def render(self, username, rs):
 
-        sz = len(r)
+        print(username,rs)
+
+        sz = len(rs)
 
         html = '<table><tbody>'
 
@@ -13,8 +15,12 @@ class SolvedProblemModule(tornado.web.UIModule):
                 if i != 0: html += '</tr>'
                 html += '<tr>'
 
-            html += '<td><h5><a href="/problem/' + str(r[i][0]) + '/' + str(r[i][1]) + '">' + str(r[i][0]) + str(
-                r[i][1]) + '</a></h5></td>'
+            '''
+            html += '<td><h5><a href="/problem/' + str(rs[i][0]) + '/' + str(rs[i][1]) + '">' + str(rs[i][0]) + str(
+                rs[i][1]) + '</a></h5></td>'
+            '''
+            html += '<td><h5><a href="/status?problem_id='+str(rs[i][1])+'&user_name='+username+'&oj='+str(rs[i][0])+\
+                    '&status=accept&language=&isSearch=isSearch&cid=%">'+ str(rs[i][0])+str(rs[i][1])+'</a></h5></td>'
             html += '<td width="10px"></td>'
 
             if i == sz - 1:
