@@ -33,15 +33,8 @@
 
 
         {% set nt = 1000 %}
-        {% for r in rs %}
-        <tr bgcolor="#f0f8ff">
-            <td></td>
-            <td>{{ nt }}</td>
-            <td class="text-center">
-                <a href="/problem/{{ r[4] }}/{{ r[5] }}?cid={{ cid }}">{{ r[3] }}</a>
-            </td>
-            <td></td>
-        </tr>
+        {% for i in range(len(rs)) %}
+        {% module ContestProblemItem(tr=tr[i],cid=cid,nt=nt,r=rs[i],a=ac[i],totalsubmit=totalsubmit,acsubmit=acsubmit) %}
         {% set nt = nt + 1 %}
         {% end %}
 

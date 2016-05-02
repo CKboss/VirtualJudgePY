@@ -1,0 +1,12 @@
+<tr bgcolor="{{ color }}">
+    {% if ac == 'Y' %}
+        <td style="color: #4a993e">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{ ac }}</td>
+    {% else %}
+        <td style="color: #ff0000">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{ ac }}</td>
+    {% end %}
+    <td>{{ nt }}</td>
+    <td class="text-center">
+        <a href="/problem/{{ r[4] }}/{{ r[5] }}?cid={{ cid }}">{{ r[3] }}</a>
+    </td>
+    <td>&nbsp&nbsp&nbsp{{ radio }}</td>
+</tr>

@@ -9,6 +9,7 @@ from Handlers.BaseHandler import BaseHandler
 from Config.ParametersConfig import MID_THREAD_POOL_SIZE
 from tools.dbtools import getQuerySQL
 from tools.dbcore import ConnPool
+from dao.statusdao import CheckContestIfAccept,CheckContestIfTry,CountContestACNum,CountContestSubmitNum
 
 from UIModule.MsgModule import renderMSG
 
@@ -21,8 +22,10 @@ class ContestShowHandler(BaseHandler):
     def get(self):
         cid = self.get_argument('cid', None)
 
+        uid = self.get_secure_cookie('uid',None)
+        if uid is not None : uid = uid.decode()
+
         contestdetail = yield self.getContestsDetail(cid)
-        rs = yield self.getProblemList(cid)
         now = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
         cstatus = contestdetail[10]
@@ -32,13 +35,13 @@ class ContestShowHandler(BaseHandler):
             self.finish()
             return
 
+        rs,ac,totalsubmit,acsubmit,tr = yield self.getProblemList(cid,uid)
         print(contestdetail)
-        print(rs)
 
         self.render('contestshow.html',
                     begintime=contestdetail[5], endtime=contestdetail[6],
                     cstatus=contestdetail[10], ctitle=contestdetail[1],
-                    now=now, rs=rs, cid=cid,
+                    now=now, rs=rs, cid=cid,ac=ac,totalsubmit=totalsubmit,acsubmit=acsubmit,tr=tr,
                     )
 
     def post(self):
@@ -61,7 +64,7 @@ class ContestShowHandler(BaseHandler):
         return rs
 
     @run_on_executor
-    def getProblemList(self, cid):
+    def getProblemList(self, cid,uid):
         wherecluse = ' cid = {} '.format(cid)
         ordclause = ' cpid '
 
@@ -78,4 +81,29 @@ class ContestShowHandler(BaseHandler):
 
         cur.close()
 
-        return rs
+        ac = [ 0 for i in range(len(rs)) ]
+        tr = [ 0 for i in range(len(rs)) ]
+
+        for i in range(len(rs)) :
+            if uid is not None :
+                ac[i] = CheckContestIfAccept(uid,rs[i][2],cid)
+                if ac[i]==1: tr[i]=1
+                else : tr[i] = CheckContestIfTry(uid,rs[i][2],cid)
+
+
+        totalsubmit = CountContestSubmitNum(cid)
+        acsubmit = CountContestACNum(cid)
+
+        td = dict()
+        ad = dict()
+        for x in totalsubmit: td[x[0]] = x[1]
+        for x in acsubmit : ad[x[0]] = x[1]
+
+        '''
+        print(rs)
+        print(ac)
+        print(td)
+        print(ad)
+        '''
+
+        return rs,ac,td,ad,tr

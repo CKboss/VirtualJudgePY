@@ -23,16 +23,35 @@
 '''
 
 from tools.dbcore import ConnPool
+from tools.dbtools import FetchAll,FetchOne
 
-def CheckIfAccept(uid,pid) :
+def CheckIfAccept(uid,pid,cid=-1) :
 
     sql = 'SELECT count(DISTINCT pid) FROM status WHERE uid = {} and pid = {} and status like "%accept%";'.format(uid,pid)
+    return FetchOne(sql)
 
-    conn = ConnPool.connect()
-    cur = conn.cursor()
-    cur.execute(sql)
-    rs = cur.fetchone()
-    cur.close()
-    conn.close()
+def CheckIfTry(uid,pid):
+    sql = 'SELECT count(DISTINCT pid) FROM status WHERE uid = {} and pid = {};'.format(uid,pid)
+    return FetchOne(sql)
 
-    return rs[0]
+
+def CountContestSubmitNum(cid) :
+
+    sql = 'SELECT pid,COUNT(*) FROM status WHERE cid = {} GROUP BY pid;'.format(cid)
+    return FetchAll(sql)
+
+def CountContestACNum(cid):
+
+    sql = 'SELECT pid,COUNT(*) FROM status WHERE cid = {} and status LIKE "%accept%" GROUP BY pid;'.format(cid)
+    return FetchAll(sql)
+
+
+def CheckContestIfAccept(uid,pid,cid) :
+
+    sql = 'SELECT count(DISTINCT pid) FROM status WHERE uid = {} and pid = {} and cid = {} and status like "%accept%";'.format(uid,pid,cid)
+    return FetchOne(sql)
+
+
+def CheckContestIfTry(uid,pid,cid):
+    sql = 'SELECT count(DISTINCT pid) FROM status WHERE uid = {} and pid = {} AND cid = {} ;'.format(uid,pid,cid)
+    return FetchOne(sql)

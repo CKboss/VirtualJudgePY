@@ -1,3 +1,5 @@
+from tools.dbcore import ConnPool
+
 def getInserSQL(table, data):
     part1 = ''
     part2 = ''
@@ -74,6 +76,28 @@ def getQueryDetailSQL(tablename, selectitem, whereclause, ordclause):
     sql = 'SELECT {} FROM {} WHERE ( {} ) ORDER BY  {} ' \
         .format(detail, tablename, whereclause, ordclause)
     return sql
+
+def FetchOne(sql):
+
+    conn = ConnPool.connect()
+    cur = conn.cursor()
+    cur.execute(sql)
+    rs = cur.fetchone()
+    cur.close()
+    conn.close()
+
+    return rs[0]
+
+def FetchAll(sql):
+
+    conn = ConnPool.connect()
+    cur = conn.cursor()
+    cur.execute(sql)
+    rs = cur.fetchall()
+    cur.close()
+    conn.close()
+
+    return rs
 
 
 if __name__ == '__main__':

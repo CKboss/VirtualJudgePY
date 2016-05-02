@@ -4,7 +4,7 @@ import tornado.gen
 from tornado.concurrent import run_on_executor
 from concurrent.futures import ThreadPoolExecutor
 
-from dao.statusdao import CheckIfAccept
+from dao.statusdao import CheckIfAccept,CheckIfTry
 
 from tools.dbtools import getPageLimitSQL
 from tools.dbcore import ConnPool
@@ -67,7 +67,7 @@ class ProblemListHandler(tornado.web.RequestHandler):
         uid = self.get_secure_cookie('uid',None)
         if uid is not None : uid = uid.decode()
 
-        rs,ac = yield self.getStauts(index, d, uid)
+        rs,ac,tr = yield self.getStauts(index, d, uid)
 
         # for r in rs : print(r)
 
@@ -82,7 +82,7 @@ class ProblemListHandler(tornado.web.RequestHandler):
 
         # print(hasNext)
 
-        self.render("problemList.html", current_user=current_user,ac=ac, rs=rs, hasNext=hasNext)
+        self.render("problemList.html", current_user=current_user,tr=tr,ac=ac, rs=rs, hasNext=hasNext)
 
     @run_on_executor
     def getStauts(self, index, data, uid):
@@ -113,17 +113,26 @@ class ProblemListHandler(tornado.web.RequestHandler):
 
         ac = list()
 
+        tr = [0 for i in range(len(rs))]
+        ac = [ 0 for i in range(len(rs))]
         if uid is None :
-            ac = [ 0 for i in range(len(rs))]
-
+            pass
         else :
+            '''
             for r in rs :
                 x = CheckIfAccept(uid,r[0])
                 ac.append(x)
+            '''
+            ac = [ 0 for i in range(len(rs))]
+            for i in range(len(rs)) :
+                if uid is not None :
+                    ac[i] = CheckIfAccept(uid,rs[i][0])
+                    if ac[i]==1: tr[i]=1
+                    else : tr[i] = CheckIfTry(uid,rs[i][0])
 
         print('rs size: ', len(rs))
 
-        return rs,ac
+        return rs,ac,tr
 
 
 if __name__ == '__main__':
