@@ -79,6 +79,7 @@ class RankLishHandler(BaseHandler):
             dt['aclist'] = [0 for row in range(np)]
             dt['ptimelist'] = [0 for row in range(np)]
             dt['submit'] = [0 for row in range(np)]
+            dt['firstblood'] = [ 0 for row in range(np)]
             dt['totalaccept'] = 0
             dt['totaltime'] = 0
 
@@ -122,9 +123,22 @@ class RankLishHandler(BaseHandler):
                     user['totalaccept'] += 1
                     user['totaltime'] += user['ptimelist'][i]
 
+
+
             ranklist.append(user)
             # print('user: ',user)
             # print('\n')
+
+
+        # 计算firstblood
+        for i in range(np):
+            userid = None
+            for j in range(len(ranklist)) :
+                if ranklist[j]['aclist'][i] == 1 :
+                    if userid is None or ranklist[j]['ptimelist'][i] < ranklist[userid]['ptimelist'][i] :
+                            userid = j
+            if userid is not None :
+                ranklist[userid]['firstblood'][i] = 1
 
         for user in ranklist :
             print(user)

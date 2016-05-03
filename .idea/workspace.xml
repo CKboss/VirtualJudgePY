@@ -6,9 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="2de79d09-24b7-4478-a485-08d4b37a9915" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Handlers/UserStatusHandler.py" afterPath="$PROJECT_DIR$/Handlers/UserStatusHandler.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dao/statusdao.py" afterPath="$PROJECT_DIR$/dao/statusdao.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/authorsranklist.html" afterPath="$PROJECT_DIR$/templates/authorsranklist.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Handlers/RankListHandler.py" afterPath="$PROJECT_DIR$/Handlers/RankListHandler.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/UIModule/RanklistTableModule.py" afterPath="$PROJECT_DIR$/UIModule/RanklistTableModule.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/userstatus.html" afterPath="$PROJECT_DIR$/templates/userstatus.html" />
     </list>
     <ignored path="VirtualJudgePY.iws" />
@@ -26,7 +25,7 @@
     <SUITE FILE_PATH="coverage/VirtualJudgePY$HduSubmit.coverage" NAME="HduSubmit Coverage Results" MODIFIED="1452151435828" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Crawler/HduCrawler" />
     <SUITE FILE_PATH="coverage/VirtualJudgePY$PkuScanner.coverage" NAME="PkuScanner Coverage Results" MODIFIED="1456217738757" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Crawler/PkuCrawler" />
     <SUITE FILE_PATH="coverage/VirtualJudgePY$ManageContestHandler.coverage" NAME="ManageContestHandler Coverage Results" MODIFIED="1455946321079" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Handlers" />
-    <SUITE FILE_PATH="coverage/VirtualJudgePY$__init__.coverage" NAME="__init__ Coverage Results" MODIFIED="1462176537261" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/VirtualJudgePY$__init__.coverage" NAME="__init__ Coverage Results" MODIFIED="1462255205726" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/VirtualJudgePY$PkuCrawler.coverage" NAME="PkuCrawler Coverage Results" MODIFIED="1454842026638" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Crawler/PkuCrawler" />
     <SUITE FILE_PATH="coverage/VirtualJudgePY$LogInHandler.coverage" NAME="LogInHandler Coverage Results" MODIFIED="1453790866907" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Handlers" />
     <SUITE FILE_PATH="coverage/VirtualJudgePY$__init____2_.coverage" NAME="__init__ (2) Coverage Results" MODIFIED="1452149746309" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Crawler/HduCrawler" />
@@ -56,6 +55,7 @@
     <SUITE FILE_PATH="coverage/VirtualJudgePY$userdao.coverage" NAME="userdao Coverage Results" MODIFIED="1451636038131" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/dao" />
     <SUITE FILE_PATH="coverage/VirtualJudgePY$ManageContestListHandler.coverage" NAME="ManageContestListHandler Coverage Results" MODIFIED="1455931597691" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Handlers" />
     <SUITE FILE_PATH="coverage/VirtualJudgePY$HduVJudger.coverage" NAME="HduVJudger Coverage Results" MODIFIED="1461770160660" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Crawler/HduCrawler" />
+    <SUITE FILE_PATH="coverage/VirtualJudgePY$RanklistTableModule.coverage" NAME="RanklistTableModule Coverage Results" MODIFIED="1462254214839" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/UIModule" />
     <SUITE FILE_PATH="coverage/VirtualJudgePY$dbtools.coverage" NAME="dbtools Coverage Results" MODIFIED="1453800442128" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" />
     <SUITE FILE_PATH="coverage/VirtualJudgePY$BzojVjudger.coverage" NAME="BzojVjudger Coverage Results" MODIFIED="1456476327769" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Crawler/BzojCrawler" />
     <SUITE FILE_PATH="coverage/VirtualJudgePY$RankListHandler.coverage" NAME="RankListHandler Coverage Results" MODIFIED="1456367861902" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Handlers" />
@@ -134,15 +134,33 @@
     <favorites_list name="VirtualJudgePY" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="CrawlerOnlineHandler.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Handlers/CrawlerOnlineHandler.py">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="userstatus.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/userstatus.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-289">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#18#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="336">
+              <caret line="16" column="105" selection-start-line="16" selection-start-column="105" selection-end-line="16" selection-end-column="105" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RanklistTableModule.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/UIModule/RanklistTableModule.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="950">
+              <caret line="65" column="18" selection-start-line="65" selection-start-column="18" selection-end-line="65" selection-end-column="18" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RankListHandler.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Handlers/RankListHandler.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="145" column="32" selection-start-line="145" selection-start-column="32" selection-end-line="145" selection-end-column="32" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -178,8 +196,6 @@
         <option value="$PROJECT_DIR$/templates/module/contestitem.html" />
         <option value="$PROJECT_DIR$/Handlers/ManageContestHandler.py" />
         <option value="$PROJECT_DIR$/templates/contestlist.html" />
-        <option value="$PROJECT_DIR$/Handlers/RankListHandler.py" />
-        <option value="$PROJECT_DIR$/UIModule/RanklistTableModule.py" />
         <option value="$PROJECT_DIR$/Handlers/ShowCodeHandler.py" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/Handlers/StatusHandler.py" />
@@ -207,14 +223,16 @@
         <option value="$PROJECT_DIR$/templates/problem.html" />
         <option value="$PROJECT_DIR$/Config/AppSettings.py" />
         <option value="$PROJECT_DIR$/UIModule/HeaderModule.py" />
-        <option value="$PROJECT_DIR$/templates/index.html" />
         <option value="$PROJECT_DIR$/Handlers/AuthorsRanklistHandler.py" />
         <option value="$PROJECT_DIR$/Config/ParametersConfig.py" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/4c201a94-b275-4caf-88bc-0211e1399ad6/console.sql" />
         <option value="$PROJECT_DIR$/dao/statusdao.py" />
         <option value="$PROJECT_DIR$/Handlers/UserStatusHandler.py" />
         <option value="$PROJECT_DIR$/templates/authorsranklist.html" />
+        <option value="$PROJECT_DIR$/templates/index.html" />
         <option value="$PROJECT_DIR$/templates/userstatus.html" />
+        <option value="$PROJECT_DIR$/Handlers/RankListHandler.py" />
+        <option value="$PROJECT_DIR$/UIModule/RanklistTableModule.py" />
       </list>
     </option>
   </component>
@@ -253,8 +271,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -377,6 +393,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -404,7 +422,7 @@
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$2/SQL Dialects" value="MySQL" />
   </component>
-  <component name="RunManager" selected="Python.statusdao">
+  <component name="RunManager" selected="Python.RanklistTableModule">
     <configuration default="false" name="__init__" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -419,24 +437,6 @@
       <module name="VirtualJudgePY" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/__init__.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="encode" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tools" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="VirtualJudgePY" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tools/encode.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -491,6 +491,24 @@
       <module name="VirtualJudgePY" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/dao/statusdao.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="RanklistTableModule" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/UIModule" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="VirtualJudgePY" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/UIModule/RanklistTableModule.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -705,18 +723,18 @@
     </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Python.__init__" />
-      <item index="1" class="java.lang.String" itemvalue="Python.encode" />
-      <item index="2" class="java.lang.String" itemvalue="Python.problemdao" />
-      <item index="3" class="java.lang.String" itemvalue="Python.ProblemListHandler" />
-      <item index="4" class="java.lang.String" itemvalue="Python.statusdao" />
+      <item index="1" class="java.lang.String" itemvalue="Python.problemdao" />
+      <item index="2" class="java.lang.String" itemvalue="Python.ProblemListHandler" />
+      <item index="3" class="java.lang.String" itemvalue="Python.statusdao" />
+      <item index="4" class="java.lang.String" itemvalue="Python.RanklistTableModule" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.statusdao" />
-        <item index="1" class="java.lang.String" itemvalue="Python.__init__" />
-        <item index="2" class="java.lang.String" itemvalue="Python.ProblemListHandler" />
-        <item index="3" class="java.lang.String" itemvalue="Python.problemdao" />
-        <item index="4" class="java.lang.String" itemvalue="Python.encode" />
+        <item index="0" class="java.lang.String" itemvalue="Python.__init__" />
+        <item index="1" class="java.lang.String" itemvalue="Python.RanklistTableModule" />
+        <item index="2" class="java.lang.String" itemvalue="Python.statusdao" />
+        <item index="3" class="java.lang.String" itemvalue="Python.ProblemListHandler" />
+        <item index="4" class="java.lang.String" itemvalue="Python.problemdao" />
       </list>
     </recent_temporary>
   </component>
@@ -733,13 +751,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1451465596022</updated>
-    </task>
-    <task id="LOCAL-00015" summary="新建contest">
-      <created>1455895658077</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1455895658077</updated>
     </task>
     <task id="LOCAL-00016" summary="jquery-2.2.0.min,js">
       <created>1455895796396</created>
@@ -1077,7 +1088,14 @@
       <option name="project" value="LOCAL" />
       <updated>1462175113442</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary="userstatus 中显示ranklist">
+      <created>1462177695166</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1462177695166</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1099,10 +1117,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1055" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24332978" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15901814" sideWeight="0.48732942" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16061899" sideWeight="0.48732942" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3275862" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3265086" sideWeight="0.5021299" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22145145" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1118,6 +1135,7 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24332978" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297414" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1136,8 +1154,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Source Code hightlight" />
-    <MESSAGE value="Source Code hightlight js and css" />
     <MESSAGE value="跳转" />
     <MESSAGE value="markdown" />
     <MESSAGE value="usr info get" />
@@ -1161,7 +1177,9 @@
     <MESSAGE value="AC 或者 Try 的Problemlist的背景颜色" />
     <MESSAGE value="userstatus中点击problem跳转到Status" />
     <MESSAGE value="Authors Ranklist" />
-    <option name="LAST_COMMIT_MESSAGE" value="Authors Ranklist" />
+    <MESSAGE value="userstatus 中显示ranklist" />
+    <MESSAGE value="ranklist 的颜色" />
+    <option name="LAST_COMMIT_MESSAGE" value="ranklist 的颜色" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1203,6 +1221,11 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="1512">
+          <caret line="81" column="0" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
+        </state>
+      </provider>
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
           <first_editor relative-caret-position="399">
@@ -1211,23 +1234,11 @@
           <second_editor />
         </state>
       </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="1512">
-          <caret line="81" column="0" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Handlers/ShowCodeHandler.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-298">
           <caret line="58" column="25" selection-start-line="58" selection-start-column="25" selection-end-line="58" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/UIModule/RanklistTableModule.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="651">
-          <caret line="31" column="47" selection-start-line="31" selection-start-column="47" selection-end-line="31" selection-end-column="47" />
         </state>
       </provider>
     </entry>
@@ -1284,9 +1295,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="606">
           <caret line="185" column="0" selection-start-line="185" selection-start-column="0" selection-end-line="185" selection-end-column="0" />
-          <folding>
-            <marker date="1462029088310" expanded="true" signature="2219:2335" placeholder="SELECT probl... problem" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1294,7 +1302,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="294">
           <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1302,14 +1309,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="333">
           <caret line="87" column="0" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
-          <folding>
-            <marker date="1462115808500" expanded="true" signature="413:444" placeholder="INSERT INTO missing_value... " />
-            <marker date="1462115808500" expanded="true" signature="865:894" placeholder="UPDATE missi... " />
-            <marker date="1462115808500" expanded="true" signature="1016:1069" placeholder="SELECT * FRO... missing_value" />
-            <marker date="1462115808500" expanded="true" signature="1262:1289" placeholder="DELETE FROM " />
-            <marker date="1462115808500" expanded="true" signature="1402:1442" placeholder="SELECT * FRO... missing_value" />
-            <marker date="1462115808500" expanded="true" signature="1783:1824" placeholder="SELECT missi... missing_value" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1324,7 +1323,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="243">
           <caret line="22" column="59" selection-start-line="22" selection-start-column="59" selection-end-line="22" selection-end-column="59" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1332,9 +1330,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="441">
           <caret line="84" column="70" selection-start-line="84" selection-start-column="70" selection-end-line="84" selection-end-column="70" />
-          <folding>
-            <element signature="e#0#18#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1342,7 +1337,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1350,7 +1344,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1358,10 +1351,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="42">
           <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
-          <folding>
-            <element signature="n#style#0;n#td#0;n#tr#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#td#1;n#tr#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1369,7 +1358,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="36" column="45" selection-start-line="36" selection-start-column="45" selection-end-line="36" selection-end-column="45" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1377,7 +1365,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="399">
           <caret line="27" column="26" selection-start-line="27" selection-start-column="26" selection-end-line="27" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1385,7 +1372,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="441">
           <caret line="21" column="46" selection-start-line="21" selection-start-column="46" selection-end-line="21" selection-end-column="46" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1393,7 +1379,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="773">
           <caret line="38" column="59" selection-start-line="38" selection-start-column="59" selection-end-line="38" selection-end-column="59" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1409,15 +1394,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
           <caret line="45" column="20" selection-start-line="45" selection-start-column="20" selection-end-line="45" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="987">
-          <caret line="47" column="120" selection-start-line="47" selection-start-column="120" selection-end-line="47" selection-end-column="120" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1425,10 +1401,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
           <caret line="67" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1444,7 +1416,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1452,9 +1423,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1462,11 +1430,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
           <caret line="20" column="16" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
-          <folding>
-            <marker date="1461917637934" expanded="true" signature="1001:1068" placeholder="select count... user" />
-            <marker date="1461917637934" expanded="true" signature="1148:1188" placeholder="select uid f... user" />
-            <marker date="1461917637934" expanded="true" signature="1261:1308" placeholder="select count... user" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1474,7 +1437,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="4" selection-start-line="0" selection-start-column="4" selection-end-line="0" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1482,7 +1444,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2306">
           <caret line="167" column="49" selection-start-line="167" selection-start-column="49" selection-end-line="167" selection-end-column="49" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1498,7 +1459,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1506,7 +1466,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1800">
           <caret line="157" column="0" selection-start-line="157" selection-start-column="0" selection-end-line="157" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1524,30 +1483,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1953">
           <caret line="93" column="33" selection-start-line="93" selection-start-column="33" selection-end-line="93" selection-end-column="33" />
-          <folding>
-            <element signature="e#1479#1512#0" expanded="true" />
-            <marker date="1462176675441" expanded="true" signature="1606:1699" placeholder="SELECT count... status" />
-            <marker date="1462176675441" expanded="true" signature="1780:1844" placeholder="SELECT count... status" />
-            <marker date="1462176675441" expanded="true" signature="1780:1846" placeholder="SELECT count... status" />
-            <marker date="1462176675441" expanded="true" signature="1937:1996" placeholder="SELECT pid,C... status" />
-            <marker date="1462176675441" expanded="true" signature="2077:2163" placeholder="SELECT pid,C... status" />
-            <marker date="1462176675441" expanded="true" signature="2257:2363" placeholder="SELECT count... status" />
-            <marker date="1462176675441" expanded="true" signature="2460:2536" placeholder="SELECT count... status" />
-            <marker date="1462176675441" expanded="true" signature="2460:2537" placeholder="SELECT count... status" />
-            <marker date="1462176675441" expanded="true" signature="2612:3460" placeholder="SELECT rank,... rank" />
-            <marker date="1462176675441" expanded="true" signature="2676:3436" placeholder="SELECT (@ran... username" />
-            <marker date="1462176675441" expanded="true" signature="2773:3377" placeholder="SELECT usern... user" />
-            <marker date="1462176675441" expanded="true" signature="2885:3017" placeholder="SELECT COUNT... status" />
-            <marker date="1462176675441" expanded="true" signature="3051:3156" placeholder="SELECT COUNT... status" />
-            <marker date="1462176675441" expanded="true" signature="3218:3263" placeholder="SELECT IFNUL... " />
-            <marker date="1462176675441" expanded="true" signature="3413:3430" placeholder="SELECT @rank... " />
-            <marker date="1462176675441" expanded="true" signature="3531:3536" placeholder="SELECT rank,... rank" />
-            <marker date="1462176675441" expanded="true" signature="3531:3537" placeholder="SELECT rank,... rank" />
-            <marker date="1462176675441" expanded="true" signature="3531:3540" placeholder="SELECT rank,... rank" />
-            <marker date="1462176675441" expanded="true" signature="3531:3542" placeholder="SELECT rank,... rank" />
-            <marker date="1462176675441" expanded="true" signature="3654:3661" placeholder="SELECT rank,... rank" />
-            <marker date="1462176675441" expanded="true" signature="3654:3672" placeholder="SELECT rank,... rank" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1566,7 +1501,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="122">
           <caret line="44" column="0" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1582,6 +1516,23 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="273">
           <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Handlers/CrawlerOnlineHandler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="16" column="34" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
           <folding />
         </state>
       </provider>
@@ -1589,50 +1540,48 @@
     <entry file="file://$PROJECT_DIR$/templates/ranklist.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="231">
-          <caret line="20" column="22" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="22" />
+          <caret line="20" column="40" selection-start-line="20" selection-start-column="40" selection-end-line="20" selection-end-column="40" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/UIModule/ProblemListModule.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/userstatus.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="15" column="53" selection-start-line="15" selection-start-column="53" selection-end-line="15" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Handlers/RankListHandler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="37" column="32" selection-start-line="37" selection-start-column="32" selection-end-line="37" selection-end-column="32" />
+        <state relative-caret-position="252">
+          <caret line="12" column="28" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/authorsranklist.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
+        <state relative-caret-position="126">
           <caret line="21" column="55" selection-start-line="21" selection-start-column="55" selection-end-line="21" selection-end-column="55" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Handlers/CrawlerOnlineHandler.py">
+    <entry file="file://$PROJECT_DIR$/templates/userstatus.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-289">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="336">
+          <caret line="16" column="105" selection-start-line="16" selection-start-column="105" selection-end-line="16" selection-end-column="105" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Handlers/RankListHandler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="145" column="32" selection-start-line="145" selection-start-column="32" selection-end-line="145" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/UIModule/RanklistTableModule.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="950">
+          <caret line="65" column="18" selection-start-line="65" selection-start-column="18" selection-end-line="65" selection-end-column="18" />
+          <folding />
         </state>
       </provider>
     </entry>
