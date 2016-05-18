@@ -45,7 +45,7 @@ class ScannerThread(threading.Thread) :
         else:
             l = list()
 
-        if lock.acquire():
+        if lock.acquire(10):
             global LL
             LL += l
             lock.release()
@@ -79,7 +79,6 @@ class MainScanner():
         tl = [ ScannerThread(self.ojs[i]) for i in range(0,len(self.ojs)) ]
         for t in tl : self.initT(t)
         return LL
-
 
     def Doit(self):
         print('-> Before Scanner Stauts: ')

@@ -88,7 +88,7 @@ virtualjudgePY中新增加OJ支持非常的容易
 
 ### 2. 在Crawler.Config的AutoSubmit中设置新OJ的提交调用的Vjudge
 
-### 3. 在MainScanner中添加新OJ的SCanner
+### 3. 在MainScanner中的ScannerThread线程中添加新OJ的SCanner
 
 ### 4. 在ParametesConfig的OJ列表中中添加新OJ的名称
 

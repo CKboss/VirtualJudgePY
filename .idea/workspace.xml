@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2de79d09-24b7-4478-a485-08d4b37a9915" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/StatusScanner/MainScanner.py" afterPath="$PROJECT_DIR$/StatusScanner/MainScanner.py" />
     </list>
     <ignored path="VirtualJudgePY.iws" />
@@ -33,7 +34,7 @@
     <SUITE FILE_PATH="coverage/VirtualJudgePY$StatusHandler.coverage" NAME="StatusHandler Coverage Results" MODIFIED="1451652588929" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Handlers" />
     <SUITE FILE_PATH="coverage/VirtualJudgePY$ProblemCrawler.coverage" NAME="ProblemCrawler Coverage Results" MODIFIED="1451725179359" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Crawler" />
     <SUITE FILE_PATH="coverage/VirtualJudgePY$BzojScanner.coverage" NAME="BzojScanner Coverage Results" MODIFIED="1456476410284" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Crawler/BzojCrawler" />
-    <SUITE FILE_PATH="coverage/VirtualJudgePY$MainScanner.coverage" NAME="MainScanner Coverage Results" MODIFIED="1463582347271" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/StatusScanner" />
+    <SUITE FILE_PATH="coverage/VirtualJudgePY$MainScanner.coverage" NAME="MainScanner Coverage Results" MODIFIED="1463582858287" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/StatusScanner" />
     <SUITE FILE_PATH="coverage/VirtualJudgePY$SubmitHandler.coverage" NAME="SubmitHandler Coverage Results" MODIFIED="1454470360241" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Handlers" />
     <SUITE FILE_PATH="coverage/VirtualJudgePY$ImportProblem.coverage" NAME="ImportProblem Coverage Results" MODIFIED="1461663484045" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tools" />
     <SUITE FILE_PATH="coverage/VirtualJudgePY$ContestScanner.coverage" NAME="ContestScanner Coverage Results" MODIFIED="1456126161476" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ContestScanner" />
@@ -87,11 +88,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MainScanner.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MainScanner.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/StatusScanner/MainScanner.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3942">
-              <caret line="21" column="14" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
+            <state relative-caret-position="-378">
+              <caret line="81" column="0" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -105,6 +106,19 @@
             <state relative-caret-position="45">
               <caret line="21" column="27" selection-start-line="21" selection-start-column="27" selection-end-line="21" selection-end-column="27" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="361">
+                <caret line="86" column="19" selection-start-line="86" selection-start-column="19" selection-end-line="86" selection-end-column="19" />
+                <folding />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -134,7 +148,6 @@
         <option value="$PROJECT_DIR$/Crawler/BnuVJCrawler/BnuVJScanner.py" />
         <option value="$PROJECT_DIR$/templates/module/contestitem.html" />
         <option value="$PROJECT_DIR$/templates/contestlist.html" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/templates/status.html" />
         <option value="$PROJECT_DIR$/UIModule/ServerTime.py" />
         <option value="$PROJECT_DIR$/templates/main_struct.html" />
@@ -177,6 +190,7 @@
         <option value="$PROJECT_DIR$/tools/dbtools.py" />
         <option value="$PROJECT_DIR$/Handlers/ContestShowHandler.py" />
         <option value="$PROJECT_DIR$/StatusScanner/MainScanner.py" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -433,7 +447,7 @@
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$2/SQL Dialects" value="MySQL" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
   </component>
-  <component name="RunManager" selected="Python.__init__">
+  <component name="RunManager" selected="Python.MainScanner">
     <configuration default="false" name="__init__" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -741,8 +755,8 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.__init__" />
-        <item index="1" class="java.lang.String" itemvalue="Python.MainScanner" />
+        <item index="0" class="java.lang.String" itemvalue="Python.MainScanner" />
+        <item index="1" class="java.lang.String" itemvalue="Python.__init__" />
         <item index="2" class="java.lang.String" itemvalue="Python.HduVJudger" />
         <item index="3" class="java.lang.String" itemvalue="Python.RanklistTableModule" />
         <item index="4" class="java.lang.String" itemvalue="Python.statusdao" />
@@ -762,13 +776,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1451465596022</updated>
-    </task>
-    <task id="LOCAL-00017" summary="some contest update">
-      <created>1455959302087</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1455959302087</updated>
     </task>
     <task id="LOCAL-00018" summary="contest 题目的添加">
       <created>1456066251188</created>
@@ -1106,7 +1113,14 @@
       <option name="project" value="LOCAL" />
       <updated>1463575738667</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="多线程的MainScanner">
+      <created>1463582528101</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1463582528102</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1165,7 +1179,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="usr info get" />
     <MESSAGE value="usr info submit status graph" />
     <MESSAGE value="code format" />
     <MESSAGE value="Crawler From BNUVJ" />
@@ -1190,7 +1203,8 @@
     <MESSAGE value="ranklist 的颜色" />
     <MESSAGE value="SQL语句化简" />
     <MESSAGE value="SQL语句化简,用Fetch函数来代替调用" />
-    <option name="LAST_COMMIT_MESSAGE" value="SQL语句化简,用Fetch函数来代替调用" />
+    <MESSAGE value="多线程的MainScanner" />
+    <option name="LAST_COMMIT_MESSAGE" value="多线程的MainScanner" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1336,23 +1350,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="0">
-            <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1631,11 +1628,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/StatusScanner/MainScanner.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3942">
-          <caret line="21" column="14" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
+        <state relative-caret-position="-378">
+          <caret line="81" column="0" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="361">
+            <caret line="86" column="19" selection-start-line="86" selection-start-column="19" selection-end-line="86" selection-end-column="19" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
