@@ -59,6 +59,7 @@ class HduVJudger:
             self.snt = self.snt - 1
 
         r = self.s.post(url=self.submit_url, data=self.submit_data)
+        #print(r.text)
 
 
 if __name__ == '__main__':

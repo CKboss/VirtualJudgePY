@@ -6,7 +6,7 @@ from concurrent.futures import ThreadPoolExecutor
 
 from dao.statusdao import CheckIfAccept,CheckIfTry
 
-from tools.dbtools import getPageLimitSQL
+from tools.dbtools import getPageLimitSQL,FetchAll
 from tools.dbcore import ConnPool
 
 
@@ -103,13 +103,7 @@ class ProblemListHandler(tornado.web.RequestHandler):
         sql = getPageLimitSQL('problem', whereclause, ordclause, index, 21)
 
         print(sql)
-        conn = ConnPool.connect()
-        cur = conn.cursor()
-        cur.execute(sql)
-        cur.close()
-        conn.close()
-
-        rs = cur.fetchall()
+        rs = FetchAll(sql)
 
         ac = list()
 

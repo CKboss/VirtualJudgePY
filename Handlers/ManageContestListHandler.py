@@ -4,7 +4,7 @@ import tornado.gen
 from tornado.concurrent import run_on_executor
 from concurrent.futures import ThreadPoolExecutor
 
-from tools.dbtools import getPageLimitSQL
+from tools.dbtools import getPageLimitSQL,ExeSQL,FetchAll
 from tools.dbcore import ConnPool
 
 from Handlers.BaseHandler import BaseHandler
@@ -35,13 +35,6 @@ class ManageContestListHandler(BaseHandler):
         ordclause = ' cid desc '
 
         sql = getPageLimitSQL('contest', whereclause, ordclause, 0, 100000)
-
-        conn = ConnPool.connect()
-        cur = conn.cursor()
-        cur.execute(sql)
-        cur.close()
-        conn.close()
-
-        rs = cur.fetchall()
+        rs = FetchAll(sql)
 
         return rs

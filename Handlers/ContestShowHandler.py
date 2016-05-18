@@ -7,7 +7,7 @@ from concurrent.futures import ThreadPoolExecutor
 
 from Handlers.BaseHandler import BaseHandler
 from Config.ParametersConfig import MID_THREAD_POOL_SIZE
-from tools.dbtools import getQuerySQL
+from tools.dbtools import getQuerySQL,FetchAll,FetchOne
 from tools.dbcore import ConnPool
 from dao.statusdao import CheckContestIfAccept,CheckContestIfTry,CountContestACNum,CountContestSubmitNum
 
@@ -53,13 +53,8 @@ class ContestShowHandler(BaseHandler):
         ordclause = ' cid  '
 
         sql = getQuerySQL('contest', wherecluse, ordclause)
+        rs = FetchOne(sql)
 
-        conn = ConnPool.connect()
-        cur = conn.cursor()
-        cur.execute(sql)
-        rs = cur.fetchone()
-        cur.close()
-        conn.close()
 
         return rs
 
@@ -71,15 +66,7 @@ class ContestShowHandler(BaseHandler):
         sql = getQuerySQL(' cproblem ', wherecluse, ordclause)
 
         print(sql)
-
-        conn = ConnPool.connect()
-        cur = conn.cursor()
-        cur.execute(sql)
-        conn.close()
-
-        rs = cur.fetchall()
-
-        cur.close()
+        rs = FetchAll(sql)
 
         ac = [ 0 for i in range(len(rs)) ]
         tr = [ 0 for i in range(len(rs)) ]

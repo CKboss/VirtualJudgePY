@@ -86,7 +86,7 @@ def FetchOne(sql):
     cur.close()
     conn.close()
 
-    return rs[0]
+    return rs
 
 def FetchAll(sql):
 
@@ -98,6 +98,19 @@ def FetchAll(sql):
     conn.close()
 
     return rs
+
+def ExeSQL(sql):
+    try :
+        conn = ConnPool.connect()
+        cur = conn.cursor()
+        cur.execute(sql)
+        cur.close()
+        conn.close()
+    except Exception as e :
+        print('sql exe Error {}'.format(str(e)))
+        return False
+    return True
+
 
 
 if __name__ == '__main__':

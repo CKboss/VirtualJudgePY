@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal">
-    <data-source name="MySQL - mydb@localhost" uuid="4c201a94-b275-4caf-88bc-0211e1399ad6">
+    <data-source name="MySQL - mydb@localhost" uuid="7fec3d37-a393-49ff-9884-37c4806a7d94">
       <secret-storage>master_key</secret-storage>
       <user-name>javaTest</user-name>
-      <schema-pattern>mydb.*</schema-pattern>
-      <default-schemas>mydb.*</default-schemas>
     </data-source>
   </component>
 </project>

@@ -4,7 +4,7 @@ from tornado.concurrent import run_on_executor
 from concurrent.futures import ThreadPoolExecutor
 
 from tools.dbcore import ConnPool
-from tools.dbtools import getQuerySQL,getQueryDetailSQL
+from tools.dbtools import getQuerySQL,getQueryDetailSQL,FetchAll,FetchOne
 from tools.encode import Base64StrToUTF8Str
 
 from Config.ParametersConfig import MID_THREAD_POOL_SIZE
@@ -71,13 +71,7 @@ class ShowCodeHandler(BaseHandler):
     def getSubmitData(self, sid):
 
         sql = getQuerySQL('status', ' sid = {} '.format(sid), ' sid ')
-
-        conn = ConnPool.connect()
-        cur = conn.cursor()
-        cur.execute(sql)
-        rs = cur.fetchone()
-        cur.close()
-        conn.close()
+        rs = FetchOne(sql)
 
         return rs
 
@@ -85,13 +79,7 @@ class ShowCodeHandler(BaseHandler):
     def getContestStatus(self,cid):
 
         sql = getQueryDetailSQL(' contest ',' cstatus ',' cid = {} '.format(cid),' 1=1 ')
-
-        conn = ConnPool.connect()
-        cur = conn.cursor()
-        cur.execute(sql)
-        rs = cur.fetchone()
-        cur.close()
-        conn.close()
+        rs = FetchOne(sql)
 
         return rs[0]
 

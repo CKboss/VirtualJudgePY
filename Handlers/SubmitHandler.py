@@ -8,7 +8,7 @@ from concurrent.futures import ThreadPoolExecutor
 
 from Handlers.BaseHandler import BaseHandler
 from Crawler.CrawlerConfig import AutoSubmit
-from tools.dbtools import getInserSQL, getQuerySQL, LAST_INSERT_ID
+from tools.dbtools import getInserSQL, getQuerySQL, LAST_INSERT_ID,FetchAll,FetchOne
 from tools.encode import UTF8StrToBase64Str
 from tools.dbcore import ConnPool
 
@@ -94,12 +94,7 @@ class SubmitHandler(BaseHandler):
         sql = getQuerySQL('contest', ' cid = {} '.format(cid), ' cid ')
 
         # print(sql)
-        conn = ConnPool.connect()
-        cur = conn.cursor()
-        cur.execute(sql)
-        rs = cur.fetchone()
-        cur.close()
-        conn.close()
+        rs = FetchOne(sql)
 
         return rs[10]
 

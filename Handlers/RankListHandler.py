@@ -6,7 +6,7 @@ import math
 from tornado.concurrent import run_on_executor
 from concurrent.futures import ThreadPoolExecutor
 
-from tools.dbtools import getQuerySQL, getQueryDetailSQL
+from tools.dbtools import getQuerySQL, getQueryDetailSQL,FetchOne,FetchAll
 from tools.dbcore import ConnPool
 
 from Handlers.BaseHandler import BaseHandler
@@ -153,13 +153,7 @@ class RankLishHandler(BaseHandler):
         whereclause = ' cid = {} '.format(cid)
 
         sql = getQuerySQL('contest', whereclause=whereclause, ordclause=' cid ')
-
-        conn = ConnPool.connect()
-        cur = conn.cursor()
-        cur.execute(sql)
-        rs = cur.fetchone()
-        cur.close()
-        conn.close()
+        rs = FetchOne(sql)
 
         return rs
 
@@ -170,13 +164,7 @@ class RankLishHandler(BaseHandler):
         ordclause = ' sid '
 
         sql = getQuerySQL('status', whereclause=whereclause, ordclause=ordclause)
-
-        conn = ConnPool.connect()
-        cur = conn.cursor()
-        cur.execute(sql)
-        rs = cur.fetchall()
-        cur.close()
-        conn.close()
+        rs = FetchAll(sql)
 
         return rs
 
@@ -188,12 +176,6 @@ class RankLishHandler(BaseHandler):
         selectitem = ' cpid,pid '
 
         sql = getQueryDetailSQL('cproblem', selectitem=selectitem, whereclause=whereclause, ordclause=ordclause)
-
-        conn = ConnPool.connect()
-        cur = conn.cursor()
-        cur.execute(sql)
-        rs = cur.fetchall()
-        cur.close()
-        conn.close()
+        rs = FetchAll(sql)
 
         return rs

@@ -6,7 +6,7 @@ from concurrent.futures import ThreadPoolExecutor
 
 from Handlers.BaseHandler import BaseHandler
 from tools.dbcore import ConnPool
-from tools.dbtools import getPageLimitSQL
+from tools.dbtools import getPageLimitSQL,FetchOne,FetchAll
 
 
 class StatusHandler(BaseHandler):
@@ -89,13 +89,7 @@ class StatusHandler(BaseHandler):
         sql = getPageLimitSQL('status', wherecluse, ordercluse, Data['index'], 21)
 
         print(sql)
-        conn = ConnPool.connect()
-        cur = conn.cursor()
-        cur.execute(sql)
-        rs = cur.fetchall()
-
-        cur.close()
-        conn.close()
+        rs = FetchAll(sql)
 
         return rs
 

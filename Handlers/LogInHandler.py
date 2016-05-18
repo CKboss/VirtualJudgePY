@@ -6,7 +6,7 @@ from tornado import concurrent
 from tools.argCheck import argCheck
 from tools.dbcore import ConnPool
 from tools.encode import SHA512
-
+from tools.dbtools import FetchAll,FetchOne
 from tornado.concurrent import run_on_executor
 from concurrent.futures import ThreadPoolExecutor
 
@@ -50,6 +50,7 @@ class LogInHandler(BaseHandler):
         ans = cur.fetchall()
         print(ans)
         print(ans[0][0])
+
         if ans[0][0] == 1:
             sql = getUserUid(username)
             cur.execute(sql)

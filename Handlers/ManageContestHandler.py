@@ -7,7 +7,7 @@ from concurrent.futures import ThreadPoolExecutor
 from Handlers.BaseHandler import BaseHandler
 
 from tools.dbcore import ConnPool
-from tools.dbtools import getQueryDetailSQL, getDeletSQL, getInserSQL, getQuerySQL, getUpdateSQL
+from tools.dbtools import getQueryDetailSQL, getDeletSQL, getInserSQL, getQuerySQL, getUpdateSQL,FetchAll,FetchOne,ExeSQL
 from Config.FilePathConfig import PendingContestFile
 from UIModule.MsgModule import renderMSG
 
@@ -225,13 +225,9 @@ class ManageContestHandler(BaseHandler):
 
         wherecluse = ' cid = {} '.format(cid)
         sql = getUpdateSQL('contest', data, wherecluse)
-
         print(sql)
-        conn = ConnPool.connect()
-        cur = conn.cursor()
-        cur.execute(sql)
-        cur.close()
-        conn.close()
+        ExeSQL(sql)
+
 
     def MakePendingContestTempFile(self, cid, data):
 
@@ -274,13 +270,7 @@ class ManageContestHandler(BaseHandler):
 
         whereclause = ' cid = {} '.format(cid)
         sql = getQuerySQL('contest', whereclause, ' cid ')
-
-        conn = ConnPool.connect()
-        cur = conn.cursor()
-        cur.execute(sql)
-        rs = cur.fetchone()
-        cur.close()
-        conn.close()
+        rs = FetchOne(sql)
 
         return rs
 
@@ -289,13 +279,7 @@ class ManageContestHandler(BaseHandler):
 
         whereclause = ' cid = {} '.format(cid)
         sql = getQuerySQL('cproblem', whereclause, ' cpid ')
-
-        conn = ConnPool.connect()
-        cur = conn.cursor()
-        cur.execute(sql)
-        rs = cur.fetchall()
-        cur.close()
-        conn.close()
+        rs = FetchAll(sql)
 
         return rs
 
@@ -372,7 +356,6 @@ class ManageContestHandler(BaseHandler):
         sql = getDeletSQL('cproblem', whereclause)
 
         cur.execute(sql)
-
         sql = getDeletSQL('contest',whereclause=whereclause)
 
         cur.execute(sql)
@@ -381,7 +364,6 @@ class ManageContestHandler(BaseHandler):
         sql = getDeletSQL('contest', whereclause)
 
         cur.execute(sql)
-
         cur.close()
 
         return True

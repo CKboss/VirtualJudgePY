@@ -7,7 +7,7 @@ from tornado.concurrent import run_on_executor
 from concurrent.futures import ThreadPoolExecutor
 
 from Handlers.BaseHandler import BaseHandler
-from tools.dbtools import getQuerySQL, getQueryDetailSQL, getUpdateSQL
+from tools.dbtools import getQuerySQL, getQueryDetailSQL, getUpdateSQL,FetchOne,FetchAll,ExeSQL
 from tools.dbcore import ConnPool
 from tools.encode import SHA512
 
@@ -98,15 +98,7 @@ class UserStatusHander(BaseHandler):
 
         where = ' username = "{}" '.format(username)
         sql = getQuerySQL('user', whereclause=where, ordclause=' uid ')
-
-        conn = ConnPool.connect()
-        cur = conn.cursor()
-        cur.execute(sql)
-
-        rs = cur.fetchone()
-
-        cur.close()
-        conn.close()
+        rs = FetchOne(sql)
 
         return rs
 
@@ -118,15 +110,7 @@ class UserStatusHander(BaseHandler):
         sql = getQueryDetailSQL('status', selectitem=select, whereclause=where, ordclause=' originOJ,originProb ')
 
         print('sql: ', sql)
-
-        conn = ConnPool.connect()
-        cur = conn.cursor()
-        cur.execute(sql)
-
-        rs = cur.fetchall()
-
-        cur.close()
-        conn.close()
+        rs = FetchAll(sql)
 
         return rs
 
@@ -134,15 +118,7 @@ class UserStatusHander(BaseHandler):
     def CheckPasswrod(self, username, password):
 
         sql = checkUserSQL(username=username, password=password)
-
-        conn = ConnPool.connect()
-        cur = conn.cursor()
-        cur.execute(sql)
-
-        rs = cur.fetchone()
-
-        cur.close()
-        conn.close()
+        rs = FetchOne(sql)
 
         return rs
 
@@ -154,11 +130,7 @@ class UserStatusHander(BaseHandler):
         print('sql: ', sql)
 
         try:
-            conn = ConnPool.connect()
-            cur = conn.cursor()
-            cur.execute(sql)
-            cur.close()
-            conn.close()
+            ExeSQL(sql)
         except Exception:
             return False
 
@@ -168,13 +140,7 @@ class UserStatusHander(BaseHandler):
     def getSubmitInfo(self, uid):
 
         sql = 'SELECT status,count(status) from status WHERE uid = {} GROUP BY status ORDER BY status'.format(uid)
-
-        conn = ConnPool.connect()
-        cur = conn.cursor()
-        cur.execute(sql)
-        rs = cur.fetchall()
-        cur.close()
-        conn.close()
+        rs = FetchAll(sql)
 
         return rs
 
