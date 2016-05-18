@@ -2,6 +2,7 @@ import time
 import os
 import pickle
 import traceback
+import threading
 
 from Crawler.HduCrawler.HduScanner import HduScanner
 from Crawler.PkuCrawler.PkuScanner import PkuScanner
@@ -9,19 +10,56 @@ from Crawler.ZojCrawler.ZojScanner import ZojScanner
 from Crawler.BzojCrawler.BzojScanner import BzojScanner
 from Crawler.BnuVJCrawler.BnuVJScanner import BnuVJScanner
 
-from tools.dbtools import getUpdateSQL
+from tools.dbtools import getUpdateSQL,FetchOne,FetchAll,ExeSQL
 from tools.dbcore import ConnPool
 
 from Config.FilePathConfig import SID_DATA_FILE
 
+LL = list()
+lock = threading.Lock()
+
+class ScannerThread(threading.Thread) :
+    ojname = ''
+    l = list()
+    def __init__(self,ojname):
+        threading.Thread.__init__(self)
+        self.ojname = str(ojname).lower()
+
+    def run(self):
+
+        if self.ojname=='hdu':
+            hs = HduScanner()
+            l = hs.Scanner()
+        elif self.ojname=='pku':
+            ps = PkuScanner()
+            l = ps.Scanner()
+        elif self.ojname=='zoj':
+            zs = ZojScanner()
+            l = zs.Scanner()
+        elif self.ojname=='bnuoj':
+            bs = BnuVJScanner()
+            l = bs.Scanner()
+        elif self.ojname=='bzoj':
+            bz = BzojScanner()
+            l = bz.Scanner()
+        else:
+            l = list()
+
+        if lock.acquire():
+            global LL
+            LL += l
+            lock.release()
+
+        print(self.ojname,'thread catch:',len(l),'results')
+
 
 class MainScanner():
     TF = SID_DATA_FILE
+    ojs = ['hdu','pku','zoj','bzoj','bnuoj']
 
     def Scanner(self):
 
         while True:
-
             try :
                 self.Doit()
             except Exception:
@@ -30,10 +68,23 @@ class MainScanner():
 
             time.sleep(5)
 
+    def initT(self,t):
+        t.setDaemon(True)
+        t.start()
+        t.join(15)
+
+    def GaoIt(self):
+        global LL
+        LL = list()
+        tl = [ ScannerThread(self.ojs[i]) for i in range(0,len(self.ojs)) ]
+        for t in tl : self.initT(t)
+        return LL
+
 
     def Doit(self):
         print('-> Before Scanner Stauts: ')
-        L = self.FindAndUpdate()
+        #L = self.FindAndUpdate()
+        L = self.GaoIt()
         print('-> End Scanner Stauts: ')
 
         '''
@@ -67,12 +118,7 @@ class MainScanner():
                         # print('update status sql: ',sql)
 
                         S['status'] = ret['status']
-
-                        conn = ConnPool.connect()
-                        cur = conn.cursor()
-                        cur.execute(sql)
-                        cur.close()
-                        conn.close()
+                        ExeSQL(sql)
 
                         break
 
@@ -89,12 +135,7 @@ class MainScanner():
                         ret['status'] = 'Judge Error'
                         clause = 'sid = {}'.format(S['sid'])
                         sql = getUpdateSQL('status', ret, clause)
-
-                        conn = ConnPool.connect()
-                        cur = conn.cursor()
-                        cur.execute(sql)
-                        cur.close()
-                        conn.close()
+                        ExeSQL(sql)
 
                     os.remove(self.TF + file)
 
@@ -210,6 +251,22 @@ def Test():
 
     print(ms.CheckIt(s,d))
 
+def mt():
+    '''
+    global L
+    L = list()
+    ST = ScannerThread('Hdu')
+    ST.run()
+
+    print(len(L))
+    for l in L :
+        print(l)
+    '''
+
+    ms = MainScanner()
+    ms.GaoIt()
+
 if __name__ == '__main__':
     main()
     #Test()
+    #mt()
