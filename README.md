@@ -18,7 +18,7 @@
 
 # 安装:
 
-#### VirtualJudgePY 依赖以下python包:
+#### VirtualJudgePY 依赖以下python3的包:
 
 ```python
 
