@@ -6,11 +6,14 @@ def PictureToBase64(File = None,Url = None):
         filestream = open(File,'rb').read()
     elif Url is not None:
         r = requests.get(Url)
-        filestream = r.content
+        if r.status_code==200:
+            filestream = r.content
+        else: return None
     else : return None
 
     b64 = base64.b64encode(filestream).decode()
-    imgsrc = '<img src="data:image/gif;base64,{}">'.format(b64)
+    #imgsrc = '<img src="data:image/gif;base64,{}">'.format(b64)
+    imgsrc = 'data:image/gif;base64,{}'.format(b64)
     return imgsrc
 
 
