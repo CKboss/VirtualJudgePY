@@ -57,6 +57,6 @@ if __name__=='__main__':
     f = open('/tmp/t1.html','r')
     baseurl = 'http://www.lydsy.com/JudgeOnline/'
     ret = RelUrlToBase64Code(baseurl,f.read())
-    fout = open('/tmp/t2.html','w')
+    fout = open('/tmp/t3.html','w')
     fout.write(ret)
     fout.close()

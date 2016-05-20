@@ -88,6 +88,10 @@ def FetchOne(sql):
 
     return rs
 
+def FetchOneValue(sql):
+
+    return FetchOne(sql)[0]
+
 def FetchAll(sql):
 
     conn = ConnPool.connect()

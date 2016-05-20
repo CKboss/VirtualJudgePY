@@ -120,11 +120,16 @@ class ProblemListHandler(tornado.web.RequestHandler):
             ac = [ 0 for i in range(len(rs))]
             for i in range(len(rs)) :
                 if uid is not None :
-                    ac[i] = CheckIfAccept(uid,rs[i][0])
+                    ac[i] = CheckIfAccept(uid,rs[i][0])[0]
                     if ac[i]==1: tr[i]=1
-                    else : tr[i] = CheckIfTry(uid,rs[i][0])
+                    else : tr[i] = CheckIfTry(uid,rs[i][0])[0]
 
         print('rs size: ', len(rs))
+
+        '''
+        ac = [ x[0] for x in ac ]
+        tr = [ x[0] for x in tr ]
+        '''
 
         return rs,ac,tr
 

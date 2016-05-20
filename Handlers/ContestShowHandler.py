@@ -73,9 +73,9 @@ class ContestShowHandler(BaseHandler):
 
         for i in range(len(rs)) :
             if uid is not None :
-                ac[i] = CheckContestIfAccept(uid,rs[i][2],cid)
+                ac[i] = CheckContestIfAccept(uid,rs[i][2],cid)[0]
                 if ac[i]==1: tr[i]=1
-                else : tr[i] = CheckContestIfTry(uid,rs[i][2],cid)
+                else : tr[i] = CheckContestIfTry(uid,rs[i][2],cid)[0]
 
 
         totalsubmit = CountContestSubmitNum(cid)

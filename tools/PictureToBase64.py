@@ -1,11 +1,11 @@
 import base64
 import requests
 
-def PictureToBase64(File = None,Url = None):
+def PictureToBase64(File = None,Url = None,referer='www.baidu.com'):
     if File is not None:
         filestream = open(File,'rb').read()
     elif Url is not None:
-        r = requests.get(Url)
+        r = requests.get(Url,headers={'referer': referer},timeout=10)
         if r.status_code==200:
             filestream = r.content
         else: return None
@@ -18,7 +18,6 @@ def PictureToBase64(File = None,Url = None):
 
 
 def test1():
-    f = open('0.jpg','rb')
     url = 'http://ss.bdimg.com/static/superman/img/logo/bd_logo1_31bdc765.png'
     #img = PictureToBase64(File='0.jpg')
     img = PictureToBase64(Url=url)
