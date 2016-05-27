@@ -8,6 +8,7 @@ BnuVJUser = [
         password='rgbitfkfm',
         cksave='1',
         login='Login',
+        vj_username='JiangOil',
     ),
 ]
 

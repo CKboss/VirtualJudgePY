@@ -15,12 +15,14 @@ class HduVJudger:
             nickname='henryascend',
             userpass='heihei',
             login='Sign in',
+            vj_username='henryascend',
         ),
         dict(
             username='xxx111',
             nickname='henryascend',
             userpass='heihei',
             login='Sign in',
+            vj_username='henryascend',
         ),
     ]
 
@@ -44,10 +46,11 @@ class HduVJudger:
         data = random.choice(self.userList)
         self.s.post(url=self.login_url, data=data)
         self.nowJudge = data['nickname']
+        return data
 
     def submit(self, pid, lang, code):
 
-        self.login()
+        postdata = self.login()
 
         self.submit_data['problemid'] = pid
         self.submit_data['language'] = self.getlange(lang)
@@ -60,6 +63,7 @@ class HduVJudger:
 
         r = self.s.post(url=self.submit_url, data=self.submit_data)
         #print(r.text)
+        return postdata['vj_username']
 
 
 if __name__ == '__main__':

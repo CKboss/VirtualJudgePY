@@ -4,5 +4,6 @@ Zoj_User = [
     {
         'handle': 'CKboss',
         'password': 'rgbitfkfm',
+        'vj_username': 'CKboss',
     },
 ]

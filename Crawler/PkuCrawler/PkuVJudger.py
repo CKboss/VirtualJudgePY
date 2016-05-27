@@ -22,7 +22,9 @@ class PkuVJudger():
     def LogIn(self):
         self.snt = 30
         self.s = requests.session()
-        r = self.s.post(url=Pku_LogIn_Url, data=random.choice(Pku_User))
+        data = random.choice(Pku_User)
+        r = self.s.post(url=Pku_LogIn_Url, data=data)
+        return data
 
     def GetLanguage(self, lang):
 
@@ -36,7 +38,7 @@ class PkuVJudger():
 
     def Sumbit(self, pid, lang, code):
 
-        self.LogIn()
+        postdata = self.LogIn()
         url = self.submit_url
         code = UTF8StrToBase64Str(code)
         d = dict()
@@ -47,6 +49,7 @@ class PkuVJudger():
         d['encoded'] = str(1)
 
         self.s.post(url=url, data=d)
+        return postdata['vj_username']
 
 
 def main():

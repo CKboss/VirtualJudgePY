@@ -6,5 +6,6 @@ Pku_User = [
         'password1': 'rgbitfkfm',
         'B1': 'login',
         'url': '/',
+        'vj_username': 'CKboss',
     },
 ]

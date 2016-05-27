@@ -11,7 +11,9 @@ class ZojVJudge():
     def logIn(self):
         self.snt = 30
         self.s = requests.session()
-        self.s.post(url=Zoj_LogIn_Url, data=random.choice(Zoj_User))
+        data = random.choice(Zoj_User)
+        self.s.post(url=Zoj_LogIn_Url, data=data)
+        return data
 
     def GetLanguage(self, lang):
 
@@ -31,7 +33,7 @@ class ZojVJudge():
 
     def Submit(self, pid, lang, code):
 
-        self.logIn()
+        postdata=self.logIn()
 
         dt = dict()
         dt['problemId'] = int(pid) - 1000
@@ -39,6 +41,7 @@ class ZojVJudge():
         dt['source'] = code
 
         self.s.post(url=self.submit_url, data=dt)
+        return postdata['vj_username']
 
 
 def main():

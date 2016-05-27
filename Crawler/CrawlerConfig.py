@@ -11,19 +11,20 @@ class AutoSubmit():
     def SubmmitSelector(self, oj, prob, lang, code):
 
         oj = str(oj).upper()
+        vj_username = None
 
         if oj == 'HDU' or oj == 'HDOJ':
             HV = HduVJudger()
-            HV.submit(prob, lang, code)
+            vj_username = HV.submit(prob, lang, code)
         elif oj == 'PKU' or oj == 'POJ':
             PV = PkuVJudger()
-            PV.Sumbit(prob, lang, code)
+            vj_username = PV.Sumbit(prob, lang, code)
         elif oj == 'ZOJ' or oj == 'ZJU':
             ZV = ZojVJudge()
-            ZV.Submit(prob, lang, code)
+            vj_username = ZV.Submit(prob, lang, code)
         elif oj == 'BZOJ' or oj == 'LYDSY':
             BV = BzojVjudger()
-            BV.Submit(prob, lang, code)
+            vj_username = BV.Submit(prob, lang, code)
         else:
             BVJ = BnuVJVjudge()
             rs = self.getPID(oj,prob)
@@ -31,7 +32,8 @@ class AutoSubmit():
                 print(' no such prob ...')
             else :
                 pid = rs[0]
-                BVJ.Submit(pid,lang,code)
+                vj_username = BVJ.Submit(pid,lang,code)
+        return vj_username
 
     def getPID(self,oj,prob):
 

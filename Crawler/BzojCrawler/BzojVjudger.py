@@ -10,7 +10,9 @@ class BzojVjudger:
     def LogIn(self):
 
         self.s = requests.session()
-        self.s.post(url=Bzoj_LogIn_Url, data=random.choice(BzojUser))
+        data = random.choice(BzojUser)
+        self.s.post(url=Bzoj_LogIn_Url, data=data)
+        return data
 
     def getLanguage(self, lang):
 
@@ -23,7 +25,7 @@ class BzojVjudger:
 
     def Submit(self, pid, lang, code):
 
-        self.LogIn()
+        postdata = self.LogIn()
 
         dt = dict()
         dt['id'] = pid
@@ -31,6 +33,8 @@ class BzojVjudger:
         dt['source'] = code
 
         self.s.post(self.submit_url, data=dt)
+
+        return postdata['vj_username']
 
 
 def main():

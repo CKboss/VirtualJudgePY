@@ -5,5 +5,6 @@ BzojUser = [
         user_id='VirtualJudgePY',
         password='123456l',
         submit='Submit',
+        vj_username='VirtualJudgePY',
     ),
 ]

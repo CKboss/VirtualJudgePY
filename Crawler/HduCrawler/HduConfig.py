@@ -7,6 +7,7 @@ HduUser = [
         username='xxx111',
         userpass='123456',
         login='Sign in',
+       	vj_username='henryascend',
     ),
 ]
 

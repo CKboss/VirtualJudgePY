@@ -52,6 +52,7 @@ class BnuVJVjudge:
         r = self.s.post(url=self.submit_url,data=dt)
         #print('in submit ',r)
         #print(r.text)
+        return postdata['vj_username']
 
     def debug(self):
 

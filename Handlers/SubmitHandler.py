@@ -83,10 +83,10 @@ class SubmitHandler(BaseHandler):
 
         code = self.AddRandomSpace(code)
 
-        self.AS.SubmmitSelector(oj=oj, prob=Prob, lang=lang, code=code)
+        vj_username = self.AS.SubmmitSelector(oj=oj, prob=Prob, lang=lang, code=code)
 
         # Write Record into db
-        self.InsertStatusToDB(pid=pid, oj=oj, Prob=Prob, lang=lang, code=code, cid=cid)
+        self.InsertStatusToDB(pid=pid, oj=oj, Prob=Prob, lang=lang, code=code, cid=cid,vj_username=vj_username)
 
     @run_on_executor
     def getContestStatus(self, cid):
@@ -107,7 +107,7 @@ class SubmitHandler(BaseHandler):
         code += '\n*/'
         return code
 
-    def InsertStatusToDB(self, pid, oj, Prob, lang, code, cid):
+    def InsertStatusToDB(self, pid, oj, Prob, lang, code, cid,vj_username):
         data = dict()
 
         data['pid'] = pid
@@ -141,7 +141,10 @@ class SubmitHandler(BaseHandler):
         pkl['originOJ'] = data['originOJ']
         pkl['originProb'] = data['originProb']
         pkl['language'] = data['language']
+        pkl['vj_username'] = vj_username
         pkl['looplimit'] = 10
+
+        print('vj_username: ',vj_username)
 
         fw = open(file.format(sid), 'wb')
         pickle.dump(pkl, fw)
