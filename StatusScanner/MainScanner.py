@@ -138,12 +138,14 @@ class MainScanner():
 
                     os.remove(self.TF + file)
 
+    # S: 提交记录  D: 抓取的记录
     def CheckIt(self, s, d):
 
         # print('s: ',s)
         # print('d: ',d)
 
         flag = True
+        if s['vj_username'] != d['nickname'] : return None
 
         specialOne = False
         try :
@@ -190,8 +192,6 @@ class MainScanner():
 
         for x in ['status', 'runtime', 'runmemory', 'realrunid']:
             ret[x] = d[x]
-
-
 
         return ret
 
