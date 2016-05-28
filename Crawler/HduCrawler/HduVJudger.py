@@ -1,6 +1,8 @@
 import requests
 import random
 
+from Crawler.HduCrawler.HduConfig import HduUser
+
 
 class HduVJudger:
     login_url = 'http://acm.hdu.edu.cn/userloginex.php?action=login'
@@ -8,23 +10,6 @@ class HduVJudger:
     s = None
     nowJudge = None
     snt = 0
-
-    userList = [
-        dict(
-            username='xxx111',
-            nickname='henryascend',
-            userpass='heihei',
-            login='Sign in',
-            vj_username='henryascend',
-        ),
-        dict(
-            username='xxx111',
-            nickname='henryascend',
-            userpass='heihei',
-            login='Sign in',
-            vj_username='henryascend',
-        ),
-    ]
 
     submit_data = dict(
         check=0,
@@ -43,7 +28,7 @@ class HduVJudger:
     def login(self):
         self.snt = 30
         self.s = requests.session()
-        data = random.choice(self.userList)
+        data = random.choice(HduUser)
         self.s.post(url=self.login_url, data=data)
         self.nowJudge = data['nickname']
         return data

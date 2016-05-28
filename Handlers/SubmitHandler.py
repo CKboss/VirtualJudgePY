@@ -7,12 +7,13 @@ from tornado.concurrent import run_on_executor
 from concurrent.futures import ThreadPoolExecutor
 
 from Handlers.BaseHandler import BaseHandler
-from Crawler.CrawlerConfig import AutoSubmit
+from Crawler.AutoSubmit import AutoSubmit
 from tools.dbtools import getInserSQL, getQuerySQL, LAST_INSERT_ID,FetchAll,FetchOne
 from tools.encode import UTF8StrToBase64Str
 from tools.dbcore import ConnPool
 
 from UIModule.MsgModule import renderMSG
+from Config.FilePathConfig import SID_DATA_FILE
 
 
 class SubmitHandler(BaseHandler):
@@ -131,7 +132,7 @@ class SubmitHandler(BaseHandler):
         cur.execute(sql)
 
         ''' create a pkl file'''
-        file = '/home/ckboss/Desktop/Development/PKL/sid_{}.pkl'
+        file = SID_DATA_FILE+'/sid_{}.pkl'
         cur.execute(LAST_INSERT_ID())
         sid = cur.fetchone()[0]
 

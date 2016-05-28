@@ -162,7 +162,7 @@ class MainScanner():
         if 'originProb' not in d.keys()  or 'originOJ' not in d.keys() :
             flag = False
 
-        for nt in ['originProb', 'originOJ', 'codelenth', 'language']:
+        for nt in ['originProb', 'originOJ' , 'language']:
 
             if specialOne == True and nt == 'codelenth':
                 continue

@@ -5,6 +5,7 @@ import pickle
 from bs4 import BeautifulSoup
 
 from tools.RandA import RelUrlToAbsUrl
+from Config.FilePathConfig import HDOJ_PKL_FILE
 
 
 class HduCrawler:
@@ -54,7 +55,8 @@ class HduCrawler:
 
         data['updatetime'] = time.strftime('%Y-%m-%d %H:%M:%S')
 
-        f = open('/home/ckboss/Desktop/Development/testData/HDOJ2/HDOJ{}.pkl'.format(pid), 'wb')
+        storepath = HDOJ_PKL_FILE+'/HDOJ{}.pkl'
+        f = open(storepath.format(pid), 'wb')
         pickle.dump(data, f)
 
         print(str(pid) + ' done !')
