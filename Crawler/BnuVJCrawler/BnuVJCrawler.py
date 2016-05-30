@@ -2,7 +2,7 @@ import requests
 import json
 from bs4 import BeautifulSoup
 from dao.problemdao import InsertOrUpdateProblem
-from tools.RandA import RelUrlToAbsUrl
+from tools.RandA import RelUrlToAbsUrl,RelUrlToBase64Code
 
 
 class BnuVJCrawler():
@@ -56,7 +56,8 @@ class BnuVJCrawler():
 
         for t in Term:
             if t in dt.keys() :
-                dt[t] = RelUrlToAbsUrl(self.base_url, dt[t])
+                #dt[t] = RelUrlToAbsUrl(self.base_url, dt[t])
+                dt[t] = RelUrlToBase64Code(self.base_url,dt[t])
 
         self.InsertInToDataBase(dt)
 

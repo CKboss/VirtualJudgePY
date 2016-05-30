@@ -9,6 +9,7 @@ from Handlers.BaseHandler import BaseHandler
 from Config.ParametersConfig import MID_THREAD_POOL_SIZE
 
 from Crawler.BnuVJCrawler.BnuVJCrawler import BnuVJCrawler
+from UIModule.MsgModule import renderMSG
 
 class CrawlerOnlineHandler(BaseHandler):
 
@@ -30,11 +31,14 @@ class CrawlerOnlineHandler(BaseHandler):
             return
         if oj == 'ZOJ' : oj = 'ZJU'
         isok = yield self.CrawlerIt(oj,prob)
-        self.render('crawleronline.html')
+        msg = renderMSG('Crawler Success! Visit <a href="/problem/{}/{}">here</a> enjoy it!'.format(oj,prob),waittime=1000000)
+        self.write(msg)
+        self.finish()
 
     @run_on_executor
     def CrawlerIt(self,oj,prob):
         bvc = BnuVJCrawler()
         bvc.CrawlerProblem(originOJ=oj,originProb=prob)
-        time.sleep(10)
+        time.sleep(3)
+        return True
 

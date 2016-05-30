@@ -8,7 +8,7 @@
 | | / / / ___/ __/ / / / __ `/ /_  / / / / / __  / __ `/ _ \/ /_/ /\  / 
 | |/ / / /  / /_/ /_/ / /_/ / / /_/ / /_/ / /_/ / /_/ /  __/ ____/ / /  
 |___/_/_/   \__/\__,_/\__,_/_/\____/\__,_/\__,_/\__, /\___/_/     /_/   
-                                               /____/ v0.1.2
+                                               /____/ v0.1.4
 ```
 
 ![首页](http://ww1.sinaimg.cn/mw1024/50a04a61gw1f1xwn7vsqdj21330qhth1.jpg)
@@ -22,13 +22,10 @@
 
 ```python
 
-tornado 4.3
-
-pymysql 0.7.1
-
-beautifulsoup4 4.4
-
-sqlalchemy 1.0.1
+tornado>=4.3
+pymysql>=0.7.1
+beautifulsoup4>=4.4
+sqlalchemy>=1.0.1
 
 ```
 
@@ -56,6 +53,8 @@ ParametersConfig 可以配置一些临时线程池的大小
 目前可以支持的OJ有 : PKU,HDU,ZOJ,BZOJ
 
 在各个OJ的Cawler中可以指定抓取的题目范围,并储存为pkl文件,用tools里的ImportProblem来将pkl文件导入数据库
+
+VirtualJudgePY还可以在线从BnuVJ上抓取题目并导入.
 
 ------
 
@@ -93,3 +92,8 @@ virtualjudgePY中新增加OJ支持非常的容易
 ### 4. 在ParametesConfig的OJ列表中中添加新OJ的名称
 
 #### Contest功能暂不完善,更多OJ支持开发中...
+
+
+# 在服务器上部署,并使用nginx和supervisor
+
+详见: [http://www.ckboss.cf/2016/05/30/Tornado%E7%9A%84%E9%83%A8%E7%BD%B2/]
