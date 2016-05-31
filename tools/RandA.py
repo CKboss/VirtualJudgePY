@@ -23,7 +23,7 @@ def RelUrlToAbsUrl(baseurl, text):
 
     return ret
 
-def RelUrlToBase64Code(baseurl,text):
+def RelUrlToBase64Code(baseurl,text,checkpicture=True,referer='http://www.baidu.com'):
 
     '''
     将相对url换成base64编码的格式,从而离线访问图片,但是速度缓慢而且会让html代码变的很长
@@ -44,15 +44,22 @@ def RelUrlToBase64Code(baseurl,text):
             m = re.match(r'src="(.*)"',l)
             parturl=baseurl+'/'+m.group(1)
 
-            ispicture = False
+            if m.group(1)[0:7]=='http://' or m.group(1)[0:8]=='https://' :
+                parturl = m.group(1)
             url = m.group(1)
+
+            ispicture = False
+
             for end in picture_end :
                 if url.endswith(end) :
                     ispicture = True
                     break
 
+            if checkpicture==False:
+                ispicture=True
+
             if ispicture == True :
-                basedata = PictureToBase64(Url=parturl)
+                basedata = PictureToBase64(Url=parturl,referer=referer)
                 if basedata is not None :
                     l = l[:m.start(1)]+basedata+l[m.end(1):]
             elif ispicture == False :
