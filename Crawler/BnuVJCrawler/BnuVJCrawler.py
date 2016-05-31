@@ -90,6 +90,7 @@ class BnuVJCrawler():
         return dt
 
     def InsertInToDataBase(self,dt):
+        print(dt)
         InsertOrUpdateProblem(dt)
 
 

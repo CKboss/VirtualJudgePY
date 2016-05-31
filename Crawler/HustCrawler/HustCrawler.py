@@ -36,13 +36,17 @@ class HustCrawler():
     def CrawlerProblem(self,oj,pid):
 
         postdata = self.prob_post
-        postdata['OJId'] = oj
+        noj = oj
+        '''
+        if noj in OJ_Nicname.keys() :
+            noj = OJ_Nicname[noj]
+        '''
+        postdata['OJId'] = noj
         postdata['probNum'] = pid
-
 
         data = dict()
         data['originOJ']=oj
-        data['orginProb']=pid
+        data['originProb']=pid
 
         r = requests.get(url=self.prob_url,params=postdata)
         dt = json.loads(str(r.text))
@@ -68,6 +72,8 @@ class HustCrawler():
         for item in Terms :
             if item in dt.keys() :
                 data[item.lower()] = dt[item]
+            else :
+                data[item.lower()] = ''
 
         html = requests.get(data['url']).text
         soup = BeautifulSoup(html,'html5lib')
@@ -79,6 +85,11 @@ class HustCrawler():
 
         data['specialjudge']=0
         InsertOrUpdateProblem(data)
+
+        '''
+        for key in data :
+            print(key,'--->',data[key])
+        '''
 
     def getLimit(self,line):
         pattern = r'.*TimeLimit:(.*)MemoryLimit:(.*)64bitIOFormat:(.*)'
@@ -96,4 +107,4 @@ def testre():
 
 if __name__=='__main__':
     HC = HustCrawler()
-    HC.CrawlerProblem('ZOJ','1002')
+    HC.CrawlerProblem('Aziu','0000')

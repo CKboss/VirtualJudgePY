@@ -7,7 +7,6 @@ from ContestScanner.ContestScanner import ContestScanner
 
 import threading
 
-
 class WebThread(threading.Thread):
     def __init__(self):
         threading.Thread.__init__(self)
@@ -45,7 +44,6 @@ class ContestScannerThread(threading.Thread):
     def ContestScanner(self):
         cs = ContestScanner()
         cs.mainloop()
-
 
 if __name__ == "__main__":
     thread_web = WebThread()

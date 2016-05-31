@@ -9,6 +9,7 @@ from Handlers.BaseHandler import BaseHandler
 from Config.ParametersConfig import MID_THREAD_POOL_SIZE
 
 from Crawler.BnuVJCrawler.BnuVJCrawler import BnuVJCrawler
+from Crawler.HustCrawler.HustCrawler import HustCrawler
 from UIModule.MsgModule import renderMSG
 
 class CrawlerOnlineHandler(BaseHandler):
@@ -24,21 +25,28 @@ class CrawlerOnlineHandler(BaseHandler):
     @tornado.web.asynchronous
     @tornado.gen.engine
     def post(self):
+        vj = self.get_argument('VJ',None)
         oj = self.get_argument('oj',None)
         prob = self.get_argument('prob',None)
-        if oj is None or prob is None or oj == 'ALL' :
+        if oj is None or vj is None or prob is None or oj == 'ALL' :
             self.finish()
             return
-        if oj == 'ZOJ' : oj = 'ZJU'
-        isok = yield self.CrawlerIt(oj,prob)
+        isok = yield self.CrawlerIt(vj,oj,prob)
         msg = renderMSG('Crawler Success! Visit <a href="/problem/{}/{}">here</a> enjoy it!'.format(oj,prob),waittime=1000000)
         self.write(msg)
         self.finish()
 
     @run_on_executor
-    def CrawlerIt(self,oj,prob):
-        bvc = BnuVJCrawler()
-        bvc.CrawlerProblem(originOJ=oj,originProb=prob)
+    def CrawlerIt(self,vj,oj,prob):
+
+        if vj == 'BNU':
+            if oj == 'ZOJ' : oj = 'ZJU'
+            bvc = BnuVJCrawler()
+            bvc.CrawlerProblem(originOJ=oj,originProb=prob)
+        elif vj == 'HUST':
+            huc = HustCrawler()
+            huc.CrawlerProblem(oj,prob)
+
         time.sleep(3)
         return True
 
