@@ -2,6 +2,7 @@ HustUser = [
     dict(
         username='CKboss',
         password='1756942789',
+        vj_username='CKboss',
     ),
 ]
 

@@ -9,6 +9,7 @@ from Crawler.PkuCrawler.PkuScanner import PkuScanner
 from Crawler.ZojCrawler.ZojScanner import ZojScanner
 from Crawler.BzojCrawler.BzojScanner import BzojScanner
 from Crawler.BnuVJCrawler.BnuVJScanner import BnuVJScanner
+from Crawler.HustCrawler.HustScanner import HustScanner
 
 from tools.dbtools import getUpdateSQL,FetchOne,FetchAll,ExeSQL
 from tools.dbcore import ConnPool
@@ -42,6 +43,9 @@ class ScannerThread(threading.Thread) :
         elif self.ojname=='bzoj':
             bz = BzojScanner()
             l = bz.Scanner()
+        elif self.ojname=='hust':
+            hus = HustScanner()
+            l = hus.Scanner()
         else:
             l = list()
 
@@ -55,7 +59,7 @@ class ScannerThread(threading.Thread) :
 
 class MainScanner():
     TF = SID_DATA_FILE
-    ojs = ['hdu','pku','zoj','bzoj','bnuoj']
+    ojs = ['hdu','pku','zoj','bzoj','bnuoj','hust']
 
     def Scanner(self):
 
