@@ -32,6 +32,13 @@ class ProblemHandler(tornado.web.RequestHandler):
             self.finish()
             return
 
+        clearkeys = list()
+        for x in D.keys():
+            lenth = len(str(D[x]))
+            if lenth == 0 : clearkeys.append(x)
+
+        for x in clearkeys :    del D[x]
+
         current_user = self.get_secure_cookie('username')
         self.render('problem.html', D=D, current_user=current_user, cid=cid)
 
