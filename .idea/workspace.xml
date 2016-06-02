@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2de79d09-24b7-4478-a485-08d4b37a9915" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Handlers/ProblemHandler.py" afterPath="$PROJECT_DIR$/Handlers/ProblemHandler.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sql_version_1_2.sql" afterPath="$PROJECT_DIR$/sql_version_1_2.sql" />
     </list>
     <ignored path="VirtualJudgePY.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -113,7 +113,28 @@
     <favorites_list name="VirtualJudgePY" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="17" column="9" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sql_version_1_2.sql" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/sql_version_1_2.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1092">
+              <caret line="173" column="0" selection-start-line="173" selection-start-column="0" selection-end-line="173" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -130,7 +151,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/tools/PictureToBase64.py" />
         <option value="$PROJECT_DIR$/dao/statusdao.py" />
         <option value="$PROJECT_DIR$/Handlers/ContestShowHandler.py" />
         <option value="$PROJECT_DIR$/Handlers/RegisterHandler.py" />
@@ -181,6 +201,7 @@
         <option value="$PROJECT_DIR$/templates/crawleronline.html" />
         <option value="$PROJECT_DIR$/Handlers/CrawlerOnlineHandler.py" />
         <option value="$PROJECT_DIR$/Handlers/ProblemHandler.py" />
+        <option value="$PROJECT_DIR$/sql_version_1_2.sql" />
       </list>
     </option>
   </component>
@@ -678,13 +699,6 @@
       <option name="presentableId" value="Default" />
       <updated>1451465596022</updated>
     </task>
-    <task id="LOCAL-00036" summary="Source Code hightlight">
-      <created>1456483369273</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1456483369273</updated>
-    </task>
     <task id="LOCAL-00037" summary="Source Code hightlight js and css">
       <created>1456483577547</created>
       <option name="number" value="00037" />
@@ -1021,7 +1035,14 @@
       <option name="project" value="LOCAL" />
       <updated>1464877825949</updated>
     </task>
-    <option name="localTasksCounter" value="85" />
+    <task id="LOCAL-00085" summary="修复Problem显示错位问题">
+      <created>1464878806914</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1464878806914</updated>
+    </task>
+    <option name="localTasksCounter" value="86" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1043,10 +1064,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1049" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24271844" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14696486" sideWeight="0.48732942" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14696486" sideWeight="0.48732942" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3265306" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3265086" sideWeight="0.5021299" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22097977" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1103,7 +1124,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="AC 或者 Try 的Problemlist的背景颜色" />
     <MESSAGE value="userstatus中点击problem跳转到Status" />
     <MESSAGE value="Authors Ranklist" />
     <MESSAGE value="userstatus 中显示ranklist" />
@@ -1128,7 +1148,8 @@
     <MESSAGE value="一些小的修改" />
     <MESSAGE value="1.修改主页和问题反馈界面&#10;2.修改图片缓存规则&#10;3.数据库中problemdetail表中的一些值转换为MEDIATEST" />
     <MESSAGE value="BNUVJ 在线抓取的修复" />
-    <option name="LAST_COMMIT_MESSAGE" value="BNUVJ 在线抓取的修复" />
+    <MESSAGE value="修复Problem显示错位问题" />
+    <option name="LAST_COMMIT_MESSAGE" value="修复Problem显示错位问题" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1142,13 +1163,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/tools/PictureToBase64.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="dbDummy://dbtable:/fe2cd095/7fec3d37-a393-49ff-9884-37c4806a7d94/mydb.cproblem" />
     <entry file="file://$PROJECT_DIR$/Crawler/HduCrawler/HduConfig.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -1479,14 +1493,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="19" column="62" selection-start-line="19" selection-start-column="62" selection-end-line="19" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="622">
@@ -1556,6 +1562,22 @@
           <folding>
             <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="17" column="9" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sql_version_1_2.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1092">
+          <caret line="173" column="0" selection-start-line="173" selection-start-column="0" selection-end-line="173" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
