@@ -3,13 +3,16 @@ from Crawler.PkuCrawler.PkuVJudger import PkuVJudger
 from Crawler.ZojCrawler.ZojVJudger import ZojVJudge
 from Crawler.BzojCrawler.BzojVjudger import BzojVjudger
 from Crawler.BnuVJCrawler.BnuVJVjudger import BnuVJVjudge
+from Crawler.HustCrawler.HustVJudger import HustVJudger
 
 from tools.dbcore import ConnPool
+from tools.dbtools import FetchOne
 from tools.dbtools import getQueryDetailSQL
 
 class AutoSubmit():
     def SubmmitSelector(self, oj, prob, lang, code):
 
+        roj = oj
         oj = str(oj).upper()
         vj_username = None
 
@@ -26,22 +29,29 @@ class AutoSubmit():
             BV = BzojVjudger()
             vj_username = BV.Submit(prob, lang, code)
         else:
-            BVJ = BnuVJVjudge()
-            rs = self.getPID(oj,prob)
-            if rs is None :
-                print(' no such prob ...')
-            else :
-                pid = rs[0]
+
+            rs = self.getPID(roj,prob)
+            if rs is None : return None
+            if rs[0] is None: return None
+            pid = rs[1]
+            if rs[0] == 'HUST':
+                HUST = HustVJudger()
+                print('oj',oj,'pid',pid,'lang',lang,'code',code)
+                vj_username = HUST.Submit(roj,pid,lang,code)
+            elif rs[0] == 'BNUVJ' :
+                BVJ = BnuVJVjudge()
                 vj_username = BVJ.Submit(pid,lang,code)
+
         return vj_username
 
     def getPID(self,oj,prob):
-
-        sql = getQueryDetailSQL('problem',' virtualProb ',' originOJ = "{}" and originProb = "{}" and virtualOJ = "BNUVJ" '.format(oj,prob),' pid ')
-
-        conn = ConnPool.connect()
-        cur = conn.cursor()
-        cur.execute(sql)
-        rs = cur.fetchone()
-
+        sql = getQueryDetailSQL('problem',' virtualOJ,virtualProb ',' originOJ = "{}" and originProb = "{}" '.format(oj,prob),' pid ')
+        rs = FetchOne(sql)
         return rs
+
+if __name__=='__main__':
+    AS = AutoSubmit()
+    #ans = AS.getPID('HDU',1002)
+    #ans = AS.getPID('Aziu',"0001")
+    code='abcdefghijklmnopqristubwasfa'*3
+    AS.SubmmitSelector('Aizu',"0000",'C++',code)

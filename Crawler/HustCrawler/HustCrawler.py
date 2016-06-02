@@ -107,4 +107,4 @@ def testre():
 
 if __name__=='__main__':
     HC = HustCrawler()
-    HC.CrawlerProblem('Aziu','0000')
+    HC.CrawlerProblem('Aizu','0000')
