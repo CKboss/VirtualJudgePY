@@ -96,4 +96,9 @@ virtualjudgePY中新增加OJ支持非常的容易
 
 # 在服务器上部署,并使用nginx和supervisor
 
-详见: [http://www.ckboss.cf/2016/05/30/Tornado%E7%9A%84%E9%83%A8%E7%BD%B2/]
+详见: http://www.ckboss.cf/2016/05/30/Tornado%E7%9A%84%E9%83%A8%E7%BD%B2/
+
+以xxxx端口启动Web端:
+```python
+python3 TornadoWebInit -port=xxxx
+```

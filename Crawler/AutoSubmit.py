@@ -36,7 +36,6 @@ class AutoSubmit():
             pid = rs[1]
             if rs[0] == 'HUST':
                 HUST = HustVJudger()
-                print('oj',oj,'pid',pid,'lang',lang,'code',code)
                 vj_username = HUST.Submit(roj,pid,lang,code)
             elif rs[0] == 'BNUVJ' :
                 BVJ = BnuVJVjudge()
