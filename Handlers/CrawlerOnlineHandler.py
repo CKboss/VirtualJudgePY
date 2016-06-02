@@ -31,6 +31,8 @@ class CrawlerOnlineHandler(BaseHandler):
         if oj is None or vj is None or prob is None or oj == 'ALL' :
             self.finish()
             return
+
+
         isok = yield self.CrawlerIt(vj,oj,prob)
         msg = renderMSG('Crawler Success! Visit <a href="/problem/{}/{}">here</a> enjoy it!'.format(oj,prob),waittime=1000000)
         self.write(msg)
@@ -39,9 +41,11 @@ class CrawlerOnlineHandler(BaseHandler):
     @run_on_executor
     def CrawlerIt(self,vj,oj,prob):
 
-        if vj == 'BNU':
+
+        if vj == 'BNUVJ':
             if oj == 'ZOJ' : oj = 'ZJU'
             bvc = BnuVJCrawler()
+            print('now bnuvj crawler')
             bvc.CrawlerProblem(originOJ=oj,originProb=prob)
         elif vj == 'HUST':
             huc = HustCrawler()

@@ -146,13 +146,13 @@
         <data-type>int(11)</data-type>
       </column>
       <column id="44" parent="5" name="description">
-        <data-type>text</data-type>
+        <data-type>mediumtext</data-type>
       </column>
       <column id="45" parent="5" name="input">
-        <data-type>text</data-type>
+        <data-type>mediumtext</data-type>
       </column>
       <column id="46" parent="5" name="output">
-        <data-type>text</data-type>
+        <data-type>mediumtext</data-type>
       </column>
       <column id="47" parent="5" name="sampleinput">
         <data-type>text</data-type>
@@ -161,7 +161,7 @@
         <data-type>text</data-type>
       </column>
       <column id="49" parent="5" name="hint">
-        <data-type>text</data-type>
+        <data-type>mediumtext</data-type>
       </column>
       <column id="50" parent="5" name="author">
         <data-type>varchar(255)</data-type>

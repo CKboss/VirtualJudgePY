@@ -96,7 +96,7 @@ class BnuVJCrawler():
 
 def main():
     BVC = BnuVJCrawler()
-    BVC.CrawlerProblem('HRBUST','1003')
+    BVC.CrawlerProblem('HDU','5005')
     '''
     f = open('/tmp/h1.html','r')
     html = f.read()
