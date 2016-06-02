@@ -56,9 +56,12 @@ class HustScanner:
 
         L = list()
         for i in range(0,20):
-            tl = d['data'][i]
+            try :
+                tl = d['data'][i]
+            except Exception as e :
+                break
             item = dict()
-            item['username'] = tl[1]
+            item['nickname'] = tl[1]
             item['realrunid'] = tl[0]
             item['originOJ'] = tl[11]
             item['originProb'] = tl[12]
