@@ -112,6 +112,7 @@ def ExeSQL(sql):
         conn.close()
     except Exception as e :
         print('sql exe Error {}'.format(str(e)))
+        print('sql: ',sql)
         return False
     return True
 

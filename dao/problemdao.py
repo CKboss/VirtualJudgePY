@@ -34,7 +34,7 @@ import pickle
 import time
 from tools.encode import Base64StrToUTF8Str, UTF8StrToBase64Str
 from tools.dbcore import ConnPool
-from tools.dbtools import getInserSQL, getUpdateSQL,FetchAll,FetchOne,ExeSQL
+from tools.dbtools import getQuerySQL,getInserSQL, getUpdateSQL,FetchAll,FetchOne,ExeSQL
 
 
 def GetProblemID(orj, orid):
@@ -72,6 +72,9 @@ def UpdateProblem(problem, pid):
     cluse = 'pid = {}'.format(pid)
 
     sql = getUpdateSQL('problem', data=problem, clause=cluse)
+
+    #print('Update',sql)
+
     ExeSQL(sql)
 
 def pretreat_ProblemDetail(problem):
@@ -94,10 +97,15 @@ def InsertProblemDetail(problem):
 def UpdateProblemDetail(problem, pid):
     pretreat_ProblemDetail(problem)
 
-    clause = 'problemdetail.pid = %d' % pid
-    sql = getUpdateSQL('problemdetail', data=problem, clause=clause)
-    # print(sql)
-    ExeSQL(sql)
+    sql = getQuerySQL('problemdetail',' pid={} '.format(pid),' did ')
+    rs = FetchOne(sql)
+
+    if rs is None :
+        InsertProblemDetail(problem)
+    else :
+        clause = 'problemdetail.pid = %d' % pid
+        sql = getUpdateSQL('problemdetail', data=problem, clause=clause)
+        ExeSQL(sql)
 
 
 problem = dict(
@@ -139,6 +147,8 @@ def InsertOrUpdateProblem(kwargs):
 
     pid = GetProblemID(pd['originOJ'], pd['originProb'])
 
+    print('pid ---> ',pid)
+
     if pid == 0:
         # Insert problem table
         InsertProblem(pd)
@@ -149,8 +159,10 @@ def InsertOrUpdateProblem(kwargs):
     else:
         pdd['pid'] = pid
         # Update problem table
+        print('Update problem table')
         UpdateProblem(pd, pid)
         # Update problemDetail table
+        print('Update problemDetail table')
         UpdateProblemDetail(pdd, pid)
 
     '''

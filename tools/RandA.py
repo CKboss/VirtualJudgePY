@@ -38,9 +38,17 @@ def RelUrlToBase64Code(baseurl,text,checkpicture=True,referer='http://www.baidu.
 
     picture_end = ['png','jpg','gif','bmp','svg','pcx']
 
+
+    lastword = None
+
     for l in L:
 
-        if len(l) > 5 and l[:5] == 'src="':
+        isimg = None
+        if lastword is not None :
+            isimg = re.match(r'.*<img.*',lastword)
+
+        if len(l) > 5 and l[:5] == 'src="' and lastword is not None and isimg is not None:
+
             m = re.match(r'src="(.*)"',l)
             parturl=baseurl+'/'+m.group(1)
 
@@ -66,12 +74,19 @@ def RelUrlToBase64Code(baseurl,text,checkpicture=True,referer='http://www.baidu.
                 if url[0] == '/':
                     l = l[:m.start(1)]+baseurl+'/'+url+l[m.end(1):]
 
+        lastword=str(l).lower()
         ret = ret + ' ' + l
 
     return ret
 
 
 if __name__=='__main__':
+
+    lastword = '<img'
+    isimg = re.match(r'.*<img.*',lastword)
+    print(isimg)
+
+    '''
     f = open('/tmp/t.html','r')
     baseurl = 'http://www.lydsy.com/JudgeOnline/'
     #baseurl = 'http://acm.hdu.edu.cn/'
@@ -79,3 +94,4 @@ if __name__=='__main__':
     fout = open('/tmp/t2.html','w')
     fout.write(ret)
     fout.close()
+    '''

@@ -73,6 +73,9 @@ class ProblemHandler(tornado.web.RequestHandler):
         cur.execute(sql)
         rt = cur.fetchone()
 
+        print(sql)
+        print(rt)
+
         if rt[2] is not None:
             d['description'] = Base64StrToUTF8Str(rt[2])
         if rt[3] is not None:

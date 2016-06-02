@@ -86,10 +86,8 @@ class HustCrawler():
         data['specialjudge']=0
         InsertOrUpdateProblem(data)
 
-        '''
         for key in data :
             print(key,'--->',data[key])
-        '''
 
     def getLimit(self,line):
         pattern = r'.*TimeLimit:(.*)MemoryLimit:(.*)64bitIOFormat:(.*)'
@@ -107,4 +105,4 @@ def testre():
 
 if __name__=='__main__':
     HC = HustCrawler()
-    HC.CrawlerProblem('Aizu','0000')
+    HC.CrawlerProblem('HDU','5001')
