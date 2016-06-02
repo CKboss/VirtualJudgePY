@@ -6,7 +6,7 @@
 
         <strong>OJ:</strong>
 
-        {% module OJSelect() %}
+        {% module OJSelect(d['originOJ']) %}
 
         <!--
         <select size="1" name="oj">
@@ -20,13 +20,13 @@
         -->
 
         <strong>Problem ID:</strong>
-        <input type="text" name="problem_id" size="8" value="">
+        <input type="text" name="problem_id" size="8" value="{{ d['originProb'] }}">
 
         <strong>Title:</strong>
-        <input type="text" name="problem_title" size="25" value="">
+        <input type="text" name="problem_title" size="25" value="{{ d['title'] }}">
 
         <strong>Source:</strong>
-        <input type="text" name="problem_source" size="35" value="">
+        <input type="text" name="problem_source" size="35" value="{{ d['source'] }}">
 
         <input type="hidden" name="issearch" value="issearch">
 

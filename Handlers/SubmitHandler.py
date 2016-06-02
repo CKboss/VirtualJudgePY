@@ -54,6 +54,7 @@ class SubmitHandler(BaseHandler):
 
         if len(self.current_user) == 0:
             self.write(renderMSG('Please LogIn first!!!'))
+            self.finish()
         else:
             self.render('submit.html', OJ=OJ, Prob=Prob, pid=pid, cid=cid)
 

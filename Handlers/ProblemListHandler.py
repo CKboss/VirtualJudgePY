@@ -81,8 +81,12 @@ class ProblemListHandler(tornado.web.RequestHandler):
             hasNext = False
 
         # print(hasNext)
+        for key in d.keys():
+            if d[key] == '%': d[key]=' '
+            #print(key,'--->',d[key])
 
-        self.render("problemList.html", current_user=current_user,tr=tr,ac=ac, rs=rs, hasNext=hasNext)
+
+        self.render("problemList.html", current_user=current_user,tr=tr,ac=ac, rs=rs, hasNext=hasNext,d=d)
 
     @run_on_executor
     def getStauts(self, index, data, uid):

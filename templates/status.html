@@ -15,11 +15,11 @@
 
     <form method="get" action="status">
         <strong>Problem ID:</strong>
-        <input type="text" name="problem_id" size="8" value="">
+        <input type="text" name="problem_id" size="8" value="{{ d['originProb'] }}">
         <strong>User Name:</strong>
-        <input type="text" name="user_name" size="15" value="">
+        <input type="text" name="user_name" size="15" value="{{ d['username'] }}">
         <strong>OJ:</strong>
-        {% module OJSelect() %}
+        {% module OJSelect(d['originOJ']) %}
         <!--
         <select size="1" name="oj">
             <option value="" selected="">All</option>
@@ -32,7 +32,8 @@
         -->
         <strong>Result:</strong>
         <select size="1" name="status">
-            <option value="" selected="">All</option>
+            <option value="{{ d['status'] }}" selected="">{{ d['status'] }}</option>
+            <option value="%">ALL</option>
             <option value="Accepted">Accepted</option>
             <option value="Presentation">Presentation Error</option>
             <option value="Time%Limit%Exceeded">Time Limit Exceeded</option>
@@ -46,9 +47,10 @@
         </select>
         <strong>Language:</strong>
         <select size="1" name="language">
-            <option value="" selected="">All</option>
+            <option value="{{ d['language'] }}" selected="">{{ d['language'] }}</option>
             <!--<option value="G++">G++</option>-->
             <!--<option value="GCC">GCC</option>-->
+            <option value="%">ALL</option>
             <option value="C++">C++</option>
             <option value="C">C</option>
             <option value="Java">Java</option>

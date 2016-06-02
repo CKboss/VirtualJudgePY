@@ -64,7 +64,11 @@ class StatusHandler(BaseHandler):
             rs = rs[:-1]
 
         print('cid',cid)
-        self.render('status.html', rs=rs, hasNext=hasNext,cid=cid)
+
+        for key in d.keys():
+            if d[key] == '%': d[key]=''
+
+        self.render('status.html', rs=rs, hasNext=hasNext,cid=cid,d=d)
 
     @run_on_executor
     def getMsgs(self, Data):
