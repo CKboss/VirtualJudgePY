@@ -94,7 +94,7 @@ virtualjudgePY中新增加OJ支持非常的容易
 #### Contest功能暂不完善,更多OJ支持开发中...
 
 
-# 在服务器上部署,并使用nginx和supervisor
+# 在服务器上部署,开启多个web端并使用nginx和supervisor
 
 详见: http://www.ckboss.cf/2016/05/30/Tornado%E7%9A%84%E9%83%A8%E7%BD%B2/
 
