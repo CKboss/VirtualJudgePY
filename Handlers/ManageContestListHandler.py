@@ -21,6 +21,7 @@ class ManageContestListHandler(BaseHandler):
 
         if len(self.current_user) == 0:
             self.write(renderMSG('please log in first !!'))
+            self.finish()
             return
 
         uid = self.get_secure_cookie('uid').decode()

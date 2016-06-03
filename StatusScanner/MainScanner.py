@@ -90,8 +90,10 @@ class MainScanner():
         L = self.GaoIt()
         print('-> End Scanner Stauts: ')
 
+        '''
         print('Len L: ',len(L))
         for li in L : print('----> ',li)
+        '''
 
         files = os.listdir(self.TF)
         for file in files:

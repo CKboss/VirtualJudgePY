@@ -8,7 +8,7 @@
 | | / / / ___/ __/ / / / __ `/ /_  / / / / / __  / __ `/ _ \/ /_/ /\  / 
 | |/ / / /  / /_/ /_/ / /_/ / / /_/ / /_/ / /_/ / /_/ /  __/ ____/ / /  
 |___/_/_/   \__/\__,_/\__,_/_/\____/\__,_/\__,_/\__, /\___/_/     /_/   
-                                               /____/ v0.1.4
+                                               /____/ v0.1.6
 ```
 
 ![首页](http://ww1.sinaimg.cn/mw1024/50a04a61gw1f1xwn7vsqdj21330qhth1.jpg)
@@ -100,5 +100,5 @@ virtualjudgePY中新增加OJ支持非常的容易
 
 以xxxx端口启动Web端:
 ```python
-python3 TornadoWebInit -port=xxxx
+python3 TornadoWebInit.py -port=xxxx
 ```

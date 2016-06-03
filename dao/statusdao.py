@@ -58,24 +58,25 @@ def CheckContestIfTry(uid,pid,cid):
 
 
 rankSLQ = '''
-        SELECT rank,uname,acnum,trynum,radio
+    SELECT rank,uname,acnum,trynum,radio,motto
+    FROM (
+        SELECT (@rank := @rank+1) as rank,uname,motto,acnum,trynum,radio
         FROM (
-            SELECT (@rank := @rank+1) as rank,uname,acnum,trynum,radio
-            FROM (
-                   SELECT
-                     username                                            AS uname,
-                     (SELECT COUNT(DISTINCT pid)
-                      FROM status
-                      WHERE username = uname AND status LIKE '%accept%') AS acnum,
-                     (SELECT COUNT(DISTINCT pid)
-                      FROM status
-                      WHERE username = uname)                            AS trynum,
-                     (SELECT IFNULL(TRUNCATE(acnum / trynum, 6), 0))     AS radio
-                   FROM user
-                   ORDER BY acnum DESC, radio DESC, trynum DESC, uname
-                 ) as TEMPTABLE , (SELECT @rank := 0) as r
-        ) AS TEMPTABLE2
-        '''
+               SELECT
+                 username                                            AS uname,
+                 nickname                                             AS motto,
+                 (SELECT COUNT(DISTINCT pid)
+                  FROM status
+                  WHERE username = uname AND status LIKE '%accept%') AS acnum,
+                 (SELECT COUNT(DISTINCT pid)
+                  FROM status
+                  WHERE username = uname)                            AS trynum,
+                 (SELECT IFNULL(TRUNCATE(acnum / trynum, 6), 0))     AS radio
+               FROM user
+               ORDER BY acnum DESC, radio DESC, trynum DESC, uname
+             ) as TEMPTABLE , (SELECT @rank := 0) as r
+    ) AS TEMPTABLE2
+'''
 
 def GetAuthorsRank(page,pagelimit) :
 

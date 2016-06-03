@@ -5,9 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2de79d09-24b7-4478-a485-08d4b37a9915" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/releasenote.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Crawler/HustCrawler/HustScanner.py" afterPath="$PROJECT_DIR$/Crawler/HustCrawler/HustScanner.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Handlers/AuthorsRanklistHandler.py" afterPath="$PROJECT_DIR$/Handlers/AuthorsRanklistHandler.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Handlers/ManageContestListHandler.py" afterPath="$PROJECT_DIR$/Handlers/ManageContestListHandler.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/StatusScanner/MainScanner.py" afterPath="$PROJECT_DIR$/StatusScanner/MainScanner.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dao/statusdao.py" afterPath="$PROJECT_DIR$/dao/statusdao.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/authorsranklist.html" afterPath="$PROJECT_DIR$/templates/authorsranklist.html" />
     </list>
     <ignored path="VirtualJudgePY.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -22,7 +27,7 @@
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/VirtualJudgePY$ManageContestHandler.coverage" NAME="ManageContestHandler Coverage Results" MODIFIED="1455946321079" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Handlers" />
-    <SUITE FILE_PATH="coverage/VirtualJudgePY$__init__.coverage" NAME="__init__ Coverage Results" MODIFIED="1464879726574" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/VirtualJudgePY$__init__.coverage" NAME="__init__ Coverage Results" MODIFIED="1464919476134" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/VirtualJudgePY$PkuCrawler.coverage" NAME="PkuCrawler Coverage Results" MODIFIED="1454842026638" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Crawler/PkuCrawler" />
     <SUITE FILE_PATH="coverage/VirtualJudgePY$HustConfig.coverage" NAME="HustConfig Coverage Results" MODIFIED="1464699840450" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Crawler/HustCrawler" />
     <SUITE FILE_PATH="coverage/VirtualJudgePY$HustCrawler.coverage" NAME="HustCrawler Coverage Results" MODIFIED="1464876078664" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Crawler/HustCrawler" />
@@ -93,6 +98,10 @@
         <option name="myItemId" value="MySQL - mydb@localhost" />
         <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
       </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="user" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
     </PATH>
     <PATH>
       <PATH_ELEMENT>
@@ -103,10 +112,6 @@
         <option name="myItemId" value="MySQL - mydb@localhost" />
         <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
       </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="problemdetail" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
     </PATH>
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
@@ -114,60 +119,7 @@
     <favorites_list name="VirtualJudgePY" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MainScanner.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/StatusScanner/MainScanner.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="438">
-              <caret line="160" column="32" selection-start-line="160" selection-start-column="32" selection-end-line="160" selection-end-column="32" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LICENSE" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/LICENSE">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/__init__.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="580">
-              <caret line="52" column="16" selection-start-line="52" selection-start-column="16" selection-end-line="52" selection-end-column="16" />
-              <folding>
-                <element signature="e#0#25#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HustVJudger.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Crawler/HustCrawler/HustVJudger.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-109">
-              <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HustScanner.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Crawler/HustCrawler/HustScanner.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="63" column="25" selection-start-line="63" selection-start-column="25" selection-end-line="63" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -184,10 +136,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/dao/statusdao.py" />
-        <option value="$PROJECT_DIR$/Handlers/ContestShowHandler.py" />
-        <option value="$PROJECT_DIR$/Handlers/RegisterHandler.py" />
-        <option value="$PROJECT_DIR$/Crawler/XTUTest.py" />
         <option value="$PROJECT_DIR$/Crawler/BzojCrawler/BzojVjudger.py" />
         <option value="$PROJECT_DIR$/Crawler/BnuVJCrawler/BnuVJVjudger.py" />
         <option value="$PROJECT_DIR$/Crawler/PkuCrawler/PkuVJudger.py" />
@@ -218,14 +166,12 @@
         <option value="$PROJECT_DIR$/Crawler/HustCrawler/HustConfig.py" />
         <option value="$PROJECT_DIR$/Crawler/AutoSubmit.py" />
         <option value="$PROJECT_DIR$/TornadoWebInit.py" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/templates/index.html" />
         <option value="$PROJECT_DIR$/Config/AppSettings.py" />
         <option value="$PROJECT_DIR$/Handlers/ReportBugHandler.py" />
         <option value="$PROJECT_DIR$/templates/reportbug.html" />
         <option value="$PROJECT_DIR$/dao/problemdao.py" />
         <option value="$PROJECT_DIR$/tools/dbtools.py" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/05b2899b-011d-4de0-b75f-da54c8a013e0/console.sql" />
         <option value="$PROJECT_DIR$/Crawler/HustCrawler/HustCrawler.py" />
         <option value="$PROJECT_DIR$/tools/RandA.py" />
         <option value="$PROJECT_DIR$/Crawler/BnuVJCrawler/BnuVJCrawler.py" />
@@ -233,8 +179,14 @@
         <option value="$PROJECT_DIR$/Handlers/CrawlerOnlineHandler.py" />
         <option value="$PROJECT_DIR$/Handlers/ProblemHandler.py" />
         <option value="$PROJECT_DIR$/sql_version_1_2.sql" />
-        <option value="$PROJECT_DIR$/StatusScanner/MainScanner.py" />
         <option value="$PROJECT_DIR$/Crawler/HustCrawler/HustScanner.py" />
+        <option value="$PROJECT_DIR$/StatusScanner/MainScanner.py" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/Handlers/ManageContestListHandler.py" />
+        <option value="$PROJECT_DIR$/dao/statusdao.py" />
+        <option value="$PROJECT_DIR$/Handlers/AuthorsRanklistHandler.py" />
+        <option value="$PROJECT_DIR$/templates/authorsranklist.html" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/05b2899b-011d-4de0-b75f-da54c8a013e0/console.sql" />
       </list>
     </option>
   </component>
@@ -273,8 +225,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -303,7 +253,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="StatusScanner" />
+              <option name="myItemId" value="templates" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -317,62 +267,14 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Crawler" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="VirtualJudgePY" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="VirtualJudgePY" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Crawler" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HustCrawler" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="VirtualJudgePY" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="VirtualJudgePY" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Crawler" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="BnuVJCrawler" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="VirtualJudgePY" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="VirtualJudgePY" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Config" />
+              <option name="myItemId" value="Handlers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -736,13 +638,6 @@
       <option name="presentableId" value="Default" />
       <updated>1451465596022</updated>
     </task>
-    <task id="LOCAL-00038" summary="code format">
-      <created>1456484482097</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1456484482097</updated>
-    </task>
     <task id="LOCAL-00039" summary="跳转">
       <created>1456548815396</created>
       <option name="number" value="00039" />
@@ -1079,7 +974,14 @@
       <option name="project" value="LOCAL" />
       <updated>1464879035166</updated>
     </task>
-    <option name="localTasksCounter" value="87" />
+    <task id="LOCAL-00087" summary="修HUST的StuasSCanner的Bug">
+      <created>1464879990900</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1464879990900</updated>
+    </task>
+    <option name="localTasksCounter" value="88" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1103,14 +1005,14 @@
     <frame x="0" y="0" width="1920" height="1049" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24271844" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14696486" sideWeight="0.48732942" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24167562" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1485623" sideWeight="0.48732942" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3265306" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3265086" sideWeight="0.5021299" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22097977" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.03125" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3265086" sideWeight="0.4978701" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3029001" sideWeight="0.4914803" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3029001" sideWeight="0.4914803" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24973376" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32760474" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20490928" sideWeight="0.5126706" order="2" side_tool="true" content_ui="tabs" />
@@ -1161,7 +1063,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Authors Ranklist" />
     <MESSAGE value="userstatus 中显示ranklist" />
     <MESSAGE value="ranklist 的颜色" />
     <MESSAGE value="SQL语句化简" />
@@ -1186,7 +1087,8 @@
     <MESSAGE value="BNUVJ 在线抓取的修复" />
     <MESSAGE value="修复Problem显示错位问题" />
     <MESSAGE value="更新SQL文件" />
-    <option name="LAST_COMMIT_MESSAGE" value="更新SQL文件" />
+    <MESSAGE value="修HUST的StuasSCanner的Bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="修HUST的StuasSCanner的Bug" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1200,60 +1102,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Crawler/HduCrawler/HduConfig.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="38" column="29" selection-start-line="38" selection-start-column="29" selection-end-line="38" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Crawler/HduCrawler/HduCrawler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-42">
-          <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/fe2cd095/05b2899b-011d-4de0-b75f-da54c8a013e0/mydb.problemdetail">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Config/FilePathConfig.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="10" column="16" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Config/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Handlers/DebugHandler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="1" column="17" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Crawler/HustCrawler/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Crawler/HduCrawler/HduVJudger.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-123">
@@ -1336,9 +1184,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-724">
           <caret line="84" column="0" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#18#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1346,7 +1191,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
           <caret line="6" column="26" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1364,16 +1208,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="1571">
-            <caret line="100" column="5" selection-start-line="100" selection-start-column="5" selection-end-line="100" selection-end-column="5" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TornadoWebInit.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="294">
@@ -1385,7 +1219,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="546">
           <caret line="35" column="22" selection-start-line="35" selection-start-column="22" selection-end-line="35" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1400,17 +1233,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Handlers/RankListHandler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-882">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1426,17 +1248,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
           <caret line="8" column="30" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
-          <folding>
-            <element signature="e#60#101#0#HTML" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/05b2899b-011d-4de0-b75f-da54c8a013e0/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="28" column="34" selection-start-line="28" selection-start-column="34" selection-end-line="28" selection-end-column="34" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1444,7 +1255,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
           <caret line="9" column="11" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1452,14 +1262,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1512">
           <caret line="114" column="24" selection-start-line="114" selection-start-column="24" selection-end-line="114" selection-end-column="24" />
-          <folding>
-            <marker date="1464874830421" expanded="true" signature="413:444" placeholder="INSERT INTO missing_value... " />
-            <marker date="1464874830421" expanded="true" signature="865:894" placeholder="UPDATE missi... " />
-            <marker date="1464874830421" expanded="true" signature="1016:1069" placeholder="SELECT * FRO... missing_value" />
-            <marker date="1464874830421" expanded="true" signature="1262:1289" placeholder="DELETE FROM " />
-            <marker date="1464874830421" expanded="true" signature="1402:1442" placeholder="SELECT * FRO... missing_value" />
-            <marker date="1464874830421" expanded="true" signature="1783:1824" placeholder="SELECT missi... missing_value" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1467,10 +1269,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="903">
           <caret line="107" column="11" selection-start-line="107" selection-start-column="11" selection-end-line="107" selection-end-column="11" />
-          <folding>
-            <element signature="e#2001#2014#0" expanded="true" />
-            <marker date="1464874772986" expanded="true" signature="2256:2372" placeholder="SELECT probl... problem" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1478,9 +1276,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="399">
           <caret line="46" column="32" selection-start-line="46" selection-start-column="32" selection-end-line="46" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#9#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1488,7 +1283,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-575">
           <caret line="57" column="73" selection-start-line="57" selection-start-column="73" selection-end-line="57" selection-end-column="73" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1504,7 +1298,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1701">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1512,9 +1305,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="46">
           <caret line="17" column="51" selection-start-line="17" selection-start-column="51" selection-end-line="17" selection-end-column="51" />
-          <folding>
-            <element signature="e#307#329#0#HTML" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1522,9 +1312,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2058">
           <caret line="98" column="33" selection-start-line="98" selection-start-column="33" selection-end-line="98" selection-end-column="33" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1532,7 +1319,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
           <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1540,9 +1326,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#15#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1551,7 +1334,7 @@
         <state relative-caret-position="315">
           <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
           <folding>
-            <element signature="e#0#18#0" expanded="true" />
+            <element signature="e#0#18#0" expanded="false" />
             <marker date="1464878757417" expanded="true" signature="1513:1588" placeholder="SELECT * FRO... problem" />
             <marker date="1464878757417" expanded="true" signature="2071:2111" placeholder="SELECT * FRO... problemdetail" />
             <marker date="1464878757417" expanded="true" signature="3282:3357" placeholder="SELECT * FRO... problem" />
@@ -1564,9 +1347,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-735">
           <caret line="64" column="9" selection-start-line="64" selection-start-column="9" selection-end-line="64" selection-end-column="9" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1574,7 +1354,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="17" column="9" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1582,13 +1361,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1092">
           <caret line="173" column="0" selection-start-line="173" selection-start-column="0" selection-end-line="173" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Crawler/HustCrawler/HustScanner.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
+        <state relative-caret-position="1239">
           <caret line="63" column="25" selection-start-line="63" selection-start-column="25" selection-end-line="63" selection-end-column="25" />
           <folding />
         </state>
@@ -1596,17 +1374,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Crawler/HustCrawler/HustVJudger.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-109">
+        <state relative-caret-position="525">
           <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/StatusScanner/MainScanner.py">
+    <entry file="file://$PROJECT_DIR$/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="438">
-          <caret line="160" column="32" selection-start-line="160" selection-start-column="32" selection-end-line="160" selection-end-column="32" />
-          <folding />
+        <state relative-caret-position="777">
+          <caret line="37" column="22" selection-start-line="37" selection-start-column="22" selection-end-line="37" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#25#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1618,12 +1398,122 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/__init__.py">
+    <entry file="file://$PROJECT_DIR$/StatusScanner/MainScanner.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="580">
-          <caret line="52" column="16" selection-start-line="52" selection-start-column="16" selection-end-line="52" selection-end-column="16" />
+        <state relative-caret-position="312">
+          <caret line="91" column="0" selection-start-line="91" selection-start-column="0" selection-end-line="91" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Handlers/ManageContestHandler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#25#0" expanded="true" />
+            <element signature="e#0#18#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Handlers/ManageContestListHandler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-29">
+          <caret line="16" column="26" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Handlers/RankListHandler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#18#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dao/statusdao.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="924">
+          <caret line="93" column="12" selection-start-line="93" selection-start-column="12" selection-end-line="93" selection-end-column="12" />
+          <folding>
+            <marker date="1464927558273" expanded="true" signature="1606:1699" placeholder="SELECT count... status" />
+            <marker date="1464927558273" expanded="true" signature="1780:1844" placeholder="SELECT count... status" />
+            <marker date="1464927558273" expanded="true" signature="1937:1996" placeholder="SELECT pid,C... status" />
+            <marker date="1464927558273" expanded="true" signature="2077:2163" placeholder="SELECT pid,C... status" />
+            <marker date="1464927558273" expanded="true" signature="2257:2363" placeholder="SELECT count... status" />
+            <marker date="1464927558273" expanded="true" signature="2460:2537" placeholder="SELECT count... status" />
+            <marker date="1464927558273" expanded="true" signature="2608:3484" placeholder="SELECT rank,... rank" />
+            <marker date="1464927558273" expanded="true" signature="2670:3464" placeholder="SELECT (@ran... username" />
+            <marker date="1464927558273" expanded="true" signature="2765:3409" placeholder="SELECT usern... user" />
+            <marker date="1464927558273" expanded="true" signature="2949:3073" placeholder="SELECT COUNT... status" />
+            <marker date="1464927558273" expanded="true" signature="3103:3200" placeholder="SELECT COUNT... status" />
+            <marker date="1464927558273" expanded="true" signature="3258:3303" placeholder="SELECT IFNUL... " />
+            <marker date="1464927558273" expanded="true" signature="3441:3458" placeholder="SELECT @rank... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/05b2899b-011d-4de0-b75f-da54c8a013e0/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/userstatus.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-210">
+          <caret line="20" column="20" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
+          <folding>
+            <element signature="n#style#0;n#h1#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#form#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h2#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#form#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h2#1;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#form#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/authorsranklist.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="30" column="34" selection-start-line="30" selection-start-column="34" selection-end-line="30" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/releasenote.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="0">
+            <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="441">
+            <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Handlers/AuthorsRanklistHandler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="511">
+          <caret line="38" column="15" selection-start-line="38" selection-start-column="15" selection-end-line="38" selection-end-column="15" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
       </provider>

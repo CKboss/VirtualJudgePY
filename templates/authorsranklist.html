@@ -20,7 +20,14 @@
             <tr align="center" bgcolor="#f0f8ff">
                 <td>{{ int(r[0]) }}</td>
                 <td><a href="userstatus?username={{ r[1] }}">{{ r[1] }}</a></td>
-                <td>.....</td>
+
+                {% if r[5] is None %}
+                {% set motto = '.........'%}
+                {% else %}
+                {% set motto = r[5] %}
+                {% end %}
+
+                <td>{{ motto }}</td>
                 <td>{{ r[2] }}</td>
                 <td>{{ r[3] }}</td>
                 <td>{{ ("%2.3f"%(r[4]*100)) }} %</td>

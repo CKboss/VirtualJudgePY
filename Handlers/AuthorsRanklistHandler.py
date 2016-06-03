@@ -36,4 +36,5 @@ class AuthorsRanklistHandler(BaseHandler):
     @run_on_executor
     def getRankList(self,page,pagelimit):
         rs = GetAuthorsRank(page,pagelimit)
+        print(rs)
         return rs
