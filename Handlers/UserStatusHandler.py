@@ -31,6 +31,7 @@ class UserStatusHander(BaseHandler):
             self.finish()
 
         uid = rs[0]
+        nickname = rs[2]
         email = str(rs[4])
         school = rs[5]
         urlpart = hashlib.md5(email.lower().encode('utf-8')).hexdigest()
@@ -51,7 +52,7 @@ class UserStatusHander(BaseHandler):
 
         print(submitdata)
 
-        self.render("userstatus.html", uid=uid, uname=username, email=email, school=school, urlpart=urlpart, rs=rs,
+        self.render("userstatus.html", uid=uid, uname=username,nickname=nickname, email=email, school=school, urlpart=urlpart, rs=rs,
                     submitdata=submitdata,rank=rankinfo)
 
     @tornado.web.asynchronous
@@ -64,6 +65,7 @@ class UserStatusHander(BaseHandler):
         newpassword = self.get_argument('newpassword')
         email = self.get_argument('email')
         school = self.get_argument('school')
+        nickname = self.get_argument('nickname')
 
         # Check Password
 
@@ -77,6 +79,7 @@ class UserStatusHander(BaseHandler):
         data = dict()
         data['email'] = email
         data['school'] = school
+        data['nickname'] = nickname
 
         if newpassword is not None and len(newpassword) != 0:
             data['password'] = SHA512(username+'@'+newpassword)
@@ -99,6 +102,8 @@ class UserStatusHander(BaseHandler):
         where = ' username = "{}" '.format(username)
         sql = getQuerySQL('user', whereclause=where, ordclause=' uid ')
         rs = FetchOne(sql)
+
+        print(rs)
 
         return rs
 

@@ -5,14 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2de79d09-24b7-4478-a485-08d4b37a9915" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/releasenote.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Handlers/AuthorsRanklistHandler.py" afterPath="$PROJECT_DIR$/Handlers/AuthorsRanklistHandler.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Handlers/ManageContestListHandler.py" afterPath="$PROJECT_DIR$/Handlers/ManageContestListHandler.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/StatusScanner/MainScanner.py" afterPath="$PROJECT_DIR$/StatusScanner/MainScanner.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dao/statusdao.py" afterPath="$PROJECT_DIR$/dao/statusdao.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/authorsranklist.html" afterPath="$PROJECT_DIR$/templates/authorsranklist.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Handlers/UserStatusHandler.py" afterPath="$PROJECT_DIR$/Handlers/UserStatusHandler.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/userstatus.html" afterPath="$PROJECT_DIR$/templates/userstatus.html" />
     </list>
     <ignored path="VirtualJudgePY.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -136,8 +131,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Crawler/BzojCrawler/BzojVjudger.py" />
-        <option value="$PROJECT_DIR$/Crawler/BnuVJCrawler/BnuVJVjudger.py" />
         <option value="$PROJECT_DIR$/Crawler/PkuCrawler/PkuVJudger.py" />
         <option value="$PROJECT_DIR$/Crawler/ZojCrawler/ZojVJudger.py" />
         <option value="$PROJECT_DIR$/Crawler/CrawlerConfig.py" />
@@ -187,6 +180,8 @@
         <option value="$PROJECT_DIR$/Handlers/AuthorsRanklistHandler.py" />
         <option value="$PROJECT_DIR$/templates/authorsranklist.html" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/05b2899b-011d-4de0-b75f-da54c8a013e0/console.sql" />
+        <option value="$PROJECT_DIR$/templates/userstatus.html" />
+        <option value="$PROJECT_DIR$/Handlers/UserStatusHandler.py" />
       </list>
     </option>
   </component>
@@ -638,13 +633,6 @@
       <option name="presentableId" value="Default" />
       <updated>1451465596022</updated>
     </task>
-    <task id="LOCAL-00039" summary="跳转">
-      <created>1456548815396</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1456548815396</updated>
-    </task>
     <task id="LOCAL-00040" summary="markdown">
       <created>1456550533616</created>
       <option name="number" value="00040" />
@@ -981,7 +969,14 @@
       <option name="project" value="LOCAL" />
       <updated>1464879990900</updated>
     </task>
-    <option name="localTasksCounter" value="88" />
+    <task id="LOCAL-00088" summary="Author Rank List 中 motto的显示">
+      <created>1464927912904</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1464927912907</updated>
+    </task>
+    <option name="localTasksCounter" value="89" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1005,14 +1000,14 @@
     <frame x="0" y="0" width="1920" height="1049" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24167562" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24167562" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1485623" sideWeight="0.48732942" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3265306" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3265086" sideWeight="0.5021299" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22097977" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.03125" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3265086" sideWeight="0.4978701" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3029001" sideWeight="0.4914803" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3029001" sideWeight="0.4914803" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24973376" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32760474" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20490928" sideWeight="0.5126706" order="2" side_tool="true" content_ui="tabs" />
@@ -1063,7 +1058,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="userstatus 中显示ranklist" />
     <MESSAGE value="ranklist 的颜色" />
     <MESSAGE value="SQL语句化简" />
     <MESSAGE value="SQL语句化简,用Fetch函数来代替调用" />
@@ -1088,7 +1082,8 @@
     <MESSAGE value="修复Problem显示错位问题" />
     <MESSAGE value="更新SQL文件" />
     <MESSAGE value="修HUST的StuasSCanner的Bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="修HUST的StuasSCanner的Bug" />
+    <MESSAGE value="Author Rank List 中 motto的显示" />
+    <option name="LAST_COMMIT_MESSAGE" value="Author Rank List 中 motto的显示" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1102,13 +1097,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Crawler/HduCrawler/HduVJudger.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-123">
-          <caret line="30" column="35" selection-start-line="30" selection-start-column="35" selection-end-line="30" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Crawler/BnuVJCrawler/BnuVJConfig.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
@@ -1262,6 +1250,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1512">
           <caret line="114" column="24" selection-start-line="114" selection-start-column="24" selection-end-line="114" selection-end-column="24" />
+          <folding>
+            <marker date="1464874830421" expanded="true" signature="413:444" placeholder="INSERT INTO missing_value... " />
+            <marker date="1464874830421" expanded="true" signature="865:894" placeholder="UPDATE missi... " />
+            <marker date="1464874830421" expanded="true" signature="1016:1069" placeholder="SELECT * FRO... missing_value" />
+            <marker date="1464874830421" expanded="true" signature="1262:1289" placeholder="DELETE FROM " />
+            <marker date="1464874830421" expanded="true" signature="1402:1442" placeholder="SELECT * FRO... missing_value" />
+            <marker date="1464874830421" expanded="true" signature="1783:1824" placeholder="SELECT missi... missing_value" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1466,26 +1462,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/userstatus.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-210">
-          <caret line="20" column="20" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
-          <folding>
-            <element signature="n#style#0;n#h1#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#form#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h2#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#form#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h2#1;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#form#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/authorsranklist.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="30" column="34" selection-start-line="30" selection-start-column="34" selection-end-line="30" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/releasenote.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
@@ -1514,6 +1490,33 @@
           <caret line="38" column="15" selection-start-line="38" selection-start-column="15" selection-end-line="38" selection-end-column="15" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/authorsranklist.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="30" column="34" selection-start-line="30" selection-start-column="34" selection-end-line="30" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/userstatus.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="41" column="20" selection-start-line="41" selection-start-column="20" selection-end-line="41" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Handlers/UserStatusHandler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="651">
+          <caret line="73" column="21" selection-start-line="73" selection-start-column="21" selection-end-line="73" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+            <marker date="1464929246483" expanded="true" signature="4115:4201" placeholder="SELECT statu... status" />
           </folding>
         </state>
       </provider>
