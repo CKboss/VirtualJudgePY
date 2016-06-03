@@ -57,7 +57,7 @@ class HustCrawler():
 
         referer = 'http://acm.hust.edu.cn/vjudge/problem/viewProblem.action?id='+str(realid)
 
-        RTAlist = ['description','output','input','sampleInput','sampleOutput']
+        RTAlist = ['description','output','input','hint','sampleInput','sampleOutput']
 
         for key in dt.keys():
             if key in RTAlist:

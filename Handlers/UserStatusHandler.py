@@ -50,10 +50,12 @@ class UserStatusHander(BaseHandler):
         '''
         submitdata = rs2
 
-        print(submitdata)
+        self.get_current_user()
+        showpsw = False
+        if self.current_user == username : showpsw= True
 
         self.render("userstatus.html", uid=uid, uname=username,nickname=nickname, email=email, school=school, urlpart=urlpart, rs=rs,
-                    submitdata=submitdata,rank=rankinfo)
+                    submitdata=submitdata,rank=rankinfo,showpsw=showpsw)
 
     @tornado.web.asynchronous
     @tornado.gen.engine

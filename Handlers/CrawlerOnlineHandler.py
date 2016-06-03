@@ -1,5 +1,6 @@
 import tornado.web
 import tornado.gen
+import json
 import time
 
 from tornado.concurrent import run_on_executor
@@ -25,6 +26,20 @@ class CrawlerOnlineHandler(BaseHandler):
     @tornado.web.asynchronous
     @tornado.gen.engine
     def post(self):
+
+        if self.request.files is not None:
+            csv_meta = self.request.files
+            content = csv_meta['csv'][0]['body'].decode()
+            problemlist = content.split('\n')
+            if len(problemlist) > 20 :
+                self.write(renderMSG('Too many Problem to Crawler'))
+                self.finish()
+            else :
+                nt = yield self.CrawlerCSV(problemlist)
+                self.write(renderMSG('{} problem crawler success'.format(nt)))
+                self.finish()
+            return
+
         vj = self.get_argument('VJ',None)
         oj = self.get_argument('oj',None)
         prob = self.get_argument('prob',None)
@@ -45,7 +60,6 @@ class CrawlerOnlineHandler(BaseHandler):
         if vj == 'BNUVJ':
             if oj == 'ZOJ' : oj = 'ZJU'
             bvc = BnuVJCrawler()
-            print('now bnuvj crawler')
             bvc.CrawlerProblem(originOJ=oj,originProb=prob)
         elif vj == 'HUST':
             huc = HustCrawler()
@@ -54,3 +68,14 @@ class CrawlerOnlineHandler(BaseHandler):
         time.sleep(3)
         return True
 
+    @run_on_executor
+    def CrawlerCSV(self,problemlist):
+        nt=0
+        for line in problemlist :
+            item = line.split(',')
+            if len(item) == 2 :
+                oj = item[0]
+                prob = item[1]
+                if self.CrawlerIt('HUST',oj,prob) : nt+=1
+            time.sleep(2)
+        return nt

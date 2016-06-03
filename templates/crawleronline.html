@@ -31,6 +31,19 @@
                     <td> <input type="submit" class="btn btn-primary" value="Crawler Online"> </td>
                 </tr>
                 </form>
+           </tbody>
+        </table>
+        <table>
+            <tbody>
+                <tr>
+                    <form action="/crawleronline" method="post" enctype="multipart/form-data">
+                        {% raw xsrf_form_html() %}
+                        <td width="300px"><h2 style="color: #6e5494">Crawler From ProblemList: </h2></td>
+                        <td width="60px"><input type="file" name="csv"></td>
+                        <td width="30px"></td>
+                        <td width="60px"><input type="submit" class="btn btn-primary" value="Crawler Online"></td>
+                    </form>
+                </tr>
             </tbody>
         </table>
 </div>
