@@ -96,8 +96,13 @@ class BnuVJCrawler():
 
 def main():
     BVC = BnuVJCrawler()
-    BVC.CrawlerProblem('HDU','5005')
+    oj = 'HDU'
+    if oj in BVC.realOJname :
+        oj = BVC.realOJname[oj]
+    print(oj)
     '''
+    BVC = BnuVJCrawler()
+    BVC.CrawlerProblem('HDU','5005')
     f = open('/tmp/h1.html','r')
     html = f.read()
     BVC.GetDetail(html)

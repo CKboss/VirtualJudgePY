@@ -43,6 +43,7 @@ class CrawlerOnlineHandler(BaseHandler):
         vj = self.get_argument('VJ',None)
         oj = self.get_argument('oj',None)
         prob = self.get_argument('prob',None)
+
         if oj is None or vj is None or prob is None or oj == 'ALL' :
             self.finish()
             return

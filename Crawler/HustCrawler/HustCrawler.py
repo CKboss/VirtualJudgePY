@@ -13,6 +13,8 @@ class HustCrawler():
     getprog_url = 'http://acm.hust.edu.cn/vjudge/dwr/fetchDescriptions.action'
     virtual_url = 'http://acm.hust.edu.cn/vjudge/problem/viewProblem.action?id={}'
 
+    real_ojname = {'BZOJ':'HYSBZ','PKU':'POJ'}
+
     prob_post = {
         'draw': '5',
         'columns[0][data]': '0',
@@ -36,11 +38,11 @@ class HustCrawler():
     def CrawlerProblem(self,oj,pid):
 
         postdata = self.prob_post
+
         noj = oj
-        '''
-        if noj in OJ_Nicname.keys() :
-            noj = OJ_Nicname[noj]
-        '''
+        if noj in self.real_ojname :
+            noj = self.real_ojname[noj]
+
         postdata['OJId'] = noj
         postdata['probNum'] = pid
 

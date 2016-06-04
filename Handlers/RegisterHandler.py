@@ -30,6 +30,8 @@ class RegisterHandler(tornado.web.RequestHandler):
             ret = yield self.AddUser(dt)
             if ret == 1:
                 ''' success '''
+                self.write(renderMSG('Regiest Success!!'))
+                self.finish()
             else:
                 ''' fail '''
                 self.write(renderMSG('Regiest Fail !!!'))
