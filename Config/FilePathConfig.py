@@ -6,7 +6,7 @@ EndedContestFile = '/home/ckboss/Desktop/Development/EndedContests/'
 # OJ data
 
 ZOJ_PKL_FILE = '/home/ckboss/Desktop/Development/testData/ZOJ/'
-BZOJ_PKL_FILE = '/home/ckboss/Desktop/Development/testData/BZOJ/'
+BZOJ_PKL_FILE = '/home/ckboss/Desktop/Development/testData/BZOJ2/'
 POJ_PKL_FILE = '/home/ckboss/Desktop/Development/testData/POJ/'
 HDOJ_PKL_FILE = '/home/ckboss/Desktop/Development/testData/HDOJ2/'
 

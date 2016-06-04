@@ -27,7 +27,7 @@ class CrawlerOnlineHandler(BaseHandler):
     @tornado.gen.engine
     def post(self):
 
-        if self.request.files is not None:
+        if self.request.files is not None and len(self.request.files.keys())!=0:
             csv_meta = self.request.files
             content = csv_meta['csv'][0]['body'].decode()
             problemlist = content.split('\n')

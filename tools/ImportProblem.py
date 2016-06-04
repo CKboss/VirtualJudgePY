@@ -28,6 +28,6 @@ def ImportProblem(dir):
 
 if __name__ == '__main__':
     ImportProblem(BZOJ_PKL_FILE)
-    ImportProblem(ZOJ_PKL_FILE)
-    ImportProblem(HDOJ_PKL_FILE)
-    ImportProblem(POJ_PKL_FILE)
+    #ImportProblem(ZOJ_PKL_FILE)
+    #ImportProblem(HDOJ_PKL_FILE)
+    #ImportProblem(POJ_PKL_FILE)

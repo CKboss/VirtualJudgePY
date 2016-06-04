@@ -38,3 +38,12 @@ BzojUser = [
         vj_username='xtuvj5',
     ),
 ]
+
+BzojVIPUser = [
+    dict(
+        user_id='',
+        password='',
+        submit='Submit',
+        vj_username='',
+    ),
+]

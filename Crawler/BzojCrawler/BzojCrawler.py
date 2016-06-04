@@ -1,20 +1,55 @@
 import requests
 import time
 import pickle
+import random
 from queue import Queue
 
 from Config.FilePathConfig import BZOJ_PKL_FILE
 from bs4 import BeautifulSoup
-from tools.RandA import RelUrlToAbsUrl
+from tools.RandA import RelUrlToAbsUrl,RelUrlToBase64Code
+
+from Crawler.BzojCrawler.BzojConfig import Bzoj_LogIn_Url, BzojVIPUser
 
 
 class BzojCrawler:
-    base_url = 'http://www.lydsy.com/JudgeOnline/'
+    base_url = 'http://www.lydsy.com/'
     prob_url = 'http://www.lydsy.com/JudgeOnline/problem.php?id={}'
 
-    def CrawlerProblem(self, pid):
+    def CrawlerProblem(self, pid,vip=False):
 
         url = self.prob_url.format(pid)
+
+        if vip == True:
+
+            s = requests.session()
+            r = s.post(url=Bzoj_LogIn_Url,data=random.choice(BzojVIPUser))
+
+            r = s.get(url,timeout=7)
+            r.encoding = 'utf-8'
+            html = r.text
+
+            dt = self.getDetail(html)
+
+            if dt is None:
+                print(str(pid)+' can\'t get this problem ')
+                return
+
+            dt['originOJ'] = 'BZOJ'
+            dt['originProb'] = pid
+            dt['url'] = url
+
+            Term = ['description', 'input', 'output', 'sampleinput', 'sampleoutput', 'source', 'hint']
+
+            for t in Term:
+                dt[t] = RelUrlToBase64Code(self.base_url, dt[t])
+
+            path = BZOJ_PKL_FILE + 'BZOJ_{}.pkl'.format(pid)
+            f = open(path, 'wb')
+            pickle.dump(dt, f)
+
+            print(str(pid) + ' done !')
+            return
+
 
         r = requests.get(url, timeout=7)
         r.encoding = 'utf-8'
@@ -87,7 +122,7 @@ class BzojCrawler:
         return dt
 
 
-def crawlerFromTo(u, v):
+def crawlerFromTo(u, v,vip=False):
     bc = BzojCrawler()
     q = Queue()
     for x in range(u, v + 1):
@@ -97,14 +132,16 @@ def crawlerFromTo(u, v):
         pid = q.get()
         time.sleep(0.3)
         try:
-            bc.CrawlerProblem(pid)
+            if vip==False : bc.CrawlerProblem(pid)
+            elif vip==True: bc.CrawlerProblem(pid,True)
         except Exception as e:
+            print(e)
             q.put(pid)
             print(pid, ' error!!')
 
 
 def main():
-    crawlerFromTo(1540, 4012)
+    crawlerFromTo(1001, 1002,True)
 
     '''
     BC = BzojCrawler()
