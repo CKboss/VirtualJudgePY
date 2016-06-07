@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 
-from Crawler.BzojCrawler.BzojConfig import BzojUser
+from Crawler.BzojCrawler.BzojConfig import BzojUser , BzojVIPUser
 
 
 class BzojScanner:
@@ -40,7 +40,11 @@ class BzojScanner:
 
         L = list()
 
-        for x in BzojUser:
+        Users = list()
+        Users += BzojUser
+        Users += BzojVIPUser
+
+        for x in Users:
             url = self.scan_url.format(x['user_id'])
             r = self.s.get(url, timeout=5)
             r.encoding = 'utf-8'
@@ -64,6 +68,11 @@ def main():
     print(tL)
     '''
 
+def test():
+    Users = list()
+    Users += BzojUser
+    Users += BzojVIPUser
+    print(Users)
 
 if __name__ == '__main__':
-    main()
+    test()

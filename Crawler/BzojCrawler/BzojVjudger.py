@@ -1,16 +1,19 @@
 import requests
 import random
 
-from Crawler.BzojCrawler.BzojConfig import Bzoj_LogIn_Url, BzojUser
+from Crawler.BzojCrawler.BzojConfig import Bzoj_LogIn_Url, BzojUser,BzojVIPUser
 
 
 class BzojVjudger:
     submit_url = 'http://www.lydsy.com/JudgeOnline/submit.php'
 
-    def LogIn(self):
+    def LogIn(self,vip=False):
 
         self.s = requests.session()
-        data = random.choice(BzojUser)
+        if vip == False :
+            data = random.choice(BzojUser)
+        elif vip == True :
+            data = random.choice(BzojVIPUser)
         self.s.post(url=Bzoj_LogIn_Url, data=data)
         return data
 
@@ -23,9 +26,9 @@ class BzojVjudger:
                 return i
         return ret
 
-    def Submit(self, pid, lang, code):
+    def Submit(self, pid, lang, code,vip=True):
 
-        postdata = self.LogIn()
+        postdata = self.LogIn(vip=vip)
 
         dt = dict()
         dt['id'] = pid

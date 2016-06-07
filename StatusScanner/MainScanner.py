@@ -85,6 +85,15 @@ class MainScanner():
         return LL
 
     def Doit(self):
+
+        files = os.listdir(self.TF)
+        cont = False
+        for file in files :
+            if file.endswith('.pkl'):
+                cont = True
+                break
+        if cont==False : return
+
         print('-> Before Scanner Stauts: ')
         #L = self.FindAndUpdate()
         L = self.GaoIt()
@@ -94,8 +103,6 @@ class MainScanner():
         print('Len L: ',len(L))
         for li in L : print('----> ',li)
         '''
-
-        files = os.listdir(self.TF)
         for file in files:
             if file.endswith('.pkl'):
 
