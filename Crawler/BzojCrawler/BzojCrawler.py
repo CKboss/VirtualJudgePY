@@ -14,6 +14,7 @@ from Crawler.BzojCrawler.BzojConfig import Bzoj_LogIn_Url, BzojVIPUser
 class BzojCrawler:
     base_url = 'http://www.lydsy.com/'
     prob_url = 'http://www.lydsy.com/JudgeOnline/problem.php?id={}'
+    vips = None
 
     def CrawlerProblem(self, pid,vip=False):
 
@@ -21,10 +22,12 @@ class BzojCrawler:
 
         if vip == True:
 
-            s = requests.session()
-            r = s.post(url=Bzoj_LogIn_Url,data=random.choice(BzojVIPUser))
+            if self.vips is None :
+                print('VIP user LOGIN')
+                self.vips = requests.session()
+                r = self.vips.post(url=Bzoj_LogIn_Url,data=random.choice(BzojVIPUser))
 
-            r = s.get(url,timeout=7)
+            r = self.vips.get(url,timeout=7)
             r.encoding = 'utf-8'
             html = r.text
 
@@ -130,7 +133,7 @@ def crawlerFromTo(u, v,vip=False):
 
     while q.empty() == False:
         pid = q.get()
-        time.sleep(0.3)
+        time.sleep(10)
         try:
             if vip==False : bc.CrawlerProblem(pid)
             elif vip==True: bc.CrawlerProblem(pid,True)
@@ -141,7 +144,7 @@ def crawlerFromTo(u, v,vip=False):
 
 
 def main():
-    crawlerFromTo(1001, 1002,True)
+    crawlerFromTo(1000, 1002,True)
 
     '''
     BC = BzojCrawler()
