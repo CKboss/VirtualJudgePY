@@ -170,7 +170,7 @@ def ChangeUrl(dir):
 
 
 def main():
-    crawlerFromTo(1012, 4623,True)
+    crawlerFromTo(1600, 4623,True)
     '''
     BC = BzojCrawler()
     #BC.CrawlerProblem(2680)

@@ -51,10 +51,12 @@ def RelUrlToBase64Code(baseurl, text, checkpicture=True, referer='http://www.bai
 
         if len(l) > 5 and l[:5] == 'src="' and isimg >= 0:
 
-            print('down load : ',l)
 
             m = re.match(r'src="(.*)"', l)
-            parturl = baseurl + '/' + m.group(1)
+            #parturl = baseurl + '/' + m.group(1)
+            parturl = GetRealUrl(baseurl,m.group(1))
+
+            print('down load img: ',parturl)
 
             if m.group(1)[0:7] == 'http://' or m.group(1)[0:8] == 'https://':
                 parturl = m.group(1)
@@ -76,7 +78,7 @@ def RelUrlToBase64Code(baseurl, text, checkpicture=True, referer='http://www.bai
                     l = l[:m.start(1)] + basedata + l[m.end(1):]
             elif ispicture == False:
                 if url[0] == '/':
-                    l = l[:m.start(1)] + baseurl + '/' + url + l[m.end(1):]
+                    l = l[:m.start(1)] + GetRealUrl(baseurl , url) + l[m.end(1):]
 
         lastword = str(l).lower()
         ret = ret + ' ' + l
@@ -110,5 +112,35 @@ def main():
     fout.write(ret)
     fout.close()
 
+
+def GetRealUrl(nowurl,pattern):
+    #直接是绝对路径
+    if len(pattern)>=8 and (pattern[0:7] == 'http://' or pattern[0:8] == 'https://'):
+        return pattern
+    #处理nowurl,获得nowurl所在的目录
+    urls = str(nowurl).split('/')
+    if nowurl[-1] != '/': urls[-1] = ''
+    #位于根目录下
+    if pattern[0] == '/':
+        urls = urls[0:3]
+        url = '/'.join(urls)+pattern
+    #直接放在原url的目录下面
+    else :
+        url = '/'.join(urls)+pattern
+    #处理./和../
+    temp = [ x for x in str(url).split('/') if x != '.']
+
+    urls = list()
+    for x in temp :
+        if x == '..': urls = urls[:-1]
+        else : urls.append(x)
+    url = '/'.join(urls)
+    return url
+
+def test2():
+    baseurl = 'http://www.lydsy.com/JudgeOnline/problem.php?id=1668'
+    url = GetRealUrl(baseurl,'htt:///./././oj/img/1.png')
+    print(url)
+
 if __name__ == '__main__':
-    main()
+    test2()
