@@ -1,3 +1,4 @@
+import os
 import requests
 import time
 import pickle
@@ -12,9 +13,10 @@ from Crawler.BzojCrawler.BzojConfig import Bzoj_LogIn_Url, BzojVIPUser
 
 
 class BzojCrawler:
-    base_url = 'http://www.lydsy.com/'
+    base_url = 'http://www.lydsy.com/JudgeOnline'
     prob_url = 'http://www.lydsy.com/JudgeOnline/problem.php?id={}'
     vips = None
+    cont = 100
 
     def CrawlerProblem(self, pid,vip=False):
 
@@ -22,11 +24,13 @@ class BzojCrawler:
 
         if vip == True:
 
-            if self.vips is None :
+            if self.vips is None or self.cont <= 0:
                 print('VIP user LOGIN')
                 self.vips = requests.session()
                 r = self.vips.post(url=Bzoj_LogIn_Url,data=random.choice(BzojVIPUser))
+                self.cont=100
 
+            self.cont -= 1
             r = self.vips.get(url,timeout=7)
             r.encoding = 'utf-8'
             html = r.text
@@ -44,7 +48,8 @@ class BzojCrawler:
             Term = ['description', 'input', 'output', 'sampleinput', 'sampleoutput', 'source', 'hint']
 
             for t in Term:
-                dt[t] = RelUrlToBase64Code(self.base_url, dt[t])
+                if t in dt :
+                    dt[t] = RelUrlToBase64Code(self.base_url, dt[t])
 
             path = BZOJ_PKL_FILE + 'BZOJ_{}.pkl'.format(pid)
             f = open(path, 'wb')
@@ -133,7 +138,7 @@ def crawlerFromTo(u, v,vip=False):
 
     while q.empty() == False:
         pid = q.get()
-        time.sleep(10)
+        ti = 7 + random.randint(1,10)
         try:
             if vip==False : bc.CrawlerProblem(pid)
             elif vip==True: bc.CrawlerProblem(pid,True)
@@ -141,11 +146,31 @@ def crawlerFromTo(u, v,vip=False):
             print(e)
             q.put(pid)
             print(pid, ' error!!')
+        time.sleep(ti)
+
+def ChangeUrl(dir):
+    files = os.listdir(dir)
+    for f in files:
+        if f.endswith(".pkl"):
+            path = dir + f
+            print('Import problem : ', path)
+
+            dt = pickle.load(open(path, 'rb'))
+
+            Term = ['description', 'input', 'output', 'sampleinput', 'sampleoutput', 'source', 'hint']
+            for t in Term:
+                dt[t] = RelUrlToBase64Code('http://www.lydsy.com/JudgeOnline', dt[t])
+
+            pid = dt['originProb']
+            path = '/tmp/BZOJ/' + 'BZOJ_{}.pkl'.format(pid)
+            f = open(path, 'wb')
+            pickle.dump(dt, f)
+
+            print(str(pid) + ' done !')
 
 
 def main():
-    crawlerFromTo(1000, 1002,True)
-
+    crawlerFromTo(1012, 4623,True)
     '''
     BC = BzojCrawler()
     #BC.CrawlerProblem(2680)

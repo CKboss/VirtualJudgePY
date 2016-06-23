@@ -14,7 +14,7 @@ def getConnection():
     return conn
 
 
-ConnPool = DBPool.QueuePool(getConnection, pool_size=50, max_overflow=100, timeout=25)
+ConnPool = DBPool.QueuePool(getConnection, pool_size=100, max_overflow=200, timeout=25)
 
 '''
 

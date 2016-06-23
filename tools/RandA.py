@@ -45,10 +45,13 @@ def RelUrlToBase64Code(baseurl, text, checkpicture=True, referer='http://www.bai
         #距离<img 5个以内就下载图片
         if l is not None:
             ok = re.match(r'.*<img.*', l)
-            if ok is not None: isimg = 10
+            if ok is not None:
+                isimg = 10
             else: isimg -= 1
 
         if len(l) > 5 and l[:5] == 'src="' and isimg >= 0:
+
+            print('down load : ',l)
 
             m = re.match(r'src="(.*)"', l)
             parturl = baseurl + '/' + m.group(1)
@@ -99,8 +102,8 @@ def main():
     print(isimg)
     '''
 
-    f = open('/tmp/t.html', 'r')
-    baseurl = 'http://www.lydsy.com/'
+    f = open('/tmp/t1.html', 'r')
+    baseurl = 'http://www.lydsy.com/JudgeOnline'
     # baseurl = 'http://acm.hdu.edu.cn/'
     ret = RelUrlToBase64Code(baseurl, f.read())
     fout = open('/tmp/t2.html', 'w')
