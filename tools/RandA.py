@@ -105,7 +105,7 @@ def main():
     '''
 
     f = open('/tmp/t1.html', 'r')
-    baseurl = 'http://www.lydsy.com/JudgeOnline'
+    baseurl = 'http://www.lydsy.com/JudgeOnline/'
     # baseurl = 'http://acm.hdu.edu.cn/'
     ret = RelUrlToBase64Code(baseurl, f.read())
     fout = open('/tmp/t2.html', 'w')

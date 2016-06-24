@@ -13,7 +13,7 @@ from Crawler.BzojCrawler.BzojConfig import Bzoj_LogIn_Url, BzojVIPUser
 
 
 class BzojCrawler:
-    base_url = 'http://www.lydsy.com/JudgeOnline'
+    base_url = 'http://www.lydsy.com/JudgeOnline/'
     prob_url = 'http://www.lydsy.com/JudgeOnline/problem.php?id={}'
     vips = None
     cont = 100
@@ -146,7 +146,7 @@ def crawlerFromTo(u, v,vip=False):
             print(e)
             q.put(pid)
             print(pid, ' error!!')
-        time.sleep(ti)
+        time.sleep(3)
 
 def ChangeUrl(dir):
     files = os.listdir(dir)
@@ -170,7 +170,7 @@ def ChangeUrl(dir):
 
 
 def main():
-    crawlerFromTo(1600, 4623,True)
+    crawlerFromTo(1000, 1111,True)
     '''
     BC = BzojCrawler()
     #BC.CrawlerProblem(2680)
